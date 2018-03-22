@@ -1,0 +1,105 @@
+﻿ /**
+ * @description : the script of 蜂鸟二手交易2.0 第二版  公共头
+ * @modify 	: hanjw (han.jingwei@fengniao.com)
+ * @date    	: 2016-09-05 10:52:47
+ * @link 		: http://example.org
+ * @version 	: 1.0
+ */
+ 
+/* shopPage-header */
+.shopPage-header{position: relative; z-index: 151; height: 110px;}
+.shopPage-header .logo{float: left; width: 300px; height: 110px; overflow: hidden; margin: 0 40px 0 0; background: none; line-height: 106px;z text-indent: 0;}
+.shopPage-header .logo img{max-width: 300px; max-height: 110px; margin: 0; vertical-align: middle;}
+.shopPage-header .search-box{position: relative; float: right; width: 512px; margin: 22px 0 0;}
+.shopPage-header .search-box .search-tab{height: 28px; font: normal 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.shopPage-header .search-tab li{float: left; width: 68px; height: 28px; margin: 0; padding: 0; color: #ff511b; font-weight: normal; text-align: center; cursor: pointer;}
+.shopPage-header .search-tab .current{-webkit-border-radius: 0; border-radius: 0; background-color: #ff511b; color: #fff; font-weight: normal;}
+.shopPage-header .search-box .search-bar{height: 36px; border: 2px solid #ff3300}
+.shopPage-header .search-bar .search-button{float: right; width: 80px; height: 40px; margin: -2px -2px -2px 0; border: 0 none; background: #ff3300; color: #fff; font: normal 18px/40px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; cursor: pointer;}
+.shopPage-header .search-bar .search-button:hover{background: #c54200;}
+.shopPage-header .search-bar .search-txt{float: left; width: 386px; height: 36px; overflow: hidden; padding: 0 16px; background: #fff;}
+.shopPage-header .search-bar .search-txt input{display: block; width: 100%; height: 16px; padding: 10px 0; border: 0 none; outline: 0 none; color: #666; font: normal 14px/16px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.shopPage-header .search-box .hot-search-bar{margin: 3px 0 0; font-size: 12px; line-height: 24px;}
+.shopPage-header .search-box .hot-search-bar a{float: left; margin: 0 14px 0 0; color: #999;}
+.shopPage-header .search-box .hot-search-bar a:hover,
+.shopPage-header .search-box .hot-search-bar .current-tag{color: #ff511b;}
+.shopPage-header .search-box .search-focus-layerbox{position: absolute; top: 68px; left: 0; width: 431px; height: 160px; border: 1px solid #e9e9e9; border-top: 0 none; background: #fff; font-family: arial;}
+.shopPage-header .search-focus-layerbox .search-record{float: left; width: 180px; border-right: 1px solid #e9e9e9;}
+.shopPage-header .search-record .record-header{height: 30px; padding: 0 13px; border-bottom: 1px solid #e9e9e9; background: #f8f8f8; line-height: 30px;}
+.shopPage-header .search-record .clear-link{float: right; cursor: pointer;}
+.shopPage-header .search-record .clear-link:hover{color: #ff6619;}
+.shopPage-header .search-record .record-title{font: normal 12px/30px arial;}
+.shopPage-header .search-record .record-list{height: 117px; width: 162px; overflow-x: hidden; overflow-y: auto; padding: 6px 5px 6px 13px; color: #666; line-height: 24px;}
+.shopPage-header .search-record .record-tag{display: block; height: 24px; overflow: hidden; word-break: break-all; word-wrap: break-word; cursor: pointer;}
+.shopPage-header .search-focus-layerbox .hot-search{float: right; width: 240px; cursor: default;}
+.shopPage-header .hot-search .hot-header{height: 30px;}
+.shopPage-header .hot-search .hot-title{font: normal 12px/30px arial;}
+.shopPage-header .hot-search .hot-list{width: 240px; height: 120px; overflow: hidden; margin: 0 0 0 -10px;}
+.shopPage-header .hot-search .hot-tag{float: left; height: 14px; margin: 10px 0 0 10px; padding: 7px 10px; border: 1px solid #e9e9e9; background: #f8f8f8; color: #666; font-size: 12px; line-height: 14px; cursor: pointer;}
+.shopPage-header .hot-search .hot-tag:hover{color: #ff661a; background: #fff;}
+.shopPage-header .search-box .search-click-layerbox{position: absolute; top: 68px; left: 0; width: 431px; border: 1px solid #e9e9e9; border-top: 0 none; background: #fff; font-family: arial;}
+
+.shopPage-header .search-click-layerbox .search-tags{color: #666; font-size: 12px; line-height: 26px;}
+.shopPage-header .search-click-layerbox .search-tag{display: block; height: 26px; overflow: hidden; padding: 0 13px; cursor: pointer;}
+.shopPage-header .search-click-layerbox .search-tag em{font-weight: bold;}
+.shopPage-header .search-click-layerbox .top-search{padding: 6px 0 5px;}
+.shopPage-header .search-click-layerbox .common-search{padding: 6px 0; border-top: 1px solid #e9e9e9;}
+.shopPage-header .search-click-layerbox .record-search{padding: 6px 0 5px; background: #f8f8f8;}
+.shopPage-header .search-click-layerbox .number-tag{float: right; color: #999;}
+.shopPage-header .search-click-layerbox .top-search em{color: #ff6619;}
+.shopPage-header .search-click-layerbox .search-tag.hover{background: #FFF1E5;}
+
+
+/* page-nav-box */
+.page-nav-box .nav-link .hot-icon,
+.page-nav-box .nav-link .new-icon,
+.page-nav-box .classification-sub-layer .sub-link-item.item1 strong,
+.page-nav-box .classification-sub-layer .sub-link-item.item2 strong,
+.page-nav-box .sub-links-list .hot-tag{background: url(../Images/navbox-bg.png) no-repeat}
+.page-nav-box{position: relative; z-index: 150; height: 44px; border-bottom: 1px solid #ff511b;}
+.page-nav-box a:hover{text-decoration: none;}
+.page-nav-box .nav-link{float: left; padding: 7px 0 0; font-size: 16px; line-height: 34px;}
+.page-nav-box .nav-link a{position: relative; float: left; height: 34px; margin: 0 15px; padding: 0 5px 1px; border-bottom: 2px solid #fff;}
+.page-nav-box .nav-link a:hover,
+.page-nav-box .nav-link .current-link{color: #ff511b; border-bottom-color: #ff511b;}
+.page-nav-box .nav-link .bottom-line{display: none; height: 2px;}
+.page-nav-box .nav-link .hot-icon,
+.page-nav-box .nav-link .new-icon{position: absolute; top: 3px; float: left; width: 16px; height: 16px; background-position: 0 -80px; font: 0/0 arial; text-indent: -999em;}
+.page-nav-box .nav-link .new-icon{background-position: 0 -115px;}
+.page-nav-box .img-box{float: right; width: 160px; height: 44px; margin: 0 13px 0 0;}
+.page-nav-box .publish-button{float: right; width: 140px; height: 36px; overflow: hidden; margin: 1px 0 0; background: #ff511b; -webkit-border-radius: 0 0 2px 2px; border-radius: 0 0 2px 2px; border-bottom: 2px solid #d33200; text-align: center; line-height: 36px;}
+.page-nav-box .publish-button:hover{border-color: #ff7022; background: #f33f07;}
+.page-nav-box .publish-button img{vertical-align: middle;}
+.page-nav-box .goods-classification{position: relative; float: left; width: 210px;}
+.page-nav-box .goods-classification .classification-trigger{display: block; height: 44px; background: #ff511b; color: #fff; font-size: 14px; line-height: 44px; text-align: center;}
+.page-nav-box .classification-sub-layer{position: absolute; top: 44px; left: 0; width: 208px; height: 430px; -webkit-box-shadow: 0 0 5px rgba(0,0,0,.2); box-shadow: 0 0 5px rgba(0,0,0,.2); border: 1px solid #e4e4e4; border-top: 0 none; background: #fff;}
+.page-nav-box .classification-sub-layer .sub-link-box{position: relative; z-index: 3; float: left; width: 208px;}
+.page-nav-box .classification-sub-layer .sub-link-item{padding: 15px 20px 0; vertical-align: middle;}
+.page-nav-box .classification-sub-layer strong{display: block; height: 26px; font: normal 16px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.page-nav-box .classification-sub-layer .sub-link-item:first-child strong{padding: 0; border: 0 none;}
+.page-nav-box .classification-sub-layer .links{position: relative; margin: 2px 0 0 -20px; font-size: 14px; line-height: 26px;}
+.page-nav-box .classification-sub-layer .links a{float: left; margin: 0 0 0 20px; color: #666;}
+.page-nav-box .classification-sub-layer .links a:hover{color: #ff511b;}
+.page-nav-box .classification-sub-layer .line{clear: block; display: block; height: 1px; width: 170px; margin: 10px 0 0; background: #e4e4e4;}
+.page-nav-box .classification-sub-layer .sub-link-item.item5{padding-bottom: 16px;}
+.page-nav-box .classification-sub-layer .sub-link-item.item1{margin-top: 1px;}
+.page-nav-box .classification-sub-layer .sub-link-item.item1 strong{padding: 0 0 0 37px; background-position: 0 2px; color: #ff511b;}
+.page-nav-box .classification-sub-layer .sub-link-item.item2 strong{padding: 0 0 0 33px; background-position: 0 -39px; color: #ff511b;}
+.page-nav-box .classification-sub-layer .current-item{margin: -1px; padding-right: 21px; border: 1px solid #e4e4e4; border-right: 0 none; background: #fff;}
+.page-nav-box .classification-sub-layer .current-item .line{background: #fff;}
+.page-nav-box .classification-sub-layer .sub-link-item.item1.current-item{margin-top: 0;}
+.page-nav-box .classification-sub-layer .tab-panel{position: relative; z-index: 2; float: left; width: 727px; height: 430px; margin: 0 -729px 0 0; border: 1px solid #e4e4e4; background: #fff;}
+.page-nav-box .classification-sub-layer .promotion-pic{float: right; width: 160px; height: 430px; overflow: hidden;}
+.page-nav-box .classification-sub-layer .promotion-pic a{display: block;}
+.page-nav-box .classification-sub-layer .sub-links-list{float: left; width: 533px; padding: 23px 0 0 18px;}
+.page-nav-box .classification-sub-layer .wide-panel .sub-links-list{width: 693px}
+.page-nav-box .classification-sub-layer .sub-links-list dt{display: block; height: 20px; padding: 0 0 10px; border-bottom: 1px dashed #dfdfdf; font-weight: bold; font-size: 14px; line-height: 24px;}
+.page-nav-box .classification-sub-layer .sub-links-list dd{position: relative; overflow: hidden;} 
+.page-nav-box .sub-links-list .sub-links{margin: 0 0 0 -20px; padding: 5px 0 20px; font-size: 12px; line-height: 20px;}  
+.page-nav-box .sub-links-list .sub-links .link{float: left; width: 85px; margin: 7px 0 0; padding: 0 30px 0 20px;}
+.page-nav-box .sub-links-list .sub-links.sub-brand-links .link{width: auto;}
+.page-nav-box .sub-links-list .sub-links a{display: block; height: 20px; overflow: hidden; color: #5c5c5c;}  
+.page-nav-box .sub-links-list .hot-link{position: relative;}
+.page-nav-box .sub-links-list .hot-link a{color: #ff511b;}
+.page-nav-box .sub-links-list .hot-tag{position: absolute; top: -5px; width: 20px; height: 14px; margin: 0 0 0 5px; background-position: 0 -145px; font: 0/0 arial;}
+.page-nav-box .sub-links-list .sub-links a:hover{color: #ff511b;}

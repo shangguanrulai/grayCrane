@@ -1,0 +1,680 @@
+﻿/**  
+ * @Description: the stylesheet 浜屾墜浜ゆ槗 璁㈠崟椤�
+ * @authors: hanjw (han.jingwei@fengniao.com)
+ * @date:    2015-11-16 10:16:34
+ * @version: 1.0
+ */
+ 
+/* bg */
+.header .logo,
+.top-bar .text,
+.order-steps li .num,
+.order-parameter .parameter-header .add-address,
+.order-parameter .address-tag .icon,
+.order-parameter .expansion-button .arrow-icon,
+.refund-box .refund-detail .refund-item .icon,
+.refund-form .upload-box .upload-button,
+.pay-box .pay-status .pay-icon,
+.upgrade-tag .upgrade-icon,
+.quick-payment-bar h3,
+.quick-payment-bar strong,
+.confirmPay-layerbox .PayButton-box .icon,
+.pay-success-box .success-icon,
+.orderNew-dialog .dialog-paragraph .warning-icon
+{background: url(../Images/secondarytradingorder-bg.png) no-repeat;}
+.radio-icon{background: url(../Images/secondarytrading-bg.png) no-repeat;}
+
+/* body */
+/*body{padding-top: 0;}*/
+
+/* top-bar */
+.top-bar{height: 36px; border-bottom: 1px solid #e9e9e9; background: #f8f8f8; color: #999; font-size: 12px; line-height: 36px; text-align: center;}
+.top-bar .text{display: inline-block; height: 18px; padding: 0 0 0 20px; background-position: -234px 1px; line-height: 18px;}
+
+/* header */
+.header{background: #fff;}
+.header .logo{background-position: 0 0;}
+.header .search-tab li{color: #ff6619;}
+.header .search-tab .current{background-color: #ff6619; color: #fff;}
+.header .search-box .search-bar{border-color: #ff6619;}
+.header .search-bar .search-button{background-color: #ff6619;}
+
+/* section */
+.section{margin: 10px 0 0; border: 1px solid #e9e9e9;}
+.section .section-header{height: 38px; overflow: hidden; padding: 0 20px; border-bottom: 1px solid #e9e9e9; background: #f8f8f8;}
+.section .section-header .section-title{height: 38px; font: normal 16px/38px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+
+/* order-steps */
+.order-steps{width: 980px; margin: 10px auto 0;}
+.order-steps li{position: relative; min-height: 50px; overflow: hidden; float: left; width: 20%; text-align: center;}
+.order-steps li .line{position: absolute; top: 9px; left: 0; height: 2px; width: 100%; background: #ccc;}
+.order-steps li .num{position: relative; z-index: 10; display: block; width: 20px; height: 20px; overflow: hidden; margin: 0 auto; background-position: -40px -85px; color: #fff; font-size: 14px; line-height: 20px;}
+.order-steps li .text{display: block; min-height: 24px; margin: 8px 0 0; color: #666; font: normal 12px/24px arial;} 
+.order-steps li .refund-icon{display: block; height: 18px; width: 85px; overflow: hidden; margin: 4px auto 0; border: 1px solid #ff9e6d; background: #fff6f2; color: #ff6619; font: normal 12px/18px arial; text-align: center;}
+.order-steps .current .line{background-color: #ff6619;}
+.order-steps .current .num{background-position: -70px -85px;}
+.order-steps .current .text{color: #ff6619;}
+.order-steps .current.done{opacity: .5; filter: alpha(opacity= 50);}
+
+/* refund-steps */
+.refund-steps li{width: 25%;}
+
+/* refund-goods-steps */
+.refund-goods-steps li{width: 33%;}
+.refund-goods-steps li:first-child{width: 33%;}
+
+/* radio-buttons */
+.radio-buttons{font-size: 14px; line-height: 34px;}
+.radio-buttons label{float: left;}
+.radio-buttons input[type=radio]{float: left; margin-right: 5px;}
+.radio-buttons .radio-text{float: left; cursor: pointer;}
+.radio-buttons .radio-text.disabled{color: #999;}
+.radio-buttons .link{float: left; color: #ff6619; text-decoration: underline;}
+.radio-buttons .radio-item{float: left;}
+.radio-buttons .radio-item:first-child{margin: 0 20px 0 0;} 
+.radio-buttons .disabled-item .radio-icon{background-position: -90px 0;}
+.radio-buttons .radio-icon{float: left; width: 15px; height: 15px; overflow: hidden; margin: 10px 10px 0 0; background-position: -90px -25px;}
+
+/* address-box */
+.address-box .address-list{overflow: hidden;}
+.address-box .address-list .address-item{height: 30px; overflow: hidden; margin: 10px 0 0; line-height: 30px;}
+.address-box .address-item span{float: left; margin: 0 0 0 10px;}
+.address-box .address-item .delete-link{float: right; color: #666; cursor: pointer;}
+.address-box .address-item .edit-link{float: right; color: #666; cursor: pointer;}
+.address-box .address-item .set-default{float: right; color: #ff6619; cursor: pointer; -webkit-user-select: none; user-select: none;}  
+.address-box .address-item .street-tag{width: 170px; overflow: hidden; margin-left: 5px; text-overflow: ellipsis; white-space: nowrap;}
+.address-box .address-item .address-tag{float: left; position: relative; width: 130px; height: 26px; overflow: hidden; padding: 1px; border: 1px solid #e9e9e9; background: #fff; line-height: 26px;}
+.address-box .address-item .name-tag{float: left; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;} 
+.address-box .address-tag .name-tag{width: 50px;}
+.address-box .address-tag .city-tag{width: 65px; overflow: hidden; margin-left: 5px; text-overflow: ellipsis; white-space: nowrap;}
+.address-box .address-tag .icon{display: none; position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; background: url(../Images/secondarytradingorder-bg.png) no-repeat -94px -84px;}
+.address-box .address-summary{overflow: hidden; margin: 0 0 0 15px; padding: 0 20px 0 0;}
+.address-box .option-box{display: none; float: right; margin: 0 0 0 40px;} 
+.address-box .address-item:hover .address-summary{background: #f8f8f8;} 
+.address-box .selected-item .address-summary,
+.address-box .selected-item:hover .address-summary{background: #fff;}
+.address-box .selected-item .address-tag,
+.address-box .selected-item:hover .address-tag{padding: 0; border: 2px solid #ff6619;}
+.address-box .selected-item .set-default,
+.address-box .selected-item:hover .set-default{cursor: default;}
+.address-box .selected-item .address-tag .icon,
+.address-box .selected-item:hover .address-tag .icon{display: block;}
+.address-box .default-item .option-box{display: block!important;}
+.address-box .expansion-button{display: none; position: relative; display: block; width: 65px; height: 24px; margin: 10px 0 0; color: #666; font-size: 12px; line-height: 24px; cursor: pointer;}
+.address-box .expansion-button .arrow-icon{position: absolute; top: 10px; right: 0; width: 10px; height: 5px; overflow: hidden; background-position: -20px -85px;}
+.address-box .unexpansion-button .arrow-icon{background-position: 0 -85px;}
+
+/* order-parameter */
+.order-parameter{margin: 6px 0 0; font-family: arial;}
+.order-parameter .parameter-header{padding: 0 20px 0 0; line-height: 24px;}
+.order-parameter .parameter-header .parameter-title{height: 24px; padding: 0 0 3px; border-bottom: 0 none; font: normal 16px/24px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.order-parameter .parameter-header .add-address{float: right; height: 16px; margin: 4px 0 0; padding: 0 0 0 23px; background-position: -229px -25px; color: #ff6619; line-height: 16px; cursor: pointer;}
+.order-parameter .parameter-item{margin: 20px 0 0; /*padding: 13px 0 14px 20px;*/ border: 0 none; background: #fff;}
+.order-parameter .parameter-item:first-child{padding-top: 10px;}
+.order-parameter .parameter-content{margin: 8px 0 0; padding: 13px 0 14px 20px; border: 1px solid #e9e9e9;}
+
+.order-parameter .order-detail{margin: -13px 0 0 -20px; border-bottom: 1px solid #e9e9e9; background: #fff;}
+.order-parameter .order-detail .contact-bar{height:32px; padding: 8px 20px;}
+.order-parameter .order-detail .order-header{height: 32px; overflow: hidden; padding: 0 18px; border-bottom: 1px solid #e9e9e9; border-top: 1px solid #e9e9e9; background: #f8f8f8; font-size: 14px; line-height: 40px; text-align: center;}
+.order-parameter .order-detail .order-header .cell-1{float: left; width: 450px;}
+.order-parameter .order-detail .order-header .cell-2{float: left; width: 180px;}
+.order-parameter .order-detail .order-header .cell-3{float: left; width: 180px;}
+.order-parameter .order-detail .order-header .cell-4{float: left; width: 125px;}
+.order-parameter .order-detail .seller-tag{float: left; color: #666; font: bold 12px/32px arial;}
+.order-parameter .order-detail .contact-tag{float: left; height: 18px; overflow: hidden; margin: 5px 0 0 10px; padding: 1px 13px; border: 1px solid #ff6619; background: #fff; color: #ff6619; cursor: pointer;}
+.order-parameter .order-detail .contact-tag:hover{background: #fff1e6;}
+.order-parameter .order-detail .good-list{padding: 0 20px; background: #fff9f4;}
+/*.order-parameter .order-detail .good-item{height: 36px; overflow: hidden; padding: 0 18px; line-height: 36px;}*/
+/*.order-parameter .order-detail .delete-link{float: right; margin: 0 0 0 50px; cursor: pointer;}*/
+/*.order-parameter .order-detail .delete-link:hover{color: #ff6619; text-decoration: underline;}*/
+/*.order-parameter .order-detail .price{float: right; width: 85px; color: #ff6619; text-align: left;}*/
+/*.order-parameter .order-detail .good-title{float: left;}*/
+/*.order-parameter .order-detail .good-subTitle{float: left; margin: 0 0 0 50px; color: #999;}*/
+.order-parameter .order-detail .goods-item{padding: 20px 0; border-top: 1px solid #e9e9e9;}
+.order-parameter .order-detail .goods-item:first-child{border-top: 0 none;}
+.order-parameter .order-detail .goods-avator{float: left; width: 80px; height: 80px; margin: 0 20px 0 0; background: #f8f8f8; line-height: 76px; text-align: center;}
+.order-parameter .order-detail img{max-width: 80px; max-height: 80px; vertical-align: middle;}
+.order-parameter .order-detail .goods-title-box{position: relative; float: left; width: 350px; height: 80px; overflow: hidden;}
+.order-parameter .order-detail .newer-tag{display: inline-block; height: 12px; margin: 4px 5px 0 0; padding: 2px 5px; background: #fc742a; color: #fff; font: normal 12px/12px SimSun; vertical-align: top;}
+.order-parameter .order-detail .goods-title{display: block; max-height: 48px; overflow: hidden; font-size: 14px; line-height: 24px;}
+.order-parameter .order-detail .goods-subTitle{position: absolute; left: 0; bottom: 0; display: inline-block; height: 18px; margin: 10px 10px 0 0; padding: 0 5px; border: 1px solid #eaeaea; background: #fff; color: #999; font: normal 12px/18px SimSun; vertical-align: middle;}
+.order-parameter .order-detail .goods-price-box{float: left; width: 180px; text-align: center;}
+.order-parameter .order-detail .price{display: block; height: 34px; margin: 23px 0 0; color: #333; font-size: 14px; line-height: 34px; text-align: center;}
+.order-parameter .order-detail del.price{margin: 15px 0 0; color: #999;}
+.order-parameter .order-detail del.price + .price{margin-top: 0;}
+.order-parameter .order-detail .promotion-price:before{content: ''; display: inline-block; width: 20px; height: 22px; margin: 0 10px 0 0; background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAMAAAD3n0w0AAAAYFBMVEXyDAzyDAwAAADyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAzyDAz////8vr74fX31TU3+7+/8zs76np73bW3zHBz2XV35jo70LCz7rq71PT1PjHVPAAAAEXRSTlPw7gD10LCIZDsaCODXnJNNR4dJb7sAAACcSURBVBjTnc5JEsIgEEDRzJNjegohid7/ljZRSZfs/MUCXgHVWZ52ysa07IPrkiLDA+HdgQ4WhAkR5UAvMiKw7vDAGVCPxMxTRC+Kv38SKM5ECI7oiyyKBLrYjLQoYkCN4kiKE3gKU80GNwBnn++ot0DUiQyKeAchjIjrU//amIg4ou0fLOu275rKYH65DcVe39ZlwHPTFbbhfq1eyGQapTraN7oAAAAASUVORK5CYII=); vertical-align:middle;}
+.order-parameter .order-detail .goods-counter-box{position: relative; float: left; width: 180px; height: 80px; text-align: center; line-height: 80px;}
+.order-parameter .order-detail .goods-total-box{float: left; width: 125px; color: #ff661a; font-size: 18px; line-height: 80px; text-align: center; line-height: 80px;}
+.order-parameter .counter-bar-box{display: block; margin: 25px auto 0; width: 109px; height: 28px; overflow: hidden; border: 1px solid #e9e9e9; background: #fff;}
+.order-parameter .counter-bar-box .reduce-icon{float: left; width: 28px; height: 28px; border-right: 1px solid #e9e9e9; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAACCAIAAAAIKhHDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABVJREFUeNpiPHXqFAPRgImBFAAQYADWIAJiN5bK8QAAAABJRU5ErkJggg==) no-repeat center center; cursor: pointer;}
+.order-parameter .counter-bar-box .reduce-icon.disabled{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAACCAIAAAAIKhHDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABVJREFUeNpifPPmDQPRgImBFAAQYAD5/ALIT1CkUwAAAABJRU5ErkJggg==); cursor: text;}
+.order-parameter .counter-bar-box .increase-icon{float: right; width: 28px; height: 28px; border-left: 1px solid #e9e9e9; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiPHXqFAMO8B9KM2KTZGIgE4wEjSxIoUcodKlnI+NoPFJZI0CAAQA0AQZ9ZqkxBAAAAABJRU5ErkJggg==) no-repeat center center; cursor: pointer;}
+.order-parameter .counter-bar-box .increase-icon.disabled{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpifPPmDQMO8B9KM2KTZGIgE4wEjSxIoUcodKlnI+NoPFJZI0CAAQBxOAbj01nO/QAAAABJRU5ErkJggg==); cursor: text;}
+.order-parameter .counter-bar-box input{float: left; border: 0 none; outline: 0 none; width: 50px; height: 28px; font-size: 14px; line-height: 24px; text-align: center;}
+.order-parameter .goods-counter-box .counter-bar-layer{position: absolute; top: -15px; left: 0; height: 26px; padding: 0 5px; border: 1px solid #ff6619; background: #fff; -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1); box-shadow: 0 2px 2px rgba(0,0,0,.1); color: #ff6619; line-height: 26px;}
+.order-parameter .goods-counter-box .counter-bar-layer:after{content: ''; position: absolute; bottom: -13px; left: 50%; width: 16px; height:13px; margin: 0 0 0 -8px; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAANBAMAAABSlfMXAAAAJ1BMVEUAAAAJBgQAAAAAAAAAAADtk2UAAAAJBgQAAADtk2X/////xqr/nm4w+DZ7AAAACnRSTlMAFxMHA5wOGgqdm8/RzwAAAFtJREFUCNdjOL0KDPYwVO4C0avDGcRngxhbCxkURXcBBQKFGNoUo4ECQhkMxkmiu1YHqhkzsJgpRm8VSnZgYHBOEg1UM2FgAAmBBUBCIAGQkEUzUAAEXFwYkAAAFTUfjOhe7tQAAAAASUVORK5CYII=) no-repeat center center;}
+
+.order-parameter .total-price{height: 24px; overflow: hidden; padding: 16px 20px 3px 0; font: normal 14px/24px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.order-parameter .total-price span{float: right; margin: 0 0 0 10px;}
+.order-parameter .total-price strong{font-size: 16px;}
+.order-parameter .total-price-item{border: 0 none;}
+.order-parameter .total-price-item .total-price-tag{float: right; height: 34px; padding: 0; font: normal 14px/34px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.order-parameter .total-price-item .total-price-tag strong {color: #ff6619; font-size: 24px; vertical-align: top;}
+.order-parameter .total-price-item .total-price-tag del{float: right; margin: 0 0 0 10px; color: #999; font-size: 12px;}
+.order-parameter .total-price-item .total-count-bar{float: right; height: 34px; padding: 0 5px 0 0; font: normal 12px/34px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+
+.order-parameter .text-list{padding: 10px 0 0; font-size: 12px; line-height: 26px;} 
+.order-parameter .text-list .contact-tag{display: inline-block; height: 18px; overflow: hidden; margin: 0 0 0 10px; padding: 1px 13px; border: 1px solid #ff6619; background: #fff; color: #ff6619; line-height: 18px; vertical-align: middle; cursor: pointer;}
+.order-parameter .text-list .contact-tag:hover{background: #fff1e6;} 
+.order-parameter .text-list li{min-height: 26px; overflow: hidden;}
+.order-parameter .text-list em{padding: 0 18px 0 0; word-break: break-all; word-wrap: break-word;}
+.order-parameter .text-list .text-item{float: left; min-width: 310px;}
+.order-parameter .text-list .item-title{color: #999;}
+
+.order-parameter .order-remarks{float: left; width: 540px; overflow: hidden; margin: 10px 0 0; font: normal 12px/22px arial;}
+.order-parameter .order-remarks .remarks-title{font: normal 12px/22px arial;}
+.order-parameter .order-remarks p{margin: 0; color: #666;}
+
+.order-parameter .goods-list-item:first-child{padding-top: 0; border: 1px solid #e9e9e9; border-bottom: 0 none;}
+.order-parameter .goods-list-item .parameter-header{height: 48px; line-height: 48px;}
+.order-parameter .goods-list-item .parameter-title{height: 48px; padding: 0 0 0 20px; font-size: 16px; line-height: 48px;}
+.order-parameter .goods-list-item .contact-bar{float: right;}
+.order-parameter .goods-list-item .contact-tag{float: right; height: 18px; overflow: hidden; margin: 13px 0 0 10px; padding: 1px 13px; border: 1px solid #ff6619; background: #fff; color: #ff6619; line-height: 18px; cursor: pointer;}
+.order-parameter .goods-list-item .contact-tag:hover{background: #fff1e6;}
+.order-parameter .goods-list-item .order-detail{margin: 0;}
+.order-parameter .goods-list-item .good-list{background: #fff;}
+
+.order-parameter .order-info-box{width: 980px; margin: 20px 0 0; border: 1px solid #e9e9e9; border-collapse: collapse;}
+.order-parameter .order-info-box th{height: 50px; padding: 0 15px 0 20px; border-left: 1px solid #e9e9e9; background-color: #f8f8f8; font-weight: normal; font-size: 16px; line-height: 50px; text-align: left;}
+.order-parameter .order-info-box td{padding: 0 15px 0 20px; border-left: 1px solid #e9e9e9; text-align: left; vertical-align: top;}
+.order-parameter .order-info-box .text-list{padding: 0 0 15px;}
+.order-parameter .order-info-box li{height: auto; line-height: 20px;}
+.order-parameter .order-info-box .text-item{min-width: 225px; max-width: 225px; margin: 10px 0 0; padding: 0 0 0 65px;}
+.order-parameter .order-info-box .text-list .item-title{float: left; width: 65px; margin: 0 0 0 -65px; padding-right: 0;}
+
+.order-parameter .sellout-layerbox{position: fixed; top: 30%; left: 50%; z-index: 10000; width: 375px; min-height:120px; margin: 0 0 0 -205px; padding: 25px 15px 0 20px; background: #4c4c4c; background: rgba(0,0,0,.7); color: #fff; text-align: center;}
+.order-parameter .sellout-layerbox p{max-height: 48px; overflow : hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 16px; line-height: 24px;}
+.order-parameter .sellout-layerbox .countdown-bar{display: block; padding: 20px 0 0; color: #ff661a; font-size: 12px; line-height: 22px;}
+
+/* orderSwtich-tab */
+.orderSwtich-tab .tab-nav{border: 1px solid #e9e9e9; background: #f8f8f8;}
+.orderSwtich-tab .tab-nav .nav-item{ position: relative; float: left; margin: -1px 0 0 -1px; border-top: 1px solid #e9e9e9; cursor: pointer;}
+.orderSwtich-tab .tab-nav span{ float: left; width: 110px; height: 38px; padding: 1px 0 0; font: normal 16px/38px arial; text-align: center;}
+.orderSwtich-tab .tab-nav .current-item{z-index: 2; margin-bottom: -1px; border-top: 2px solid #ff6619; background: #fff;}
+.orderSwtich-tab .tab-nav .current-item span{ width: 108px; padding: 0 0 1px; border-left: 1px solid #e9e9e9; border-right: 1px solid #e9e9e9; color: #ff7a37; font-weight: bold;}
+.orderSwtich-tab .parameter-item{margin: 0 0 0; border-top: 0 none;}
+
+.extra-box .address-summary{float: right; width: 530px; overflow: hidden; margin: 20px 0 0; text-align: right;} 
+.extra-box .address-summary .address-inner{height: 125px; padding: 0 18px; border: 2px solid #ff6619;}
+.extra-box .address-summary .price{display: block; height: 24px; overflow: hidden; margin: 15px 0 0; font-size: 14px; line-height: 24px;}
+.extra-box .address-summary .price strong{color: #ff6619; font-size: 24px;}
+.extra-box .address-summary .price .goods-count{margin: 0 10px 0 0; font-size: 12px;}
+.extra-box .address-summary .address{padding: 10px 0 0;}
+.extra-box .address-summary .address-item{height: 28px; overflow: hidden; font: normal 12px/28px arial;}
+.extra-box .address-summary span{padding: 0 0 0 25px;}
+.extra-box .address-summary .submit-button{display: inline-block; width: 180px; height: 40px; outline: 0 none; border: 0 none; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px; background: #ff6619; color: #fff; font: bold 20px/40px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center; vertical-align: top; cursor: pointer;}
+.extra-box .pay-items{float: left; width: 440px;}
+.extra-box .pay-items .pay-item{margin: 20px 0 0; font-family: arial; line-height: 34px;}
+.extra-box .pay-items .deduction-item{margin-top: 16px; line-height: 18px;}
+.extra-box .pay-items span{float: left;}
+.extra-box .pay-items .tip{color: #ff6619;}
+.extra-box .pay-items textarea{float: left; min-height: 22px; width: 340px; resize: none; border: 1px solid #e9e9e9; background: #fff; padding: 5px; line-height: 18px;}
+.extra-box .pay-items textarea:focus{outline: 0 none; border: 1px solid #ff6619; box-shadow: 0 0 3px #ff6619;}
+.extra-box .pay-items .item-title{width: 60px; padding: 0 14px 0 0; text-align: right;}
+.extra-box .pay-items select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; height: 34px; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 97% 50%; color: #666; font: 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.extra-box .pay-items select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 97% 50%; color: #999;}
+.extra-box .pay-items select::-ms-expand{display: none;}
+.lowIE .extra-box .pay-items select{padding: 5px 5px 5px 10px; background: #fff;}
+
+/* order-box */
+.order-confirm-box{margin: 20px 0 0;}
+.order-confirm-box .order-header{height: 26px; overflow: hidden;}
+.order-confirm-box .order-header .order-title{float: left; height: 26px; font: normal 16px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.order-confirm-box .order-header .order-number{float: left; padding: 0 0 0 15px; color: #ff6619; font: normal 12px/26px arial;}
+
+/* refund-box */
+.refund-box{width: 980px; margin: 0 auto;}
+.refund-box .alert{padding: 15px; margin-top: 20px; border: 1px solid transparent; border-radius: 4px;}
+.refund-box .alert-warning{color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc;}
+.refund-box .part{margin: 5px 0 0;}
+.refund-box .part-header{height: 30px; overflow: hidden; margin: 12px 0 0; line-height: 30px;}
+.refund-box .part-header .part-title{float: left; height: 30px; margin: 0 10px 0 0; font: normal 16px/30px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';} 
+.refund-box .part-header .edit-button{float: left; height: 20px; overflow: hidden; margin: 5px 0 0; padding: 0 8px; -webkit-border-radius: 4px; border-radius: 4px; border: 1px solid #ccc; color: #ff6619; font: normal 12px/20px arial; cursor: pointer;}
+.refund-box .part-header .contact-button{float: right; width: 120px; height: 30px; overflow: hidden; -webkit-border-radius: 2px; border-radius: 2px; background: #ff6619; color: #fff; font: bold 12px/30px arial; text-align: center; cursor: pointer;}
+.refund-box .part-content{margin: 7px 0 0; border: 1px solid #e9e9e9;}
+
+.refund-box .refund-summary{float: none; width: auto; margin: 20px 0 0; border: 1px solid #e9e9e9;}
+.refund-box .refund-discuss{float: none; width: auto; margin: 20px 0 0; border: 1px solid #e9e9e9;}
+
+.refund-box .section{float: left; width: 300px; overflow: hidden; margin-top: 0; border: 0 none;}
+.refund-box .section .section-header{height: 50px; border-bottom: 0 none; line-height: 50px;}
+.refund-box .section-header .section-title{float: left; height: 50px; line-height: 50px;}
+.refund-box .refund-summary .order-info-section{width: 677px; border-left: 1px solid #e9e9e9;}
+.refund-box .refund-discuss .real-time-section{width: 677px; border-left: 1px solid #e9e9e9;}
+
+/*.refund-box .refund-detail{float: left; width: 600px;}*/
+.refund-box .refund-detail .refund-tip{margin: 20px 20px 0; padding: 5px 5px 9px 15px; border: 1px solid #ff9e6d; background: #fff6f2; line-height: 30px; font-family: arial;}
+.refund-box .refund-detail .refund-tip p{height: 30px;}
+.refund-box .refund-detail .refund-tip a{display: inline-block; height: 24px; overflow: hidden; margin: 3px 30px 0 5px; padding: 0 14px; background: #ff6619; color: #fff; font: normal 12px/24px arial; vertical-align: top;}
+.refund-box .refund-detail .refund-method{height: 290px;}
+.refund-box .refund-detail .refund-item{float: left; width: 50%; padding: 65px 0 0; text-align: center;}
+.refund-box .refund-detail .refund-item .icon{display: block; width: 67px; height: 71px; overflow: hidden; margin: 0 auto; background-position: 0 -115px; text-indent: -999em;}
+.refund-box .refund-detail .item2 .icon{width: 83px; background-position: -115px -70px;}
+.refund-box .refund-detail .refund-item strong{display: block; height: 24px; overflow: hidden; margin: 18px 0 0; font-size: 18px; line-height: 24px; text-align: center;}
+.refund-box .refund-detail .refund-item a:hover{text-decoration: none;}
+
+/*.refund-box .order-detail{float: right; width: 360px;}*/
+/*.refund-box .order-detail .order-header{height: 38px; overflow: hidden; padding: 0 10px; border-bottom: 1px solid #e9e9e9; background: #f8f8f8; line-height: 38px;}*/
+.refund-box .order-detail .contact-tag{float: right; width: 160px;overflow: hidden;}
+.refund-box .order-detail .contact-tag .seller{float: right; width: 75px; overflow: hidden; word-wrap: break-word; word-break: break-all;}
+.refund-box .order-detail .contact-tag a{float: right; width: 74px; height: 24px; overflow: hidden; margin: 7px 0 0 5px; border: 1px solid #e9e9e9; background: #fff; font: normal 12px/24px arial; text-align: center;}
+.refund-box .order-detail .contact-link{float: right; width: 160px;overflow: hidden; text-align: right;}
+.refund-box .order-detail .contact-link a{color: #ff6619; font-size: 12px;}
+.refund-box .order-detail .order-number{float: left; padding: 17px 0 0 15px; color: #999; line-height: 18px;}
+.refund-box .order-detail .goods-list{padding: 0 15px 0 20px; height: 245px; overflow-y: auto; line-height: 20px;}
+.refund-box .order-detail .goods-item{padding: 20px 0; border-top: 1px solid #e9e9e9;}
+.refund-box .order-detail .goods-item:first-child{border-top: 0 none;}
+.refund-box .order-detail .goods-avator{float: left; width: 80px; height: 80px; margin: 0 20px 0 0; background: #f8f8f8; line-height: 76px; text-align: center;}
+.refund-box .order-detail img{max-width: 80px; max-height: 80px; vertical-align: middle;}
+.refund-box .order-detail .goods-title-box{position: relative; float: left; width: 260px; height: 80px; overflow: hidden;}
+.refund-box .order-detail .newer-tag{display: inline-block; height: 12px; margin: 4px 5px 0 0; padding: 2px 5px; background: #fc742a; color: #fff; font: normal 12px/12px SimSun; vertical-align: top;}
+.refund-box .order-detail .goods-title{display: block; max-height: 48px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 12px; line-height: 24px; word-break: break-all; word-wrap: break-word;}
+.refund-box .order-detail .goods-subTitle{position: absolute; left: 0; bottom: 0; display: inline-block; height: 18px; margin: 10px 10px 0 0; padding: 0 5px; border: 1px solid #eaeaea; color: #999; font: normal 12px/18px SimSun; vertical-align: middle;}
+.refund-box .order-detail .goods-price-box{float: left; width: 180px; height: 80px; line-height: 80px; text-align: center;}
+.refund-box .order-detail .price{display: block; height: 80px; overflow: hidden; color: #333; font-size: 14px; line-height: 80px; text-align: center;}
+.refund-box .order-detail del.price{margin: 15px 0 0; color: #999;}
+.refund-box .order-detail .goods-num-box{float: left; width: 80px; text-align: center; line-height: 80px;}
+.refund-box .order-detail .total-box{height: 50px; overflow: hidden; padding: 0 18px; background: #f8f8f8; font-size: 14px; text-align: right; line-height: 50px;}
+.refund-box .order-detail .total-box p{height: 28px; overflow: hidden; line-height: 28px;}
+.refund-box .order-detail .total-box span{padding: 0 0 0 10px;}
+.refund-box .order-detail .total-box em{padding: 0 0 0 5px;}
+.refund-box .order-detail .total-box .total-price{font-size: 14px;}
+.refund-box .order-detail .total-box strong{color: #ff6619; font-size: 20px;}
+
+.refund-box .order-detail dl{margin: 0 20px; border-top: 1px dashed #e4e4e4;}
+.refund-box .order-detail dt{margin: 15px 0 0; font-size: 16px; line-height: 26px;}
+.refund-box .order-detail dd{padding: 10px 0 0; color: #666; font-size: 12px; line-height: 22px; word-break: break-all; word-wrap: break-word;}
+
+.refund-box .order-detail .order-header{height: 32px; padding: 0 18px; border-bottom: 1px solid #e9e9e9; background: #f8f8f8;}
+.refund-box .order-detail .order-header .order-title{font: normal 14px/32px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'}
+
+.refund-form{min-height: 386px; padding: 0 0 20px;}
+.refund-form select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; height: 32px; float: left; margin: 0 10px 0 0; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #666; font: 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.refund-form select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #999;}
+.refund-form input[type="text"]{height: 14px; float: left; margin: 0 10px 0 0; padding: 8px 10px; border: 1px solid #e9e9e9; font: normal 14px/14px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.lowIE .refund-form select{padding: 5px 5px 5px 10px; background: #fff;}
+.lowIE .refund-form input[type=checkbox]{padding: 0; border: 0 none; background: none; outline: 0 none;}
+.refund-form select::-ms-expand{display: none;} 
+
+.refund-form .form-items{padding: 0 0 0 ;}
+.refund-form .form-items .form-item{margin: 20px 30px 0 0; font-size: 14px; line-height: 34px;}
+.refund-form .form-items .item-title{float: left; width: 90px; padding: 0 10px 0 0; font-size: 14px; text-align: right;}
+.refund-form .form-items .explain-title{line-height: 14px;}
+.refund-form .form-items span{float: left;}
+.refund-form .form-items .unit{float: left; margin: 0 10px 0 0;}
+.refund-form .form-items .price{width: 60px; height: 32px; -webkit-box-sizing: border-box; box-sizing: border-box;}
+.refund-form .form-items .explain{float: left; width: 440px; height: 66px; overflow-x: hidden; overflow-y: auto; resize: none; padding: 5px 10px; border: 1px solid #e9e9e9;}
+.refund-form .form-items .upload-box{overflow: hidden; zoom: 1;}
+.refund-form .upload-box .upload-button{float: left; width: 100px; height: 30px; overflow: hidden; margin: 0 10px 0 0; background-position: 0 -195px; font: 0/0 arial; text-indent: -9999em; cursor: pointer;}
+.refund-form .upload-box .uploadButton-wrap{position: relative; float: left; width: 100px; height: 30px; overflow: hidden; margin: 0 10px 0 0;}
+.refund-form .upload-box .imagefile-wrap{position: absolute; z-index: 10; top: 0; left: 0; width: 100px; height: 30px; overflow: hidden; opacity: 1; filter: alpha(opacity=100); background: url(../Images/secondarytradingorder-bg.png) 0 -195px no-repeat; cursor: pointer;}
+.refund-form .upload-box .uploadButton-wrap input.upload-button{position: absolute; z-index : 9; top: 0; left: 0; width: 100px; height: 30px; opacity: 0; filter: alpha(opacity=0); cursor: pointer;}
+.refund-form .upload-box .file-name{float: left; font-size: 12px; line-height: 34px;}
+.refund-form .upload-box .upload-tip{float: left; color: #ff6619; font-size: 12px; line-height: 34px;}
+.refund-form .upload-item .pic-wrap{width: 160px; height: 120px; overflow: hidden; margin: 5px 0 0 100px; border: 1px solid #e9e9e9; text-align: center; line-height: 118px; *font-size: 105px; *font-family: arial;}
+.refund-form .upload-item .pic-wrap img{max-width: 160px; max-height: 120px; vertical-align: middle;}
+.refund-form .button-box{margin: 18px 0 0; text-align: center;}
+.refund-form .button-box .button{display: inline-block; width: 98px; height: 34px; overflow: hidden; margin: 0 8px; border: 1px solid #e9e9e9; background: #fff; font: normal 14px/34px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; cursor: pointer;}
+.refund-form .button-box .button:hover{background: #fff; color: #ff6619;}
+
+/* order-status */
+.order-status{overflow: hidden; margin: 17px auto 0; padding: 15px 28px 17px; border: 1px solid #ff9e6d; background: #fff9f4;}
+.order-status .order-number{display: block; color: #666; font-size: 12px; line-height: 22px;}
+.order-status h3{height: 26px; overflow: hidden; margin: 10px 0 7px; font: bold 16px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.order-status p{color: #666; font: normal 12px/22px arial;}
+.order-status p .countdown{margin: 0 10px; color: #ff6619;}
+.order-status .button-box .button{float: left; height: 30px; min-width: 78px; overflow: hidden; margin: 17px 20px 0 0; padding: 0 11px; background: #ff6619; color: #fff; font: bold 12px/30px arial; text-align: center; cursor: pointer;}
+.order-status .button-box .button.disabled{background: #777;}
+.order-status .button-box .button-weaken{color:#333;background:#fff9f4;min-width: 50px; }
+.order-status .button-box .operate-link{float: left; height: 30px; overflow: hidden; margin: 17px 20px 0 0; padding: 0 11px; color: #0d86a0; font: normal 12px/30px SimSun; cursor: pointer;}
+
+/* refund-items */
+.refund-items{padding: 10px 0;}
+.refund-items .refund-item{overflow: hidden; zoom: 1; padding: 0; font-size: 12px; line-height: 30px;}
+.refund-items .item-title{float: left; width: 80px; padding: 0 10px 0 0; color: #666; text-align: right;}
+.refund-items .item-text{float: left; width: 208px; color: #666;}
+
+.refund-discuss .message-post{padding: 20px;}
+.refund-discuss .message-post textarea{box-sizing: border-box; display: block; width: 100%; height: 210px; overflow-x: hidden; overflow-y: auto; padding: 0 5px; resize: none; border: 1px solid #e9e9e9; font: normal 12px/22px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.refund-discuss .message-post .pic-wrap{position: relative;width: 160px; height: 120px; overflow: hidden; margin: 15px 0 0 0; border: 1px solid #e9e9e9; text-align: center; line-height: 116px; *font-size: 105px; *font-family: arial;}
+.refund-discuss .message-post .pic-wrap img{max-width: 160px; max-height: 120px; vertical-align: middle;}
+.refund-discuss .message-post .post-button{margin: 10px 0 0;}
+.refund-discuss .message-post .comment-button{float: left; width: 100px; height: 30px; margin: 0 15px 0 0; outline: 0 none; -webkit-border-radius: 2px; border-radius: 2px; border: 1px solid #ff6619; background: #fff; color: #ff6619; font-size: 14px; line-height: 30px; text-align: center; cursor: pointer;}
+.refund-discuss .message-post .comment-button:hover{background: #ff6619; color: #fff;}
+.refund-discuss .message-post .uploadButton-wrap{position: relative; float: left; width: 60px; height: 30px; overflow: hidden;}
+.refund-discuss .message-post .uploadButton-wrap .upload-box{position: absolute; top: 0; left: 0; z-index: 1; float: right;}
+.refund-discuss .message-post .uploadButton-wrap input.upload-button{position: absolute; z-index: 10; top: 0; left: 0; width: 60px; height: 30px; overflow: hidden; opacity: 0; filter: alpha(opacity=0); cursor: pointer;}
+.refund-discuss .upload-box .upload-button{display: block; height: 30px; width: 60px; color: #0d86a0; font-size: 12px; line-height: 30px; text-align: center; cursor: pointer;}
+
+.refund-discuss #msgBoardList{position: relative; overflow: hidden; margin: 20px 0 0; padding: 0 20px;}
+.refund-discuss .discuss-list{margin: -15px 0 0; font-family: arial; line-height: 20px;}
+.refund-discuss .discuss-list .discuss-item{position: relative; padding: 3px 0 10px 20px; border-left: 1px solid #d9d9d9;}
+.refund-discuss .discuss-list .disucss-header{margin: 10px 0 0; color: #999;}
+.refund-discuss .discuss-list .disucss-header:before{content: ''; position: absolute; top: 15px; left: -7px; width: 12px; height: 12px; background: #fff no-repeat center center; background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQxJREFUeNqEUTtug0AQHSAFIEyFxIomqSh9jsQHyFUSnyA5Sw6Q+BpJB5XdoLWEKAgCCj55b7WJLDd50jDMzJud3TfOuq5ClGV5C/cM28EUTMPeYa95np/IcUgG8R7/b0mSbOI4Fs/zZJ5nadtW6rr+Ru0RDQenKIo7BJ9ZlsVRFMk1uq6TqqrYsL3BZ48TDXGaJtFayziO4vu+KKWEeU7EhCcX5AeOJkjs+16WZTGeMWHrO5JT3pHgiZcYhsF4W1ckn/kYgqMvEQSB8bauSf7gq00r7hiGobiua3yapiZv639qfEGNzX9quNDvSB2ZaJrGKELt6RlbInU+Olcb3NsNcv7ZbvDld4M/AgwADNuG9t94zlEAAAAASUVORK5CYII=);}
+.refund-discuss .discuss-list .disucss-header span{float: left; margin: 0 6px 0 0;}
+.refund-discuss .discuss-list .current-item .disucss-header{color: #ff6619;}
+.refund-discuss .discuss-list .current-item .disucss-header:before{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAN5JREFUeNpi/H9qAwMUyANxBRB7AbEEEL8A4m1A3AHED0EKGKGKPYB4FRDzMmCCz0AcBsQ7mICEAhCvxKGQASoOMkiBBUhUAjEfWPjLOwaGw0sYGF7dY2AQU2JgsI1hYOARgmkoB5nsCTfj8GIGhqfXGRh+/4TQBxci2+AFUiwO5766j+qAl/eQeRIgxS/hXDFFVMXiSsi8FyDF2+Fc21gGBmkNBgYWdghtH4+seAco6EChcQlPaMCCTw9k8gNoOH7GoxAk/4AJZgUQ6wLxTCB+DMS/oPRMqDhIngEgwABiGTVmgm1wqAAAAABJRU5ErkJggg==);}
+.refund-discuss .discuss-list .discuss-text{margin: 6px 0 0; word-wrap: break-word; word-break: break-all;}
+.refund-discuss .discuss-list .pic-list{padding: 0 0 13px;}
+.refund-discuss .discuss-list .pic-list li{float: left; width: 80px; height: 80px; overflow: hidden; margin: 10px 10px 0 0; border: 1px solid #e9e9e9; background: #f9f9f9; line-height: 76px; *font-size: 70px; *font-family: arial; text-align: center; cursor: pointer;}
+.refund-discuss .discuss-list .pic-list img{max-height: 80px; max-width: 80px; vertical-align: middle;}
+.refund-discuss .pager,
+.refund-discuss .pagination{height: 24px; overflow: hidden; padding: 17px 15px 20px; font: normal 14px/24px arial; text-align: right;}
+.refund-discuss .pager a,
+.refund-discuss .pagination li{display: inline-block; padding: 0 4px; vertical-align: middle;}
+.refund-discuss .pager .disabled,
+.refund-discuss .pager .disabled:hover,
+.refund-discuss .pagination .disabled{color: #999; text-decoration: none; cursor: default;}
+.refund-discuss .pager .selected,
+.refund-discuss .pager .selected:hover,
+.refund-discuss .pagination .active a,
+.refund-discuss .pagination .active:hover a{color: #ff6619; font-weight: bold; text-decoration: none;}
+.refund-discuss .pager span{display: inline-block; padding: 0 4px; vertical-align: middle;}
+
+/* address-layerbox */
+.address-layerbox .address-items{padding: 0 0 20px;}
+.address-layerbox .address-items .address-item{margin: 15px 0 0; line-height: 34px;}
+.address-layerbox .address-items .item-title{float: left; width: 70px; padding: 0 17px 0 0; text-align: right;}
+.address-layerbox .address-items .item-title .star{margin: 0 5px 0 0; color: #c00; font-family: arial;}
+.address-layerbox .address-items select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; height: 32px; margin: 0 10px 0 0; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 92% 50%; color: #666; font: 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.address-layerbox .address-items select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 92% 50%; color: #999;}
+.address-layerbox .address-items input[type="text"]{height: 14px; padding: 8px 10px; border: 1px solid #e9e9e9; font: normal 14px/14px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.lowIE .address-layerbox .address-items select{padding: 5px 5px 5px 10px; background: #fff;}
+.lowIE .address-layerbox .address-items input[type=checkbox]{padding: 0; border: 0 none; background: none; outline: 0 none;}
+.address-layerbox .address-items select::-ms-expand{display: none;}
+.address-layerbox .address-items .tip{height: 14px; overflow: hidden; margin: 5px 0 0 3px; padding: 3px 6px; border: 1px solid #ff9e6d; background: #fff6f2; color: #ff6619; line-height: 14px;}
+.address-layerbox .address-items .street-text{width: 310px;}
+.address-layerbox .address-items input[type="text"]:focus{outline: 0 none; border: 1px solid #ff6619; box-shadow: 0 0 1px #ff6619;}
+
+/* delete-layerbox */
+.delete-layerbox p{padding: 28px 0 0; font: normal 14px/34px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center;}
+
+/* evaluation-dialog */
+.evaluation-dialog  .ui-dialog-buttonpane .ui-dialog-buttonset{padding: 0 17px 0 0; text-align: right;}
+.evaluation-dialog p{margin: 15px 20px 0; font: normal 14px/34px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.evaluation-dialog .radio-buttons{margin: 10px 0 0 20px; font-family: 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.evaluation-dialog .radio-buttons .radio-item{margin: 0 20px 0 0;}
+.evaluation-dialog .postscript-bar{margin: 6px 0 20px 20px;}
+.evaluation-dialog .postscript-bar label{float: left; height: 20px; font: normal 14px/20px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.evaluation-dialog .postscript-bar textarea{float: left; width: 510px; height: 80px; overflow-x: hidden; overflow-y: auto; margin: 3px 0 0 5px; padding: 5px; resize: none; border: 1px solid #e9e9e9; font-family: 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.evaluation-dialog .upload-box{margin: 16px 0 0 20px;}
+.evaluation-dialog .upload-box label{float: left; height: 20px; font: normal 14px/20px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.evaluation-dialog .upload-area{overflow: hidden; zoom: 1;}
+.evaluation-dialog .upload-box .upload-button{float: left; width: 100px; height: 30px; overflow: hidden; background-position: 0 -195px; font: 0/0 arial; text-indent: -9999em; cursor: pointer;}
+.evaluation-dialog .upload-box .uploadButton-wrap{position: relative; width: 100px; height: 30px; overflow: hidden; margin: 0 10px 0 0;}
+.evaluation-dialog .upload-box .uploadButton-wrap object{z-index: 10000!important;}
+.evaluation-dialog .upload-box .imagefile-wrap{position: absolute; z-index: 10; top: 0; left: 0; width: 100px; height: 30px; overflow: hidden; opacity: 1; filter: alpha(opacity=100); background: url(../Images/secondarytradingorder-bg.png) 0 -195px no-repeat; cursor: pointer;}
+.evaluation-dialog .uploadButton-wrap input.upload-button{position: absolute; z-index : 9; top: 0; left: 0; width: 100px; height: 30px; opacity: 0; filter: alpha(opacity=0); cursor: pointer;}
+.evaluation-dialog .file-name{float: left; font-size: 12px; line-height: 34px;}
+.evaluation-dialog .upload-tip{float: left; color: #ff6619; font-size: 12px; line-height: 34px;}
+.evaluation-dialog .pic-wrap{padding: 10px 0;}
+.evaluation-dialog .pic-wrap .pic-item{position: relative; float: left; width: 88px; height: 88px; overflow: hidden; margin: 10px 10px 0 0; border: 1px solid #e9e9e9; text-align: center; line-height: 84px;}
+.evaluation-dialog .pic-wrap img{position: relative; z-index:1; max-width: 88px; max-height: 88px; vertical-align: middle;}
+.evaluation-dialog .pic-wrap .closed-icon{display: none; position: absolute; top: 0; right: 0; width: 14px; height: 14px; background: #ff6c22; color: #fff; font: normal 12px/14px SimSun; cursor: pointer; text-align: right; z-index:1;}
+.evaluation-dialog .pic-wrap .item-hover{border-color: #ff6c22;}
+.evaluation-dialog .pic-wrap .item-hover .closed-icon{display: block;}
+
+.evaluation-newer-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{text-align: center;}
+.evaluation-newer-dialog label{min-width: 60px;}
+.evaluation-newer-dialog .postscript-bar textarea{width: 500px; margin-left: 0;}
+
+/* closedOrder-layerbox */
+.closedOrder-layerbox{padding-bottom: 20px!important;}
+.closedOrder-layerbox p{height: 20px; margin: 10px 0 0; padding: 6px 0 6px 20px; line-height: 20px;}
+.closedOrder-layerbox p a{color: #ff6619;}
+.closedOrder-layerbox select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; display: block; height: 32px; max-width: 255px; margin: 10px 20px 10px; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #333; font: 12px/28px arial;}
+.closedOrder-layerbox select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #999;}
+.lowIE .closedOrder-layerbox select{padding: 5px 5px 5px 10px; background: #fff;}
+.closedOrder-layerbox select::-ms-expand{display: none;} 
+
+/* modifyPrice-layerbox */ 
+.modifyPrice-layerbox p{height: 30px; padding: 35px 0 0 20px; line-height: 30px;}
+.modifyPrice-layerbox p em{margin: 0 10px;}
+.modifyPrice-layerbox input[type="text"]{display: inline-block; height: 14px; width: 60px; margin: 0 10px; padding: 5px 10px; border: 1px solid #e9e9e9; font: normal 12px/14px arial;}
+.lowIE .modifyPrice-layerbox input[type=checkbox]{padding: 0; border: 0 none; background: none; outline: 0 none;}
+
+/* remindState-layerbox */
+.remindState-layerbox{text-align: center;}
+.remindState-layerbox h3{height: 28px; overflow: hidden; margin: 20px 0 0; font: bold 18px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.remindState-layerbox p{height: 28px; overflow: hidden; font: normal 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.remindState-layerbox .remind-state{padding: 0 0 20px;}
+.remindState-layerbox select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; display: inline-block; height: 32px; max-width: 255px; margin: 0 5px 0; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #333; font: 12px/28px arial;}
+.remindState-layerbox select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #999;}
+.lowIE .remindState-layerbox select{padding: 5px 5px 5px 10px; background: #fff;}
+.remindState-layerbox select::-ms-expand{display: none;}
+
+.remindState-layerbox .sellerRemind-state{padding: 15px 20px 20px; text-align: left;}
+.remindState-layerbox .sellerRemind-state .order-state-bar{padding: 0 0 0 60px; font-size: 12px; line-height: 26px;}
+.remindState-layerbox .sellerRemind-state .state-title{ float: left; margin: 0 0 0 -60px;}
+.remindState-layerbox .sellerRemind-state .count-down{color: #ff6c22;}
+.remindState-layerbox .sellerRemind-state .delay-tip{margin: 15px 0 0; color: #999; font-size: 12px;}
+.remindState-layerbox .sellerRemind-state .delay-number-bar{height: 34px; margin: 5px 0 0; line-height: 34px;}
+.remindState-layerbox .sellerRemind-state input[type="text"]{width: 60px; height: 14px; margin: 0 10px; padding: 9px 10px; outline: 0 none; border: 1px solid #e9e9e9; font: normal 14px/14px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.remindState-layerbox .sellerRemind-state input[type="text"]:focus{outline: 0 none; border: 1px solid #F94949;}
+.remindState-layerbox .sellerRemind-state .tip{margin: 30px 0 0; padding: 15px 20px; background: #fff9f9; color: #e40002; font-size: 12px; line-height: 22px;}
+.remindState-layerbox .sellerRemind-state .tip p{height: auto; overflow: visible; font-size: 12px; line-height: 22px;}
+
+/* delivery-layerbox */
+.delivery-layerbox{}
+.delivery-layerbox select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; float: left; height: 32px; max-width: 210px; margin: 0 10px 0 0; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 92% 50%; color: #666; font: 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.delivery-layerbox select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 92% 50%; color: #999;}
+.delivery-layerbox input[type="text"]{float: left; height: 14px; width: 185px; padding: 8px 10px; border: 1px solid #e9e9e9; font: normal 14px/14px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.lowIE .delivery-layerbox select{padding: 5px 5px 5px 10px; background: #fff;}
+.lowIE .delivery-layerbox input[type=checkbox]{padding: 0; border: 0 none; background: none; outline: 0 none;}
+.delivery-layerbox select::-ms-expand{display: none;}
+.delivery-layerbox .delivery-items{padding: 3px 0 10px;}
+.delivery-layerbox .delivery-items li{margin: 13px 0 0; line-height: 32px;} 
+.delivery-layerbox .delivery-items .item-title{float: left; width: 65px; margin: 0 10px 0 0; text-align: right;}
+.delivery-layerbox .delivery-pause{padding: 20px 15px 18px 20px;}
+.delivery-layerbox .delivery-pause h3{height: 26px; font: bold 16px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}                                          
+.delivery-layerbox .delivery-pause p{margin: 6px 0 0; line-height: 20px;}
+
+/* confirm-receipt-box */
+.confirm-receipt-box{height: 220px; margin: 20px 0 0; border: 1px solid #e9e9e9; background: #fff; text-align: center;}
+.confirm-receipt-box h3{height: 28px; margin: 24px 0 0; color: #ff6619; font: bold 18px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.confirm-receipt-box p{height: 24px; margin: 12px 0 0; color: #666; font: normal 14px/24px SimSun;}
+.confirm-receipt-box p a{color: #666; text-decoration: underline;}
+.confirm-receipt-box p a:hover{color: #ff6619;}
+.confirm-receipt-box .password-bar{width: 390px; margin: 22px auto 0; font: normal 14px/34px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.confirm-receipt-box .password-bar span{float: left;}
+.confirm-receipt-box .password-bar a{float: left;} 
+.confirm-receipt-box .password-bar .password-item{float: left; margin: 0 10px 0 5px;}
+.confirm-receipt-box .password-item input{float: left; position: relative; width: 22px; height: 14px; margin: 0 0 0 -1px; padding: 9px 5px; border: 1px solid #ccc; text-align: center;}
+.confirm-receipt-box .password-item input:focus{z-index: 10;}
+.confirm-receipt-box .button{display: block; width: 86px; height: 30px; margin: 27px auto 0; background: #ff6619; color: #fff; font: normal 14px/30px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center; cursor: pointer;}
+
+.pay-tabs{margin: 20px 0 0;}
+.pay-tabs .tab-nav{height: 38px; border: 1px solid #e9e9e9; background: #f8f8f8; font-size: 16px; line-height: 38px;}
+.pay-tabs .tab-nav li{position: relative; float: left; margin: -1px 0 0 -1px; border-top: 1px solid #e9e9e9; cursor: pointer;}
+.pay-tabs .tab-nav span{float: left; padding: 0 16px; border-left: 1px solid #e9e9e9; border-right: 1px solid #f8f8f8;}
+.pay-tabs .tab-nav .current-item{z-index: 10; background: #fff; color: #ff661a;}
+.pay-tabs .tab-nav .current-item span{padding-bottom: 1px; border-right: 1px solid #e9e9e9; background: #fff;}
+.pay-tabs .tab-panels{overflow: hidden; border: 1px solid #e9e9e9; border-top: 0 none;}
+.pay-tabs .tab-panels .tab-panel{padding: 0 20px;}
+.pay-tabs .button-box{padding: 25px 0 35px; border-top: 1px dashed #e9e9e9;}
+.pay-tabs .button-box .button{display: block; width: 180px; height: 40px; margin: 0 auto; border: 0 none; -webkit-border-radius: 4px; border-radius: 4px; background: #ff661a; color: #fff; font: bold 20px/40px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center; cursor: pointer;}
+
+/* bank-list */
+.pay-items{padding: 8px 0 20px;}
+.pay-items dt{height: 20px; overflow: hidden; color: #666; font: bold 12px/20px Arial;}
+.pay-items p{height: 22px; margin: 25px 0 0; color: #666; font: normal 12px/22px arial;} 
+.pay-items .bank-list{padding: 0 0 0 10px;}
+.pay-items .bank-list li{float: left; padding: 20px 0 5px 10px;} 
+.pay-items .bank-list input[type=radio]{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; float: left; width: 14px; height: 14px; overflow: hidden; margin: 13px 5px 0 0; padding: 0; border: 0 none; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAb1BMVEX/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/ZhkXEFoYAAAAJXRSTlMAOFPqhhT4MNCTDBaCkeQL0gYvj+zjMRX50Qcu81SS69P69M6DA2yNWAAAAG9JREFUeF5Vz1cOAyEMRdFnTBna1JLes/81BpFJEPfvSJZsI6Vkr3UTFHKCIzlH9iay2hU50ybv2GBrZI8w4d8k0VAh9dBD4XFf0Z3r4QPCtdBKeB5/OrEHxLItNks+6zJH6jqycxag5P3xfL1VwgdicQP5I7ufOwAAAABJRU5ErkJggg==) no-repeat 50% 50%;}
+.pay-items .bank-list input[type=radio]:checked{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAh1BMVEX/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/Zhn/ZhlTrwweAAAALHRSTlMArThT6u8UMIbxJ/iCkwzQ8xbkJS+Rj/LS4wYLKOzr+TGSLgdU0RXT+vTOg2ua6V0AAACCSURBVHheVcxFDsQwAATBNqztOMiwzJj/v28j55S6tTQaAOOGOM4TQ6B0K7NMpkcVqjoT2ErBU1tqEUWiptElSYffTLONp3PkEjEFAjkQb4mWLLidVpkV6/GD5MJ+udqTOkrd4EXfC89Vl6BGS2BHBXA/tHK3k+khFBj3en++PwP8AYmFC9olTDUeAAAAAElFTkSuQmCC) no-repeat 50% 50%;}
+.lowIE .pay-items .bank-list input[type=radio],
+.lowIE .pay-items .bank-list input[type=radio]:checked{background: none; outline: 0 none;} 
+.pay-items .bank-list .pic{float: left; width: 196px; height: 36px; overflow: hidden; border: 1px solid #ddd;}
+
+/* bank-pay-box */
+.bank-pay-box .pay-header{height: 32px; overflow: hidden; padding: 15px 0 5px;}
+.bank-pay-box .pay-header .pay-title{color: #666; font: normal 12px/32px arial;} 
+
+/* plat-pay-box */
+.plat-pay-box{height: 505px; padding: 20px 0 0;}
+.plat-pay-box .pay-items{min-height: 260px; border-top: 0 none;}
+.upgrade-tag{display: block; width: 132px; margin: 100px auto 0; color: #ccc; font: normal 24px/48px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center;}
+.upgrade-tag .upgrade-icon{position: relative; display: block; width: 132px; height: 135px; margin: 0 0 0 -13px; background-position: 0 -350px;}
+
+/* quick-pay-box */
+.quick-pay-box{height: 505px; padding: 20px 0 0;}
+.quick-payment-bar{height: 48px; padding: 10px; background: #f8f8f8;}
+.quick-payment-bar h3{float: left; width: 167px; height: 48px; overflow: hidden; background-position: 0 -265px; text-indent: -999em;}
+.quick-payment-bar strong{float: left; height: 24px; width: 192px; overflow: hidden; margin: 12px 20px 0 15px; background-position: 0 -320px; text-indent: -999em;}
+.quick-payment-bar p{color: #999; font: normal 12px/48px arial;}
+
+/* pay-box */
+.pay-box .pay-status{position: relative; padding: 15px 28px 17px 166px;}
+.pay-box .pay-status .pay-icon{position: absolute; top: 50%; left: 33px; width: 114px; height: 97px; margin: -48px 0 0; background-position: -119px -163px;}
+.pay-box .pay-status h3{height: 26px; padding: 7px 0 0; color: #ff671b; font: bold 20px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.pay-box .pay-status .order-summary{padding: 3px 0 0;}
+.pay-box .pay-status .order-summary li{float: left; height: 34px; color: #666; font: normal 14px/34px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.pay-box .pay-status .order-summary .price{color: #333;}
+.pay-box .pay-status .order-summary strong{font-size: 18px; vertical-align: top;}
+.pay-box .pay-status p em{color: #ff6619;}
+.pay-box .pay-status .pay-num{height: 26px; margin: 12px 0 0; font: normal 16px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.pay-box .pay-status .pay-num .price{margin: 0 0 0 10px; color: #ff6619; font-size: 18px; vertical-align: top;}
+
+/* pay-success-box */
+.pay-success-box{position: relative; width: 230px; margin: 15% auto 0; padding: 0 0 0 50px;}
+.pay-success-box h3{height: 36px; padding: 0 0 16px; font: normal 24px/36px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.pay-success-box .success-icon{position: absolute; top: 0; left: 0; width: 35px; height: 35px; background-position: -80px -115px;}
+.pay-success-box p{height: 26px; color: #999; font-size: 14px; line-height: 26px;}
+.pay-success-box p .price{color: #ff6619; font-size: 16px;}
+.pay-success-box p .cuntdown{color: #ff6619;}
+.pay-success-box .order-summary{margin: 6px 0 0;}
+.pay-success-box .order-summary p{color: #333;}
+.pay-success-box .order-summary a{color: #39a6b1;}
+.pay-success-box .order-summary a:hover{color: #ff6619; text-decoration: none;}
+
+/* refundApplication-layerbox */
+.refundApplication-layerbox{padding: 0 20px 10px;} 
+.refundApplication-layerbox h3{padding: 20px 0 0; font: normal 14px/24px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.refundApplication-layerbox p{color: #666; line-height: 20px;}
+
+/* customService-layerbox */
+.customService-layerbox{padding: 22px 20px 15px;}
+.customService-layerbox .tip{padding: 6px 10px 9px 14px; border: 1px solid #ff9e6d; background: #fff6f2; color: #ff6619; font-size: 12px; line-height: 20px;}
+.customService-layerbox .tip a{color: #ff6619;}
+.customService-layerbox .custom-items{padding: 5px 0 0; line-height: 30px;}
+.customService-layerbox .custom-items li{margin: 12px 0 0;}
+.customService-layerbox .custom-items label{float: left; width: 68px; padding: 0 10px 0 0; text-align: right;}
+.customService-layerbox .custom-items textarea{float: left; width: 466px; height: 83px; overflow-x: hidden; overflow-y: auto; padding: 0 5px; resize: none; border: 1px solid #e9e9e9; line-height: 22px;}
+.customService-layerbox .custom-items .uploadButton-wrap{position: relative; float: left; width: 100px; height: 30px; overflow: hidden; cursor: pointer;}
+.customService-layerbox .custom-items .pic-wrap{width: 160px; height: 120px; overflow: hidden; margin: 5px 0 0 78px; border: 1px solid #e9e9e9; text-align: center; line-height: 118px; *font-size: 105px; *font-family: arial;}
+.customService-layerbox .custom-items .pic-wrap img{max-width: 160px; max-height: 120px; vertical-align: middle;}
+.customService-layerbox .uploadButton-wrap input.upload-button{position: absolute; z-index: 10; width: 100px; height: 30px; opacity: 0; filter: alpha(opacity=0); cursor: pointer;}
+.customService-layerbox .uploadButton-wrap .upload-button{position: absolute; top: 0; left: 0; width: 100px; height: 30px; -webkit-border-radius: 3px; border-radius: 3px; background: #ff6619; color: #fff; font: normal 14px/30px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center; cursor: pointer;}
+
+/* refuseRefund-layerbox */ 
+.refuseRefund-layerbox{padding: 22px 20px 15px;}
+.refuseRefund-layerbox .tip{padding: 6px 10px 9px 14px; border: 1px solid #ff9e6d; background: #fff6f2; color: #ff6619; font-size: 12px; line-height: 20px;}
+.refuseRefund-layerbox .tip a{color: #ff6619;}
+.refuseRefund-layerbox .refuse-items{padding: 5px 0 0; line-height: 30px;}
+.refuseRefund-layerbox .refuse-items li{margin: 12px 0 0;}
+.refuseRefund-layerbox .refuse-items label{float: left; width: 68px; padding: 0 10px 0 0; text-align: right;}
+.refuseRefund-layerbox .refuse-items textarea{float: left; width: 466px; height: 83px; overflow-x: hidden; overflow-y: auto; padding: 0 5px; resize: none; border: 1px solid #e9e9e9; line-height: 22px;}
+.refuseRefund-layerbox .refuse-items .uploadButton-wrap{position: relative; float: left; width: 100px; height: 30px; overflow: hidden; cursor: pointer;}
+.refuseRefund-layerbox .refuse-items .pic-wrap{width: 160px; height: 120px; overflow: hidden; margin: 5px 0 0 78px; border: 1px solid #e9e9e9; text-align: center; line-height: 118px; *font-size: 105px; *font-family: arial;}
+.refuseRefund-layerbox .refuse-items .pic-wrap img{max-width: 160px; max-height: 120px; vertical-align: middle;}
+.refuseRefund-layerbox .uploadButton-wrap input.upload-button{position: absolute; z-index: 10; width: 100px; height: 30px; opacity: 0; filter: alpha(opacity=0); cursor: pointer;}
+.refuseRefund-layerbox .uploadButton-wrap .upload-button{position: absolute; top: 0; left: 0; width: 100px; height: 30px; -webkit-border-radius: 3px; border-radius: 3px; background: #ff6619; color: #fff; font: normal 14px/30px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center; cursor: pointer;}
+
+.refuseRefund-layerbox select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; height: 32px; float: left; margin: 0 10px 0 0; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 97% 50%; color: #666; font: 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.refuseRefund-layerbox select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 97% 50%; color: #999;}
+.lowIE .refuseRefund-layerbox select{padding: 5px 5px 5px 10px; background: #fff;}
+.refuseRefund-layerbox select::-ms-expand{display: none;}
+
+/* returnGoods-layerbox */ 
+.returnGoods-layerbox{padding: 22px 20px 15px;}
+/*
+.returnGoods-layerbox .tip{padding: 6px 10px 9px 14px; border: 1px solid #ff9e6d; background: #fff6f2; color: #ff6619; font-size: 12px; line-height: 20px;}
+.returnGoods-layerbox .tip a{color: #ff6619;}
+*/
+.returnGoods-layerbox .warning-tip{ position: relative; margin: 15px 15px 0; padding: 6px 10px 6px 32px; border: 1px solid #ff6619; background: #ffffdf; color: #ff6619; font-size: 12px; line-height: 20px; text-align: left;}
+.returnGoods-layerbox .warning-tip .warning-icon{ position: absolute; top: 8px; left: 10px; width: 16px; height: 17px; overflow: hidden; background: url(../Images/secondarytradingdetail-bg.png) no-repeat -239px -200px; font: normal 0/0 arial; text-indent: -999em;}
+.returnGoods-layerbox .warning-tip a{color: #ff6619;}
+.returnGoods-layerbox .return-items{padding: 5px 0 0;}
+.returnGoods-layerbox .return-items .return-item{margin: 12px 0 0; line-height: 30px;}
+.returnGoods-layerbox .return-items label{float: left; width: 68px; padding: 0 10px 0 0; line-height: 30px; text-align: right;}
+.returnGoods-layerbox .return-items label .star{margin: 0 5px 0 0; color: #c00; font-family: arial;}
+.returnGoods-layerbox .return-items textarea{float: left; width: 466px; height: 83px; overflow-x: hidden; overflow-y: auto; padding: 0 5px; resize: none; border: 1px solid #e9e9e9; line-height: 22px;}
+.returnGoods-layerbox .address-list .address-item{position: relative; zoom: 1; height: 60px;}
+.returnGoods-layerbox .address-list .address-item:first-child{margin-top: 0;}
+.returnGoods-layerbox .address-item .address-summary{width: 340px; margin: 0; padding-right: 0;}
+.returnGoods-layerbox .address-item .address-summary span{float: none; line-height: 22px;}
+.returnGoods-layerbox .address-item .option-box{position: absolute; bottom: 0; right: 0; background: #fff;}
+.returnGoods-layerbox .address-item .street-tag{width: auto; margin-left: 10px;}
+.returnGoods-layerbox .address-box .expansion-button{padding-left: 80px;}
+.returnGoods-layerbox .address-item:hover .address-summary:hover{background: #fff;}
+
+/* refundMoney-layerbox */ 
+.refundMoney-layerbox{padding: 22px 20px 15px;}
+.refundMoney-layerbox .tip{padding: 6px 10px 9px 14px; border: 1px solid #ff9e6d; background: #fff6f2; color: #ff6619; font-size: 12px; line-height: 20px;}
+.refundMoney-layerbox .tip a{color: #ff6619;}
+.refundMoney-layerbox .return-items{padding: 5px 0 0; line-height: 30px;}
+.refundMoney-layerbox .return-items li{margin: 12px 0 0;}
+.refundMoney-layerbox .return-items label{float: left; padding: 0 10px 0 0; text-align: right;}
+.refundMoney-layerbox input{float: left; height: 14px; width: 185px; padding: 8px 10px; border: 1px solid #e9e9e9; font: normal 14px/14px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+
+/* confirmPay-layerbox */
+.confirmPay-layerbox h3{height: 44px; padding: 40px 0 0; color: #ff6619; font: bold 24px/44px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center;}
+.confirmPay-layerbox p{height: 24px; margin: 15px 0 0; font: normal 14px/24px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1'; text-align: center;}
+.confirmPay-layerbox .PayButton-box{padding: 50px 0 36px 78px;}
+.confirmPay-layerbox .PayButton-box .success-button{position: relative; float: left; width: 100px; height: 56px; overflow: hidden; margin: 0 20px 0 0; padding: 0 0 0 70px; -webkit-border-radius: 3px; border-radius: 3px; background: #ff661a; color: #fff; cursor: pointer;}
+.confirmPay-layerbox .success-button .icon{position: absolute; top: 10px; left: 18px; width: 36px; height: 36px; overflow: hidden; background-position: -209px -120px; text-indent: -999em;}
+.confirmPay-layerbox .success-button strong{display: block; height: 26px; overflow: hidden; margin: 5px 0 0; font: normal 16px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.confirmPay-layerbox .success-button p{display: block; height: 18px; overflow: hidden; margin: 0; padding: 0; color: #fff; font: normal 12px/18px arial; text-align: left;}
+.confirmPay-layerbox .PayButton-box .fail-button{position: relative; float: left; width: 110px; height: 56px; overflow: hidden; padding: 0 0 0 70px; -webkit-border-radius: 3px; border-radius: 3px; background: #eee; color: #999; cursor: pointer;}
+.confirmPay-layerbox .fail-button .icon{position: absolute; top: 10px; left: 18px; width: 36px; height: 36px; overflow: hidden; background-position: -209px -70px; text-indent: -999em;}
+.confirmPay-layerbox .fail-button strong{display: block; height: 26px; overflow: hidden; margin: 5px 0 0; font: normal 16px/26px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.confirmPay-layerbox .fail-button p{display: block; height: 18px; overflow: hidden; margin: 0; padding: 0; color: #999; font: normal 12px/18px arial; text-align: left;}
+.confirmPay-layerbox .other-link{clear: both; height: 32px; color: #999; font: normal 12px/32px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.confirmPay-layerbox .other-link a{color: #ff6619; text-decoration: underline;} 
+
+/* orderNew-dialog */ 
+.orderNew-dialog .ui-dialog-title{color: #333; font: bold 14px/36px arial;}
+.orderNew-dialog .ui-dialog-titlebar-close{display: none;}
+.orderNew-dialog .ui-dialog-buttonpane{padding-bottom: 4em;}  
+.orderNew-dialog .orderNew-layerbox{padding: 45px 0 25px 100px;}
+.orderNew-dialog h3{height: 28px; color: #ff661a; font: bold 18px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.orderNew-dialog .dialog-paragraph{position: relative; margin: 25px 0 0; padding: 0 0 0 30px; color: #666; font: normal 12px/30px SimSun;}
+.orderNew-dialog .dialog-paragraph .warning-icon{position: absolute; top: 5px; left: 0; width: 20px; height: 20px; overflow: hidden; background-position: -70px -85px; color: #fff; font: bold 16px/20px SimSun; text-align: center;}
+.orderNew-dialog .dialog-paragraph a{color: #ff661a; text-decoration: underline;}
+.orderNew-dialog .password-bar{margin: 25px auto 0; font: normal 14px/34px arial;}
+.orderNew-dialog .password-bar label{float: left;}
+.orderNew-dialog .password-bar a{float: left; color: #ff661a; font-size: 12px;} 
+.orderNew-dialog .password-bar .password-item{float: left; margin: 0 10px 0 5px;}
+.orderNew-dialog .password-item input{float: left; position: relative; width: 220px; height: 14px; padding: 9px 10px; border: 1px solid #ccc; text-align: left;}
+
+/* paying-box */
+.paying-box{display: block; width: 1200px; height: 376px; margin: 10% -110px 0; background: url(../Images/paying.gif) no-repeat center; text-indent: -999em;}
+
+/* refund-apply */
+.refund-apply-box .refund-apply-inner{position: relative; margin: 50px 0 0; border: 1px solid #e9e9e9}
+.refund-apply-box .part .part-header{margin-top: -40px;}
+.refund-apply-box .part-content{margin-top: 5px; border: 0 none;}
+.refund-apply-box .refund-detail{float: left; width: 648px; margin-top: 0; border-right: 1px solid #e9e9e9}
+.refund-apply-box .order-detail{float: left; width: 329px;}
+.refund-apply-box .order-detail .part-content{border-left: 0 none;}
+.refund-apply-box .order-detail .order-number{display: block; float: none; padding-left:18px;}
+.refund-apply-box .order-detail .contact-tag{display: block; float: none; width: auto; line-height: 24px;}
+.refund-apply-box .order-detail .contact-tag a{float: left;}
+.refund-apply-box .order-detail .contact-tag .seller{float: left; width: auto; margin: 7px 0 0 18px;}
+.refund-apply-box .order-detail .goods-subTitle{border-color: #fff;}
+.refund-apply-box .order-detail .price{float: left; width: 60px; margin: 0 -20px 0 0; font-weight: normal; line-height: 24px;}
+.refund-apply-box .order-detail .goods-title-box{width: 180px;}
+.refund-apply-box .order-detail .goods-count-box{float: left; width: 40px; text-align: center; line-height: 24px;}
+.refund-apply-box .order-detail .total-box{position: absolute; bottom: 0; right: 0; width: 293px; padding: 5px 18px 15px;}
+
+/* order-detail-box */
