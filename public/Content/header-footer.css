@@ -1,0 +1,5 @@
+﻿/*--------------------------- 页脚 ---------------------*/
+.foot {border-top: 1px solid #ccc;background-color: #f8f8f8;color: #333; line-height: 23px;padding:15px 0 20px; text-align: center;margin: 30px 0 0 0;}
+.foot a { color: #333333; margin: 0 10px; text-decoration: none;}
+.foot .copyright {padding: 20px 0 0;}
+.foot .link{font-size: 14px;color: #ccc;}

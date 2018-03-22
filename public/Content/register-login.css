@@ -1,0 +1,299 @@
+﻿/*--------------------------- reset ---------------------*/
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th,
+td, p, blockquote, pre, form, fieldset, legend, input, button, textarea, hr { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+body { font: 12px/1.5 Arial; color: #333 }
+select, input, button { vertical-align: middle; font-size: 100%; outline: none;}
+fieldset, img { border: 0 none; }
+em { font-style: normal; }
+.clear { clear: both; display: block; height: 0; visibility: hidden; font: 0/0 Arial }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; font-size: 0 }
+.clearfix { *zoom: 1 }
+
+html,body{height: 100%;}
+body{background: #f8f8f8; font-family: '微软雅黑';}
+.wrapper{width: 980px; margin: 0 auto;}
+.wrapper-box{width: 980px; height: 574px; position: absolute; top: 50%; left: 50%; margin: -350px 0 0 -490px;}
+.foot-box{width: 100%; position: absolute; left: 0; bottom: 0;}
+
+/*logo*/
+.logo-box{padding: 20px 0 20px 3px; overflow: hidden;}
+.logo-box span{font-size: 30px; padding: 0 0 0 20px; border-left: 1px #333 solid; line-height: 30px; margin: 32px 0 0 20px; float: left;}
+.logo{width: 110px; height: 71px; background: url("../Images/logo.png") no-repeat; font-size: 0; float: left;}
+
+/*content*/
+.content{border: 1px #e9e9e9 solid; background: #fff; height: 461px;}
+.title{padding: 10px 0 0 0; position: relative; margin: 0 20px; border-bottom: 1px #e9e9e9 dashed; text-align: center; font-size: 24px; color: #333; line-height: 48px;}
+.title span{position: absolute; right: 0; bottom: 0; font-size: 14px; line-height: 36px; color: #333; *bottom:10px;}
+.title a{color: #ee424d; margin: 0 0 0 10px; text-decoration: none;}
+.title a:hover{text-decoration: underline;}
+
+/*register*/
+.register{padding: 40px 0 0 285px;}
+.register p{padding: 0 0 20px 0;}
+.register font{width: 75px; text-align: right; display: inline-block; vertical-align: middle; font-size: 16px; color: #333;}
+.register i{color: #ea0111; font-style: normal;}
+.register span{width: 260px; border: 1px #fff solid; display: inline-block; vertical-align: middle;}
+.register span.subtitle{width: auto; font-size: 14px; color: #666; padding: 0 0 0 48px; font-family: '宋体';}
+.register .text-long{width: 248px; padding: 4px 5px; border: 1px #dcdcdc solid;}
+.register .short{width: 142px;}
+.register .text-short{width: 130px; padding: 4px 5px; border: 1px #dcdcdc solid;}
+.register em{vertical-align: middle; font-size: 12px; color: #999; display: none;}
+.register img{width: 109px; vertical-align: middle; margin: 0 5px 0 3px; cursor: pointer;}
+.register a{font-size: 12px; color: #333; margin: 0 5px 0 0; text-decoration: none; display: inline-block; vertical-align: middle;}
+.register a:hover{text-decoration: underline;}
+.register s{font-size: 12px; color: #999; vertical-align: middle; text-decoration: none;}
+.register .submit1{width: 258px; height: 38px; border: 1px #d83743 solid; background: #ee424d; color: #fff; font-size: 24px; text-align: center; line-height: 34px; font-family: '微软雅黑'; cursor: pointer;}
+.register .submit1:hover{background: #e1313d;}
+.register .submit2{width: 258px; height: 38px; border: 1px #bbb solid; background: #bbb; color: #fff; font-size: 24px; text-align: center; line-height: 34px; font-family: '微软雅黑'; cursor: auto;}
+.register .submit2:hover{background: #bbb;}
+.register .submit3{width: 258px; height: 38px; border: 1px #d83743 solid; background: #ee424d; color: #fff; font-size: 18px; text-align: center; line-height: 34px; font-family: '微软雅黑'; cursor: pointer;}
+.register .submit3:hover{background: #e1313d;}
+.register .getVerification{background: #ee424d; color: #fff; font-size: 14px; text-align: center; width: 106px; border: 1px #c71923 solid; margin: 0 0 0 5px; text-decoration: none;}
+.register .getVerification:hover{background: #e1313d; text-decoration: none;}
+.register .time{background: #e9e9e9; color: #999; font-size: 14px; text-align: center; line-height: 38px; width: 106px; height: 38px; border: 1px #e9e9e9 solid; margin: 0 0 0 5px; display: inline-block; cursor: pointer;}
+.register .time:hover{text-decoration: none;}
+.register .active span{border: 1px #ffe0be solid;}
+.register .active .text-long,.register .active .text-short{border: 1px #f38831 solid;}
+.register .active em{display: inline-block;}
+.register .warning span{border: 1px #ffabb1 solid;}
+.register .warning .text-long,.register .warning .text-short{border: 1px #ee424d solid;}
+.register .warning em{display: inline-block; color: #ee424d; line-height: 18px;}
+
+/*eMailVerifier*/
+.eMailVerifier{padding: 20px 0; width: 505px; margin: 0 auto; text-align: center;}
+.eMailVerifier p{padding: 110px 0 0 0; line-height: 30px; text-align: left; background: url("../Images/icon-login.png") 209px -214px no-repeat; color: #333; font-size: 16px; display: block;}
+.eMailVerifier .now{width: 228px; height: 56px; line-height: 56px; text-decoration: none; background: #ee424d; border: 1px #d52f3b solid; color: #fff; font-size: 24px; display: inline-block; margin: 30px 0;}
+.hint{text-align: right; padding: 0 0 0 30px; color: #999;}
+.hint span{line-height: 20px; background: url("../Images/icon-login.png") 0 -370px no-repeat; padding: 0 0 10px 30px; display: inline-block;}
+.hint ul{padding: 0 0 0 30px;}
+.hint li{line-height: 24px;}
+.hint li a{color: #ee424d; text-decoration: none;}
+.hint .messagelogin{color: #666; text-decoration: none; padding: 0 0 0 20px; background: url("../Images/icon-login.png") 0 -895px no-repeat;}
+.hint .messagelogin:hover{color: #ee424d; text-decoration: underline;}
+
+/*register-successful*/
+.register-successful{padding: 60px 0 0 0; text-align: center;}
+.register-successful img{width: 138px; height: 138px; border: 1px #e9e9e9 solid;}
+.register-successful p{font-size: 14px; color: #333; line-height: 28px;}
+.register-successful .success{margin: 40px 0 0 0;}
+.register-successful span{background: url("../Images/icon-login.png") 0 -166px no-repeat; padding: 0 0 0 50px; font-size: 24px; color: #333; line-height: 24px;}
+.register-successful font{font-size: 14px; color: #999;}
+.register-successful font b{font-weight: normal; color: #333;}
+.register-successful a{color: #ee424d; text-decoration: none; line-height: 36px;}
+.register-successful a:hover{text-decoration: underline;}
+
+/*login*/
+.login{height: 548px; background: #fff; border: 1px #e9e9e9 solid; margin: 20px 0 0 0; padding: 0 309px; text-align: center;}
+.login .logo{float: none; display: inline-block; margin: 50px 0 30px 0;}
+.login .hint{font-size: 14px; color: #ee424d; height: 36px; line-height: 36px; padding: 0;}
+.login .hint-message{font-size: 14px; color: #666; height: 50px; line-height: 24px; padding: 0; text-align: left;}
+.login .verification-box{height: 54px; margin: 17px 0 20px 0; position: relative;}
+.login .verification-box img{display: inline-block; width: 108px; height: 50px; cursor: pointer; vertical-align: middle; margin: 0 0 0 7px; *display: inline; *zoom: 1;}
+.login .verification{border: 1px #fff solid; display: inline-block; vertical-align: middle; width: 239px; *display: inline; *zoom: 1;}
+.login .verification span{border: 1px #e9e9e9 solid; display: block;}
+.login .verification input{border: 0; padding: 17px 5px; width: 227px; font-size: 14px; color: #999;}
+.login .verification-box .message-code{display: inline-block; width: 111px; border: 1px #ee424d solid; color: #fff; vertical-align: middle; text-decoration: none; font-size: 14px; background: #ee424d;}
+.login .verification-box .message-code:hover{background: #de2a35;}
+.login .verification-box .message-code2{display: inline-block; width: 111px; border: 1px #e9e9e9 solid; color: #999; vertical-align: middle; text-decoration: none; font-size: 14px; background: #e9e9e9;}
+.login .username{border: 1px #fff solid; margin: 0 0 20px 0; position: relative;}
+.login .username span{border: 1px #dcdcdc solid; display: block; padding: 0 0 0 43px; background: url("../Images/icon-login.png") 10px 0 no-repeat;}
+.login .message{border: 1px #fff solid; margin: 0 0 20px 0; position: relative;}
+.login .message span{border: 1px #dcdcdc solid; display: block; padding: 0 0 0 43px; background: url("../Images/icon-login.png") 10px -926px no-repeat;}
+.login .password{border: 1px #fff solid; margin: 0 0 3px 0; position: relative;}
+.login .password span{border: 1px #e9e9e9 solid; display: block; padding: 0 0 0 43px; background: url("../Images/icon-login.png") 12px -50px no-repeat;}
+.login .text-username,.login .text-password,.login .text-message{border: 0; padding: 17px 0; width: 313px; font-size: 14px; color: #999;}
+.login .active{border: 1px #ffe0be solid;}
+.login .active span{border: 1px #f38831 solid;}
+.login .warning{border: 1px #ffabb1 solid;}
+.login .warning span{border: 1px #ee424d solid;}
+.login .forget{text-align: left; margin: 0 0 20px 0; color: #999;}
+.login .forget input{margin: 0 5px 0 0;}
+.login .forget a{float: right; color: #333; text-decoration: none;}
+.login .forget a:hover{color: #ee424d; text-decoration: underline;}
+.login .login-sunmit{background: #ee424d; margin: 0 0 15px 0; border: 1px #de434f solid; font-family: '微软雅黑'; color: #fff; width: 358px; height: 50px; font-size: 24px; line-height: 46px; cursor: pointer;}
+.login .login-sunmit:hover{background: #de2a35;}
+.login .noID{text-align: left; margin: 0 0 15px 0; color: #999;}
+.login .noID a{color: #ee424d; text-decoration: none;}
+.login .noID a:hover{text-decoration: underline;}
+.login .other-login{text-align: left; color: #999;}
+.login .other-login span{display: inline-block; vertical-align: middle;}
+.login .other-login a{text-indent: -99em; display: inline-block; margin: 0 5px; vertical-align: middle;}
+.login .other-login .weibo{width: 26px; height: 20px; background: url("../Images/icon-login.png") 0 -113px no-repeat;}
+.login .other-login .weibo:hover{background-position: 0 -134px;}
+.login .other-login .weixin{width: 25px; height: 19px; background: url("../Images/icon-login.png") -44px -113px no-repeat;}
+.login .other-login .weixin:hover{background-position: -44px -134px;}
+.login .other-login .qq{width: 20px; height: 20px; background: url("../Images/icon-login.png") -92px -113px no-repeat;}
+.login .other-login .qq:hover{background-position: -92px -134px;}
+.login .hint-word{position: absolute; top: 15px; left: 26em; display: none; font-size: 14px; color: #ee424d; width: 10em; text-align: left;}
+.login .warning .hint-word{display: block;}
+.login .active .hint-word{display: block;}
+.login .messagebottom{text-align: left; color: #999;}
+.login .messagebottom a{color: #333; text-decoration: none;}
+.login .messagebottom .change{float: right; color: #ee424d;}
+.login .messagebottom a:hover{text-decoration: underline;}
+.loginmessage{padding: 68px 309px 0 309px; height: 500px;}
+
+/*retrievePassword*/
+.retrievePassword{padding: 10px 20px 0 20px;}
+.retrievePassword .success{text-align: center; margin: 70px 0 0 0;}
+.retrievePassword .success span{padding: 0 0 0 90px; width: 195px; height: 66px; display: inline-block;text-align: left; background: url("../Images/icon-login.png") 0 -422px no-repeat;}
+.retrievePassword .success font{line-height: 36px; font-size: 24px; color: #333; margin: 0 0 10px 0; display: inline-block;}
+.retrievePassword .success a{font-size: 14px; color: #ee424d; text-decoration: none; line-height: 14px;}
+.retrievePassword .title{position: static; margin: 0; border: 0;}
+.retrievePassword .title ul{overflow: hidden;}
+.retrievePassword .title li{width: 220px; float: left; margin: 0 19px 0 0; border-bottom: 2px #e9e9e9 solid; font-size: 16px; color: #333; line-height: 56px;}
+.retrievePassword .title li.last{margin: 0;}
+.retrievePassword .title li.now{border-color: #ee424d;}
+.retrievePassword .title li.finshed{border-color: #ff9ba2;}
+.retrievePassword .nextStep{margin: 50px 0 0 0; text-align: center;}
+.retrievePassword .nextStep input{width: 258px; height: 38px; border: 1px #de434f solid; background: #ee424d; color: #fff; font-size: 24px; line-height: 34px; font-family: '微软雅黑'; cursor: pointer;}
+.retrievePassword .nextStep input:hover{background: #e1313d;}
+.retrievePassword .information{padding: 0 0 0 223px; margin: 50px 0 0 0;}
+.retrievePassword .long-info{margin: 0 0 20px 0;}
+.retrievePassword .long-info font{width: 112px; display: inline-block; text-align: right; font-size: 16px; color: #333; vertical-align: middle;}
+.retrievePassword .long-info span{width: 260px; border: 1px #fff solid; display: inline-block; vertical-align: middle;}
+.retrievePassword .long-info span input{width: 248px; padding: 0 5px; height: 38px; line-height: 38px; border: 1px #dcdcdc solid;}
+.retrievePassword .long-info em{font-size: 12px; color: #999; vertical-align: middle; display: none;}
+.retrievePassword .long-info b{font-size: 16px; color: #999; font-weight: normal; display: inline-block; vertical-align: middle;}
+.retrievePassword .long-info a{width: 108px; height: 38px; border: 1px #c0131a solid; background: #ee434e; color: #fff; font-size: 14px; line-height: 38px; display: inline-block; text-align: center; text-decoration: none; margin: 0 0 0 20px;}
+.retrievePassword .long-info a:hover{background: #e1313d;}
+.retrievePassword .long-info s{width: 108px; height: 38px; border: 1px #e9e9e9 solid; background: #e9e9e9; color: #999; font-size: 14px; line-height: 38px; display: inline-block; text-align: center; text-decoration: none; margin: 0 0 0 20px;}
+.retrievePassword .short-info font{width: 112px; display: inline-block; text-align: right; font-size: 16px; color: #333; vertical-align: middle;}
+.retrievePassword .short-info span{width: 140px; height: 40px; border: 1px #fff solid; display: inline-block; vertical-align: middle;}
+.retrievePassword .short-info span input{width: 128px; padding: 0 5px; height: 38px; line-height: 38px; border: 1px #dcdcdc solid;}
+.retrievePassword .short-info img{display: inline-block; width: 108px; height: 38px; cursor: pointer; vertical-align: middle; margin: 0 0 0 7px;}
+.retrievePassword .short-info a{margin: 0 0 0 10px; color: #333; text-decoration: none; vertical-align: middle; display: inline-block;}
+.retrievePassword .short-info em{font-size: 12px; color: #999; vertical-align: middle; display: none;}
+.retrievePassword .active span{border-color: #ffe0be;}
+.retrievePassword .active span input{border-color: #f38831;}
+.retrievePassword .active em{display: inline-block;}
+.retrievePassword .warning span{border-color: #ffabb1;}
+.retrievePassword .warning span input{border-color: #ee424d;}
+.retrievePassword .warning em{display: inline-block; color: #ee424d;}
+
+/*login-fast*/
+.login-fast{width: 390px; border: 1px #e9e9e9 solid; position: absolute; top: 50%; left: 50%; margin: -180px 0 0 -195px; background: #fff; padding: 0 0 30px 0;}
+.login-fast .title{font-size: 18px; color: #333; line-height: 48px;}
+.login-fast .close{width: 20px; height: 20px; position: absolute; top: 0; right: 0; background: url("../Images/icon-login.png") 0 -709px no-repeat; text-indent: -99em; overflow: hidden;}
+.login-fast .close:hover{background-position: 0 -729px;}
+.login-fast .hint{font-size: 14px; color: #ee424d; line-height: 36px; height: 36px; padding: 0 40px;}
+.login-fast .hint-fast-message{font-size: 14px; color: #333; line-height: 36px; height: 36px; padding: 0 40px; text-align: left;}
+.login-fast .username{border: 1px #fff solid; height: 42px; margin: 0 40px 25px 40px; position: relative;}
+.login-fast .username span{border: 1px #e9e9e9 solid; height: 40px; display: block; padding: 0 0 0 43px; background: url("../Images/icon-login.png") 13px -523px no-repeat;}
+.login-fast .password{border: 1px #fff solid; height: 42px; margin: 0 40px 25px 40px; position: relative;}
+.login-fast .password span{border: 1px #e9e9e9 solid; height: 40px; display: block; padding: 0 0 0 43px; background: url("../Images/icon-login.png") 13px -569px no-repeat;}
+.login-fast .text-username,.login-fast .text-password,.login-fast .text-message{border: 0; line-height: 40px; height: 38px; width: 221px; font-size: 12px; color: #999;}
+
+.login-fast .fast-message{border: 1px #fff solid; height: 42px; margin: 0 40px 25px 40px; position: relative;}
+.login-fast .fast-message span{border: 1px #e9e9e9 solid; height: 40px; display: block; padding: 0 0 0 43px; background: url("../Images/icon-login.png") 13px -1046px no-repeat;}
+.login-fast .verification{border: 1px #fff solid; height: 42px; margin: 20px 40px 22px 40px; position: relative;}
+.login-fast .verification span{border: 1px #e9e9e9 solid; height: 40px; display: inline-block; width: 187px; vertical-align: middle;}
+.login-fast .verification span .text-short{width: 185px; height: 38px; line-height: 38px; border: 1px #fff solid;}
+.login-fast .verification img{display: inline-block; width: 108px; height: 38px; vertical-align: middle; cursor: pointer; margin: 0 0 0 7px;}
+.login-fast .verification .active{border: 1px #ffe0be solid;}
+.login-fast .verification .active span{border: 1px #f38831 solid;}
+.login-fast .verification .active .text-short{width: 185px; height: 38px; line-height: 38px; border: 1px #f38831 solid;}
+.login-fast .verification .warning{border: 1px #ffabb1 solid;}
+.login-fast .verification .warning span{border: 1px #ffabb1 solid;}
+.login-fast .verification .warning .text-short{width: 175px; height: 38px; padding: 0 5px; line-height: 38px; border: 1px #ee424d solid;}
+
+.login-fast .active{border: 1px #ffe0be solid;}
+.login-fast .active span{border: 1px #f38831 solid;}
+.login-fast .warning{border: 1px #ffabb1 solid;}
+.login-fast .warning span{border: 1px #ee424d solid;}
+.login-fast .forget{text-align: left; margin: 0 40px 20px 40px; color: #999;}
+.login-fast .forget input{margin: 0 5px 0 0;}
+.login-fast .forget a{float: right; color: #333; text-decoration: none;}
+.login-fast .forget a:hover{color: #ee424d; text-decoration: underline;}
+.login-fast .login-sunmit{background: #ee424d; margin: 0 40px 15px 40px;*margin:0 0 15px 236px; border: 1px #de434f solid; font-family: '微软雅黑'; color: #fff; width: 310px; height: 38px; font-size: 24px; line-height: 35px; cursor: pointer;}
+.login-fast .login-sunmit:hover{background: #de2a35;}
+.login-fast .noID{text-align: left; margin: 0 40px 15px 40px; color: #999;}
+.login-fast .noID a{color: #ee424d; text-decoration: none;}
+.login-fast .noID a:hover{text-decoration: underline;}
+.login-fast .other-login{text-align: left; color: #999; margin: 0 40px;}
+.login-fast .other-login span{display: inline-block; vertical-align: middle;}
+.login-fast .other-login a{text-indent: -99em; display: inline-block; margin: 0 5px; overflow: hidden; vertical-align: middle;}
+.login-fast .other-login .weibo{width: 31px; height: 24px; background: url("../Images/icon-login.png") 0 -633px no-repeat;}
+.login-fast .other-login .weibo:hover{background-position: 0 -658px;}
+.login-fast .other-login .weixin{width: 30px; height: 24px; background: url("../Images/icon-login.png") -52px -633px no-repeat;}
+.login-fast .other-login .weixin:hover{background-position: -52px -658px;}
+.login-fast .other-login .qq{width: 24px; height: 24px; background: url("../Images/icon-login.png") -108px -633px no-repeat;}
+.login-fast .other-login .qq:hover{background-position: -108px -658px;}
+.login-fast-box{width: 100%; height: 100%; position: fixed; top: 0; left: 0;}
+.login-fast-box .bg{background: #000; opacity: 0.75; width: 100%; height: 100%; position: fixed; top: 0; left: 0;}
+.login-fast .hint-word{position: absolute; top: 45px; left: 0; color: #ee424d; display: none;}
+.login-fast .warning .hint-word{display: block;}
+
+.login-fast .verification .message-code{display: inline-block; width: 111px; height: 38px; line-height: 38px; border: 1px #ee424d solid; color: #ee424d; vertical-align: middle; text-decoration: none; font-size: 14px; text-align: center;}
+.login-fast .verification .message-code:hover{background: #ee424d; color: #fff;}
+.login-fast .verification .message-code2{display: inline-block; width: 111px; height: 38px; line-height: 38px; border: 1px #e9e9e9 solid; color: #999; vertical-align: middle; text-decoration: none; font-size: 14px; background: #e9e9e9; text-align: center;}
+.login-fast p{padding: 0 40px; color: #999; line-height: 24px;}
+.login-fast p a.change{color: #ee424d;}
+.login-fast p a{color: #333; text-decoration: none;}
+.login-fast p a:hover{text-decoration: underline;}
+/*setUsername*/
+.setUsername{padding: 50px 0 0 290px;}
+.setUsername .box{height: 45px; line-height: 40px;}
+.setUsername .box span{border: 1px #dcdcdc solid; display: inline-block;}
+.setUsername .box font{width: 70px; display: inline-block; font-size: 16px;}
+.setUsername .box input{width: 248px; height: 42px; border: 1px #fff solid; line-height: 38px; padding: 0 5px;}
+.setUsername .box em{font-size: 12px; color: #333;}
+.setUsername .box input.btn-setUsername{width: 258px; height: 38px; border: 1px #d52f3b solid; background: #ee424d; text-align: center; color: #fff; font-size: 24px; font-family: '微软雅黑'; cursor: pointer; margin: 30px 0 0 0;}
+.setUsername .box input.btn-setUsername:hover{background: #e1313d;}
+.setUsername .active span{border-color: #ffe0be;}
+.setUsername .active input{border-color: #f38831;}
+
+/*third-party*/
+.third-party{padding: 20px;}
+.third-party span.subtitle{padding: 20px; font-size: 12px; color: #999; line-height: 18px; background: #f6f6f6; display: block; width: auto; height: auto; border: 0;}
+.third-party .left{width: 468px; height: 200px; margin: 30px 0 0 0; padding:50px 0 0 0; float: left; border-right: 1px #e9e9e9 dashed; text-align: center;}
+.third-party .right{width: 468px; height: 200px; float: right; margin: 50px 0 0 0; padding :30px 0 0 0; text-align: center;}
+.third-party input{width: 160px; height: 40px; background: url("../Images/icon-login.png") 0 -775px no-repeat; font-size: 20px; color: #ee424d; font-family: '微软雅黑'; border: 0; cursor: pointer; line-height: 36px;}
+.third-party input:hover{background-position: 0 -826px; color: #fff;}
+.third-party p{font-size: 14px; color: #666; padding: 20px 0 0 0;}
+
+.third{padding: 40px 0 0 315px;}
+.third p{padding: 0 0 20px 0;}
+.third font{width: 75px; text-align: right; display: inline-block; vertical-align: middle; font-size: 16px; color: #333;}
+.third i{color: #ea0111; font-style: normal;}
+.third span{width: 210px; height: 40px; border: 1px #fff solid; display: inline-block; vertical-align: middle;}
+.third span.subtitle{width: auto; font-size: 14px; color: #666; font-family: '宋体';}
+.third .text-long{width: 198px; height: 38px; padding: 0 5px; line-height: 38px; border: 1px #dcdcdc solid;}
+.third em{vertical-align: middle; font-size: 12px; color: #999; display: none;}
+.third img{width: 109px; height: 40px; vertical-align: middle; margin: 0 5px 0 3px; cursor: pointer;}
+.third a{font-size: 12px; color: #333; margin: 0 5px 0 0; text-decoration: none; display: inline-block; vertical-align: middle;}
+.third a:hover{text-decoration: underline;}
+.third s{font-size: 12px; color: #999; vertical-align: middle; text-decoration: none;}
+.third .submit3{width: 210px; height: 38px; border: 1px #d83743 solid; background: #ee424d; color: #fff; font-size: 18px; text-align: center; line-height: 34px; font-family: '微软雅黑'; cursor: pointer;}
+.third .submit3:hover{background: #e1313d;}
+.third .getVerification{background: #ee424d; color: #fff; font-size: 14px; text-align: center; line-height: 38px; width: 106px; height: 38px; border: 1px #c71923 solid; margin: 0 0 0 5px; text-decoration: none;}
+.third .getVerification:hover{background: #e1313d; text-decoration: none;}
+.third .time{background: #e9e9e9; color: #999; font-size: 14px; text-align: center; line-height: 38px; width: 106px; height: 38px; border: 1px #e9e9e9 solid; margin: 0 0 0 5px; display: inline-block; cursor: pointer;}
+.third .time:hover{text-decoration: none;}
+.third .active span{border: 1px #ffe0be solid;}
+.third .active .text-long,.register .active .text-short{border: 1px #f38831 solid;}
+.third .active em{display: inline-block;}
+.third .warning span{border: 1px #ffabb1 solid;}
+.third .warning .text-long,.register .warning .text-short{border: 1px #ee424d solid;}
+.third .warning em{display: inline-block; color: #ee424d; line-height: 18px;}
+/*
+.third-party .message{font-size: 14px; color: #666; line-height: 18px; font-family: '宋体'; margin: 0;}
+.third-party p{margin: 10px 0;}
+.third-party font{width: 65px; text-align: right; display: inline-block; vertical-align: middle; font-size: 16px; color: #333;}
+.third-party span{width: 210px; height: 40px; border: 1px #fff solid; display: inline-block; vertical-align: middle;}
+.third-party .text-long{width: 198px; height: 38px; line-height: 38px; border: 1px #e9e9e9 solid; padding: 0 5px;}
+.third-party .active span{border: 1px #ffe0be solid;}
+.third-party .active em{display: inline-block;}
+.third-party .warning span{border: 1px #ffabb1 solid;}
+.third-party .warning em{display: inline-block; color: #ee424d; line-height: 18px;}
+.third-party .submit1{width: 210px; height: 38px; border: 1px #d83743 solid; background: #ee424d; color: #fff; font-size: 18px; text-align: center; line-height: 38px; font-family: '微软雅黑'; cursor: pointer;}
+.third-party .submit1:hover{background: #e1313d;}
+.third-party .submit2{width: 210px; height: 38px; border: 1px #bbb solid; background: #bbb; color: #fff; font-size: 18px; text-align: center; line-height: 38px; font-family: '微软雅黑'; cursor: auto;}
+.third-party .submit2:hover{background: #bbb;}
+
+.third-party .short{width: 122px;}
+.third-party .text-short{width: 110px; padding: 0 5px; height: 38px; line-height: 38px; border: 1px #e9e9e9 solid;}
+.third-party p img{height: 40px; width: 85px; display: inline-block; vertical-align: middle;}
+.third-party .active .text-long,.third-party .active .text-short{border: 1px #f38831 solid;}
+.third-party .warning .text-long,.third-party .warning .text-short{border: 1px #ee424d solid;}*/

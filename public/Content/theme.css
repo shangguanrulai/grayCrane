@@ -1,0 +1,163 @@
+﻿@charset "UTF-8";
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.iconFont {
+  background: url(../Images/icon2.gif) scroll 0px -78px; }
+
+/**select**/
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.iconFontChoose {
+  background: url(../Images/icon2.gif) scroll 0px -50px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.emotionButton {
+  background: url(../Images/icon2.gif) scroll -32px -78px; }
+
+/**select**/
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.emotionButtonChoose {
+  background: url(../Images/icon2.gif) scroll -32px -50px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.imgSelectButton {
+  background: url(../Images/icon2.gif) scroll -33px 255px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.pickfiles {
+  background: url(../Images/icon2.gif) scroll -64px -78px; }
+
+/**select**/
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.pickfilesChoose {
+  background: url(../Images/icon2.gif) scroll -64px -50px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.catchScreenButton {
+  background: url(../Images/icon2.gif) scroll -96px -78px; }
+.Blue_main_box #main_left  .Function_box .Function_top ul li a#chatHistoryButton {
+  display:inline-block;width:24px;height:24px;background: url(../Images/icon2.gif) scroll -128px -78px; }
+.Blue_main_box #main_left  .Function_box .Function_top ul li a#chatHistoryButton:hover {
+  background: url(../Images/icon2.gif) scroll -128px -50px; }
+/**select**/
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.catchScreenButtonChoose {
+  background: url(../Images/icon2.gif) scroll -96px -50px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.assessButton {
+  background: url(../Images/icon2.gif) scroll -220px -103px; }
+
+/**select**/
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.assessButtonChoose {
+  background: url(../Images/icon2.gif) scroll -189px -103px; }
+
+.Blue_main_box #main_left  .Function_box .pj_rating .subAssess {
+  background: url(../Images/icon2.gif) scroll 0px -129px; }
+
+.Blue_main_box #main_left  .Function_box .pj_rating .close {
+  background: url(../Images/icon2.gif) scroll -70px -129px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li.fun6 p {
+  background: url(../Images/icon2.gif) scroll 0px -105px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.CCRobot {
+  background: url(../Images/icon2.gif) scroll -189px -132px; }
+
+/**select**/
+.Blue_main_box #main_left  .Function_box .Function_top ul li a span.humanService {
+  background: url(../Images/icon2.gif) scroll -220px -132px; }
+
+.Blue_main_box #main_left  #messageStyleSettingPanel .colorPickerButton {
+  background: url(../Images/icon2.gif) scroll -87px -22px; }
+
+/**select**/
+.Blue_main_box #main_left  #messageStyleSettingPanel .colorPickerButtonChoose {
+  background: url(../Images/icon2.gif) scroll -87px 0px; }
+
+.Blue_main_box #main_left  #messageStyleSettingPanel .fontTypeB {
+  background: url(../Images/icon2.gif) scroll 0px -22px; }
+
+/**select**/
+.Blue_main_box #main_left  #messageStyleSettingPanel .fontTypeBChoose {
+  background: url(../Images/icon2.gif) scroll 0px 0px; }
+
+.Blue_main_box #main_left  #messageStyleSettingPanel .fontTypeI {
+  background: url(../Images/icon2.gif) scroll -29px -22px; }
+
+/**select**/
+.Blue_main_box #main_left  #messageStyleSettingPanel .fontTypeIChoose {
+  background: url(../Images/icon2.gif) scroll -29px 0px; }
+
+.Blue_main_box #main_left  #messageStyleSettingPanel .fontTypeU {
+  background: url(../Images/icon2.gif) scroll -59px -22px; }
+
+/**select**/
+.Blue_main_box #main_left  #messageStyleSettingPanel .fontTypeUChoose {
+  background: url(../Images/icon2.gif) scroll -59px 0px; }
+
+.Blue_main_box .Function_top ul li a:hover {
+  background: url(../Images/icon2.gif) scroll -128px -103px; }
+
+.Blue_main_box .Function_top ul li.noHover a:hover, .Blue_main_box .Function_top ul li.noHover2 a:hover {
+  background: none; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li.fun8 a {
+  background: url(../Images/icon2.gif) scroll 0px -153px; }
+
+.Blue_main_box #main_left  .Function_box .Function_top ul li.fun8 a.Choose {
+  background: url(../Images/icon2.gif) scroll -31px -153px; }
+
+#clerkQQIcon {
+  background: url(../Images/icon2.gif) scroll -191px -54px; }
+
+#clerkMSNIcon {
+  background: url(../Images/icon2.gif) scroll -224px -54px; }
+
+#clerkWangWangIcon {
+  background: url(../Images/icon2.gif) scroll -159px -54px; }
+
+/***************************** --------- 定义颜色 -----------****************************************/
+.Blue_main_box #main_left  .Function_box .Function_top #toolMask {
+  background: #fff; }
+
+.Blue_main_box .change_li li.index {
+  background: none;
+  border-bottom: none; }
+
+.Blue_main_box .change_li li {
+  background: #fafafa;
+  border-bottom: 1px #d4d4d4 solid; }
+
+.Blue_main_box .change_li li.right_boder {
+  border-right: 1px solid #d4d4d4; }
+
+#hotList .hot_list_tit .img {
+  background: url(../Images/ye.gif) scroll 50% 50% no-repeat }
+
+
+#sendBar .send,#sendBar .close{background:url(../Images/send.png) no-repeat scroll 50% 2px}
+#sendBar .close{background:url(../Images/close.png) no-repeat scroll 50% 50%}
+
+#leavingMessageArea .subMessage, #leavingMessageArea .subLeaveMessage{background:url(../Images/liu.gif)}
+
+.navBar .consultation .icon {
+    background-image: url(../Images/zx_b.png);
+    _background-image: url(../Images/lt.gif);
+}
+.navBar .consultation div.index {
+    background-image: url(../Images/zx_h.png);
+    _background-image: url(../Images/lt_h.gif);
+}
+
+.navBar .leavingMessage .icon {
+    background-image: url(../Images/ly_b.png);
+    _background-image: url(../Images/ly.gif);
+}
+.navBar .leavingMessage div.index {
+    background-image: url(../Images/ly_h.png);
+    _background-image: url(../Images/ly_h.gif);
+}
+
+.navBar .robot .icon {
+    background-image: url(../Images/zd_b.png);
+    _background-image: url(../Images/yw.gif);
+}
+.navBar .robot div.index {
+    background-image: url(../Images/zd_h.png);
+    _background-image: url(../Images/yw_h.gif);
+}
+
+.navBar .index{
+    background: url(../Images/db_bj.gif);
+}
+.msgBox .close{background: url(../Images/ts_colse.gif);}

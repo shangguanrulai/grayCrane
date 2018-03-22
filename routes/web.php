@@ -11,8 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::resource('user','homes\UserController');
+
+Route::get('/home/ajax/user/{phone}','home\AjaxController@user');
+Route::get('/home/msg/{uid}','home\MsgController@index');
+
+Route::resource('/', 'home\FirstController');
+Route::resource('/home/user', 'home\UserController');
+Route::resource('/home/release', 'home\ReleaseController');
+

@@ -1,0 +1,98 @@
+﻿body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th, td, p, blockquote, pre, form, fieldset, legend, input, button, textarea, hr { margin: 0; padding: 0; }
+body { font: 12px/1.5 Arial; color: #3d424b; background-color: #fff; }
+select, input, button { vertical-align: middle; font-size: 100%; }
+ul, ol { list-style: none; }
+fieldset, img { border: 0; }
+em { font-style: normal; }
+.clearfix:after { content: "."; display: block; visibility: hidden; clear: both; height: 0; font-size: 0; }
+.clearfix { *zoom: 1; }
+a { color: #3d424b; text-decoration: none; }
+
+html, body { min-width: 980px }
+html { background: url(../Images/info_body.png) repeat-x 0 0 }
+body { background: url(../Images/info_page_new.png) no-repeat center 0 }
+.header,.wrapper,.footer { width: 980px;margin: 0 auto;clear: both;*zoom: 1 }
+
+.header { height: 147px;background: url(../Images/info_header_new.jpg) no-repeat -1px 0 }
+.logo { width: 178px;height: 147px;text-indent: -2000px;overflow: hidden;background: url(../Images/info_logo.png) no-repeat 36px 10px }
+.logo a { display: block;width: 142px;height: 90px;margin: 10px 0 0 36px }
+
+.footer { height: 23px;padding: 12px 0;text-align: center;letter-spacing: 1px;line-height: 23px;color: #fff;background: #91959b;vertical-align: middle}
+.footer img { width: 23px;height: 23px;vertical-align: middle;margin: -1px 25px 0 0 }
+
+.wrapper { margin: 5px auto 0 auto }
+
+.aside { float: left;width: 170px;padding: 5px 0;border-right: 1px solid #91969e }
+.aside li { width: 141px;height: 40px;background: url(../Images/info_bg.png) no-repeat 0 -10px;margin: 4px auto }
+.aside .selected { background: url(../Images/info_bg.png) no-repeat 0 -60px }
+.aside a, .aside a:hover,.aside a:visited { text-decoration: none }
+.aside a { display: block;width: 141px;height: 40px;line-height: 40px;color: #fff;font-size: 18px;text-align: center;font-weight: 500;font-family: 微软雅黑 }
+.aside .selected a { color: #3d424b }
+
+.article { float: right;position: relative;left: -1px;width: 778px;padding: 10px 11px 10px 19px;border-left: 1px solid #91969e }
+.section { margin: 6px 0 0 0;padding: 0 0 40px 0;border-bottom: 1px dotted #989da4 }
+.section-last-child { border-bottom: 0 }
+.caption { height: 33px;margin: 6px 0;line-height: 31px;background: url(../Images/info_bg.png) no-repeat 0 31px;}
+.caption i { position: absolute;margin:-25px 0 0 105px ;font-style: normal}
+.title { font-size: 24px;font-family: 黑体;font-weight: 700 }
+
+.section h3 { height: 30px;margin: 10px 0;line-height: 30px;_line-height: 34px;color: #ff7302;font-size: 18px;font-family: 微软雅黑;font-weight: 400;text-indent: 21px;background:url(../Images/info_bg.png) no-repeat -200px -13px; font-weight:bold;}
+.section h4 { font-size: 14px;font-weight: 700;margin: 40px 30px 5px 22px }
+.section p,.section pre,.section div { margin: 0 30px 0 22px;font-size: 14px;line-height: 24px }
+.section p { text-indent: 2em }
+
+.sitemap-links { padding: 10px 15px 60px 15px }
+.sitemap-links p { line-height: 30px;font-size: 14px;font-family: 宋体 }
+.sitemap-links a { font-size: 14px;margin: 0 5px }
+.sitemap-links a:hover { text-decoration: underline }
+
+.statement { margin: 20px 0;padding: 6px 30px 10px 22px }
+.statement dl { margin: -30px 0 0 0 }
+.statement dt,.statement dd,.statement p { font-size: 14px;line-height: 24px }
+.statement dt { text-indent: 2em;padding: 17px 0 }
+.statement_tit dt {font-weight:bold;color:#FF7302;}
+.statement dd p { text-indent: 2em;margin: 12px 0 }
+.statement .sign { text-indent: 584px;margin: 20px 0 10px 0 }
+
+/* 20130108 定义a样式 */
+.statement dd a{color:#000086; text-decoration:underline;}
+.statement dd a:hover{color:#f60;}
+
+.links { margin: 10px 20px 10px 0 }
+.links li { float: left; width: 187px; height: 35px;text-align: center;overflow: hidden }
+.links a { line-height: 35px; color: #000086; white-space: nowrap }
+.links a:hover { text-decoration: underline }
+
+.office { margin: 34px 45px 41px 33px;border: 1px solid #626871;overflow: hidden }
+.office .nav { height: 44px;border-collapse: collapse;border-spacing: 0;width: 100%;border-bottom: 1px solid #626871 }
+.office .nav td { border-left: 1px solid #626871 }
+.office .nav .first-child { border-left: 0 none }
+.office .nav a { display: block;height: 44px;font-size: 18px;line-height: 44px;text-align: center;font-family: 微软雅黑;font-weight: 500;}
+.office .nav .selected { background: #f39a0c;color: #fff }
+.office em { display: block;margin: 37px; color: #000; font-size: 18px; font-weight: 700; }
+
+.post, .post h4, .post p { font-size: 14px;line-height: 24px }
+.post h3 { margin: 28px 24px;font-size: 18px;color: #ff7302 }
+.post dl { margin: 0 11px;padding: 0 30px 10px 30px;height: 72px; }
+.post dt, .post dd { display: inline-block;*display: inline;*zoom: 1 }
+.post dt { width: 5em }
+.post dd { width: 8em;margin: 0 5px 0 0;vertical-align: top }
+.post h4 { margin: 20px 0 0 37px;font-weight: 400 }
+.post p { margin: 0 28px 0 37px }
+
+.office .pager { margin: 103px auto 26px auto;text-align: center;color: #000 }
+.office .pager a { color: #000 }
+#sales{display:block}
+#editorial{display:none}
+#design{display:none}
+#shichang{display:none}
+#xingzheng{display:none}
+
+.office .post {
+border-top: 1px dotted #989DA4;
+width: 676px;
+margin: 0 auto;
+padding-bottom: 20px;}
+
+#sales,#editorial,#design,#shichang,#xingzheng{margin-top:-1px;}
+.section span.tit{font-weight:bold; font-size:15px; margin-right:10px;}

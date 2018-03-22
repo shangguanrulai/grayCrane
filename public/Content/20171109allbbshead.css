@@ -1,0 +1,83 @@
+﻿.picFooter .labelBox .heart { background-image: url(../Images/bigbg.png); background-repeat: no-repeat }
+* { margin: 0; padding: 0 }
+body { font: 16px/30px "Microsoft YaHei", Arial; -webkit-text-size-adjust: none; padding: 0; margin: 0 }
+ul, li { list-style: none; margin: 0; padding: 0 }
+h3 { font-weight: normal }
+a { text-decoration: none; color: #333 }
+.clear, .clearfix:after { display: block; height: 0; clear: both; visibility: hidden }
+.clear { font: 0/0 arial }
+.clearfix:after { content: "." }
+.clearfix { zoom: 1 }
+body { background: #f8f8f8 }
+.wrapper { width: 1200px; margin: 0 auto }
+.module1200 { width: 1200px; margin: 0 auto }
+.module100 { width: 100%; background: #fff }
+.module90 { width: 90%; margin: 0 auto; max-width: 1800px; min-width: 1000px }
+.header { width: 100%; height: 60px; margin: 36px auto 0; text-align: center; font: normal 24px/50px "Microsoft YaHei", Arial; color: #333; background: url(../Images/heng.png) no-repeat center bottom }
+.beginNo { display: none }
+img, input, button { background: none; border: none; outline: none }
+.headerTop { height: 70px; border-bottom: 1px solid #e9e9e9; position: relative; z-index: 1100 }
+.headerTop .logo { background: url(../Images/logo.png) no-repeat center center; width: 80px; height: 51px; display: block; float: left; margin-top: 10px }
+.headerTop .title { width: 60px; height: 60px; font: bold 20px/60px "Microsoft YaHei", Arial; color: #28b8c5; display: block; float: left; text-align: center; margin-top: 10px }
+.headerTop .menu { width: 52%; height: 60px; float: left; margin-top: 10px }
+.headerTop .menu > li { float: left; margin: 0 1.5% }
+.headerTop .menu > li > a { float: left; font-size: 16px; line-height: 60px; padding: 0 10px }
+.headerTop .menu > li > a:hover { color: #28b8c5 }
+.headerTop .menu .map { position: relative }
+.headerTop .menu .map > a { background: url(../Images/sanjiaodown.png) no-repeat right center; padding-right: 15px }
+.headerTop .mapBox { width: 981px; height: 410px; position: absolute; top: 60px; left: 0; border: 1px solid #e9e9e9; display: none; background: #fff; padding-left: 1px; border-top: none }
+.headerTop .mapBox .mapList { width: 130px; height: 410px; float: left }
+.headerTop .mapBox .mapList > li { width: 130px; height: 68px; background: #f8f8f8; cursor: pointer }
+.headerTop .mapBox .mapList > li.act { background: #fff }
+.headerTop .mapBox .mapList > li > i { background: #f8f8f8; width: 3px; height: 68px; display: inline-block; float: left; margin-left: -1px }
+.headerTop .mapBox .mapList > li.act > i { background: #28b8c5 }
+.headerTop .mapBox .mapList > li > span { width: 80px; margin-left: 28px; font-size: 14px; line-height: 68px }
+.headerTop .mapBox .mapTitle { width: 848px; height: 410px; float: left }
+.headerTop .mapBox .mapTitle > li { width: 170px; height: 410px; float: left; margin: 14px 0 0 37px }
+.headerTop .mapBox .mapTitle06 > li { width: 12% }
+.headerTop .mapBox .mapTitle05 > li { width: 15% }
+.headerTop .mapBox .mapTitle08 > li { width: 8% }
+.headerTop .mapBox .mapTitle > li > a { width: 100%; display: inline-block; font-size: 14px; line-height: 40px; margin: 4px 0 }
+.headerTop .mapBox .mapTitle > li > a.imgTitle { margin-top: 30px }
+.headerTop .mapBox .areaTitle { margin-top: 5px }
+.headerTop .mapBox .areaTitle > li { width: 800px; height: auto; border-bottom: 1px dashed #e9e9e9; margin: 0 0 0 25px }
+.headerTop .mapBox .areaTitle > li .areaTxt { width: 710px; float: left; margin: 8px 0 }
+.headerTop .mapBox .areaTitle > li .areaTxt > a { float: left; font-size: 14px; line-height: 30px; margin: 0 0 0 32px }
+.headerTop .mapBox .areaTitle > li .area { color: #999; float: left; font-size: 14px; line-height: 30px; margin: 8px 0; width: 84px; display: block }
+.headerTop .searchBox { width: 258px; height: 32px; float: right; border: 1px solid #e9e9e9; border-radius: 17px; margin: 20px 0px 0 0; background: #f8f8f8 }
+.headerTop .searchBox input { text-indent: 24px; width: 210px; font-size: 14px; line-height: 24px; color: #999; height: 24px; float: left; margin: 4px 0 0 2px }
+.headerTop .searchBox .btn { background: url(../Images/searchicon.png) no-repeat center center; width: 30px; height: 32px; float: right; margin-right: 12px; cursor: pointer }
+.headerTop .people { width: 60px; height: 70px; position: relative; float: right; margin: 0 30px 0 0; z-index: 1 }
+.headerTop .people > img { margin: 20px 0 0 12px; float: left; display: block; border-radius: 34px }
+.headerTop .peopleList { width: 96px; height: auto; border: 1px solid #e9e9e9; position: absolute; top: 70px; left: 0; display: none; background: #fff }
+.headerTop .peopleList .red { background: url(../Images/red.png) no-repeat 68px 13px; border-radius: 5px }
+.headerTop .peopleList > a { width: 96px; height: 33px; display: block; text-indent: 16px; margin: 2px 0; font-size: 12px; line-height: 33px }
+.headerTop .people .newsNum { height: 15px; position: absolute; background: #dd1717; color: #fff; font-size: 12px; line-height: 15px; display: block; text-align: center; padding: 1px 5px; border-radius: 7.5px; top: 17px; left: 32px }
+.headerTop .newsList { width: 112px; height: auto; border: 1px solid #e9e9e9; position: absolute; top: 70px; left: 0; display: none; background: #fff }
+.headerTop .newsList > a { width: 96px; height: 33px; display: block; text-indent: 16px; margin: 2px 0; font-size: 12px; line-height: 33px }
+.headerTop .loginOut { width: 35px; height: 34px; float: right; margin: 20px 0 0 0 }
+.headerTop .loginOut > a { float: left; font-size: 12px; line-height: 34px; color: #333 }
+.headerTop .loginBox { width: 90px; height: 34px; float: right; margin: 20px 0 0 0 }
+.headerTop .loginBox > a { float: left; font-size: 12px; line-height: 34px; color: #333 }
+.headerTop .loginBox .line { width: 1px; height: 16px; background: #e9e9e9; float: left; margin: 9px 16px 0 }
+.loginNo { display: none }
+.crumbs { color: #999; font-size: 12px; margin: 18px auto; font-family: SimSun }
+.crumbs a { color: #999 }
+.crumbs i { font-style: normal; display: inline-block; margin: 0 12px }
+.crumbs span { color: #333 }
+.page { width: 1200px; height: 36px; margin: 30px auto 70px; text-align: center; font-size: 14px; line-height: 36px }
+.page a { color: #000; display: inline-block; padding: 0 14px; height: 34px; line-height: 34px; border: 1px solid #e9e9e9; background: #fff; margin: 0 3px; border-radius: 5px }
+.page span { margin: 0 6px }
+.page .btn2 { width: 50px }
+.page .btn3 { width: 50px }
+.page a:hover { color: #3cbeca; border-color: #3cbeca }
+.page a.act { color: #fff; border-color: #3cbeca; background: #3cbeca }
+.page input { width: 42px; height: 34px; line-height: 34px; border: 1px solid #e9e9e9; background: #fff; display: inline-block; padding: 0 6px; *height: 20px; *line-height: 20px }
+/*bbsRightMenu*/
+.bbsRightMenu{position: fixed; bottom:224px; right:1%;width: 50px;height: 104px;z-index: 1005;}
+.bbsRightMenu a{background: url(../Images/bbsrightmenu.png) no-repeat;display: inline-block;}
+.bbsRightMenu .noTextA{font-size: 0;line-height: 200%;overflow: hidden;}
+.bbsRightMenu .postA{background-position: 0 0;width: 50px;height: 50px;margin-bottom: 10px;}
+.bbsRightMenu .postA:hover{background-position: 0 -50px;}
+.bbsRightMenu .goTopA{background-position: -80px 0;width: 50px;height: 50px;display: none;}
+.bbsRightMenu .goTopA:hover{background-position: -80px -50px;}
