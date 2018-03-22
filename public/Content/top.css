@@ -1,0 +1,20 @@
+﻿.user-top{border: 1px #e9e9e9 solid; background: #fff; margin: 65px 0 0 0; text-align: center; padding: 60px 0 10px 0; position: relative;}
+.user-top img{width: 110px; height: 110px; border: 2px #e9e9e9 solid; border-radius: 110px; box-shadow: 0 0 11px #6a6a6a; position: absolute; top: -55px; left: 50%; margin-left: -55px;}
+.user-top .username{font-size: 16px; line-height: 36px; font-weight: bolder;}
+.user-top .mark{font-size: 14px; line-height: 36px; font-family: '宋体';}
+.user-top .mark b{margin: 0 0 0 10px; display: inline-block; vertical-align: middle;}
+.user-top .mark font{display: inline-block; vertical-align: middle;}
+.user-top .mark i{background: url("../Images/icon.png") -3px -58px no-repeat; width: 16px; height: 13px; display: inline-block; vertical-align: middle;}
+.user-top .mark s{text-decoration: none; display: inline-block; vertical-align: middle;}
+.user-top .des{line-height: 32px; font-size: 12px; color: #999; padding:0 20px;}
+.user-top .des a{width: 50px; height: 28px; text-align: center; line-height: 28px; font-weight: bolder; color: #39a6b1; display: inline-block; background: url("../Images/icon.png") 0 -183px no-repeat;}
+.user-top .des a:hover{background-position: -50px -183px;}
+.user-top .grade{font-weight: bolder; display: inline-block; position: relative; *display: inline; *zoom: 1;}
+.user-top .grade span{width: 202px; height: 65px; background: url("../Images/icon.png") 0 -231px no-repeat; display: none; position: absolute; left: 50%; margin-left: -121px; padding: 15px 20px 0 20px; font-size: 12px; line-height: 26px; text-align: left; font-weight: normal; top: 30px;}
+.user-top .grade font{display: inline; color: #ff6619;}
+.user-top .others{padding: 5px 0;}
+.user-top .others a{width: 80px; height: 30px; line-height: 30px; text-align: center; border: 1px #ffb38d solid; color: #ff6619; font-weight: normal; display: inline-block; margin: 0 20px 0 0; font-size: 14px;}
+.user-top .others a:hover{background: #fff4e8;}
+.user-top .others a.btn1{border: 1px #ff6619 solid; color: #fff; background: #ff6619;}
+.user-top .others a.btn1:hover{background: #ff8d53; border: 1px #ff8d53 solid;}
+.user-top .others a.btn2{border: 1px #faeee8 solid; color: #ff6619; background: #faeee8;}

@@ -1,0 +1,41 @@
+﻿.aside-box{border: 1px #e9e9e9 solid; border-top: 2px #999 solid; background: #fff; overflow: hidden;margin-bottom:20px;}
+.aside-list-box{border-bottom: 0;}
+
+.attention,.fans{margin: 12px 0; float: left; width: 118px; height: 52px; text-align: center;}
+.attention p,.fans p{font-size: 14px; color: #666; line-height: 26px;}
+.attention p a,.fans p a{color: #666;}
+.attention p a:hover,.fans p a:hover{color: #39a6b1; text-decoration:underline;}
+.attention .num,.fans .num{font-size: 20px; color: #39a6b1; font-weight: bolder;}
+.attention{border-right: 1px #e5e5e5 dashed;}
+
+.week{background: #fff6f2; width: 79px; height: 60px; border: 1px #e9e9e9 solid; border-top: 0; border-right: 0; float: left; text-align: center; padding: 17px 0 0 0;}
+.week p{font-size: 20px; line-height: 26px;}
+.week span{font-size: 12px; font-family: '宋体'; color: #666;}
+.check{background: #fff; width: 159px; height: 60px; float: left; border: 1px #e9e9e9 solid; border-top: 0; border-left: 0; text-align: center; padding: 17px 0 0 0;}
+.check a{font-size: 20px; color: #ff6619; line-height: 24px;}
+.check p{font-size: 14px; color: #999;}
+.check p font{color: #39a6b1;}
+
+.list-aside li{border-bottom: 1px #e9e9e9 solid; text-align: center; height: 40px; line-height: 40px; font-size: 14px;}
+.list-aside li b{display: block; color: #39a6b1; background: #f6f6f6;}
+.list-aside li a{display: block; color: #333; font-family: '宋体'; height: 40px;}
+.list-aside li.active,.list-aside li a:hover{background: #f6f6f6;}
+
+.module{padding: 10px 20px;}
+.module .title{line-height: 36px; border-bottom: 1px #e9e9e9 solid;}
+.module .title font{font-size: 16px; color: #333; position: relative; border-bottom: 1px #ff6619 solid; line-height: 36px; display: inline-block; top: 1px;}
+
+.recently li{margin: 20px 0 10px 0; overflow: hidden;}
+.recently li img{width: 50px; height: 50px; border: 1px #e9e9e9 solid; float: left; margin: 0 15px 0 0;}
+.recently li a{font-size: 12px; color: #333;}
+.recently li .recentlyA{width: 55px; height: 22px; border: 1px #ffbe9d solid; display: inline-block; line-height: 22px; text-align: center; margin-top: 9px; color: #ff6619;}
+.recently li .recentlyA:hover{background: #fff6f2;}
+
+.base-info{padding: 0 20px;}
+.base-info span{display: block; padding: 0 0 0 65px; height: 40px; line-height: 40px; border-bottom: 1px #e9e9e9 dashed; font-size: 14px; font-weight: bolder;}
+.base-info ul{padding: 0 0 0 65px;}
+.base-info li{height: 40px; line-height: 40px; font-size: 14px; font-family: '宋体';}
+.base-info li a{color: #666;}
+.base-info .active a{color: #39a6b1;}
+.aside-message{width:138px;}
+.aside-message .base-info span,.aside-message .base-info ul{padding:0 0 0 5px;}

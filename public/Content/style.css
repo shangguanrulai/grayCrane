@@ -96,7 +96,7 @@ input,textarea{outline: none;}
 .y-center-search{width: 550px; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle;}
 .y-center-searchBox{border: 1px #ff6619 solid; width: 408px; height: 32px; display: inline-block; *display: inline; *zoom: 1; background: #fff; vertical-align: top;}
 .y-center-searchBox .menu{width: 76px; height: 32px; border-right: 1px #e9e9e9 solid; float: left; position: relative;}
-.y-center-searchBox .menu span{display: block; height: 31px; background: url("../Images/y_center_icon.png") 60px -178px no-repeat; line-height: 30px; font-size: 14px; text-align: center; cursor: pointer; color: #666; border-top: 1px #fff solid; border-left: 1px #fff solid;}
+.y-center-searchBox .menu span{display: block; height: 31px; line-height: 30px; font-size: 14px; text-align: center; cursor: pointer; color: #666; border-top: 1px #fff solid; border-left: 1px #fff solid;}
 .y-center-searchBox .menu ul{display: none; border: 1px #e9e9e9 solid; border-top: 0; width: 75px; z-index: 9; background: #fff; position: absolute; top: 32px; left: 0;}
 .y-center-searchBox .menu li{font-size: 12px; line-height: 30px; padding: 0 15px; color: #666; cursor: pointer;}
 .y-center-searchBox .menu li:hover{background: #f6f6f6;}
@@ -2021,7 +2021,7 @@ body{background: #f6f6f6;}
 
 .messageCenter-recovery-box .page-box{margin: 0; padding: 20px 0 20px 0; border: 0 none;}
 
-body{font-size: 12px;}
+body{font-size: 12px;margin-top:-15px;}
 
 /* tips-bar */
 .tips-bar{overflow: hidden; padding: 0 45px; border: 1px solid #f30; background: #fff9ee; font-family: arial; word-break: break-all; word-wrap: break-word;}

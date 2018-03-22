@@ -218,38 +218,7 @@ var globalCeilingRun = {
         sellerCenter += '<li class="global-sub-link"><a opt_value="4" rel="nofollow" href="' + globalCeilingParams.mySellerOfferGoodsUrl + '" target="_blank">议价请求</a></li>';
         sellerCenter += '</ul>';
 
-        var navigation = '<li class="global-personal-item">\
-            <ul class="global-personal-nav clearfix">\
-            <li class="global-personal-item global-special-ie7-li"><span class="trigger"><i></i><i class="arrow-icon"></i>网站导航</span>\
-                 <dl  class="global-sub-links website-links">\
-                    <dt><a target="_blank" href="http://www.fengniao.com/">资讯</a></dt>\
-                <dd class="clearfix">\
-                    <a target="_blank" href="http://academy.fengniao.com/">技法学院</a><a target="_blank" href="http://image.fengniao.com/">大师作品</a><a target="_blank" href="http://qicai.fengniao.com/">器材评测</a><a target="_blank" href="http://travel.fengniao.com/">旅游摄影</a><a target="_blank" href="http://qsy.fengniao.com/">手机拍照</a><a target="_blank" href="http://auto.fengniao.com/">行摄自驾</a>\
-                    </dd>\
-                <dt><a target="_blank" href="http://bbs.fengniao.com/">论坛</a></dt>\
-                <dd class="clearfix">\
-                    <a target="_blank" href="http://bbs.fengniao.com/forum/forum_11.html">主题摄影</a><a target="_blank" href="http://bbs.fengniao.com/forum/forum_250.html">器材讨论</a><a target="_blank" href="http://bbs.fengniao.com/forum/forum_23.html">品牌交流</a><a target="_blank" href="http://bbs.fengniao.com/forum/forum_75.html">自建论坛</a><a target="_blank" href="http://bbs.fengniao.com/forum/forum_38.html">地方论坛</a><a target="_blank" href="http://huodong.fengniao.com/">活动中心</a>\
-                    </dd>\
-                <dt><a target="_blank" href="http://product.fengniao.com/">器材</a></dt>\
-                <dd class="clearfix">\
-                    <a target="_blank" href="http://product.fengniao.com/camera.html">数码相机</a><a target="_blank" href="http://product.fengniao.com/lens.html">热门镜头</a><a target="_blank" href="http://product.fengniao.com/filmcamera.html">胶片相机</a><a target="_blank" href="http://product.fengniao.com/camcorder.html">视频设备</a><a target="_blank" href="http://product.fengniao.com/accessories.html">摄影附件</a><a target="_blank" href="http://product.fengniao.com/others.html">其他设备</a>\
-                    </dd>\
-                <dt><a href="http://2.fengniao.com/">二手</a></dt>\
-                <dd class="clearfix">\
-                    <a target="_blank" href="http://2.fengniao.com/quality">蜂鸟鉴定</a><a target="_blank" href="http://2.fengniao.com/recycle">蜂鸟回收</a><a target="_blank" href="http://2.fengniao.com/price/def-1_1.html">闲置商品</a><a target="_blank" href="http://2.fengniao.com/auction">蜂鸟拍卖</a>\
-                    </dd>\
-                <dt><a target="_blank" href="http://tu.fengniao.com/">图片</a></dt>\
-                <dd class="clearfix">\
-                    <a target="_blank" href="http://tu.fengniao.com/">精选图赏</a><a target="_blank" href="http://photo.fengniao.com/">图库大全</a><a target="_blank" href="http://pp.fengniao.com/">唯美相册</a><a target="_blank" href="http://bbs.fengniao.com/jinghua-101.html">论坛精华</a>\
-                    </dd>\
-                <dt><a target="_blank" href="http://sai.fengniao.com/">活动</a></dt>\
-                <dd class="clearfix">\
-                    <a target="_blank" href="http://sai.fengniao.com/">热门影赛</a><a target="_blank" href="http://www.fengniao.com/topic/">热门专题</a>\
-                </dd>\
-                </dl>\
-            </li>\
-            </ul>\
-            </li>';
+        var navigation = '';
 
         var commonTemplateTop = '<div class="global-secondaryTopbar">' +
             '<div class="wrapper clearfix">' +
@@ -257,9 +226,9 @@ var globalCeilingRun = {
             '<ul class="global-personal-nav">' +
             '<li class="global-personal-item"><!--<a href="' + globalCeilingParams.indexUrl + '" target="_blank">蜂鸟二手首页</a><i class="line-icon">|</i>--></li>' +
             '<li class="global-personal-item my-secondary-item" id="mySecondaryItem">' +
-            '<a rel="nofollow" href="/user/index" target="_blank" class="trigger"><i class="arrow-icon"></i>用户中心</a>' + '<i class="line-icon">|</i>' + mySecHand +
+            '<a rel="nofollow" href="/home/user?uid=1" target="_blank" class="trigger"><i class="arrow-icon"></i>用户中心</a>' + '<i class="line-icon">|</i>' + mySecHand +
             '</li>' + 
-            '<li class="global-personal-item my-follow-item"><a rel="nofollow" href="/user/index" target="_blank" class="trigger"><i class="arrow-icon"></i><img src="http://icon.fengniao.com/fn_mall/images/topBarfollowIcon.png" class="topBarfollowIcon" width="14" height="12">我的收藏</a><i class="line-icon">|</i>\
+            '<li class="global-personal-item my-follow-item"><a rel="nofollow" href="/user/index" target="_blank" class="trigger"><i class="arrow-icon"></i>我的收藏</a><i class="line-icon">|</i>\
             <ul class="global-sub-links">\
             <li class="global-sub-link"><a rel="nofollow" href="'+ globalCeilingParams.myCollectGoodsUrl +'" target="_blank">我收藏的商品</a></li>\
             <li class="global-sub-link"><a rel="nofollow" href="'+ globalCeilingParams.myCollectSellerUrl+'" target="_blank">我收藏的卖家</a></li>\
@@ -274,20 +243,20 @@ var globalCeilingRun = {
             <dl class="onlineService-mobile">\
             <dt>在线客服</dt>\
             <dd>\
-            <a rel="nofollow" target="_blank" href="http://kefu.qycn.com/vclient/chat/?websiteid=123435&click_source=index_right"><img src="http://icon.fengniao.com/fn_mall/images/onlineServiceICon.png" width="120" height="36" alt=""></a>\
+            <a rel="nofollow" target="_blank" href=""></a>\
             </dd>\
             <dd><strong class="telephone-tag">010-82666200-8152</strong><strong class="telephone-tag">010-82666200-8129</strong></dd>\
             </dl>\
             <dl class="onlineService-vcode">\
             <dt>关注公众号</dt>\
-            <dd><span class="onlineService-pic"><img src="http://icon.fengniao.com/fn_mall/images/wechat.jpg"></span></dd>\
+            <dd><span class="onlineService-pic"><img src="/Picture/head50.png" style="width: 80px;height: 80px"></span></dd>\
             </dl>\
             </div>\
             </li>' + navigation +
             '</ul>' +
             '</div>' +
             '<div class="global-login-bar">' +
-            '<a href="http://www.fengniao.com" class="home-link" target="_blank">蜂鸟首页</a>';
+            '<a href="\" class="home-link" target="_blank">首页</a>';
 
         var commonTemplateBottom =
             '</div>' +
@@ -318,7 +287,7 @@ var globalCeilingRun = {
 
         } else {
             var template = commonTemplateTop + '<div class="global-login-inner clearfix">' +
-                '<span class="welcome-tip">HI,欢迎来到蜂鸟二手交易&nbsp;&nbsp;&nbsp;</span><a rel="nofollow" href="javascript:;" class="registered-link nologin">请登录</a>' +
+                '<span class="welcome-tip">HI,欢迎来到灰鹤二手交易&nbsp;&nbsp;&nbsp;</span><a rel="nofollow" href="javascript:;" class="registered-link nologin">请登录</a>' +
                 '<i class="line-icon">|</i>' +
                 '<a rel="nofollow" href="' + this.registerUrl + '" class="registered-link" target="_blank">免费注册</a>' +
                 '</div> ' + commonTemplateBottom;
@@ -443,12 +412,20 @@ var globalCeilingRun = {
     }
 };
 
-$(function () {
+/*$(function () {
 // window.onload = function () {
     globalCeilingRun.run(function () {
         $('#globalCeiling-topBar').find('a.nologin').on('click', function () {
             if (jsChkUserLogin()) return false;
         })
     });
+})*/
+
+$(function () {
+// window.onload = function () {
+    globalCeilingRun.run(function () {
+        $('#globalCeiling-topBar').click(function () {
+            if (jsChkUserLogin()) return false;
+        })
+    });
 })
-// }

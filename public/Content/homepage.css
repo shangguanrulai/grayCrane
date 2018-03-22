@@ -353,6 +353,7 @@ a[href="javascript:;"] {
   text-align: center;
 }
 .homePage-nav-box .classification-sub-layer {
+  display:none;/*手动隐藏*/
   position: absolute;
   top: 44px;
   left: 0;
