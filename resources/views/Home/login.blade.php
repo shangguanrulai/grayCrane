@@ -33,7 +33,7 @@
         <!--logo-->
         <!--content-->
          <!--<div class="hint"><a href="javascript:;" class="messagelogin" id="changeMessageLogin">短信快捷登录</a></div>-->
-		 <form action="{{ url('Home/dologin') }}" method="post" >
+		 <form action="{{ url('home/dologin') }}" method="post" >
 		@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<ul>
@@ -73,10 +73,10 @@
 		 <div class="code" style="margin-top:20px;margin-bottom:20px">
             <span>
 		<input class="yanzhengma" name="yzm" lay-verify="required" placeholder="请输入验证码"  type="text"  style="width:200px;height:40px;float:left;">
-           <img src="{{ url('Home/yzm') }}" onclick="this.src='{{ url('Home/yzm') }}?'+Math.random()" alt="" style="width:150px;height:50px;float:right">
+           <img src="{{ url('home/yzm') }}" onclick="this.src='{{ url('home/yzm') }}?'+Math.random()" alt="" style="width:150px;height:50px;float:right">
 
 
-            <!-- <img src="{{ url('Home/yzm') }}" id="127ddf0de5a04167a9e427d883690ff6" onClick="this.src=this.src+'?'">  --> 
+
 			
 			
 			

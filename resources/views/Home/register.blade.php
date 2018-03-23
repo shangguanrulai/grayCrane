@@ -14,15 +14,15 @@
     <script>
         var project_domain = 'https://my.fengniao.com/';
     </script>
-    <script src="/Script/jquery-1.7.1.min.js"></script>
+    <script src="/Scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="/Scripts/function.js"></script>
-    <script src="/Script/main.js"></script>
-    <script src="/Script/md5.js"></script>
-    <script src="/Script/gt.js"></script>
+    <script src="/Scripts/main.js"></script>
+    <script src="/Scripts/md5.js"></script>
+    <script src="/Scripts/gt.js"></script>
     <link rel="stylesheet" href="/Content/register.css"/>
 </head>
 <body>
-<div id="box" class="wrapper wrapper-box">
+<div id="box" class="wrapper">
     <!--logo-->
     <div class="logo-box">
         <a href="#" class="logo">蜂鸟网</a>
@@ -30,116 +30,78 @@
     </div>
     <!--logo-->
     <!--content-->
+	<form  method="post" action="{{url('home/doregister')}}">
+        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @if(is_object($errors))
+                                        @foreach ($errors->all() as $error)
+                                            <li style="color:red;font-family:Microsoft YaHei">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $error }}</li>
+                                            @endforeach
+                                        @else
+                                                <li style="color:red;font-family:Microsoft YaHei">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $errors }}</li>
+                                        @endif
+                                    </ul>
+                                </div>
+                            @endif
+
+	{{ csrf_field() }}
     <div class="content">
         <div class="title">
             注册蜂鸟账号
-            <span>我已注册，现在就<a href="https://my.fengniao.com/login.php">登录</a></span>
+            <span>我已注册，现在就<a href="{{url('home/login')}}">登录</a></span>
         </div>
         <div class="register">
             <!--p标签在input输入时class使用active，验证失败时使用warning-->
             <p class="">
-                <font><i>*</i>用户名：</font>
-                <span><input type="text" class="text-long" name="username" id="username" autocomplete="off"/></span>
+                <font><i>*</i>用户名:</font>
+                <span><input type="text" class="text-long" name="uname" id="username" placeholder="请确认你的用户名" autocomplete="off"/></span>
                 <em></em>
             </p>
             <p class="">
-                <font><i>*</i>密码：</font>
-                <span><input type="password" class="text-long" name="password" id="password" autocomplete="off"/></span>
+                <font><i>*</i>邮箱:</font>
+                <span><input type="text" class="text-long" name="email" placeholder="请确认你的邮箱" id="email" autocomplete="off"/></span>
                 <em></em>
             </p>
-            <p>
-                <font><i>*</i>手机号：</font>
-                <span><input type="text" class="text-long"  name="phone" id="phone" autocomplete="off"/></span>
+            <p class="">
+                <font><i>*</i>密码:</font>
+                <span><input type="password" class="text-long" name="upass" id="password"  placeholder="请输入密码" autocomplete="off"/></span>
                 <em></em>
             </p>
-            <p>
-                <font><i>*</i>验证码：</font>
-                <span class="short"><input type="text" class="text-short"  name="code" id="code" autocomplete="off"/></span>
-                <a href="javascript:;" class="getVerification" id="getCode">获取短信验证码</a>
-                <!-- 秒数倒计时时class用time-->
-                <s class="time" id="showtime" style="display:none">60s</s>
+
+			<p class="">
+                <font><i>*</i>确认密码:</font>
+                <span><input type="password" class="text-long" name="re-upass" placeholder="请确认你的密码" id="repassword" autocomplete="off"/></span>
+                <em></em>
             </p>
-            <p>
-                <font>&nbsp;</font>
-                <input type="checkbox" id="agree" value="1" checked/>
-                <s>我已阅读并同意</s>
-                <a href="http://www.fengniao.com/law.html" target="_blank">《蜂鸟用户注册协议》</a>
-            </p>
-            <p>
-                <font>&nbsp;</font>
-                <input type="submit" value="立即注册" class="submit1" id="toRegister"/>
-            </p>
+
+			<div class="code" style="margin-left: 80px">
+            <span>
+        <input class="yanzhengma" name="yzm" lay-verify="required" placeholder="请输入验证码"  type="text"  style="width:70px;height:35px;float:left;">
+           <img src="{{ url('home/yanzhengma') }}" onclick="this.src='{{ url('home/yanzhengma') }}?'+Math.random()" alt="" style="width:150px;height:42px;float:right">
+
         </div>
-    </div>
-    <!--content-->
+                <p>
+                    <font>&nbsp;</font>
+                    <input type="checkbox" id="agree" value="1"  checked/>
+                    <s>我已阅读并同意</s>
+                    <a href="http://www.fengniao.com/law.html" target="_blank">《蜂鸟用户注册协议》</a>
+                </p>
+                <p>
+                    <font>&nbsp;</font>
+                    <input type="submit" value="立即注册" class="submit1" id="toRegister"/>
+                </p>
+
+        </div>
 </div>
+    <!--content-->
 
 
-    
-    
-        
-        
-        
-        
-        
-            
-            
-        
-        
-            
-            
-        
-        
-            
-            
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            
-            
-        
-        
-            
-            
-        
-        
-            
-                
-                    
-                    
-                    
-                
-            
-        
-        
-        
-            
-            
-        
-    
 
+      <!--       <div id="popup-captcha"></div>
+            <input name="onlycode" id="onlycode" type="hidden" value="" class="text"> -->
 
-    
-    
-        
-        
-        
-    
-
-
-<div id="popup-captcha"></div>
-<input name="onlycode" id="onlycode" type="hidden" value="" class="text">
-
-
+</form>
 <!--foot-->
 <div id="foot" class="foot foot-box">
     <div class="wrapper">
@@ -154,41 +116,15 @@
 </body>
 </html>
 
-<script>
+<!-- <script>
     var skipUrl = 'https://my.fengniao.com/registerSuccess.php?url=http://www.fengniao.com';
-    
-    
-        
-        
-    
-    
-        
-        
-    
-    
-        
-        
-    
-    
-        
-            
-            
-            
-        
-            
-            
-            
-        
-    
-    
-</script>
-
+</script> -->
 
 <script>
-    
+
     $(function(){
         $("#username").focus(function(){
-            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('2-14位字符，支持中文、英文、数字');
+            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('5个字符以上，支持中文、英文、数字');
         }).blur(function(){
             $("#username").parent().parent().removeClass('warning active');
             checkUsername();
@@ -197,6 +133,12 @@
             $("#password").parent().parent().removeClass('warning').addClass('active').children("em").text('6-16位数字、字母或常用英文字符，字母区分大小写');
         }).blur(function(){
             $("#password").parent().parent().removeClass('warning active').children("em").text();
+            checkPassword();
+        });
+        $("#repassword").focus(function(){
+            $("#repassword").parent().parent().removeClass('warning').addClass('active').children("em").text('6-16位数字、字母或常用英文字符，字母区分大小写');
+        }).blur(function(){
+            $("#repassword").parent().parent().removeClass('warning active').children("em").text();
             checkPassword();
         });
         $("#phone").focus(function(){
@@ -258,6 +200,7 @@
                 $("#password").parent().parent().removeClass('active').addClass('warning').children('em').text('请您输入密码');
             }
         }
+
 
         function checkCode() {
             var code = $("#code").val();
@@ -543,5 +486,5 @@
         });
 
     });
-    
+
 </script>

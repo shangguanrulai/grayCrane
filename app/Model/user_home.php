@@ -10,6 +10,8 @@ class user_home extends Model
 
     public $primaryKey = 'uid';
 
+    protected $guarded = [];
+
    public function userinfo_home()
    {
        return $this->hasOne('App\Model\userinfo_home','uid','uid');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
-use App\Model\Home\User;
+use App\Model\user_home;
+use App\Model\userinfo_home;
 use Session;
 
 class LoginController extends Controller
@@ -21,15 +22,17 @@ class LoginController extends Controller
     //
     public function login()
     {
-    	return view('Home.login');
+    	return view('home.login');
     }
 
  
     public function yzm()
     {
+
         ob_clean();
     	$code = new Code();
         return $code->make();
+		
     }
 
     public function dologin(Request $request)
@@ -58,7 +61,7 @@ class LoginController extends Controller
         // dd($validator);
         // 如果验证失败
         if ($validator->fails()) {
-            return redirect('Home/login')
+            return redirect('home/login')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -69,22 +72,28 @@ class LoginController extends Controller
             return back()->with('errors','验证码错误');
         }
 
-        $user = User::where('uname',$input['uname'])->first();
-
+        $user = user_home::where('uname',$input['uname'])->first();
+		
         
         //用户验证
-        // dd($user);
-        if (! $user) {
+        // dd($user->upass);
+		// die;
+        if (!$user) {
             return back()->with('errors','无此用户');
         } 
         // dd($user->password);
 
         //密码验证
-        if(Crypt::decrypt($user->upass) != $input['upass']){
+        /* if(Crypt::decrypt($user->upass) != $input['upass']){
             return back()->with('errors','密码错误');
-        }
+        } */
+		
+		if($user->upass != $input['upass']){
+            return back()->with('errors','密码错误');
+        } 
+		
 
-        $status = $user->status;
+        $status = $user->userinfo_home->status;
 
         if ($status == 0) {
             return back()->with('errors','账号没激活');
@@ -98,7 +107,7 @@ class LoginController extends Controller
 
 
         // return '111';
-        return redirect('/');
+        return redirect('');
 
     }
 
@@ -111,7 +120,7 @@ class LoginController extends Controller
 
 
        if(!$res){
-           return redirect('/Home/login'); 
+           return redirect('home/login'); 
        }
         
     }
