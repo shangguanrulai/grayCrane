@@ -9,11 +9,11 @@
     <meta name="csrf-token" content="Sk02VWFhd2t.e2wkDDgEPxggbxQ.OxsZcjVxYzM1BR8ZF24KFRMUKg==">
     <meta http-equiv="mobile-agent" content="format=html5; url=http://m.2.fengniao.com/"/>
     <base target=_blank>
-    <meta name="keywords" content="蜂鸟二手,二手摄影器材交易,二手单反，二手数码相机,二手镜头">
-    <meta name="description" content="蜂鸟二手交易平台提供单反相机、镜头、微单、便携数码相机、中画幅相机、闪光灯、三脚架、佳能、尼康、等数千种器材品牌,交易回收选购二手摄影器材，就上蜂鸟网二手交易平台">
+    <meta name="keywords" content="灰鹤二手,二手摄影器材交易,二手单反，二手数码相机,二手镜头">
+    <meta name="description" content="灰鹤二手交易平台提供单反相机、镜头、微单、便携数码相机、中画幅相机、闪光灯、三脚架、佳能、尼康、等数千种器材品牌,交易回收选购二手摄影器材，就上灰鹤网二手交易平台">
     <link id="narrowScreen" rel="stylesheet">
     <link href="http://m.2.fengniao.com" rel="alternate" media="only screen and (max-width: 640px)">
-    <link href="/Content/globalceiling.css" rel="stylesheet">
+    {{--<link href="/Content/globalceiling.css" rel="stylesheet">--}}
     <link href="/Content/jquery-ui.1.11.4.min.css" rel="stylesheet">
     <link href="/Content/jquery.bxslider.css" rel="stylesheet">
     <link href="/Content/header.css" rel="stylesheet">
@@ -24,12 +24,14 @@
     {{--<script src="/Scripts/jquery.bxslider.min.js" charset="UTF-8"></script>--}}
     <script src="/Scripts/jquery.tinyscrollbar.2.4.2.min.js" charset="UTF-8"></script>
     <script src="/Scripts/im.js" charset="UTF-8"></script>
-    <script src="/Scripts/globalceiling.js" charset="UTF-8"></script>
+    {{--<script src="/Scripts/globalceiling.js" charset="UTF-8"></script>--}}
     <script src="/Scripts/md5.js" charset="UTF-8"></script>
     {{--<script src="/Scripts/common.js" charset="UTF-8"></script>--}}
     <script src="/Scripts/global.js" charset="UTF-8"></script>
     <script src="/Scripts/swfobject.js" charset="UTF-8"></script>
     <link rel="stylesheet" id="WideGoodsSheet" rel="stylesheet">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/layui/layui.js"></script>
     <script>
         if (!$.support.leadingWhitespace || /msie 9/.test(navigator.userAgent.toLowerCase())) {
             document.documentElement.className += ' lowIE';
@@ -40,11 +42,31 @@
         }
 
     </script>
+
 </head>
 <script src="/Scripts/m.js" charset="UTF-8"></script>
 <body>
 
 <!-- header -->
+<ul class="layui-nav" lay-filter="">
+    <li class="layui-nav-item"><a href="/">灰鹤首页</a></li>
+    <li class="layui-nav-item"><a href="">HI 欢迎来到灰鹤</a></li>
+    @for ($i=0; $i < 19; $i++)
+        <li class="layui-nav-item"><a href=""></a></li>
+    @endfor
+    <li class="layui-nav-item"><a href="/home/login">请登录</a></li>
+    <li class="layui-nav-item"><a href="/home/user?uid=1">用户中心</a></li>
+    <li class="layui-nav-item"><a href="">退出</a></li>
+</ul>
+
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+
 <div class="header clearfix fn-sec-header">
     <div class="news-product-box">
         <a href="javascript:;" target="_blank"><img class="fn-recommend-b" src=""></a>
@@ -79,9 +101,7 @@
 <!-- homePage-nav-box -->
 <div class="homePage-nav-box">
     <div class="wrapper clearfix">
-        <a href="/goods/index" target="_blank" class="publish-button"><img src="/Picture/publishbutton-pic.png"></a>
-
-
+            <a href="{{url('/home/release/create')}}" target="_blank" class="publish-button"><img src="/Picture/publishbutton-pic.png"></a>
         <div class="goods-classification J_goodsClassification" id="fn-2-navigation-layer">
             <span class="classification-trigger J_classificationTrigger">商品分类</span>
             <div class="classification-sub-layer J_switchTab" >

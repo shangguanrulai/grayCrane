@@ -29,8 +29,10 @@ Route::get('home/register','home\RegisterController@register');
 Route::get('home/yanzhengma','home\RegisterController@yanzhengma');
 Route::post('home/doregister','home\RegisterController@doregister');
 
+
 // 前台ajax
 Route::get('/home/ajax/user/{phone}','home\AjaxController@user');
+Route::get('/home/ajax/cate','home\AjaxController@cate');
 
 // 前台消息
 Route::get('/home/msg/{uid}','home\MsgController@index');

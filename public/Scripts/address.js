@@ -63,8 +63,8 @@
     }    
         
     var provinceList = [  
-    {name:'请选择省份', cityList:[             
-    {name:'请选择城市', areaList:['请选择区县']}                
+    {name:'请选择区域', cityList:[
+    {name:'', areaList:['']}
     ]},       
     {name:'北京', cityList:[             
     {name:'市辖区', areaList:['东城区','西城区','崇文区','宣武区','朝阳区','丰台区','石景山区','海淀区','门头沟区','房山区','通州区','顺义区','昌平区','大兴区','怀柔区','平谷区']},            
