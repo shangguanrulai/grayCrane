@@ -8,7 +8,6 @@
     <meta name="csrf-param" content="_csrf">
     <meta name="csrf-token" content="RC1MeDhWb3IjYAMSbz88HnZeDgtKGTkcDUEvKgxjNRU8FHsCCRcfNg==">
     <meta http-equiv="mobile-agent" content="format=html5; url=http://m.2.fengniao.com/"/>
-    <link href="/Content/globalceiling.css" rel="stylesheet">
     <link href="/Content/jquery-ui.1.11.4.min.css" rel="stylesheet">
     <link href="/Content/jquery.bxslider.css" rel="stylesheet">
     <link href="/Content/header.css" rel="stylesheet">
@@ -18,13 +17,13 @@
     <script src="/Scripts/jquery.bxslider.min.js" charset="UTF-8"></script>
     <script src="/Scripts/jquery.tinyscrollbar.2.4.2.min.js" charset="UTF-8"></script>
     <script src="/Scripts/im.js" charset="UTF-8"></script>
-    <script src="/Scripts/globalceiling.js" charset="UTF-8"></script>
     <script src="/Scripts/md5.js" charset="UTF-8"></script>
     {{--<script src="/Scripts/common.js" charset="UTF-8"></script>--}}
     <script src="/Scripts/global.js" charset="UTF-8"></script>
     <script src="/Scripts/swfobject.js" charset="UTF-8"></script>
     <link rel="stylesheet" id="WideGoodsSheet" rel="stylesheet">
-
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/layui/layui.js"></script>
     <script>
         if (!$.support.leadingWhitespace || /msie 9/.test(navigator.userAgent.toLowerCase())) {
             document.documentElement.className += ' lowIE';
@@ -34,7 +33,23 @@
      </script>
 </head>
 <body>
-<div id="globalCeiling-topBar" style="height: 44px;background-color: #111111;"></div>
+<ul class="layui-nav" lay-filter="" style="margin-top:-20px;">
+    <li class="layui-nav-item"><a href="/">灰鹤首页</a></li>
+    <li class="layui-nav-item"><a href="">HI 欢迎来到灰鹤</a></li>
+    @for ($i=0; $i < 19; $i++)
+        <li class="layui-nav-item"><a href=""></a></li>
+    @endfor
+    <li class="layui-nav-item"><a href="/home/login">请登录</a></li>
+    <li class="layui-nav-item"><a href="/home/user?uid=1">用户中心</a></li>
+    <li class="layui-nav-item"><a href="">退出</a></li>
+</ul>
+
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
 <div class="y-center-header fn-sec-header">
     <div class="y-center-warp clearfix">
                 <div class="y-center-logo"><a href="http://2.fengniao.com/" target="_blank">二手交易</a></div>

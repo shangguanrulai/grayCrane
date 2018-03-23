@@ -256,7 +256,7 @@ var globalCeilingRun = {
             '</ul>' +
             '</div>' +
             '<div class="global-login-bar">' +
-            '<a href="\" class="home-link" target="_blank">首页</a>';
+            '<a href="\" class="home-link" target="_blank">灰鹤</a>';
 
         var commonTemplateBottom =
             '</div>' +
@@ -287,9 +287,10 @@ var globalCeilingRun = {
 
         } else {
             var template = commonTemplateTop + '<div class="global-login-inner clearfix">' +
-                '<span class="welcome-tip">HI,欢迎来到灰鹤二手交易&nbsp;&nbsp;&nbsp;</span><a rel="nofollow" href="javascript:;" class="registered-link nologin">请登录</a>' +
+                '<span class="welcome-tip">HI,欢迎来到灰鹤二手交易&nbsp;&nbsp;&nbsp;</span>' +
+                '<a rel="nofollow" href="/home/login" class="registered-link nologin">请登录</a>' +
                 '<i class="line-icon">|</i>' +
-                '<a rel="nofollow" href="' + this.registerUrl + '" class="registered-link" target="_blank">免费注册</a>' +
+                '<a rel="nofollow" href="/home/register" class="registered-link" target="_blank">免费注册</a>' +
                 '</div> ' + commonTemplateBottom;
         }
 

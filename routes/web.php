@@ -16,19 +16,20 @@
 
 
 //前台登录
-Route::get('Home/login','Home\LoginController@login');
+Route::get('home/login','home\LoginController@login');
 
-Route::get('Home/yzm','Home\LoginController@yzm');
+Route::get('home/yzm','home\LoginController@yzm');
 
-Route::post('Home/dologin','Home\loginController@dologin');
+Route::post('home/dologin','home\loginController@dologin');
 
 //前台注册
-Route::get('/Home/register','Home\RegisterController@register');
-Route::get('/Home/yzm','Home\RegisterController@yzm');
-Route::post('/Home/doregister','Home\RegisterController@doregister');
+Route::get('/home/register','home\RegisterController@register');
+Route::get('/home/yzm','home\RegisterController@yzm');
+Route::post('/home/doregister','home\RegisterController@doregister');
 
 // 前台ajax
 Route::get('/home/ajax/user/{phone}','home\AjaxController@user');
+Route::get('/home/ajax/cate','home\AjaxController@cate');
 
 // 前台消息
 Route::get('/home/msg/{uid}','home\MsgController@index');

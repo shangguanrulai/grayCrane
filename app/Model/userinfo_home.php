@@ -10,6 +10,8 @@ class userinfo_home extends Model
 
     public $primaryKey = 'id';
 
+    protected $guarded = [];
+
     public function user_home()
     {
         return $this->belongsTo('App\Model\userinfo_home','uid','uid');

@@ -10,6 +10,8 @@ class release extends Model
 
     public $primaryKey = 'rid';
 
+    protected $guarded = [];
+
     public function user_home()
     {
         return $this->belongsTo('App\Molde\user_home', 'uid', 'uid');

@@ -11,39 +11,67 @@
             </li>
         </ul>
 <div class="switch-panel clearfix">
+    @if (count($errors) > 0)
+        <div class="alert alert-danger" >
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="float: left;color: red;margin: 10px;background: #f8f8f8;font-size: 14px;border-radius: 2px;">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        <div style="clear: both"></div>
+    @endif
 <!-- goods-form -->
 <div class="goods-form">
 
-<form id="goods-form" class="form-horizontal" action="/goods/add?_confirm=1&amp;type=0&amp;goods_id=0&amp;cate_id=114&amp;subcate_id=1049&amp;brand_id=0&amp;model_id=0" method="post">
+<form id="goods-form" class="form-horizontal" action="{{url('/home/release')}}" method="post" enctype="multipart/form-data">
+    {{ csrf_field() }}
+    <input type="hidden" value="{{$user->uid}}" name="uid">
    <div class="type-item clearfix">
         <span  style="display: none;" class="error"> </span>
         <div class="form-group field-goods-brand_name">
-            <label class="control-label" for="goods-brand_name"><i class="star">*</i>分类</label>
+            <label class="control-label" for="goods-brand_name"><i class="star"></i>分类</label>
             <div class="input-wrap">
-                <input type="text" id="goods-brand_name" class="form-control" name="Goods[brand_name]" placeholder="请选择分类">
-                <span class="arrow-wrap"><i class="arrow-icon"></i></span>
+                <select name="pid">
+                    @foreach($cate as $v)
+                        @if($v->pid == 0)
+                            <option value="{{$v->cid}}" class="pid">{{$v->cname}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
         </div>
        <div class="form-group field-goods-model_name">
             <div class="input-wrap">
-                <input type="text" id="goods-model_name" class="form-control" name="Goods[model_name]" placeholder="请选择详细分类">
-                <span class="arrow-wrap"><i class="arrow-icon"></i></span>
+                <select name="cid">
+                    @foreach($cate as $v)
+                        @if($v->pid == 1)
+                            <option value="{{$v->cid}}" class="pid">{{$v->cname}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
        </div>
    </div>
 
     <div class="goods-title clearfix">
         <div class="form-group field-goods-goods_name required">
-            <span style="display: none" class="error"></span><label class="control-label" for="goods-goods_name"><i class="star">*</i>商品名</label>
-            <div class="input-wrap"><input type="text" id="goods-goods_name" class="form-control" name="Goods[goods_name]" placeholder="请填写商品名"></div>
+            <label class="control-label" for="goods-goods_name"><i class="star"></i>商品名</label>
+            <div class="input-wrap"><input type="text" id="goods-goods_name" class="form-control" name="gname" placeholder="请填写商品名" value="{{old('gname')}}"></div>
+        </div>
+    </div>
+    <div class="goods-title clearfix">
+        <div class="form-group field-goods-goods_name required">
+            <label class="control-label" for="goods-goods_name"><i class="star"></i>标题</label>
+            <div class="input-wrap"><input type="text" id="goods-goods_name" class="form-control" name="title" placeholder="请填写标题" value="{{old('title')}}"></div>
         </div>
     </div>
     <div class="price-item clearfix">
         <div class="form-group field-goods-price">
-        <span style="display: none;" class="error"></span><label class="control-label" for="goods-price">价格</label><div class="input-wrap"><input type="text" id="goods-price" class="form-control" name="Goods[price]"><em class="unit">元</em><span class="price-tip"  style="display: ;"></span></div>
+        <span style="display: none;" class="error"></span><label class="control-label" for="goods-price">价格</label><div class="input-wrap"><input type="text" id="goods-price" class="form-control" name="nowprice" value="{{old('nowprice')}}"><em class="unit">元</em><span class="price-tip"  style="display: ;"></span></div>
         </div>
         <div class="form-group field-goods-price">
-            <span style="display: none;" class="error"></span><label class="control-label" for="goods-price">新品参考</label><div class="input-wrap"><input type="text" id="goods-price" class="form-control" name="Goods[price]"><em class="unit">元</em><span class="price-tip"  style="display: ;"></span></div>
+            <span style="display: none;" class="error"></span><label class="control-label" for="goods-price">新品参考</label><div class="input-wrap"><input type="text" id="goods-price" class="form-control" name="newprice" value="{{old('newprice')}}"><em class="unit">元</em><span class="price-tip"  style="display: ;"></span></div>
         </div>
     </div>
 
@@ -51,17 +79,17 @@
              <div class="form-group field-goods-province_id required">
                 <label class="control-label" for="goods-province_id">所在城市</label>
                 <div class="input-wrap">
-                    <select id="cmbProvince" name="1"></select>
+                    <select id="cmbProvince" name="raddrp"></select>
                 </div>
             </div>
             <div class="form-group field-goods-province_id required">
                 <div class="input-wrap">
-                    <select id="cmbCity" name="2"></select>
+                    <select id="cmbCity" name="raddrc"></select>
                 </div>
             </div>
             <div class="form-group field-goods-province_id required">
                 <div class="input-wrap">
-                    <select id="cmbArea" name="3"></select>
+                    <select id="cmbArea" name="raddra"></select>
                 </div>
             </div>
         </div>
@@ -72,10 +100,10 @@
             <span style="display: none;" class="error"></span>
             <label class="control-label" for="goods-phone_mob">手机号</label>
             <div class="input-wrap">
-                <input type="text" id="goods-phone_mob" class="form-control" name="Goods[phone_mob]" value="" readonly="true" maxlength="11">
+                <input type="text" id="goods-phone_mob" class="form-control" name="rphone"  maxlength="11" value="{{old('rphone')}}">
                 <div class="check-box">
                     <label class="checklabel">
-                        <input id="use_default_phone" name="user_default_phone" value="1" type="checkbox" checked>使用绑定手机
+                        <input id="use_default_phone" name="dphone" type="checkbox">使用绑定手机
                     </label>
                 </div>
             </div>
@@ -85,7 +113,7 @@
 
     <div id="upload-pictures" class="upload-pictures clearfix">
 	<label class="control-label"><i class="star"></i>上传图片</label>
-        <input type="file" style="padding-top: 15px;height: 45px;">
+        <input type="file" name="gpic" style="height: 45px;padding-top: 15px;">
     </div>
 
 
@@ -93,25 +121,18 @@
         <div class="form-group field-goods-goods_desc required">
             <label class="control-label" for="goods-goods_desc"><i class="star"></i>详情描述</label>
             <div class="description-textarea">
-                <textarea id="goods-goods_desc" class="form-control" name="Goods[goods_desc]">
-1.型号要求：暂无信息
-2.到手时间/使用时长：暂无信息
-3.成色描述：暂无信息
-4.器材情况：暂无信息
-5.包含配件：暂无信息
-6.其他说明：暂无信息
-                </textarea>
+                <textarea id="goods-goods_desc" class="form-control" name="describe">{{old('describe')}}</textarea>
             </div>
         </div>
     </div>
-    <input type="button" class="btn btn-primary submit-button" value="发布">
+    <input type="submit"  class="btn btn-primary submit-button" value="发布">
 
 </form>
 </div>
     <!-- //goods-form -->
     <!-- mobileDialog -->
-                <div id="mobileDialog" class="mobile-dialog" title="安全信息设置" style="display: none;">
-    <div class="setting-box" id="step1">
+                {{--<div id="mobileDialog" class="mobile-dialog" title="安全信息设置" style="display: none;">--}}
+    {{--<div class="setting-box" id="step1">
         <form id="step1Form" method="get" action="">
             <ul class="settingSteps clearfix">
                 <li class="current">1.手机绑定</li>
@@ -135,10 +156,10 @@
             <input type="button" class="next-button" id="auth_code_btn"
                    value="下一步">
         </form>
-    </div>
+    </div>--}}
 
 
-    <div class="setting-box" id="step2" style="display: none;">
+    {{--<div class="setting-box" id="step2" style="display: none;">
         <form id="step2Form" method="get" action="">
             <ul class="settingSteps clearfix">
                 <li class="current">1.手机绑定</li>
@@ -166,8 +187,8 @@
             </div>
             <input type="button" class="next-button" value="提交完成">
         </form>
-    </div>
-</div>
+    </div>--}}
+{{--</div>--}}
 
                 <!-- //mobileDialog -->
 </div>
@@ -259,6 +280,33 @@
 </script>--}}
 <script type="text/javascript">
     addressInit('cmbProvince', 'cmbCity', 'cmbArea');
+</script>
+<script>
+    // 分类联动
+    var pid = 0;
+    $("select[name='pid']").change( function() {
+        pid = $("select[name='pid']").val();
+
+        $.get('/home/ajax/cate',{'pid':pid},function(data){
+            $("select[name='cid']").empty();
+
+            for (var i = 0; i < data.length; i++) {
+                $("select[name='cid']").append('<option value="'+data[i]['cid']+'">'+data[i]['cname']+'</option>');
+            };
+        });
+    });
+
+    // 使用默认手机号码
+    $('input[name=dphone]').change(function(){
+        if( $('input[name=dphone]').attr('checked') == true ){
+
+            $('input[name=rphone]').val({{$user->phone}});
+        } else {
+
+            $('input[name=rphone]').val('');
+        }
+    });
+
 </script>
 
 <!-- foot -->
