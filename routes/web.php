@@ -60,8 +60,13 @@ Route::group([],function(){
     Route::get('template/user/delall','template\UserController@delall');
 
 
-
 });
+
+
+Route::get('/home/goods/index','home\GoodsController@index');
+Route::get('/home/goods/ajax/{c}','home\GoodsController@ajax');
+//发布时间排序
+Route::get('home/goods/fbsj','home\GoodsController@fbsj');
 
 
 
