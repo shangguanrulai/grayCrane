@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -42,5 +43,24 @@ Route::resource('/home/user', 'home\UserController');
 
 //前台发布
 Route::resource('/home/release', 'home\ReleaseController');
+
+
+
+Route::group([],function(){
+    //显示一个后台首页
+    Route::get('/template', function () {
+        return view('template.first');
+    });
+
+    Route::resource('user','template\UserController');
+    Route::resource('cate','template\CateController');
+    Route::get('template/user/change','template\UserController@change');
+    Route::get('template/user/delall','template\UserController@delall');
+
+
+
+});
+
+
 
 
