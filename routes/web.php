@@ -62,11 +62,18 @@ Route::group([],function(){
 
 });
 
-
+//商品分类
 Route::get('/home/goods/index','home\GoodsController@index');
-Route::get('/home/goods/ajax/{c}','home\GoodsController@ajax');
+Route::get('/home/goods/ajax','home\GoodsController@ajax');
 //发布时间排序
-Route::get('home/goods/fbsj','home\GoodsController@fbsj');
+Route::get('/home/goods/fbsj','home\GoodsController@fbsj');
+//商品详情
+Route::get('/home/goods/details','home\GoodsController@details');
+//商品收藏
+Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
+//留言
+Route::get('/home/goods/bbbbb','home\GoodsController@ajaxss');
+
 
 
 
