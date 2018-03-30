@@ -22,7 +22,6 @@ class user_home extends Model
         return $this->hasMany('App\Model\release', 'uid', 'uid');
     }
 
-<<<<<<< HEAD
     public function address()
     {
         return $this->hasMany('App\Model\address','uid','uid');
@@ -33,6 +32,5 @@ class user_home extends Model
         return $this->hasMany('App\Model\collect','uid','uid');
     }
 
-=======
->>>>>>> 7da3d4d6b8e1ae26f4e79cd8ccec19e40b1895ad
+
 }

@@ -137,6 +137,10 @@ Route::group([],function(){
 
 });
 
+//后台控制前台用户
+Route::get('template/user_home','template\User_homeController@user_home');
+
+
 
 Route::get('/home/goods/index','home\GoodsController@index');
 Route::get('/home/goods/ajax/{c}','home\GoodsController@ajax');

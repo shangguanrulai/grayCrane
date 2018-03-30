@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\template;
 
 use App\Model\Admin_User;
+use App\Model\user_home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,10 +24,10 @@ class UserController extends Controller
 
         /*$gjz = $request -> input('gjz');
         $qx = $request -> input('qx');
-
+		
         $users = Admin_User::where('username','like','%'.$gjz.'%')->where('auth',$qx)->paginate(5);
         return view('template.user.list',['users'=>$users,'gjz'=>$gjz,'qx'=>$qx]);*/
-
+		
         $users = Admin_User::orderBy('id','asc')
             ->where(function($query) use($request){
 //                检测关键字
@@ -255,6 +256,5 @@ class UserController extends Controller
        return $arr;
 
    }
-
 
 }

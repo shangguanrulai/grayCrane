@@ -4,7 +4,9 @@
 <div class="wrapper-box">
     <!-- banner-wrapper -->
     <div class="banner-wrapper">
+
         <div class="banner-slider-wrap" style="margin-top: -45px">
+
             <div class="layui-carousel" id="test1">
   <div carousel-item>
     <div><img src="/Images/3b97ccd974f522aeb7031b9453ff4a49.gif"  width="1420px" alt=""></div>
