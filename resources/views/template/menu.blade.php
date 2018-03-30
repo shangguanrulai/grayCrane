@@ -2,7 +2,7 @@
 
     <script src="/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
-        <!-- 头部 -->
+      s  <!-- 头部 -->
         <header>
             <!-- logo -->
             <div class="am-fl tpl-header-logo">
@@ -11,7 +11,7 @@
             <!-- 右侧内容 -->
             <div class="tpl-header-fluid">
                 <!-- 侧边切换 -->
-                <div class="am-fl tpl-header-switch-button am-icon-list">
+                <div clas="am-fl tpl-header-switch-button am-icon-list">
                     <span>
 
                 </span>
@@ -231,6 +231,28 @@
                                 </ul>
                             </ul>
                         </li>
+
+                        <!-- 商品管理 -->
+                        <li class="sidebar-nav-link">
+                            <a href="javascript:;" class="sidebar-nav-sub-title">
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 商品管理
+                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                            </a>
+                            <ul class="sidebar-nav sidebar-nav-sub">
+                                <li class="sidebar-nav-link">
+                                    <a href="/user/shop_admin">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 管理商品
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-nav-link">
+                                    <a href="/user/shop_cate">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 商品分类
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <!-- 分类管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">

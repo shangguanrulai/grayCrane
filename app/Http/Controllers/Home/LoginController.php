@@ -24,14 +24,14 @@ class LoginController extends Controller
     	return view('home.login');
     }
 
- 
+
     public function yzm()
     {
 
         ob_clean();
     	$code = new Code();
         return $code->make();
-		
+
     }
 
     public function dologin(Request $request)
@@ -54,6 +54,7 @@ class LoginController extends Controller
             'upass.required'=>'密码不能为空',
             'upass.between'=>'密码的长度必须在5-18位',
             'upass.alpha_dash'=>'密码必须是数字字母下划线',
+
         ];
 
         $validator = Validator::make($input, $rule,$mess);
@@ -71,7 +72,7 @@ class LoginController extends Controller
 
         $user = user_home::where('uname',$input['uname'])->first();
 
-        
+
         //用户验证
         if (!$user) {
             return back()->with('errors','无此用户');
@@ -99,9 +100,9 @@ class LoginController extends Controller
        $res = $request->session()->forget('user');
 
        if(!$res){
-           return redirect('home/login'); 
+           return redirect('home/login');
        }
-        
+
     }
 
 

@@ -18,9 +18,11 @@
 
 //前台登录
 Route::get('home/login','home\LoginController@login');
+
 Route::get('home/yzm','home\LoginController@yzm');
+
+
 Route::post('home/dologin','home\loginController@dologin');
-Route::get('home/loginout','home\loginController@loginout');
 
 //前台注册
 Route::get('home/register','home\RegisterController@register');
@@ -31,7 +33,6 @@ Route::post('home/doregister','home\RegisterController@doregister');
 // 前台ajax
 Route::get('/home/ajax/user/{phone}','home\AjaxController@user');
 Route::get('/home/ajax/cate','home\AjaxController@cate');
-Route::post('/home/ajax/release','home\AjaxController@release');
 
 // 前台消息
 Route::get('/home/msg/{uid}','home\MsgController@index');
@@ -60,6 +61,10 @@ Route::group([],function(){
 
 
 });
+
+//后台控制前台用户
+Route::get('template/user_home','template\User_homeController@user_home');
+
 
 
 Route::get('/home/goods/index','home\GoodsController@index');

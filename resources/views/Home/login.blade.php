@@ -48,7 +48,7 @@
 							</div>
 						@endif
         <div class="username">
-		
+
 		{{--激活成功的提示--}}
 						@if (!empty(session('msg')))
 							<div class="alert alert-danger">
@@ -57,19 +57,19 @@
 								</ul>
 							</div>
 						@endif
-	
+
             <span>
-                <input type="text" class="text-username" name='uname' placeholder="手机号/用户名/邮箱" id="name" autocomplete="off"/>
-            </span>
-            <div class="hint-word">请您填写登录名</div>
+                <input type="text" class="text-username" name='uname' placeholder="手机号/用户名/邮箱" id="username" autocomplete="off"/>
+            </span><em></em>
+
         </div>
         <div class="password">
             <span>
                 <input type="password" name='upass' class="text-password" placeholder="请输入密码" id="password" autocomplete="off"/>
-            </span>
-            <div class="hint-word">请您填写密码</div>
+            </span><em></em>
+
         </div>
-		
+
 		 <div class="code" style="margin-top:20px;margin-bottom:20px">
             <span>
 		<input class="yanzhengma" name="yzm" lay-verify="required" placeholder="请输入验证码"  type="text"  style="width:200px;height:40px;float:left;">
@@ -77,9 +77,9 @@
 
 
 
-			
-			
-			
+
+
+
         </div>
 		{{ csrf_field() }}
         <div class="verification-box" style="display: none;" id="verification">
@@ -88,7 +88,7 @@
             </div>
         </div>
         <input type="submit" class="login-sunmit" value="立即登录" id="toLogin">
-        <div class="noID">还没有账号？<a href="https://my.fengniao.com/register.php">立即注册</a></div>
+        <div class="noID">还没有账号？<a href="{{url('/home/register')}}">立即注册</a></div>
         <div class="other-login">
             <span>其他登录方式：</span>
             <a href="https://my.fengniao.com/loginThirdParty.php?id=1&url=http://2.fengniao.com/user/buy?click_source=topbar" class="weibo">微博</a>
@@ -106,9 +106,11 @@
         <!--content-->
         <div class="hint-message">注意：如果您已注册过蜂鸟账号，请确认该手机号和账号做了绑定，否则系统将自动创建新账号</div>
         <div class="message">
+            <p class="">
             <span>
                 <input type="text" class="text-message" placeholder="请输入大陆手机号" name="phone" id="phone" autocomplete="off"/>
             </span>
+        </p>
             <div class="hint-word"></div>
         </div>
         <div class="verification-box">
@@ -148,442 +150,375 @@
 </html>
 
 <script>
-	/* 
-	  $(function(){
- 
-                var ok1=false;
-                var ok2=false;
-                var ok3=false;
-                var ok4=false;
-                // 验证用户名
-                $('input[name="uname"]').focus(function(){
-                    $(this).next().text('账号5-18位').removeClass('state1').addClass('state2');
-                }).blur(function(){
-                    if($(this).val().length >= 5 && $(this).val().length <=18 && $(this).val()!=''){
-                        $(this).next("li").text('输入成功').removeClass('state1').addClass('state4');
-                        ok1=true;
-                    }else{
-                        $(this).next("li").html('<font color="#FF0000"> 账号5-18位</font>').removeClass('state1').addClass('state3');
-                    }
-                     
-                });
- 
-                //验证密码
-                $('input[name="upass"]').focus(function(){
-                    $(this).next().text('密码5-18位').removeClass('state1').addClass('state2');
-                }).blur(function(){
-                    if($(this).val().length >= 5 && $(this).val().length <=18 && $(this).val()!=''){
-                        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                        ok2=true;
-                    }else{
-                        $(this).next().html('<font color="#FF0000"> 账号5-18位</font>').removeClass('state1').addClass('state3');
-                    }
-                     
-                });
-                //提交按钮,所有验证通过方可提交
-                $('.submit').click(function(){
-                    if(ok1 && ok2){
 
-                        $('form').submit();
-                       
-                    }else{
-                        return false;
-                    }
-                });
-                 
-            });
-				 
-
-				 
-    var backUrl = 'http://2.fengniao.com/user/buy?click_source=topbar';
-    backUrl = decodeURIComponent(backUrl);
-    var url = backUrl ? backUrl : 'http://www.fengniao.com';
-    $.cookie('loginRefer', url);
-    function locationHref(type)
-    {
-        if (type == 1) {
-            window.location.href = url;
-        } else {
-            url = backUrl ? backUrl : 'https://my.fengniao.com/';
-            $.cookie('loginRefer', url);
-            window.location.href = 'https://my.fengniao.com/phoneRegisterSuccess.php';
-        }
-    } */
-
-    // 账号密码
-$("#name").focus(function(){
-        $("#name").parent().parent().removeClass('warning').addClass('active');
-    }).blur(function(){
-        $("#name").parent().parent().removeClass('warning active').children('.hint-word').text('');
-        checkUserIsMustCode();
-    });
-    $("#password").focus(function(){
-        $("#password").parent().parent().removeClass('warning').addClass('active');
-    }).blur(function(){
-        $("#password").parent().parent().removeClass('warning active').children('.hint-word').text('');
-    });
-    $("#code").focus(function(){
-        $("#code").parent().parent().removeClass('warning').addClass('active');
-    }).blur(function(){
-        $("#code").parent().parent().removeClass('warning active').children('.hint-word').text('');
-    });
-    //手机短信
-    $("#phone").focus(function(){
-        $("#phone").parent().parent().removeClass('warning').addClass('active');
-    }).blur(function(){
-        $("#phone").parent().parent().removeClass('warning active').children('.hint-word').text('');
-        phoneCheck();
-    });
-    $("#phonecode").focus(function(){
-        $("#phonecode").parent().parent().removeClass('warning').addClass('active');
-    }).blur(function(){
-        $("#phonecode").parent().parent().removeClass('warning active').children('.hint-word').text('');
-    });
-
-    //展示短信验证码的输入框
-    $('#changeMessageLogin').bind('click', changeMessageLogin);
-    //展示账号密码登录输入框
-    $('#changeLogin').bind('click', changeLogin);
-
-    function changeMessageLogin(){
-        $('#login').hide();
-        $('#loginMessage').show();
-    }
-    function changeLogin(){
-        $('#loginMessage').hide();
-        $('#login').show();
-    }
-
-    // 判定用户是否需要验证码
-    function checkUserIsMustCode(){
-        var name = $("#name").val();
-        if (name) {
-            $.ajax({
-                'url':'../ajax/ajaxLogin.php',
-                'data':'from='+'checkUserIsMustNeedCode'+'&name='+name,
-                'type':'POST',
-                'dataType':'json',
-                'success':function(data) {
-                    if (data.code != 1)
-                    {
-                        showCode();
-                    } else {
-                        $("#verification").hide();
-                        // 去掉行内样式
-                        $("#logo").css('margin', "50px 0 30px 0");
-                    }
-                },
-                'cache':false
-            });
-        }
-    }
-
-    //手机验证
-    function phoneCheck(){
-        // 手机号空判定
-        // 手机号格式判定
-        // 判定手机号是否
-        var phone = $("#phone").val();
-        if (phone) {
-
-            if (/1\d{10}/m.test(phone)) {
-
-            } else {
-                $("#phone").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text('请输入正确的手机号');
-            }
-        } else {
-            $("#phone").parent().parent().removeClass('warning active').children('.hint-word').text('');
-        }
-    }
-
-    //短信验证码登录
-    $('#toMessageLogin').bind('click', toMessageLogin);
-    function toMessageLogin(){
-        var phone = $("#phone").val();
-        var code = $("#phonecode").val();
-
-        if (phone) {
-            if (code) {
-
-                if (/^1\d{10}$/m.test(phone)) {
-                    if (/^\d{6}$/m.test(code)) {
-
-                        $("#phone").parent().parent().removeClass('warning');
-                        $("#phonecode").parent().parent().removeClass('warning');
-                        $.ajax({
-                            'url':'./ajax/ajaxRegister.php',
-                            'data':'from='+'phoneLogin'+'&phone='+phone+'&code='+code,
-                            'type':'POST',
-                            'dataType':'json',
-                            'success':function(data) {
-                                if (data.code == 1 || data.code == 2)
-                                {
-                                    $.ajax({
-                                        type:"get",
-                                        url:'https://www.tripfn.com/login.php?type=set&bbuserid=' + $.cookie('bbuserid') + '&bbusername=' + encodeURIComponent($.cookie('bbusername')) + '&bbpassword=' + $.cookie('bbpassword'),
-                                        async:false,
-                                        dataType:"jsonp",
-                                        success:function(data){
-
-                                        }
-                                    });
-                                    if (data.code == 1) {
-                                        setTimeout('locationHref(1)', 600);//延时3秒
-                                    } else {
-                                        setTimeout('locationHref(2)', 600);//延时3秒
-                                    }
-                                }else{
-                                    if (data.code == -1 || data.code ==  -4) {
-                                        $("#phone").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                    } else if (data.code == -2) {
-                                        $("#phonecode").parent().parent().addClass('warning').children('.hint-word').text('动态密码不可为空');
-                                    } else if (data.code == -13 || data.code == -14) {
-                                        $("#phonecode").parent().parent().addClass('warning');
-                                        $("#phonecode").val('');
-                                        $("#phonecode").parent().parent().addClass('warning').children('.hint-word').text('动态密码错误');
-                                    } else if (data.code == -7 || data.code == -3 || data.code == -10) {
-                                        $("#phone").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                    }
-                                }
-                            },
-                            'cache':false
-                        });
-                    }else {
-                        $("#phonecode").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text('动态密码错误');
-                    }
-                }
-                else {
-                    $("#phone").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text('请输入正确的手机号');
-                }
-            } else {
-                $("#phonecode").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text('请输入动态密码');
-            }
-        } else {
-            $("#phone").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text('请输入手机号');
-        }
-    }
-
-    $("#refreshCode").bind('click', refreshCode);
-    $("#toLogin").bind('click', toLogin);
-
-    // 刷新验证码
-    function refreshCode(){
-        var date = Math.round(new Date().getTime());
-        var url = '../ajax/code.php';
-        url = url + '?' + date;
-        $("#refreshCode").attr('src', url);
-    }
-
-    // 显示验证码
-    function showCode(){
-        $("#verification").show();
-        $("#logo").css('margin', "20px 0");
-    }
-
-
-	
-	
-	
-    //账号密码登录
-    function toLogin(){
-        checkUserIsMustCode();
-
-        var name = $("#name").val();
-        var password = $("#password").val();
-        var isshow = $("#verification").css('display') == 'block' ? 1 : 0;
-        var code = $("#code").val();
-
-        if (name) {
-            if (password) {
-                if ((isshow == 1 && code) || isshow == 0) {
-                    // 消除所有warning
-                    $("#name").parent().parent().removeClass('warning');
-                    $("#password").parent().parent().removeClass('warning');
-                    $("#code").parent().parent().removeClass('warning');
-                    $.ajax({
-                        'url':'../ajax/ajaxLogin.php',
-                        'data':'from='+'login'+'&name='+name+'&password='+hex_md5(password)+'&code='+code,
-                        'type':'POST',
-                        'dataType':'json',
-                        'success':function(data) {
-                            if (data.code == 1)
-                            {
-                                $.ajax({
-                                    type:"get",
-                                    url:'https://www.tripfn.com/login.php?type=set&bbuserid=' + $.cookie('bbuserid') + '&bbusername=' + encodeURIComponent($.cookie('bbusername')) + '&bbpassword=' + $.cookie('bbpassword'),
-                                    async:false,
-                                    dataType:"jsonp",
-                                    success:function(data){
-
-                                    }
-                                });
-
-                                setTimeout('locationHref(1)', 600);//延时3秒
-                            }else{
-                                if (data.code == -1) {
-                                    // 请您填写手机/用户名/邮箱
-                                    $("#name").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                } else if (data.code == -2) {
-                                    // 请您填写密码
-                                    $("#password").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                } else if (data.code == -3) {
-                                    // 您登录过于频繁，请15分钟后重试
-                                    $("#name").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                } else if (data.code == -4) {
-                                    // 请您填写验证码
-                                    showCode();
-                                    $("#code").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                } else if (data.code == -5) {
-                                    // 您填写的验证码错误
-                                    $("#code").parent().parent().addClass('warning');
-                                    $("#code").val('');
-                                    $("#code").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                    refreshCode();
-                                } else if (data.code == -6) {
-                                    // 用户不存在
-                                    $("#name").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                }else if (data.code == -7) {
-                                    // 您填写的帐号或密码有误
-                                    $("#name").parent().parent().addClass('warning').children('.hint-word').text(data.msg);
-                                    $("#password").parent().parent().addClass('warning');
-                                    // 密码执行清空
-                                    $("#password").val('');
-                                    $("#code").val('');
-                                    refreshCode();
-                                }
-                            }
-                        },
-                        'cache':false
-                    });
-                } else {
-                    $("#code").parent().parent().addClass('warning').children('.hint-word').text('请您输入验证码');
-                }
-            } else {
-                $("#password").parent().parent().addClass('warning').children('.hint-word').text('请您输入密码');
-            }
-        } else {
-            $("#name").parent().parent().addClass('warning').children('.hint-word').text('请您输入手机/用户名/邮箱');
-        }
-    }
-
-    //本地cookie 记录验证码时间
-    // showtimelimit 时间戳 存储下次能点击能发送验证码的时间
-    var timeLimit = 60;
-    var date = Math.round(new Date().getTime()/1000);
-    var timerObj;       // 定一个定时器参数
-    var timerObjLimit;  // 定时器剩余时间
-
-    function startTime(time) {
-        timerObjLimit = time;
-        $("#showtime").text(timerObjLimit + 's');
-        $("#showtime").show();
-        $("#getCode").hide();
-        timerObj = window.setInterval(closeTime, 1000);
-        var date = new Date();
-        date.setTime(date.getTime() + (time * 1000));
-        var commonTime = Math.round(new Date().getTime()/1000) + timerObjLimit;
-    }
-
-    function closeTime() {
-        if (timerObjLimit == 1) {
-            window.clearInterval(timerObj);//停止计时器
-            $("#getCode").text('获取动态密码');
-            $("#showtime").hide();
-            $("#getCode").show();
-        } else {
-            timerObjLimit--;
-            $("#showtime").text(timerObjLimit + 's');
-        }
-    }
-
-    //极验-------------------------------------------------------------------------
-    var handlerPopup = function (captchaObj) {
-        // 将验证码加到id为captcha的元素里
-        captchaObj.appendTo("#popup-captcha");
-        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
-        // 成功的回调
-        captchaObj.onSuccess(function () {
-            var validate = captchaObj.getValidate();
-            $.ajax({
-                url: "../ajax/SecondVerify.php", // 进行二次验证
-                type: "get",
-                dataType: "json",
-                data: {
-                    type:'login',
-                    geetest_challenge: validate.geetest_challenge,
-                    geetest_validate: validate.geetest_validate,
-                    geetest_seccode: validate.geetest_seccode
-                },
-                success: function (data) {
-                    if (data.status === 'success') {
-                        $("#onlycode").val(data.onlycode);
-                        getSendCode();
-                    } else {
-                        alert("验证失败");
-                        return false;
-                    }
-                }
-            });
+    $(function(){
+        $("#username").focus(function(){
+            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('5个字符以上，支持中文、英文、数字').css('color','#888888');
+        }).blur(function(){
+            $("#username").parent().parent().removeClass('warning active');
+            checkUsername();
         });
-        $("#getCode").click(function () {
-            var phone = $("#phone").val();
-            if(phone){
+        $("#password").focus(function(){
+            $("#password").parent().parent().removeClass('warning').addClass('active').children("em").text('6-16位数字、字母或常用英文字符，字母区分大小写').css('color','#888888');
+        }).blur(function(){
+            $("#password").parent().parent().removeClass('warning active').children("em").text();
+            checkPassword();
+        });
 
-                if (/^1{1}[0-9]{10}$/.test(phone)) {
 
-                    captchaObj.show();
-                } else {
-                    $("#phone").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text('请输入正确的手机号');
-                }
+
+
+        function checkUsername(){
+            var username = $("#username").val();
+            username = $.trim(username);
+            if(username){
+                $.ajax({
+                    url:'../ajax/ajaxRegister.php',
+                    data:'from='+'checkUsername'+'&username='+username,
+                    type:'POST',
+                    dataType:'json',
+                    success:function(data) {
+                        if (data.code == 1)
+                        {
+                            $("#username").parent().parent().removeClass('active warning').children("em").text('');
+                        }
+                        else
+                        {
+                            $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                        }
+                    },
+                    cache:false
+                });
             }else{
-                $("#phone").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text('请输入手机号');
+                $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text('请输入用户名');
+            }
+
+
+            if (username) {
+                if (username.length >= 6 && username.length <= 16) {
+                    if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{6,16}$/m.test(username)) {
+                        if (!/^[0-9]{6,16}$/m.test(username)) {
+                            $("#username").parent().parent().removeClass('active warning');
+                        } else {
+                            $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能为纯数字').css('color','red');
+                        }
+                    } else {
+                        $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能包含特殊字符').css('color','red');
+                    }
+                } else {
+                    $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名长度为6-16位字符').css('color','red');
+                }
+            } else {
+                $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('请您输入用户名').css('color','red');
+            }
+        }
+
+        function checkPassword(){
+            var password = $("#password").val();
+            if (password) {
+                if (password.length >= 6 && password.length <= 16) {
+                    if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{6,16}$/m.test(password)) {
+                        if (!/^[0-9]{6,16}$/m.test(password)) {
+                            $("#password").parent().parent().removeClass('active warning');
+                        } else {
+                            $("#password").parent().parent().removeClass('active').addClass('warning').children('em').text('密码不能为纯数字').css('color','red');
+                        }
+                    } else {
+                        $("#password").parent().parent().removeClass('active').addClass('warning').children('em').text('密码不能包含特殊字符').css('color','red');
+                    }
+                } else {
+                    $("#password").parent().parent().removeClass('active').addClass('warning').children('em').text('密码长度为6-16位字符').css('color','red');
+                }
+            } else {
+                $("#password").parent().parent().removeClass('active').addClass('warning').children('em').text('请您输入密码').css('color','red');
+            }
+        }
+
+
+        function checkCode() {
+            var code = $("#code").val();
+            if (code) {
+                if (/^[0-9]{6}$/m.test(code)) {
+                    $("#code").parent().parent().removeClass('active warning');
+                } else {
+                    $("#code").parent().parent().removeClass('active').addClass('warning').children('em').text('验证码错误').css('color','red');
+                }
+            } else {
+                $("#code").parent().parent().removeClass('active').addClass('warning').children('em').text('请输入验证码');
+            }
+        }
+
+        function phoneCheck(){
+            // 手机号空判定
+            // 手机号格式判定
+            // 判定手机号是否
+            var phone = $("#phone").val();
+            phone = $.trim(phone);
+            if (phone) {
+                if (/1\d{10}/m.test(phone)&&phone.length==11) {
+                    if(phone.indexOf('170') == 0){
+                        $("#phone").parent().parent().children('em').text('请输入真实的手机号');
+                        $("#phone").parent().parent().removeClass('active').addClass('warning');
+                    }
+                } else {
+                    $("#phone").parent().parent().children('em').text('请输入正确的手机号');
+                    $("#phone").parent().parent().removeClass('active').addClass('warning');
+                }
+            } else {
+                $("#phone").parent().parent().children('em').text('请输入手机号');
+                $("#phone").parent().parent().removeClass('active').addClass('warning');
+            }
+        }
+
+        $("#agree").bind('click', agree);
+        $("#toRegister").bind('click', toRegister);
+
+        function agree() {
+            if($("#agree:checked").val() == 1) {
+                $("#toRegister").bind('click', toRegister);
+                $("#toRegister").removeClass("submit2").addClass("submit1");
+            } else {
+                $("#toRegister").unbind('click', toRegister);
+                $("#toRegister").removeClass("submit1").addClass("submit2");
+            }
+        }
+
+        function toRegister() {
+            var username = $("#username").val();
+            username = $.trim(username);
+            var password = $("#password").val();
+            var phone = $("#phone").val();
+            var code = $("#code").val();
+            if (username) {
+                if (password) {
+                    if (password.length >= 6 && password.length <= 16) {
+                        if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{6,16}$/m.test(password)) {
+                            if (!/^[0-9]{6,16}$/m.test(password)) {
+                                if (phone) {
+                                    if (code) {
+                                        $.ajax({
+                                            url:'../ajax/ajaxRegister.php',
+                                            data:'from='+'registerPhone'+'&username='+username+'&password='+hex_md5(password)+'&phone='+phone+'&code='+code,
+                                            type:'POST',
+                                            dataType:'json',
+                                            'success':function(data) {
+                                                if (data.code == 1)
+                                                {
+                                                    window.location.href=skipUrl;
+                                                    //$(".y-register-messagebox").show();
+                                                }else{
+                                                    if (data.code == -1)
+                                                    {
+                                                        $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -2)
+                                                    {
+                                                        $("#password").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -3)
+                                                    {
+                                                        $("#phone").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -4)
+                                                    {
+                                                        $("#code").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -5)
+                                                    {
+                                                        $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -6)
+                                                    {
+                                                        $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -7)
+                                                    {
+                                                        $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -8)
+                                                    {
+                                                        $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -9)
+                                                    {
+                                                        $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -10)
+                                                    {
+                                                        $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -11)
+                                                    {
+                                                        $("#phone").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -12)
+                                                    {
+                                                        $("#phone").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -13)
+                                                    {
+                                                        $("#code").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                    else if (data.code == -14)
+                                                    {
+                                                        $("#code").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }else if(data.code == -16){
+                                                        $("#phone").parent().parent().removeClass('active').addClass('warning').children("em").text(data.msg);
+                                                    }
+                                                }
+                                            },
+                                            cache:false
+                                        });
+                                    } else {
+                                        $("#code").parent().parent().removeClass('active').addClass('warning').children("em").text('请输入验证码');
+                                    }
+                                } else {
+                                    $("#phone").parent().parent().removeClass('active').addClass('warning').children("em").text('请输入手机号');
+                                }
+                            } else {
+                                $("#password").parent().parent().removeClass('active').addClass('warning').children("em").text('密码不能为纯数字');
+                            }
+                        } else {
+                            $("#password").parent().parent().removeClass('active').addClass('warning').children("em").text('密码不能包含特殊字符');
+                        }
+                    } else {
+                        $("#password").parent().parent().removeClass('active').addClass('warning').children("em").text('密码长度为6-16位字符');
+                    }
+                } else {
+                    $("#password").parent().parent().removeClass('active').addClass('warning').children("em").text('请输入密码');
+                }
+            } else {
+                $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text('请输入用户名');
+            }
+        }
+
+        //本地cookie 记录验证码时间
+        // showtimelimit 时间戳 存储下次能点击能发送验证码的时间
+        var timeLimit = 60;
+        var date = Math.round(new Date().getTime()/1000);
+        var timerObj;       // 定一个定时器参数
+        var timerObjLimit;  // 定时器剩余时间
+
+        function startTime(time) {
+            timerObjLimit = time;
+            $("#showtime").text(timerObjLimit + 's');
+            $("#showtime").css('display','inline-block');
+            $("#getCode").hide();
+            timerObj = window.setInterval(closeTime, 1000);
+            var date = new Date();
+            date.setTime(date.getTime() + (time * 1000));
+            var commonTime = Math.round(new Date().getTime()/1000) + timerObjLimit;
+        }
+
+        function closeTime() {
+            if (timerObjLimit == 1) {
+                window.clearInterval(timerObj);//停止计时器
+                // 变更提示词
+                $("#getCode").text('重新获取验证码');
+                $("#showtime").hide();
+                $("#getCode").show();
+            } else {
+                timerObjLimit--;
+                $("#showtime").text(timerObjLimit + 's');
+            }
+        }
+
+        //极验
+        var handlerPopup = function (captchaObj) {
+            // 将验证码加到id为captcha的元素里
+            captchaObj.appendTo("#popup-captcha");
+            // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+            // 成功的回调
+            captchaObj.onSuccess(function () {
+                var validate = captchaObj.getValidate();
+                $.ajax({
+                    url: "../ajax/SecondVerify.php", // 进行二次验证
+                    type: "get",
+                    dataType: "json",
+                    data: {
+                        type:'register',
+                        geetest_challenge: validate.geetest_challenge,
+                        geetest_validate: validate.geetest_validate,
+                        geetest_seccode: validate.geetest_seccode,
+                    },
+                    success: function (data) {
+                        if (data.status === 'success') {
+                            $("#onlycode").val(data.onlycode);
+                            getSendCode();
+                        } else {
+                            alert("验证失败");
+                            return false;
+                        }
+                    }
+                });
+            });
+            $("#getCode").click(function () {
+                var phone = $("#phone").val();
+                if(phone){
+                    if (/^1{1}[0-9]{10}$/.test(phone)) {
+                        if(phone.indexOf('170') == 0){
+                            $("#phone").parent().parent().children('em').text('请输入真实的手机号');
+                            $("#phone").parent().parent().removeClass('active').addClass('warning');
+                        }else{
+                            captchaObj.show();
+                        }
+                    } else {
+                        $("#phone").parent().parent().children('em').text('请输入正确的手机号');
+                        $("#phone").parent().parent().removeClass('active').addClass('warning');
+                    }
+                }else{
+                    $("#phone").parent().parent().removeClass('active').addClass('warning').children("em").text('请输入手机号');
+                }
+            });
+
+            function getSendCode(){
+                var phone = $("#phone").val();
+                var onlycode = $("#onlycode").val();
+                $.ajax({
+                    url: "../ajax/getCode.php",
+                    type: "get",
+                    dataType: "json",
+                    data: {
+                        onlycode: onlycode,
+                        phone: phone,
+                        usetype: 1,
+                        sendtype: 1
+                    },
+                    success: function (data) {
+                        $("#phone").parent().parent().removeClass('active');
+                        if (data && data.code == 1){
+                            $("#getCode").hide();
+                            $("#showtime").css('display','inline-block');
+                            startTime(120);
+                        }else{
+                            $("#phone").parent().parent().children('em').text(data.msg);
+                            $("#phone").parent().parent().removeClass('active').addClass('warning');
+                        }
+                        $("#code").parent().parent().removeClass('warning active').children("em").text();
+                    }
+                });
+            }
+        };
+        // 验证开始需要向网站主后台获取id，challenge，success（是否启用failback）
+        $.ajax({
+            url: "../ajax/StartCaptchaServlet.php?type=register&t=" + (new Date()).getTime(), // 加随机数防止缓存
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                // 使用initGeetest接口
+                // 参数1：配置参数
+                // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+                initGeetest({
+                    gt: data.gt,
+                    challenge: data.challenge,
+                    product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                    offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                    // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+                }, handlerPopup);
             }
         });
 
-        function getSendCode(){
-            var phone = $("#phone").val();
-            var onlycode = $("#onlycode").val();
-            $.ajax({
-                url: "../ajax/getCode.php",
-                type: "get",
-                dataType: "json",
-                data: {
-                    onlycode: onlycode,
-                    phone: phone,
-                    usetype: 3,
-                    sendtype: 1
-                },
-                success: function (data) {
-                    $("#phone").parent().parent().removeClass('active');
-                    if (data.code == 1){
-                        $("#getCode").hide();
-                        $("#showtime").show();
-                        startTime(60);
-                    }else{
-                        $("#phone").parent().parent().removeClass('active').addClass('warning').children('.hint-word').text(data.msg);
-                    }
-                }
-            });
-        }
-    };
-    // 验证开始需要向网站主后台获取id，challenge，success（是否启用failback）
-    $.ajax({
-        url: "../ajax/StartCaptchaServlet.php?type=login&t=" + (new Date()).getTime(), // 加随机数防止缓存
-        type: "get",
-        dataType: "json",
-        success: function (data) {
-            // 使用initGeetest接口
-            // 参数1：配置参数
-            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
-            initGeetest({
-                gt: data.gt,
-                challenge: data.challenge,
-                product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
-                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
-                // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
-            }, handlerPopup);
-        }
-    }); 
+    });
 
 </script>
 
