@@ -12,14 +12,61 @@
 */
 Route::group([],function(){
     //显示一个后台首页
-    Route::get('/', function () {
+    Route::get('/template', function () {
         return view('template.first');
     });
 
-    Route::resource('user','template\UserController');
-    Route::resource('cate','template\CateController');
+    //后台用户控制器
     Route::get('template/user/change','template\UserController@change');
     Route::get('template/user/delall','template\UserController@delall');
+
+    Route::resource('user','template\UserController');
+
+    //前台用户控制器
+    Route::get('template/userhome/change','template\UserHomeController@change');
+    Route::resource('userhome','template\UserHomeController');
+
+    //后台分类控制器
+    Route::get('template/cate/delall','template\CateController@delall');
+    Route::resource('cate','template\CateController');
+
+    //后台网站配置控制器
+    Route::get('template/config/putFile','template\ConfigController@putFile');
+    Route::get('template/config/delall','template\ConfigController@delall');
+    Route::post('template/config/change','template\ConfigController@change');
+
+    Route::resource('config','template\ConfigController');
+
+    //轮播图控制器
+    Route::get('template/car/change','template\CarController@change');
+    Route::get('template/car/delall','template\CarController@delall');
+    Route::resource('car','template\CarController');
+
+    //文件上传控制器
+
+    Route::post('template/upload/uploads','template\UploadController@uploads');
+    route::resource('upload','template\UploadController');
+
+    //订单控制器
+    Route::get('template/order/delall','template\OrderCOntroller@delall');
+    Route::resource('order','template\OrderController');
+
+    //角色控制器
+    //给角色添加权限
+    Route::get('template/role/auth/{id}','template\RoleController@auth');
+    Route::get('template/role/change','template\RoleController@change');
+    Route::get('template/role/delall','template\RoleController@delall');
+    Route::resource('role','template\RoleController');
+
+    //权限控制器
+    Route::get('template/perm/change','template\PermController@change');
+    Route::get('template/perm/delall','template\PermController@delall');
+    Route::resource('perm','template\PermController');
+
+    //权限分类控制器
+    Route::get('template/perm_cate/delall','template\Perm_cateController@delall');
+    Route::resource('perm_cate','template\Perm_cateController');
+
 
 
 

@@ -15,15 +15,9 @@ class CateController extends Controller
      */
     public function index()
     {
+        $arr = Cate::tree();
 
-        if(empty($id)){
-            $id = 1;
-        }
-
-
-        $p_cates = Cate::where('pid','0')->get();
-        $c_cates = Cate::where('pid',$id)->get();
-        return view('template.cate.list',compact('p_cates','c_cates'));
+        return view('template.cate.list',compact('arr'));
     }
 
     /**
@@ -56,17 +50,13 @@ class CateController extends Controller
         ],[
             'cname.required'=>'类别名称不能为空!!'
         ]);
-
-
-
-
         $cate = new Cate();
         //获取提交来的数据
         $input = $request -> except('_token');
         //验证该分类是否已经存在
         $arr = Cate::where('cname',$input['cname'])->first();
         if($arr){
-            return back()->with('error','该类户已存在!');
+            return back()->with('error','该类名已存在!');
         }
         //拼接path
         if($input['pid']==0){
@@ -83,9 +73,9 @@ class CateController extends Controller
 
         $res = $cate -> save();
         if($res){
-           return redirect('');
+           return redirect('/cate');
        } else{
-            return back()->with('msg','添加成功');
+            return back()->with('msg','添加失败');
         }
     }
 
@@ -97,9 +87,8 @@ class CateController extends Controller
      */
     public function show($id)
     {
-        $p_cates = Cate::where('pid','0')->get();
-        $c_cates = Cate::where('pid',$id)->get();
-        return view('template.cate.list',compact('p_cates','c_cates'));
+        $cate =Cate::find($id);
+        return view('template.cate.add',compact('cate'));
     }
 
     /**
@@ -110,7 +99,10 @@ class CateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cate =Cate::find($id);
+        $p_cate =Cate::where('cid',$cate->pid)->first();
+
+        return view('template.cate.edit',compact('cate','p_cate'));
     }
 
     /**
@@ -122,7 +114,28 @@ class CateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //表单验证
+        $this->validate($request,[
+            'cname'=>'required',
+        ],[
+            'cname.required'=>'类别名称不能为空!!'
+        ]);
+
+        //获取提交来的数据
+        $input = $request -> except('_token','_method');
+        //验证该分类是否已经存在
+        $arr = Cate::where('cname',$input['cname'])->first();
+        if($arr){
+            return back()->with('error','该类名已存在!');
+        }
+
+        $res = Cate::where('cid',$id)->update(['cname'=>$input['cname']]);
+
+        if($res){
+            return redirect('/cate');
+        } else{
+            return back()->with('msg','修改失败');
+        }
     }
 
     /**
@@ -133,6 +146,50 @@ class CateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $res = Cate::where('pid',$id)->first();
+        if($res){
+            return back()->with('msg','存在子分类,不能删除!!');
+        }else{
+            $red =Cate::destroy($id);
+            if($red){
+                return back()->with('msg','删除成功');
+            }else{
+                return back()->with('msg','删除失败');
+            }
+        }
+    }
+
+    //批量删除
+    public function delall(Request $request)
+    {
+        $cids = $request -> input('ids');
+
+
+        foreach($cids as $k => $v){
+            $res = Cate::where('pid',$v)->first();
+
+            if(!empty($res)){
+                $arr = [
+                    'msg'=>'选中类别不为空,无法删除'
+
+                ];
+                return $arr;
+            }
+
+        }
+
+        if(empty($res)){
+            $red =Cate::destroy($cids);
+            if($red) {
+                $arr = [
+                    'msg' => '删除成功'
+                ];
+            } else{
+                $arr = [
+                    'msg' => '删除失败'
+                ];
+            }
+            return $arr;
+        }
     }
 }

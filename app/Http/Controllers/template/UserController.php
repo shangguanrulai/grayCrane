@@ -42,7 +42,7 @@ class UserController extends Controller
                     $query -> where('auth',$qx);
                 }
             })
-            ->paginate(3);
+            ->paginate(10);
         return view('template.user.list',['users'=>$users,'request'=>$request]);
 
 
@@ -81,8 +81,10 @@ class UserController extends Controller
             'reuserpass.same'=>'两次密码不一致',
             'username.regex' => '用户名格式不正确'
         ]);
+
         // 接受提交过来的数据
-        $input = $request -> except('_token','reuserpass');
+        $input = $request -> except('_token','reuserpass','fileupload');
+
         $arr = Admin_User::where('username',$input['username'])->first();
         if($arr){
             return back()->with('error','该用户已存在!');
@@ -90,10 +92,7 @@ class UserController extends Controller
 
         //密码加密
         $input['userpass'] = Crypt::encrypt($input['userpass']);
-        //保存上传的头像
-        $path = $request->profile->store('uploads');
-        //保存图片的路径
-        $input['profile'] = $path;
+
 //      添加到用户表
         $user = new Admin_User();
         foreach($input as $k => $v){
@@ -102,7 +101,7 @@ class UserController extends Controller
         $res = $user -> save();
 
         if($res){
-            return redirect('/cate');
+            return redirect('/user');
         }else{
             return back()->with('msg','添加失败');
         };
@@ -159,45 +158,29 @@ class UserController extends Controller
             'reuserpass.same'=>'两次密码不一致',
             'username.regex' => '用户名格式不正确'
         ]);
-        $input = $request->except('_token','_method','reuserpass');
-        $arr = Admin_User::where('username',$input['username'])->first();
-        if($arr && $id != $arr['id']){
-            return back()->with('error','该用户已存在!');
-        }else if($arr && $id==$arr['id']){
-            $pass = Crypt::decrypt($arr['userpass']);
-            if($input['qrpass']==$pass){
-                unset($input['qrpass']);
-                $input['userpass'] = Crypt::encrypt($input['userpass']);
-                //保存上传的头像
-                $path = $request->profile->store('uploads');
+        $input = $request->except('_token','_method','reuserpass','fileupload');
+        $arr = Admin_User::find($id);
+        $pass = Crypt::decrypt($arr['userpass']);
+        if($input['qrpass']==$pass){
+            unset($input['qrpass']);
+            $input['userpass'] = Crypt::encrypt($input['userpass']);
+            $user = Admin_User::find($id);
 
-                //保存图片的路径
-                $input['profile'] = $path;
-
-
-                $user = Admin_User::find($id);
-
-                foreach($input as $k => $v){
-                    $user -> $k = $v;
-                }
-                $res = $user -> save();
-
-                if($res){
-                    return redirect('/user');
-                }else{
-                    return back()->with('msg','修改失败');
-                };
-
-            } else{
-                return back()->with('error','原密码不正确!!');
+            foreach($input as $k => $v){
+                $user -> $k = $v;
             }
+
+            $res = $user -> save();
+
+            if($res){
+                return redirect('/user');
+            }else{
+                return back()->with('msg','修改失败');
+            };
+
+        } else{
+            return back()->with('error','原密码不正确!!');
         }
-
-
-
-
-
-
 
     }
 
@@ -249,23 +232,29 @@ class UserController extends Controller
 
    }
 
-   public function delall(Request $request){
-        $id = $request -> input('id');
-        $a = $request -> input('a');
-        $user = Admin_User::find($id);
+   public function delall(Request $request)
+   {
+        $ids = $request -> input('ids');
 
-       $res = $user -> delete();
+
+       $res = Admin_User::destroy($ids);
 
 
        if($res) {
-            $a++;
+
            $arr = [
-                'a'=>$a,
+
                'msg' => '删除成功'
 
            ];
+       } else{
+            $arr = [
+                'msg' => '删除失败'
+            ];
        }
        return $arr;
 
    }
+
+
 }

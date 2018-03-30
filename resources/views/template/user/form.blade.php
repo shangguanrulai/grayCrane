@@ -4,7 +4,7 @@
 @section('title','添加后台用户')
 
 @section('content')
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="tpl-content-wrapper">
     <div class="container-fluid am-cf">
         <div class="row">
@@ -55,7 +55,7 @@
                                 </script>
 
                             </div>
-                                <form action="/user" class="am-form tpl-form-line-form" method="post" enctype="multipart/form-data">
+                                <form action="/user" id="biaodan" class="am-form tpl-form-line-form" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">用户名: <span class="tpl-form-line-small-title">name</span></label>
@@ -96,15 +96,21 @@
 
                                     <div class="am-form-group">
                                         <label for="user-weibo" class="am-u-sm-3 am-form-label">头像: <span class="tpl-form-line-small-title">Images</span></label>
-                                        <div class="am-u-sm-9">
-                                            <div class="am-form-group am-form-file">
+                                        <div class="am-u-sm-9" style="position: relative;">
+                                            <input id="file_upload" type="file" name="fileupload" value="" style="opacity:0.0;position: relative;z-index:99999999"   >
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm" style="position:absolute;top:0px">
+                                                <i class="am-icon-cloud-upload"></i> 上传头像</button>
+                                            <p id="demoText"></p>
+                                        </div>
+                                    </div>
+                                    {{--引入上传图片--}}
+                                    <script src="/assets/js/upload.js"></script>
 
-                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
-                                                    <i class="am-icon-cloud-upload"></i> 上传头像
-                                                </button>
-                                                <input id="doc-form-file" type="file" multiple="" name="profile">
-                                            </div>
-
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label"></label>
+                                        <div class="layui-input-block" style="position:relative;left:270px;top:-30px;width:60px;height:60px">
+                                            <input type="hidden" name="profile" value="">
+                                            <img id="art_thumb" src="" style="width:60px;">
                                         </div>
                                     </div>
 
@@ -126,4 +132,6 @@
     <script src="/assets/js/amazeui.datatables.min.js"></script>
     <script src="/assets/js/dataTables.responsive.min.js"></script>
     <script src="/assets/js/app.js"></script>
+
+
 @endsection
