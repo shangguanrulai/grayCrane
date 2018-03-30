@@ -20,6 +20,9 @@
     <script src="/assets/js/jquery.min.js"></script>
     <script src='/assets/bs/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href="/assets/bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/jquery-labelauty.css">
+    <link rel="stylesheet" href="/assets/css/image.css">
+
 
 </head>
 

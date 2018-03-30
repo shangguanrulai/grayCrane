@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
-                                        <input type="text" class="am-form-field " value="{{ $request->keywords1 }}" name="keywords1">
+                                        <input type="text" class="am-form-field " value="{{ $request->keywords1 }}" >
                                         <span class="am-input-group-btn">
                                                 <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" ></button>
                                             </span>
@@ -73,14 +73,16 @@
                                 </div>
                             </form>
                             <div class="am-u-sm-12">
-                                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " >
                                     <thead>
                                     <tr>
                                         <td>删除</td>
                                         <th>编号</th>
                                         <th>用户名</th>
+                                        
                                         <th>权限</th>
                                         <th>创建时间</th>
+                                        <th>头像</th>
                                         <th>状态</th>
                                         <th>操作</th>
                                     </tr>
@@ -88,7 +90,7 @@
                                     <tbody>
                                     @foreach($users as $k => $v)
                                         <tr class="gradeX">
-                                            <td><input type="checkbox" /></td>
+                                            <td><input type="checkbox" del-id="{{ $v->id }}"/></td>
                                             <td>{{ $v->id }}</td>
                                             <td>{{ $v->username }}</td>
                                             <td>
@@ -99,6 +101,7 @@
                                                 @endif
                                             </td>
                                             <td>{{ $v->created_at }}</td>
+                                            <td><img style="width:40px;height:30px" src="/uploads/{{$v->profile}}" alt=""></td>
                                             <td>
                                                 @if( $v->status ==0)
                                                     <button class="btn-success" onclick="star(this,{{$v->id}})" status="{{$v->status}}">已启用</button>
@@ -108,14 +111,6 @@
                                             </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
-
-
-
-                                                       {{--<a href="{{ url('user/'.$v->id.'/edit') }}" >
-                                                           <button class="btn-info">
-                                                                <i class="am-icon-pencil"></i> 修改
-                                                           </button>
-                                                       </a>--}}
                                                     <div style="display: inline-block">
                                                         <form action="{{ url('user/'.$v->id.'/edit') }}" method="get">
                                                             <button class="btn-info" >
@@ -217,36 +212,39 @@
         }
 
         //批量删除
-        function delall(){
-            var a = 0;
-            $(':checkbox').each(function(){
+        function delall() {
+            var ids = [];
+            $(':checkbox').each(function () {
+                if (this.checked == true) {
+                    ids.push($(this).attr('del-id'));
+                }
+            })
 
-                if(this.checked == true){
-                    var id = $(this).parents('td').next().html();
-                    $(this).parents('tr').remove();
+
+                if (confirm('确定删除' + ids + '吗')) {
                     $.ajax({
                         type: "GET",
                         url: "/template/user/delall",
-                        data: {'id':id,'a':a},
+                        data: {'ids': ids},
                         dataType: "json",
-                        anyac:false,
-                        success: function (data)
-                        {
-                        },
-                        error: function (data){
-                            alert('删除失败');
-                        },
-                    });
-                    a++;
-                }
-            })
-            alert('共计删除'+a+'条信息!!');
+                        anyac: false,
+                        success: function (data) {
+                            var arr = data;
+                            alert(arr['msg']);
+                            $(':checkbox').each(function () {
+                                if (this.checked == true) {
+                                    $(this).parents('tr').remove();
+                                }
+                            })
 
+                        },
+                        error: function (data) {
+                            var arr = data;
+                            alert(arr['msg']);
+                        }
+                    });
+                }
 
         }
-
-
-
-
     </script>
 @endsection
