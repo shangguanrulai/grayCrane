@@ -96,7 +96,7 @@ var followGoodsLock = true;
         }
     });
 
-    $(".collection-link").on('click', function () {
+/*    $(".collection-link").on('click', function () {
         var _this = $(this);
         if (followGoodsLock) {
             var num = Number(_this.find('strong').text());
@@ -121,7 +121,7 @@ var followGoodsLock = true;
             });
         }
     });
-})();
+})();*/
 
 // 二维码消息打通-PC-V2.5
 (function showMobileDialogFn() {
@@ -842,7 +842,7 @@ function initBidPrice() {
     });
 })();
 
-function goodsAttention(goods_ids) {
+/*function goodsAttention(goods_ids) {
     $.ajax({
         url: '/ajax/goods-collect-view',
         type: "get",
@@ -860,7 +860,7 @@ function goodsAttention(goods_ids) {
             }
         }
     });
-}
+}*/
 
 
 $(document).on('click', '#equipment-list li', function () {

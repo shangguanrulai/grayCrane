@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\cate;
 use App\Http\Controllers\Controller;
 
+
 class AjaxController extends Controller
 {
     public function user($phone)

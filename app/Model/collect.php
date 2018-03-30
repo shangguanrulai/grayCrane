@@ -12,6 +12,7 @@ class collect extends Model
     public $primarykey = 'id';
     //允许批量更新
     protected $fillable = ['status'];
+    
 
     public function user_home()
     {
@@ -22,6 +23,5 @@ class collect extends Model
     {
         return $this->belongsTo('App\Molde\collects', 'rid', 'rid');
     }
-
 
 }

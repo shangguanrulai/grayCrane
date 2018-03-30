@@ -394,55 +394,38 @@
 </div>
 <div class="product-toolbar clearfix">
     <div id="collectionLink" class="collection-link">
-        <span name="shou">收藏宝贝（0）</span>
+        <span name="shou">收藏宝贝</span>
     </div>
 
 
-    <div name="ttyytuyruyrutr">1234</div>
     <script>
-        $('div[name=ttyytuyruyrutr]').click(function(){
-            //alert(11111);
+        $('span[name=shou]').click(function(){
+            
 
-             $.get('/home/goods/aaaaa',function(d){
-                console.log(11111);
+             
 
-            });
+            
             /*if (!\Auth::check() && strpos(\Request::getRequestUri() ,"discussions")!==false) 
              {!! \Session::put('/home/goods/details',\Request::getRequestUri()) !!}*/
 
 
            if(!{{  $flag }}){
-                /*{!! \Session::put('/home/goods/details',\Request::getRequestUri()) !!}*/
+                {!! Session::put('url','/home/goods/details') !!}
             
                 window.location.href ='/home/login';
-               return;
+               
             } else {
-                $(this).html('已收藏宝贝(0)');
+                $(this).html('已收藏宝贝');
             };
 
-           /*$.get('/home/goods/ajax2',{uid:{{ $users->id }},cid:{{ $goods->rid }}},function(data){
 
-                console.log(data);
-            });*/
-            // alert(123);
-           /* $.ajax({
-                url: '/home/goods/ajaxs',
-                // data: 'uid:1',
-                dataType: 'json',
-                type: 'GET',
-                success: function(data){
-                    console.log(data);
-                },
-                error: function(){
-                    console.log('发送失败');
-                },
-                timeout:5000,
-                async: false
-            })*/
+            $.get('/home/goods/aaaaa',{'rid':{{ $goods['rid'] }} },function(d){
+                console.log(d);
+        
+            })
 
+            });
         
-        
-        });
   
     </script>
     <!-- share-box -->
@@ -480,21 +463,208 @@
     <!-- //share-box -->
 </div>
 
-            <div class="product-tabs J_productTab">
+            <div id='d1' class="product-tabs J_productTab">
     <ul class="tab-nav clearfix">
-        <li class="J_item current-item" rel="describe">
-            <span>描述</span>
+        <li id='d2' class="J_item current-item" rel="describe">
+            <span name='miaoshu'>描述</span>
         </li>
-        <li class="J_item" rel="message">
-            <span> 给TA留言(0)</span>
+        <li class="J_item" rel="message" id='d3'>
+            <span name='liuyan'> 给TA留言(0)</span>
         </li>
     </ul>
-    <div class="describe-wrap">
+    <div class="describe-wrap" id='d4'>
         <div class="section other-description-section">
     <div class="description-text"><pre style="word-break: break-all;word-wrap:break-word;white-space:normal ;">
         {{ $goods['describe'] }}
-<br /></pre></div>
+<br /><br /><br /><br /><br /></pre></div>
 </div>    </div>
+<!-- 给他留言 -->
+    <div class='message-wrap'>
+        <div class="section message-section" id="message-section"><div class="section-header">
+    <h3 class="section-title">留言咨询</h3>
+</div>
+<!-- message-post -->
+<div class="message-post clearfix">
+    <div class="clearfix">
+        <a href="javascript:;" class="avtor">
+            <img src="/uploads/{{ $goods->gpic }}" width="60" height="60" alt="">
+            <span class="name">{{ $users['username'] }}</span>
+        </a>
+
+        <input type="hidden" id="csrf" name="_csrf" value="Zy1RUnl1bDUjYisjOkUjehBcA38eAxsGMhQABgE6JmVWaAcmE0EeWQ==">        <textarea  placeholder="我来说两句" id="question_content" class="post-text"></textarea>
+    </div>
+    <div class="post-button">
+        <span class="comment-button">评论</span>
+        <span id="showWechatLayer" class="wechat-tip">关注小蜂，微信管理</span>
+    </div>
+
+<!-- 提交留言 -->
+<script>
+    $('textarea').focus(function(){
+
+           if(!{{  $flag }}){
+                {!! Session::put('url','/home/goods/details') !!}
+            
+                window.location.href ='/home/login';
+               
+            } 
+    })
+    $('.comment-button').click(function(){
+        var umessage = $('textarea').val();
+        $.get('/home/goods/bbbbb',{umessage:umessage,rid:{{ $goods['rid'] }} },function(d){
+               
+            })
+
+        $('textarea').val('');
+    })
+</script>
+</div>
+<!-- //message-post -->
+
+<ul class="comment-list">
+    <li class='comment-item clearfix' id='qa_14674'>
+        <a href="/10820479/credit.html" class='avaor'>
+            <img src="" width='40' height='40' alt="">
+        </a>
+        <div class='item-content'> 
+            <div class='comment-text clearfix'>
+                <a href="/10820479/credit.html" class='name'>{{ $users['username'] }}</a>
+                <span class='text'></span>
+                
+            </div>
+            <div class='comment-toolbar clearfix'>
+                <span class='reply-link' onclick='show_reply(14674);'>回复</span>
+                <span class='delete-link' onclick='qa_dlt(14674);'>删除</span>
+                <span class='date'>时间</span>
+                <div style='display:none' class='reply-box' id='reply_14674'>
+                    <i class='arrow-icon'></i>
+                    <textarea name id="reply_content_14674" placeholder='请填写您的回复内容'></textarea>
+                    <span onclick='qa_reply(14674);' class='comment-button' >评论</span>
+                </div>
+                
+            </div>
+        </div>
+
+    </li>
+    </ul>
+
+
+ <!-- <script type="text/javascript">
+             var userId = 0 ;
+             $('.message-post .comment-button').click(function () {
+                 if (!userId) {
+                     return quickLogin();
+                 }
+                 var question_content = $('#question_content').val(),
+                     csrf = $('#csrf').val();
+                 if (mb_strlen(question_content) >= 140 * 3) {
+                     return jsError('不能超过140个字');
+                 }
+                 if (!question_content) {
+                     return jsError('请输入评论内容');
+                 }
+                 $.ajax({
+                     url: '/ajax/qa-add',
+                     type: "post",
+                     data: {'_csrf': csrf, 'goods_id': goods_id, 'message': question_content},
+                     success: function (json) {
+                         if (json.code == 1) {
+                             _initPage('qa');
+                         } else {
+                             return jsError(json.msg);
+                         }
+                     }
+                 });
+             })
+             function show_reply(id) {
+                 $('#reply_' + id).toggle();
+                 $('#reply_content_' + id).focus();
+             }
+             function qa_reply(id) {
+                 var reply_content = $('#reply_content_' + id).val();
+                 if (mb_strlen(reply_content) >= 140 * 3) {
+                     return jsError('不能超过140个字');
+                 }
+                 var csrf = $('#csrf').val();
+                 if (!reply_content) {
+                     return jsError('请输入回复内容');
+                 }
+                 $.ajax({
+                     url: '/ajax/qa-reply',
+                     dataType: 'json',
+                     type: "post",
+                     data: {'_csrf': csrf, 'goods_id': goods_id, 'id': id, 'message': reply_content},
+                     success: function (json) {
+                         if(json.code==1){
+                             _initPage('qa');
+                         }else {
+                             return jsError(json.msg);
+                         }
+                     }
+                 });
+             }
+         
+             function qa_dlt(id) {
+                 var csrf = $('#csrf').val();
+                 $.ajax({
+                     url: '/ajax/qa-drop',
+                     dataType: 'json',
+                     type: "post",
+                     data: {'_csrf': csrf, 'rnd':Math.random(),'goods_id': goods_id, 'id': id},
+                     success: function () {
+                         _initPage('qa');
+                     }
+                 });
+             }
+             // 二维码消息打通-PC-V2.5
+             ;(function () {
+                 $("#wechatQa").dialog({
+                     autoOpen: false,
+                     modal: true,
+                     width: 600,
+                     buttons: {}
+                 });
+         
+                 $("#showWechatLayer").click(function () {
+                     var scene_id = 11;
+                     $.ajax({
+                         dataType: 'json',
+                         url: '/ajax/we-chat-qrcode',
+                         data: {"scene_id":scene_id},
+                         success: function (data) {
+                             if (data.code == 1) {
+                                 $("#qrcodeqa").attr("src",data.item);
+                             }
+                         }
+                     });
+                     $("#wechatQa").dialog("open");
+         
+                 });
+             })();
+         </script>  --> 
+</div>
+        
+    </div>
+<!--  留言 -->
+<script>
+    $('span[name=liuyan]').click(function(){
+
+        $('#d1').attr('class','product-tabs J_productTab describeHidden');
+        $('#d2').attr('class','J_item');
+        $('#d3').attr('class','J_item current-item');
+        $('#d4').css('display','none');
+    })
+
+    $('span[name=miaoshu]').click(function(){
+
+        $('#d1').attr('class','product-tabs J_productTab');
+        $('#d2').attr('class','J_item current-item');
+        $('#d3').attr('class','J_item ');
+        $('#d4').css('display','block');
+    })
+
+
+</script>
     <div class="message-wrap">
         <!-- message -->
         <div class="section message-section" id="message-section">
@@ -512,7 +682,7 @@
                 src="/Picture/head50.png" width="40" height="40" alt=""></a>
         <ul class="user-infor">
             <li class="clearfix">
-                {{ $users['username'] }}<img src="/Picture/redheart.png" alt="卖家信用" title="卖家信用">            </li>
+                {{ $users['nickname'] }}<img src="/Picture/redheart.png" alt="卖家信用" title="卖家信用">            </li>
             <li>
                 已加入蜂鸟 <em>{{ $f }}</em> 天，卖出商品 <em>0 </em> 件
             </li>

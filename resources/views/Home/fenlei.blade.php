@@ -19,14 +19,14 @@
     <link href="/Content/header.css" rel="stylesheet">
     <link href="/Content/secondarytradingpublic.css" rel="stylesheet">
     <link href="/Content/homepage.css" rel="stylesheet" 0="frontend\assets\BaseAsset">
-    <script src="/Scripts/jquery-3.2.1.js" charset="UTF-8"></script>
+    <script src="/Scripts/jquery-3.2.1.min.js" charset="UTF-8"></script>
     <script src="/Scripts/jqueryui.1.11.4.js" charset="UTF-8"></script>
     {{--<script src="/Scripts/jquery.bxslider.min.js" charset="UTF-8"></script>--}}
     <script src="/Scripts/jquery.tinyscrollbar.2.4.2.min.js" charset="UTF-8"></script>
-    <script src="/Scripts/im.js" charset="UTF-8"></script>
-    <script src="/Scripts/globalceiling.js" charset="UTF-8"></script>
+<!--     <script src="/Scripts/im.js" charset="UTF-8"></script>
+     -->    <script src="/Scripts/globalceiling.js" charset="UTF-8"></script>
     <script src="/Scripts/md5.js" charset="UTF-8"></script>
-    {{--<script src="/Scripts/common.js" charset="UTF-8"></script>--}}
+    <!-- <script src="/Scripts/common.js" charset="UTF-8"></script> -->
     <script src="/Scripts/global.js" charset="UTF-8"></script>
     <script src="/Scripts/swfobject.js" charset="UTF-8"></script>
     <link rel="stylesheet" id="WideGoodsSheet" rel="stylesheet">
@@ -423,10 +423,9 @@
 <input type="hidden" name="pos" value="1"><ul class="wrapper filter-classification-box" id="listFilter">
                     <li class="filter-item clearfix category">
                         <span class="item-title">分类：</span>
-            <a class="tag " href="/price/114-0-0-0-0-0-def-1_1.html">全部</a>
-            <div class="filter-sub-links clearfix">
+            <div class="filter-sub-links clearfix" style="height:auto;">
                                     @foreach($cname as $v)
-                                    <a class="tag " href="" name="yjfl" cid="{{$v->cid}}">{{ $v->cname }}</a>
+                                    <a class="tag " href="" name="yjfl" cid="{{ $v->cid }}">{{ $v->cname }}</a>
                                     @endforeach
                             </div>
                         <script>
@@ -434,9 +433,10 @@
 
                                 $(this).click(function(){
 
+
                                     var cid = $(this).attr('cid');
 
-                                    $.get('/home/goods/ajax',{c:cid},function(data){
+                                    $.get('/home/goods/ajax',{cid:cid},function(data){
 
                                         console.log(data);
                                     });
@@ -451,7 +451,6 @@
         </li>
                         <li class="filter-item clearfix manu">
             <span class="item-title">品牌：</span>
-            <a class="tag current-tag" href="/price/114-1050-0-0-0-0-def-1_1.html">全部</a>
             <div class="search-bar"><input type="text" name="" placeholder="搜索品牌名称"></div>
             <div class="filter-sub-links clearfix">
                                 @foreach($cname as $v)
@@ -467,37 +466,18 @@
    
     <li class="filter-item clearfix">
         <span class="item-title">更多：</span>
-        <div class="filter-bar">
+        <div class="filter-bar" style="margin:auto">
             <span class="filter-tag"><em>¥</em><input type="text" class="price" name="p" placeholder="最低价" value="" maxlength="6"></span>
             <span class="filter-tag"><em>¥</em><input type="text" class="price" name="mp" placeholder="最高价" value="" maxlength="6"></span>
-            <select name="q">
-<option value="">最低成色</option>
-<option value="100">全新</option>
-<option value="99">99新</option>
-<option value="98">98新</option>
-<option value="95">95新</option>
-<option value="90">90新</option>
-<option value="80">80新及以下</option>
-<option value="2">缺陷品</option>
-<option value="1">报废品</option>
-</select>            <span class="space"></span>
-            <select name="mq">
-<option value="">最高成色</option>
-<option value="100">全新</option>
-<option value="99">99新</option>
-<option value="98">98新</option>
-<option value="95">95新</option>
-<option value="90">90新</option>
-<option value="80">80新及以下</option>
-<option value="2">缺陷品</option>
-<option value="1">报废品</option>
-</select>            <span class="filter-tag"><em>当前</em><input type="text" name="k" data-name="k" value="" placeholder="结果搜索"></span>
-            <span class="filter-tag"><em>排除</em><input type="text" name="nk" data-name="nk" value="" placeholder="关键字"></span>
+            <!-- <span class="filter-tag"><em>当前</em><input type="text" name="k" data-name="k" value="" placeholder="结果搜索"></span> -->
+            <!-- <span class="filter-tag"><em>排除</em><input type="text" name="nk" data-name="nk" value="" placeholder="关键字"></span> -->
             <span class="filter-tag"><input type="text" class="seller-name" name="u" data-name="u" value="" placeholder="卖家名称/店铺名称"></span>
             <button type="submit" class="search-button">筛选</button>        </div>
     </li>
 </ul>
+    <script>
 
+    </script>
 <div class="wrapper search-result">
     <div class="result-count">
         小蜂为您找到 <em>2342</em> 件器材
@@ -1150,13 +1130,15 @@
             
     <li class="goods-item clearfix">
         <div class="cell-1">
-            <a href="/secforum/3266418.html" target="_blank" class="goods-pic"><img src="{{ $v->gpic }}" alt="98新 富士 X-E2s" title="98新 富士 X-E2s"></a>
+            <a href="/secforum/3266418.html" target="_blank" class="goods-pic"><img src="/uploads/{{ $v->gpic }}" alt="" title=""></a>
         </div>
         <div class="cell-2">
             <a class="goods-title" href="/secforum/3266418.html" target="_blank">{{ $v->gname }}
 
                                         </a>
-
+            <div class="tags clearfix">
+                &nbsp;{{ $v->describe }}
+            </div>
 
                         
             <div class="user-box clearfix">
