@@ -19,4 +19,35 @@ class AjaxController extends Controller
 
         return cate::where('pid',$pid)->get();
     }
+
+    public function release(Request $request)
+    {
+        $file = $request->file('fileupload');
+
+        //如果是有效的上传文件
+        if($file->isValid()) {
+
+           // 存储上传文件
+            $path = $request->file('fileupload')->store('/home');
+
+            //将上传文件的路径返回给客户端
+            return $path;
+        }
+    }
+
+    public function userinfo(Request $request)
+    {
+        $file = $request->file('fileupload');
+
+        //如果是有效的上传文件
+        if($file->isValid()) {
+
+            // 存储上传文件
+            $path = $request->file('fileupload')->store('/home');
+
+            //将上传文件的路径返回给客户端
+            return $path;
+        }
+    }
+
 }

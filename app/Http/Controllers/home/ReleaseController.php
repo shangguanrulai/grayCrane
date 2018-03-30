@@ -28,10 +28,12 @@ class ReleaseController extends Controller
      */
     public function create()
     {
-        $user = user_home::find(1);
+        $uid = Session('user')['uid'];
+        $user = user_home::find($uid);
         $cate = cate::get();
+        $cates = $this->getCateTree();
 
-        return view('home.release.release',compact('cate','user'));
+        return view('home.release.release',compact('cate','user','cates'));
     }
 
     /**
@@ -43,7 +45,7 @@ class ReleaseController extends Controller
     public function store(Request $request)
     {
         // 删除无用数据
-        $input = $request->except(['_token','dphone']);
+        $input = $request->except(['_token','dphone','file_upload']);
 
         // 表单验证
         $this->validate($request, [
@@ -62,10 +64,6 @@ class ReleaseController extends Controller
             'rphone.regex' => '请正确填写联系方式'
         ]);
 
-        // 判断是否有文件上传
-        if (!$request->hasFile('gpic')){
-            return back()->withErrors('请上传商品图片');
-        }
 
         // 处理数据库写入数据
         $input['raddr'] = $input['raddrp'].','.$input['raddrc'].','.$input['raddra'];
@@ -73,10 +71,6 @@ class ReleaseController extends Controller
         unset($input['raddrc']);
         unset($input['raddra']);
         unset($input['pid']);
-
-        // 存储上传文件
-        $path = $request->file('gpic')->store('/home');
-        $input['gpic'] = $path;
 
 
         // 在数据库存储数据
@@ -132,5 +126,20 @@ class ReleaseController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getCateTree( $cates=[], $pid=0 )
+    {
+        if( empty($cates) ){
+            $cates = cate::get();
+        }
+        $sub = [];
+        foreach( $cates as $k=>$v ){
+            if( $v->pid == $pid ){
+                $v->sub = $this->getCateTree( $cates, $v->cid );
+                $sub[] = $v;
+            }
+        }
+        return $sub;
     }
 }

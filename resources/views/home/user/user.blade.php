@@ -1,25 +1,39 @@
 ﻿@extends('home.common.user_home')
-
 @section('content')
+    <style>
+        #pass:hover{color: red;}
+        .layui-nav{top:-20px;}
+        .fn-sec-header{top:-20px;}
+    </style>
         <div class="y-center-main-right home mtop20">
             <div class="y-center-home-box">
                 <div class="y-center-info">
-                    <div class="head"><a target='_blank' href="/10820479/credit.html" ><img src="/Picture/head80.png"></a></div>
+                    <div class="head">
+                       @if($userinfo['portrait'])
+                            <img src="/uploads/{{$userinfo['portrait']}}" style="width: 75px;height: 75px;">
+                        @else
+                            <img src="/Picture/head80.png">
+                       @endif
+                    </div>
                     <div class="info">
-                        <span class="left"><a target='_blank' href="/10820479/credit.html" >{{$userinfo->nickname}}</a></span>
+                        @if($userinfo['nickname'])
+                            <span class="left">{{$userinfo['nickname']}}</span>
+                        @else
+                            <span class="left"><a target='_blank' href="/home/user/{{$user['uid']}}/edit" >暂无昵称</a></span>
+                        @endif
                         <span class="right">
                             <font></font>
                             <a target='_blank' href=""></a></span>
-                        <span class="left"><font>信誉度：<i>{{$userinfo->score}}</i></font></span>
-                        <span class="left"><font>手机认证：<i>@if ($user->phone) 已认证 @else 未认证 @endif</i></font></span>
-                        <span class="left"><font>实名认证：<i>@if ($userinfo->isTrue == 0) 未认证 @else 已认证 @endif</i></font></span>
-                        <span class="left"><font>收货地址：<i></i></font></span>
+                        <span class="left"><font>灰鹤信用：<i>{{$userinfo['score']}}</i></font></span>
+                        <span class="left"><font>手机认证：<i>@if ($user['phone']) 已认证 @else 未认证 @endif</i></font></span>
+                        <span class="left"><font>实名认证：<i>@if ($userinfo['isTrue'] == 0) 未认证 @else 已认证 @endif</i></font></span>
+                        <span class="left"><font><a href="/home/user/pass" id="pass">修改密码</a></font></span>
+                        <span class="left"><font><a href="/home/user/addr">收货地址</a><i></i></font></span>
                     </div>
                     <div class="clear">&nbsp;</div>
                     <div class="btn clearfix">
-
                         {{--<font id='money' money="0.00" class="balanceNum" style="display: none;">0.00元</font>--}}
-                        <a href='{{url("/home/user/{$user->uid}/edit")}}' id='showMoney' class="balance">修改信息</a>
+                        <a href="/home/user/{{$user['uid']}}/edit" id='showMoney' class="balance" style="position: relative;left:-10px;">修改信息</a>
                         {{--<a href="/user/withdraw">提现</a>--}}
                     </div>
                 </div>
@@ -90,67 +104,67 @@
                             @endswitch
                         </p>
                     <ul>
-                        @if ($userinfo->isTrue == 0)
+                        @if ($userinfo['isTrue'] == 0)
                             <li class="no">
                                 <font>未设置</font>
                                 <font>身份验证</font>
                                 <b>用于提升账号的安全性和信任级别。</b>
-                                <a target="_blank" href="">设置</a>
+                                <a target="_blank" href="/home/user/create">设置</a>
                             </li>
                         @else
                             <li>
                                 <font>已完成</font>
                                 <font>身份验证</font>
                                 <b>用于提升账号的安全性和信任级别。</b>
-                                <a target="_blank" href="">查看</a>
+                                <a target="_blank" href="/home/user/create">查看</a>
                             </li>
                         @endif
 
-                        @if ($user->phone)
+                        @if ($user['phone'])
                             <li>
                                 <font>已完成</font>
                                 <font>手机绑定</font>
                                 <b>绑定手机后，您可以享受灰鹤服务如手机登录等。</b>
-                                <a target="_blank" href="">查看</a>
+                                <a target="_blank" href="/home/user/{{$user['uid']}}/edit">查看</a>
                             </li>
                         @else
                             <li class="no">
                                 <font>未设置</font>
                                 <font>手机绑定</font>
                                 <b>绑定手机后，您可以享受灰鹤服务如手机登录等。</b>
-                                <a target="_blank" href="">设置</a>
+                                <a target="_blank" href="/home/user/{{$user['uid']}}/edit">设置</a>
                             </li>
                         @endif
 
-                        @if ($user->email)
+                        @if ($user['email'])
                             <li>
                                 <font>已完成</font>
                                 <font>邮箱验证</font>
                                 <b>绑定邮箱可以提高账户安全等级。</b>
-                                <a target="_blank" href="">查看</a>
+                                <a target="_blank" href="/home/user/{{$user['uid']}}/edit">查看</a>
                             </li>
                         @else
                             <li class="no">
                                 <font>未设置</font>
                                 <font>邮箱验证</font>
                                 <b>绑定邮箱可以提高账户安全等级。</b>
-                                <a target="_blank" href="">设置</a>
+                                <a target="_blank" href="/home/user/{{$user['uid']}}/edit">设置</a>
                             </li>
                         @endif
 
-                        @if ($userinfo->prcid)
+                        @if ($userinfo['payPass'])
                             <li>
                                 <font>已完成</font>
                                 <font>交易密码</font>
                                 <b>设置交易密码，可购买商品等。</b>
-                                <a target="_blank" href="">查看</a>
+                                <a target="_blank" href="/home/user/paypass">修改</a>
                             </li>
                         @else
                             <li class="no">
                                 <font>未设置</font>
                                 <font>交易密码</font>
                                 <b>设置交易密码，可购买商品等。</b>
-                                <a target="_blank" href="">设置</a>
+                                <a target="_blank" href="/home/user/paypass">设置</a>
                             </li>
                         @endif
                     </ul>
@@ -286,62 +300,9 @@
     {{--</div>--}}
 {{--</div>--}}
 
-<!-- //deleteGoodsDialog -->
-{{--
-<div id="errorTipDialog" style="display: none;text-align: center;padding-top:15px;">
-	<p>加载中...</p>
-</div>
---}}
 
-{{--<div id="setPassWordBox" style="display: none;" title="确认收货">
-	<div style='margin-top: 15px; text-align: center;'>
-		您尚未设置交易密码，确认收货需要设置交易密码
-	</div>
-</div>--}}
 
-{{--<div class="y-center-guide">
-    <div class="y-center-guide-bg">&nbsp;</div>
-    <div class="y-center-guide1">
-        <img src="/Picture/y_center_guide_index1.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-    <div class="y-center-guide2">
-        <img src="/Picture/y_center_guide_index2.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-    <div class="y-center-guide3">
-        <img src="/Picture/y_center_guide_index3.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-    <div class="y-center-guide4">
-        <img src="/Picture/y_center_guide_index4.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-    <div class="y-center-guide5">
-        <img src="/Picture/y_center_guide_index5.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-    <div class="y-center-guide6">
-        <img src="/Picture/y_center_guide_index6.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-    <div class="y-center-guide7">
-        <img src="/Picture/y_center_guide_index7.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-    <div class="y-center-guide8">
-        <img src="/Picture/y_center_guide_index8.png" />
-        <a href="javascript:;" class="close">关闭</a>
-        <a href="javascript:;" class="next">下一步</a>
-    </div>
-</div>--}}
+
 <script type="text/javascript">
 //初始化数据
 var ajax_url = "/goods/ajax" ;  //通用ajax url

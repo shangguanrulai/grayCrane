@@ -22,4 +22,14 @@ class user_home extends Model
         return $this->hasMany('App\Model\release', 'uid', 'uid');
     }
 
+    public function address()
+    {
+        return $this->hasMany('App\Model\address','uid','uid');
+    }
+
+    public function collect()
+    {
+        return $this->hasMany('App\Model\collect','uid','uid');
+    }
+
 }

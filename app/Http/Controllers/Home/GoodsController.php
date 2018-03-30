@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\cate;
 use App\Model\release;
+use App\Model\Admin_User;
+use App\Model\collect;
+
+use Illuminate\Support\Facades\Session;
 
 class GoodsController extends Controller
 {
@@ -22,14 +26,15 @@ class GoodsController extends Controller
         $limits = release::paginate(1);
 
 
+
         return view('home.fenlei',['cname'=>$zong,'goods'=>$goods,'limits'=>$limits]);
     }
-
-    public function ajax($c)
+    // ajax
+    public function ajax(Request $request)
     {
-       $b = cate::where('pid','1')->get();
+       echo 123;
 
-         return $b;
+//        echo $b;
 
     }
 
@@ -38,7 +43,72 @@ class GoodsController extends Controller
         return view('home.fbsj');
     }
 
+    //商品详情
+    public function details(){
+        //选择的商品
+        $goods = Release::find(2);
+        //获取发布人信息
+        $a = $goods['uid'];
+        //发布人详情
+        $users = Admin_User::find($a);
+        //获取加入的天数
+        $b = $users['created_at'];
+        $c = strtotime($b);
 
+        $d = time();
+        $e = $d - $c;
+        $f = ceil($e/86400);
+
+       /*Session::put('user', '123');*/
+
+        if(empty(Session('user')) ){
+            $flag = 0;
+        }else{
+            $flag = 1;
+        }
+
+
+
+
+
+        return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag]);
+    }
+
+    //商品收藏ajax
+   public function ajaxs(Request $request){
+
+        //获取uid cid
+        /*$uid =  $request->only('uid');
+        $rid =  $request->only('cid');*/
+
+        /*$uid = $_GET['uid'];
+        $rid = $_GET['cid'];*/
+/*
+        $all = $request->all();*/
+
+//        $uid = $all[uid];
+//        $rid = $all[cid];
+
+
+        //将数据加入收藏表
+
+       /* $collect = new Collect;
+
+        $collect->uid = $uid;
+
+        $collect->rid = $rid;
+
+        $collect->save();*/
+
+       /* return $all;*/
+
+        return 'kshdfkshfdhfohwoef';
+
+
+
+
+
+
+    }
 }
-
 

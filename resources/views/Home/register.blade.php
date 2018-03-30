@@ -54,25 +54,21 @@
         <div class="register">
             <!--p标签在input输入时class使用active，验证失败时使用warning-->
             <p class="">
-                <font><i>*</i>用户名:</font>
+                <font>用户名:</font>
                 <span><input type="text" class="text-long" name="uname" id="username" placeholder="请确认你的用户名" autocomplete="off"/></span>
                 <em></em>
             </p>
+
             <p class="">
-                <font><i>*</i>邮箱:</font>
-                <span><input type="text" class="text-long" name="email" placeholder="请确认你的邮箱" id="email" autocomplete="off"/></span>
-                <em></em>
-            </p>
-            <p class="">
-                <font><i>*</i>密码:</font>
+                <font>密码:</font>
                 <span><input type="password" class="text-long" name="upass" id="password"  placeholder="请输入密码" autocomplete="off"/></span>
                 <em></em>
             </p>
 
 			<p class="">
-                <font><i>*</i>确认密码:</font>
+                <font>确认密码:</font>
                 <span><input type="password" class="text-long" name="re-upass" placeholder="请确认你的密码" id="repassword" autocomplete="off"/></span>
-                <em></em>
+                <em id='abc'></em>
             </p>
 
 			<div class="code" style="margin-left: 80px">
@@ -85,7 +81,7 @@
                     <font>&nbsp;</font>
                     <input type="checkbox" id="agree" value="1"  checked/>
                     <s>我已阅读并同意</s>
-                    <a href="http://www.fengniao.com/law.html" target="_blank">《蜂鸟用户注册协议》</a>
+                    《灰鹤用户注册协议》
                 </p>
                 <p>
                     <font>&nbsp;</font>
@@ -122,6 +118,12 @@
 
 <script>
 
+    // $agree = $('#agree').val();
+    // console.log($agree);
+    // if($agree != '1'){
+    //     return false;
+    // }
+    var RPV = true;
     $(function(){
         $("#username").focus(function(){
             $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('5个字符以上，支持中文、英文、数字');
@@ -135,18 +137,8 @@
             $("#password").parent().parent().removeClass('warning active').children("em").text();
             checkPassword();
         });
-        $("#repassword").focus(function(){
-            $("#repassword").parent().parent().removeClass('warning').addClass('active').children("em").text('6-16位数字、字母或常用英文字符，字母区分大小写');
-        }).blur(function(){
-            $("#repassword").parent().parent().removeClass('warning active').children("em").text();
-            checkPassword();
-        });
-        $("#phone").focus(function(){
-            $("#phone").parent().parent().removeClass('warning').addClass('active').children("em").text('请输入中国大陆手机号，可用于登录和找回密码，注册成功后，所有产品通用');
-        }).blur(function(){
-            $("#phone").parent().parent().removeClass('warning active').children("em").text();
-            phoneCheck();
-        });
+
+
         $("#code").focus(function(){
             $("#code").parent().parent().removeClass('warning').addClass('active').children("em").text('请输入验证码');
         }).blur(function(){
@@ -178,6 +170,25 @@
             }else{
                 $("#username").parent().parent().removeClass('active').addClass('warning').children("em").text('请输入用户名');
             }
+
+
+            if (username) {
+                if (username.length >= 6 && username.length <= 16) {
+                    if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{6,16}$/m.test(username)) {
+                        if (!/^[0-9]{6,16}$/m.test(username)) {
+                            $("#username").parent().parent().removeClass('active warning');
+                        } else {
+                            $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能为纯数字');
+                        }
+                    } else {
+                        $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能包含特殊字符');
+                    }
+                } else {
+                    $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名长度为6-16位字符');
+                }
+            } else {
+                $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('请您输入用户名');
+            }
         }
 
         function checkPassword(){
@@ -201,6 +212,22 @@
             }
         }
 
+        $('#repassword').focus(function(){
+
+            $(this).css('border','solid 1px #FFCC66');
+        })
+
+        // var res =$('#abc');
+
+       $('#repassword').blur(function(){
+            var rep =$(this).val();
+            var rev =$('#password').val();
+            $(this).css('border','solid 1px dcdcdc');
+            if(rep != rev){
+
+                alert('两次输入的密码不一致');
+            }
+       })
 
         function checkCode() {
             var code = $("#code").val();

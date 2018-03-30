@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="renderer" content="webkit">
-    <meta name="csrf-param" content="_csrf">
-    <meta name="csrf-token" content="RC1MeDhWb3IjYAMSbz88HnZeDgtKGTkcDUEvKgxjNRU8FHsCCRcfNg==">
     <meta http-equiv="mobile-agent" content="format=html5; url=http://m.2.fengniao.com/"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="/Content/jquery-ui.1.11.4.min.css" rel="stylesheet">
     <link href="/Content/jquery.bxslider.css" rel="stylesheet">
     <link href="/Content/header.css" rel="stylesheet">
     <link href="/Content/style.css" rel="stylesheet">
+    <link href="/Content/page.css" rel="stylesheet">
     <script src="/Scripts/jquery.min.js" charset="UTF-8"></script>
     <script src="/Scripts/jqueryui.1.11.4.js" charset="UTF-8"></script>
     <script src="/Scripts/jquery.bxslider.min.js" charset="UTF-8"></script>
@@ -28,20 +28,24 @@
         if (!$.support.leadingWhitespace || /msie 9/.test(navigator.userAgent.toLowerCase())) {
             document.documentElement.className += ' lowIE';
         }
-
-          
      </script>
 </head>
 <body>
-<ul class="layui-nav" lay-filter="" style="margin-top:-20px;">
+<ul class="layui-nav" lay-filter="">
     <li class="layui-nav-item"><a href="/">灰鹤首页</a></li>
     <li class="layui-nav-item"><a href="">HI 欢迎来到灰鹤</a></li>
-    @for ($i=0; $i < 19; $i++)
+    @for ($i=0; $i < 17; $i++)
         <li class="layui-nav-item"><a href=""></a></li>
     @endfor
-    <li class="layui-nav-item"><a href="/home/login">请登录</a></li>
-    <li class="layui-nav-item"><a href="/home/user?uid=1">用户中心</a></li>
-    <li class="layui-nav-item"><a href="">退出</a></li>
+    @if(empty(Session('user')))
+        <li class="layui-nav-item"><a href="/home/login">登录</a></li>
+        <li class="layui-nav-item"><a href="/home/register">注册</a></li>
+    @else
+        <li class="layui-nav-item"><a href=""></a></li>
+        <li class="layui-nav-item"><a href="/home/user?uid={{ Session('user')['uid'] }}">{{ Session('user')['uname'] }}</a></li>
+    @endif
+    <li class="layui-nav-item"><a href="/home/user?uid={{ Session('user')['uid'] }}">用户中心</a></li>
+    <li class="layui-nav-item"><a href="/home/loginout">退出</a></li>
 </ul>
 
 <script>
@@ -90,7 +94,7 @@
 <div class="y-center-main clearfix">
     <div class="y-center-warp">
         <div class="y-center-bread ptop20">
-                        <a href="/">首页</a> &gt; <a href="/home/user?uid={{$user->uid}}">个人中心</a>
+                        <a href="/">首页</a> &gt; <a href="/home/user">个人中心</a>
                     </div>
                     <div class="y-center-search">
                 <div class="y-center-searchBox">
@@ -104,7 +108,7 @@
                     </div>
                 </div>
                 <div class="add">
-                    <a href="/goods/index">免费发布</a>
+                    <a href="/home/release/create">免费发布</a>
                 </div>
             </div>
         
@@ -115,7 +119,7 @@
                 <dd>
                     <ul>
                         <li>
-                            <a href="/home/msg/{{$user->uid}}" >消息中心</a>
+                            <a href="/home/msg/{{$user['uid']}}" >消息中心</a>
                         </li>
                         <li>
                             <a href="/user/comment" >我的评价</a>
@@ -131,10 +135,7 @@
                             <a href="/user/buy" >已买到的商品</a>
                         </li>
                         <li>
-                            <a href="/user/collect?type=0" >我的收藏</a>
-                        </li>
-                        <li>
-                            <a href="/user/history" >浏览历史</a>
+                            <a href="/home/user/collect">我的收藏</a>
                         </li>
                     </ul>
                 </dd>
@@ -161,10 +162,10 @@
                 <dd>
                     <ul>
                         <li>
-                            <a href="/user/address" >收货地址管理</a>
+                            <a href="/home/user/addr" >收货地址管理</a>
                         </li>
                         <li>
-                            <a href="/user/setting?act=index" >个人信息设置</a>
+                            <a href="/home/user/{{$user['uid']}}/edit" >个人信息设置</a>
                         </li>
                     </ul>
                 </dd>
@@ -282,37 +283,9 @@
     </div>
 </div>
 <div id="commonLoginPopupCaptcha"></div>{{--<script language="JavaScript" type="text/javascript" src="/Scripts/pv.js"></script>--}}
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?916ddc034db3aa7261c5d56a3001e7c5";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script><script src="/Scripts/gt.js"></script>
+<script src="/Scripts/gt.js"></script>
 {{--<script src="/Scripts/index.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script>--}}
 <script src="/Scripts/jquery.cookie.1.4.0.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script>
-{{--<script src="/Scripts/user.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script>--}}
-{{--<script src="/Scripts/store.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script>--}}
-{{--<script src="/Scripts/yii.js"></script>--}}
-{{--<script src="/Scripts/yii.activeform.js"></script>--}}
-{{--<script type="text/javascript">jQuery(document).ready(function () {
-jQuery('#listSearch').yiiActiveForm([], []);
-});</script><script>
-    $('.y-center-goods-list').hover(function () {
-        $(this).find('ul').show();
-        $(this).find('span').css('background-position', 'right bottom');
-    }, function () {
-        $(this).find('ul').hide();
-        $(this).find('span').css('background-position', 'right top');
-    });
 
-    $('.y-center-subNav-box').hover(function () {
-        $(this).addClass('showLayerbox');
-    }, function () {
-        $(this).removeClass('showLayerbox');
-    });
-</script>--}}
 </body>
 </html>

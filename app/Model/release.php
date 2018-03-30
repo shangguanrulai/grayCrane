@@ -16,4 +16,9 @@ class release extends Model
     {
         return $this->belongsTo('App\Molde\user_home', 'uid', 'uid');
     }
+
+    public function collect()
+    {
+        return $this->hasMany('App\Model\collect','rid','rid');
+    }
 }
