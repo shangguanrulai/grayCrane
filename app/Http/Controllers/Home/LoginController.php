@@ -39,7 +39,6 @@ class LoginController extends Controller
 
        // 获取用户提交过来的登录数据
         $input = $request->except('_token');
-		/* dd($input); */
 
 		//验证数据的有效性
         $rule = [
@@ -102,9 +101,6 @@ class LoginController extends Controller
         return redirect('/');
 
     }
-
-        /*return redirect('');*/
-    
 
     public function loginout(Request $request)
     {

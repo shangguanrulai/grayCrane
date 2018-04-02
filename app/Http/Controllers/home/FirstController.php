@@ -17,8 +17,8 @@ class FirstController extends Controller
     public function index()
     {
         $cates = $this->getCateTree();
-        $hot = release::orderby('PV','desc')->get();
-        $goods = release::get();
+        $hot = release::where('status',1)->orderby('PV','desc')->get();
+        $goods = release::where('status',1)->get();
 
         return view('home/first/index',compact('cates','hot','goods'));
     }

@@ -42,9 +42,9 @@
         <li class="layui-nav-item"><a href="/home/register">注册</a></li>
     @else
         <li class="layui-nav-item"><a href=""></a></li>
-        <li class="layui-nav-item"><a href="/home/user?uid={{ Session('user')['uid'] }}">{{ Session('user')['uname'] }}</a></li>
+        <li class="layui-nav-item"><a href="/home/user">{{ Session('user')['uname'] }}</a></li>
     @endif
-    <li class="layui-nav-item"><a href="/home/user?uid={{ Session('user')['uid'] }}">用户中心</a></li>
+    <li class="layui-nav-item"><a href="/home/user">用户中心</a></li>
     <li class="layui-nav-item"><a href="/home/loginout">退出</a></li>
 </ul>
 
@@ -65,27 +65,8 @@
                style="background-position-y: -19px;">首页</a><font>&nbsp;</font>
         </div>
 
-        <div class="y-center-nav-box y-center-subNav-box">
-            <span class="trigger" style="background-position-y: -19px;">账户管理 <i class="arrow-icon"></i></span>
-            <div class="account-subLinks-layer">
-                <ul class="account-subLinks clearfix">
-                    <li>
-                        <strong>安全设置</strong>
-                        <a href="/user/setting?act=phone">手机绑定</a>
-                        <a href="/user/setting?act=idcard">身份绑定</a>
-                        <a href="/user/setting?act=email">邮箱绑定</a>
-                    </li>
-                    <li>
-                        <strong>交易保障</strong>
-                        <a href="/user/setting?act=password&ok=1">交易密码管理</a>
-                        {{--<a href="/user/bank?act=bank">银行卡管理</a>--}}
-                        {{--<a href="/user/coupon">优惠券管理</a>--}}
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="y-center-nav-box ">
-            <a class="trigger" href="/user/news" style="background-position-y: -19px;">我的消息</a>
+            <a class="trigger" href="/home/user" style="background-position-y: -19px;">我的二手</a>
             <font>&nbsp;</font>
         </div>
     </div>
@@ -96,13 +77,14 @@
         <div class="y-center-bread ptop20">
                         <a href="/">首页</a> &gt; <a href="/home/user">个人中心</a>
                     </div>
-                    <div class="y-center-search">
+            <div class="y-center-search" style="position: relative;right:-105px;">
                 <div class="y-center-searchBox">
                     <div class="menu">
-                        <span>订单</span>
+                        <span>我的发布</span>
                     </div>
                     <div class="inputBox">
-                        <form id="listSearch" action="/price/def-1_1.html" method="get" role="form">                        <input type="text" name="k" class="text1" placeholder="请输入"/>
+                        <form id="listSearch" action="/home/release" method="get" role="form">
+                            <input type="text" name="keywords" class="text1" placeholder="请输入"/>
                             <button type="submit" class="btn1">搜索</button>
                         </form>
                     </div>
@@ -114,25 +96,12 @@
         
 
         <div class="y-center-main-left mtop20">
-            <span>我的二手</span>
-            <dl>
-                <dd>
-                    <ul>
-                        <li>
-                            <a href="/home/msg/{{$user['uid']}}" >消息中心</a>
-                        </li>
-                        <li>
-                            <a href="/user/comment" >我的评价</a>
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
             <dl>
                 <dt>我是买家</dt>
                 <dd>
                     <ul>
                         <li>
-                            <a href="/user/buy" >已买到的商品</a>
+                            <a href="/home/user/orders/buy" >已买到的商品</a>
                         </li>
                         <li>
                             <a href="/home/user/collect">我的收藏</a>
@@ -146,13 +115,10 @@
                 <dd>
                     <ul>
                         <li>
-                            <a href="/user/myGoods?status=0" >我发布的商品</a>
+                            <a href="/home/release" >我发布的商品</a>
                         </li>
                         <li>
-                            <a href="/user/soldgoods" >已卖出的商品</a>
-                        </li>
-                        <li>
-                            <a href="/user/sellerOffer" >留言咨询</a>
+                            <a href="/home/user/orders/sell" >已卖出的商品</a>
                         </li>
                     </ul>
                 </dd>
@@ -166,6 +132,16 @@
                         </li>
                         <li>
                             <a href="/home/user/{{$user['uid']}}/edit" >个人信息设置</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <span>我的二手</span>
+            <dl>
+                <dd>
+                    <ul>
+                        <li>
+                            <a href="/home/msg" >消息中心</a>
                         </li>
                     </ul>
                 </dd>

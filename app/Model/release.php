@@ -21,4 +21,9 @@ class release extends Model
     {
         return $this->hasMany('App\Model\collect','rid','rid');
     }
+
+    public function Words()
+    {
+        return $this->hasMany('App\Model\Words','rid','rid');
+    }
 }

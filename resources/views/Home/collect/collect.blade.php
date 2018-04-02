@@ -26,7 +26,7 @@
                     </div>
                     <div class="row2  ">
                         <div class="goods-name">
-                            <a  target="_blank" href="">{{$v['gname']}}</a>
+                            <a status="{{$v['status']}}" class="gname" target="_blank" href="">{{$v['gname']}}</a>
                         </div>
                         <div class="goods-list-wrap clearfix">
                             <div class="y-center-goods-list">
@@ -39,6 +39,9 @@
                     </div>
                     <div class="row4">
                         <p><a class="cancle_collect" id="{{$v['id']}}" >取消收藏</a></p>
+                        @if($v['status'] != 1)
+                            <p style="color: #f00;">该商品已售出或下架</p>
+                        @endif
                     </div>
                 </dd>
                 @endforeach
@@ -63,6 +66,16 @@
                     }, function(){
 
                     });
+                });
+            });
+
+            $('.gname').each(function(){
+                $(this).click(function(){
+                    var sta = $(this).attr('status');
+                    if(sta != 1){
+                        layer.msg('该商品已售出或下架', {icon: 5});
+                        return false;
+                    }
                 });
             });
 

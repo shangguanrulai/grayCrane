@@ -18,7 +18,6 @@
         .fn-sec-header{top:-20px;}
     </style>
 
-
     <form action="/home/user/addr_update" method="post" class="layui-form">
         {{ csrf_field() }}
         <input type="hidden" name="aid" value="{{$addr['aid']}}">
@@ -53,7 +52,7 @@
                         </li>
                         <li class="form-group clearfix">
                             <label for="passwd1" class="control-label">收货地址：</label>
-                            <textarea class="form-control" name="addr" style="resize: none;width: 450px;" lay-verify="required">{{$addr['addr']}}</textarea>
+                            <textarea class="form-control" name="addr" style="resize: none;width: 400px; height: 80px;" lay-verify="required">{{$addr['addr']}}</textarea>
                         </li>
 
                         <li class="form-group button-group clearfix">

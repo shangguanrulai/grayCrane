@@ -154,9 +154,6 @@
             <i class="bottom-line"></i>
             <a href="/" class="current-link">首页</a>
             <a href="/" class="current-link">灰鹤二手</a>
-            <a href="/" class="current-link">首页</a>
-            <a href="/" class="current-link">首页</a>
-
         </div>
     </div>
 </div>

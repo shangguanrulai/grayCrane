@@ -4,6 +4,7 @@ namespace App\Http\Controllers\home;
 
 use App\Model\release;
 use App\Model\user_home;
+use App\Model\userinfo_home;
 use App\Model\cate;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
@@ -16,9 +17,17 @@ class ReleaseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $uid = Session('user')['uid'];
+        $user = user_home::findOrFail($uid);
+        $userinfo = $user->userinfo_home;
 
+        $keywords = $request->input('keywords');
+
+        $release = release::where('uid',$uid)->whereIn('status',[0,1])->where('gname','like','%'.$keywords.'%')->paginate(5);
+
+        return view('home.release.user_release',compact('user','userinfo','release'));
     }
 
     /**
@@ -100,9 +109,13 @@ class ReleaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($rid)
     {
-        //
+        $uid = Session('user')['uid'];
+        $user = user_home::findOrFail($uid);
+        $userinfo = $user->userinfo_home;
+
+        return view('home/release/edit',compact('user','userinfo'));
     }
 
     /**
@@ -114,7 +127,7 @@ class ReleaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -125,7 +138,7 @@ class ReleaseController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 
     public function getCateTree( $cates=[], $pid=0 )
@@ -141,5 +154,35 @@ class ReleaseController extends Controller
             }
         }
         return $sub;
+    }
+
+    public function update_release(Request $request)
+    {
+        $this->validate($request, [
+            'nowprice' => 'regex:/^\d{1,}$/',
+        ],[
+            'nowprice.regex' => '请正确填写价格',
+        ]);
+
+        $rid = $request->only('rid');
+        $input = $request->only('nowprice');
+
+        $res = release::where('rid',$rid)->update($input);
+        if ($res){
+            return back();
+        } else {
+            return back()->withErrors('发布失败，请重试一下');
+        }
+    }
+
+    public function destroy_release($rid)
+    {
+        $res = release::destroy($rid);
+
+        if ($res) {
+            return back();
+        } else {
+            return back()->withErrors('删除失败');
+        }
     }
 }

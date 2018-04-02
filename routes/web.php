@@ -16,6 +16,9 @@
 // });
 
 
+// 前台首页
+Route::get('/', 'home\FirstController@index');
+
 //前台登录
 Route::get('home/login','home\LoginController@login');
 Route::get('home/yzm','home\LoginController@yzm');
@@ -26,7 +29,6 @@ Route::get('home/loginout','home\loginController@loginout');
 Route::get('home/register','home\RegisterController@register');
 Route::get('home/yanzhengma','home\RegisterController@yanzhengma');
 Route::post('home/doregister','home\RegisterController@doregister');
-
 
 /**
  *前台ajax
@@ -43,36 +45,42 @@ Route::post('/home/ajax/userinfo','home\AjaxController@userinfo');
 *ajax结束
  */
 
-
+Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']],function(){
 // 前台消息
-Route::get('/home/msg/{uid}','home\MsgController@index');
-
-// 前台首页
-Route::get('/', 'home\FirstController@index');
+    Route::get('msg','MsgController@index');
 
 // 前台用户收货地址
-Route::get('/home/user/addr', 'home\AddrController@index');
-Route::get('/home/user/addr_create', 'home\AddrController@create');
-Route::post('/home/user/addr_store', 'home\AddrController@store');
-Route::get('/home/user/addr_edit/{aid}/', 'home\AddrController@edit');
-Route::post('/home/user/addr_update', 'home\AddrController@update');
-Route::get('/home/user/addr_destroy/{aid}/', 'home\AddrController@destroy');
+    Route::get('user/addr', 'AddrController@index');
+    Route::get('user/addr_create', 'AddrController@create');
+    Route::post('user/addr_store', 'AddrController@store');
+    Route::get('user/addr_edit/{aid}/', 'AddrController@edit');
+    Route::post('user/addr_update', 'AddrController@update');
+    Route::get('user/addr_destroy/{aid}/', 'AddrController@destroy');
 
 // 前台用户收藏
-Route::get('/home/user/collect', 'home\CollectController@index');
-Route::get('/home/user/collect_destroy/{id}/', 'home\CollectController@destroy');
+    Route::get('user/collect', 'CollectController@index');
+    Route::get('user/collect_destroy/{id}/', 'CollectController@destroy');
 
+// 前台订单
+    Route::get('user/orders/sell', 'OrdersController@sell');
+    Route::get('user/orders/send/{oid}', 'OrdersController@send');
+    Route::get('user/orders/buy', 'OrdersController@buy');
+    Route::get('user/orders/take/{oid}', 'OrdersController@take');
 
 // 前台用户中心
-Route::get('/home/user/pass', 'home\UserController@pass');
-Route::post('/home/user/update_pass', 'home\UserController@update_pass');
-Route::get('/home/user/paypass', 'home\UserController@paypass');
-Route::post('/home/user/update_paypass', 'home\UserController@update_paypass');
-Route::resource('/home/user', 'home\UserController');
-
+    Route::get('user/pass', 'UserController@pass');
+    Route::post('user/update_pass', 'UserController@update_pass');
+    Route::get('user/paypass', 'UserController@paypass');
+    Route::post('user/update_paypass', 'UserController@update_paypass');
+    Route::resource('user', 'UserController');
 
 // 前台发布
-Route::resource('/home/release', 'Home\ReleaseController');
+    Route::get('release/update_release', 'ReleaseController@update_release');
+    Route::get('release/destroy_release/{rid}/', 'ReleaseController@destroy_release');
+    Route::resource('release', 'ReleaseController');
+});
+
+
 
 
 

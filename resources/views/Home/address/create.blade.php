@@ -52,7 +52,7 @@
                         </li>
                         <li class="form-group clearfix">
                             <label for="passwd1" class="control-label">收货地址：</label>
-                            <textarea class="form-control" name="addr" style="resize: none;width: 450px;" lay-verify="required"></textarea>
+                            <textarea class="form-control" name="addr" style="resize: none;width: 400px; height: 80px;" lay-verify="required"></textarea>
                         </li>
 
                         <li class="form-group button-group clearfix">
@@ -61,6 +61,13 @@
                     </ul>
                 </div>
             </div>
+            <script>
+                layui.use(['layer', 'form'], function(){
+                    var layer = layui.layer;
+                    var form = layui.form;
+
+                });
+            </script>
     </form>
     </div>
     </div>
@@ -68,12 +75,7 @@
 
     </div>
     </div>
-    <script>
-        layui.use(['layer', 'form'], function(){
-            var layer = layui.layer
-                ,form = layui.form;
-        });
-    </script>
+
 
 
 
