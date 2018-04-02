@@ -424,7 +424,7 @@ var publicLoginObj = {
         this.messageChange();
         this.scanWechatOver();
     },
-    'bindTab':function(){
+    /*'bindTab':function(){
         $( document ).on('click','#commonLoginDialog .exchange-link',function(){
             if($(this).hasClass('message-link') || $(this).hasClass('link-message-login')){
                 $(this).parents('#commonUserNameDialog').hide().siblings('#commonMessageDialog').show();
@@ -436,7 +436,7 @@ var publicLoginObj = {
                 $('#scanLink').show();
             }
         });
-    },
+    },*/
     'messageChange':function(){
         $( document ).on('click','#commonLoginDialog .link-message-login',function(){
             $('#commonLoginDialog').find('.commonLoginDialog-form').hide();

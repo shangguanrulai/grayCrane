@@ -14,6 +14,7 @@
     <link id="narrowScreen" rel="stylesheet">
     <link href="http://m.2.fengniao.com" rel="alternate" media="only screen and (max-width: 640px)">
     <link href="/Content/globalceiling.css" rel="stylesheet">
+     <link href="/Content/page.css" rel="stylesheet">
     <link href="/Content/jquery-ui.1.11.4.min.css" rel="stylesheet">
     <link href="/Content/jquery.bxslider.css" rel="stylesheet">
     <link href="/Content/header.css" rel="stylesheet">
@@ -84,8 +85,8 @@
 
         <div class="goods-classification J_goodsClassification" id="fn-2-navigation-layer">
             <span class="classification-trigger J_classificationTrigger">商品分类</span>
-            <div class="classification-sub-layer J_switchTab" >
-                <ul class="sub-link-box">
+            <div class="classification-sub-layer J_switchTab" style="display:none;">
+                <ul class="sub-link-box" >
                     <li class="sub-link-item item1 J_item" rel="classificationPanel1">
                         <strong>
                             <a target="_blank" href="/price/114-0-0-0-0-0-def-1_1.html">数码相机</a>
@@ -388,33 +389,9 @@
     
 <div class="wrapper location" id="listCrumbs">
     <a href="/">首页</a><i>&gt;</i>
-    <span>一口价</span>
-                        <div class="select-tag">
-                <div class="select-trigger">
-                    <a href="/price/def-1_1.html"><span class="closed-tag">×</span></a>数码相机                </div>
-                                <div class="down-list clearfix">
-                                            <a href="/price/114-0-0-0-0-0-def-1_1.html"><span>数码相机</span></a>
-                                            <a href="/price/118-0-0-0-0-0-def-1_1.html"><span>镜头</span></a>
-                                            <a href="/price/112-0-0-0-0-0-def-1_1.html"><span>摄像机 - 视频设备</span></a>
-                                            <a href="/price/115-0-0-0-0-0-def-1_1.html"><span>胶片相机及周边</span></a>
-                                            <a href="/price/116-0-0-0-0-0-def-1_1.html"><span>附件</span></a>
-                                            <a href="/price/117-0-0-0-0-0-def-1_1.html"><span>其他设备</span></a>
-                                    </div>
-                            </div>
-                    <div class="select-tag">
-                <div class="select-trigger">
-                    <a href="/price/114-0-0-0-0-0-def-1_1.html"><span class="closed-tag">×</span></a>微单/单电相机                </div>
-                                <div class="down-list clearfix">
-                                            <a href="/price/114-1049-0-0-0-0-def-1_1.html"><span>单反相机</span></a>
-                                            <a href="/price/114-1050-0-0-0-0-def-1_1.html"><span>微单/单电相机</span></a>
-                                            <a href="/price/114-1051-0-0-0-0-def-1_1.html"><span>便携数码相机</span></a>
-                                            <a href="/price/114-1052-0-0-0-0-def-1_1.html"><span>中画幅相机</span></a>
-                                            <a href="/price/114-1053-0-0-0-0-def-1_1.html"><span>数码后背</span></a>
-                                            <a href="/price/114-1055-0-0-0-0-def-1_1.html"><span>数码旁轴</span></a>
-                                            <a href="/price/114-1071-0-0-0-0-def-1_1.html"><span>其他</span></a>
-                                    </div>
-                            </div>
-                <a href="/price/def-1_1.html" style="margin-left: 20px;">清除条件</a>
+    
+                        
+                    
     </div>
 
     <!-- 筛选 -->
@@ -428,7 +405,21 @@
                                     <a class="tag " href="" name="yjfl" cid="{{ $v->cid }}">{{ $v->cname }}</a>
                                     @endforeach
                             </div>
-                        <script>
+
+
+        </li>
+                        <li class="filter-item clearfix manu">
+            <span class="item-title">品牌：</span>
+            
+            <div class="filter-sub-links clearfix ejfl">
+                                @foreach($er as $v)
+                                    <a class="tag " href="/home/goods/index?cid={{ $v->cid }}" name="ejfl">{{ $v->cname }}</a>
+                                @endforeach
+                                
+                            </div>
+            
+        </li>
+        <script>
                             $('a[name=yjfl]').each(function(){
 
                                 $(this).click(function(){
@@ -438,29 +429,24 @@
 
                                     $.get('/home/goods/ajax',{cid:cid},function(data){
 
-                                        console.log(data);
-                                    });
+                                        
+
+                                           
+                                        $(".ejfl").empty();
+
+                                        for (var i = 0; i < data.length; i++) {
+                                            $(".ejfl").append('<a class="tag " href="/home/goods/index?cid='+data[i]['cid']+'">'+data[i]['cname']+'</a>');
+                                        };
+                                    },'json');
 
 
                                     return false;
                                 });
                             });
 
-                        </script>
 
-        </li>
-                        <li class="filter-item clearfix manu">
-            <span class="item-title">品牌：</span>
-            <div class="search-bar"><input type="text" name="" placeholder="搜索品牌名称"></div>
-            <div class="filter-sub-links clearfix">
-                                @foreach($cname as $v)
-                                    @if($v->pid == 1)
-                                    <a class="tag " href="" name="yjfl" cid="{{$v->cid}}">{{ $v->cname }}</a>
-                                    @endif
-                                @endforeach
-                            </div>
-            <span class="more-link">更多</span>
-        </li>
+
+                        </script>
                 
     
    
@@ -1123,7 +1109,7 @@
         <div class="main">
                         
             <!-- 列表 -->
-            @foreach($goods as $v)
+@foreach($goods as $v)
 <ul class="goods-list">
     
     
@@ -1147,7 +1133,7 @@
             </div>
         </div>
         <div class="cell-3">
-            <span class="quality-tag">{{ $v->title }}</span>
+            <span class="quality-tag" style="width:150px;">{{ $v->title }}</span>
         </div>
         <div class="cell-4">
                     <div class="price-bar">
@@ -1162,7 +1148,8 @@
             <div class="links">
                 <a href="/secforum/3266418.html" target="_blank" class="link" rel="nofollow">浏览 677 次</a>
                 <a href="/secforum/3266418.html" target="_blank" class="link" rel="nofollow">留言 0 次</a>
-                <span class="collect-count" data-id="3266418" data-role="collect" data-cls="collected" alt="收藏该商品" title="收藏该商品"><i></i>1</span>
+                <span class="collect-count" data-id="3266418" data-role="collect" data-cls="collected" alt="
+                该商品" title="收藏该商品"><i></i>1</span>
                 <p>发布于 {{ $v->created_at }}</p>
             </div>
         </div>
@@ -1182,21 +1169,10 @@
 
     </ul>
           @endforeach
+
+          <center>{{ $goods->links() }}</center>
             
-<div class="page-box clearfix" id="pageBar" data-total="118">
-	<div class="pager">
-		<ul class="pagination"><li class="prev disabled"><span>上一页</span></li>
-            @foreach ($limits as $v)
 
-
-
-            <li class="selected"><a href="" >{{ $v->name }}</a></li>
-            @endforeach
-<li class="next"><a href="/price/114-1050-0-0-0-0-def-1_2.html" data-page="1">下一页</a></li></ul>	</div>
-	<span class="page-num">共 118 页</span>
-	<span class="jump-page">到第<input type="text" placeholder="1">页</span>
-	<span class="button">确定</span>
-</div>
 
         </div>
 
