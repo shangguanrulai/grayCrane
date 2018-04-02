@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('noaccess',function(){
+    return view('template.error.auth');
+});
 Route::group([],function(){
     //显示一个后台首页
     Route::get('/template', function () {
@@ -17,6 +20,9 @@ Route::group([],function(){
     });
 
     //后台用户控制器
+    Route::get('template/user/auth/{id}','template\UserController@auth');
+    Route::post('template/user/doauth','template\UserController@doauth');
+
     Route::get('template/user/change','template\UserController@change');
     Route::get('template/user/delall','template\UserController@delall');
 
@@ -54,6 +60,8 @@ Route::group([],function(){
     //角色控制器
     //给角色添加权限
     Route::get('template/role/auth/{id}','template\RoleController@auth');
+    Route::post('template/role/doauth','template\RoleController@doauth');
+    Route::get('template/role/showperm','template\RoleController@showperm');
     Route::get('template/role/change','template\RoleController@change');
     Route::get('template/role/delall','template\RoleController@delall');
     Route::resource('role','template\RoleController');

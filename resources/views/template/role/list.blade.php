@@ -74,7 +74,7 @@
                                                     <div style="display: inline-block">
                                                         <form action="{{ url('template/role/auth/'.$v->id) }}" method="get">
                                                             <button class="btn-info" >
-                                                                <i class="am-icon-pencil"></i>修改权限
+                                                                <i class="am-icon-pencil"></i>授权
                                                             </button>
                                                         </form>
                                                     </div>

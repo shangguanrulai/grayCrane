@@ -13,6 +13,11 @@ class Admin_User extends Model
     //允许批量更新
     protected $fillable = ['status'];
 
+    public function role()
+    {
+        return $this->belongsToMany('App\Model\role','user_role','uid','role_id');
+    }
+
 
 
 
