@@ -24,7 +24,7 @@ class PermController extends Controller
                 $qx = $request -> input('keywords2');
 //                关键字不为空
                 if(!empty($gjz)){
-                    $query -> where('pname','like','%'.$gjz.'%');
+                    $query -> where('title','like','%'.$gjz.'%');
 
 
                 }

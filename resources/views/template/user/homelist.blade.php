@@ -42,20 +42,7 @@
 
                                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
                                     <div class="am-form-group tpl-table-list-select">
-                                        <select data-am-selected="{btnSize: 'sm'}"  name="keywords2">
-                                            <option value="0" >所有类别</option>
-                                            <option value="1"
-                                                    @if($request->keywords2==1)
-                                                    selected
-                                                    @endif
 
-                                            >超级管理员</option>
-                                            <option value="2"
-                                                    @if($request->keywords2==2)
-                                                    selected
-                                                    @endif
-                                            >普通管理员</option>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
@@ -139,9 +126,9 @@
         //禁用 启用
         function star(obj,id){
             if($(obj).attr('status')==0){
-                var str = '你确定禁用吗?';
-            }else{
                 var str = '你确定启用吗?';
+            }else{
+                var str = '你确定禁用吗?';
             }
             if(confirm(str)){
                 var status = $(obj).attr('status');

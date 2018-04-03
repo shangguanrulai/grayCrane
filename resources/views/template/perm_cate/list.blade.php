@@ -63,7 +63,7 @@
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <div style="display: inline-block">
-                                                        <form action="{{ url('perm_cate/'.$v->id.'/edit') }}" method="get">
+                                                        <form action="{{ url('/template/perm_cate/showperm/'.$v->id)}}" method="get">
                                                             <button class="btn-info" >
                                                                 <i class="am-icon-pencil"></i>查看权限详情
                                                             </button>

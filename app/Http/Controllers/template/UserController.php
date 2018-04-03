@@ -93,7 +93,7 @@ class UserController extends Controller
         }
 
         //密码加密
-        $input['userpass'] = Crypt::encrypt($input['userpass']);
+        $input['userpass'] =Hash::make($input['userpass']);
 
 //      添加到用户表
         $user = new Admin_User();

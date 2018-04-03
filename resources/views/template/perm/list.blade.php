@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
-                                        <input type="text" class="am-form-field " value="{{ $request->keywords1 }}" >
+                                        <input type="text" class="am-form-field " name="keywords1" value="{{ $request->keywords1 }}" >
                                         <span class="am-input-group-btn">
                                                 <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" ></button>
                                             </span>
@@ -77,7 +77,7 @@
                                         <th>删除</th>
                                         <th>权限名称</th>
                                         <th>权限路由</th>
-                                        <th>更新时间</th>
+
                                         <th>状态</th>
                                         <th>操作</th>
                                     </tr>
@@ -89,7 +89,7 @@
 
                                             <td>{{ $v->title }}</td>
                                             <td>{{ $v->urls }}</td>
-                                            <td>{{ $v->updated_at }}</td>
+
                                             <td>
                                                 @if( $v->status ==0)
                                                     <button class="btn-success" onclick="star(this,{{$v->id}})" status="{{$v->status}}">已启用</button>
