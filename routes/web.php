@@ -82,14 +82,10 @@ Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']]
 });
 
 
-
-
-
-Route::group([],function(){
-
 Route::get('/login', function () {
-    return view('template.logins.login');
+	return view('template.logins.login');
 });
+
 
 //生成验证码路由
 Route::get('/login/code','Template\LoginController@code');
@@ -207,13 +203,4 @@ Route::get('/home/goods/buy/{rid}','home\GoodsController@buy');
 Route::get('/home/goods/pay','home\GoodsController@pay');
 //购买成功
 Route::get('/home/goods/success','home\GoodsController@success');
-
-
-
-
-
-
-
-
-
 
