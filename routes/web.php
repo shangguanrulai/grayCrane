@@ -46,6 +46,7 @@ Route::post('/home/ajax/userinfo','home\AjaxController@userinfo');
 *ajax结束
  */
 
+// 前台中间件控制器
 Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']],function(){
 // 前台消息
     Route::get('msg','MsgController@index');
@@ -131,6 +132,12 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
     //后台分类控制器
     Route::get('template/cate/delall','template\CateController@delall');
     Route::resource('cate','template\CateController');
+	
+	//后台商品
+    Route::get('goods/index','template\GoodsController@index');
+    Route::get('goods/change','template\GoodsController@change');
+    Route::get('goods/details/{rid}','template\GoodsController@details');
+    Route::get('goods/delete/{wid}','template\GoodsController@delete');
 
     //后台网站配置控制器
     Route::get('template/config/putFile','template\ConfigController@putFile');
