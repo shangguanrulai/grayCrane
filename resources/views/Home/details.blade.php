@@ -394,7 +394,16 @@
 </div>
 <div class="product-toolbar clearfix">
     <div id="collectionLink" class="collection-link">
-        <span name="shou">收藏宝贝</span>
+        <span name="shou">
+        @if(!$flag) 
+            收藏宝贝
+         @elseif(empty($collect)){
+            收藏宝贝
+         @else 
+            已收藏宝贝
+        
+        @endif
+        </span>
     </div>
 
 
@@ -419,7 +428,7 @@
             };
 
 
-            $.get('/home/goods/aaaaa',{'rid':{{ $goods['rid'] }} },function(d){
+            $.get('/home/goods/aaaaa',{rid:{{ $goods['rid'] }}},function(d){
                 console.log(d);
         
             })
@@ -469,7 +478,7 @@
             <span name='miaoshu'>描述</span>
         </li>
         <li class="J_item" rel="message" id='d3'>
-            <span name='liuyan'> 给TA留言(0)</span>
+            <span name='liuyan'> 给TA留言</span>
         </li>
     </ul>
     <div class="describe-wrap" id='d4'>
@@ -486,9 +495,9 @@
 <!-- message-post -->
 <div class="message-post clearfix">
     <div class="clearfix">
-        <a href="javascript:;" class="avtor">
-            <img src="/uploads/{{ $goods->gpic }}" width="60" height="60" alt="">
-            <span class="name">{{ $users['username'] }}</span>
+        <a href="javascript:;" class="avtor">  
+            <img src="/uploads/{{ $musers->portrait }}" width="60" height="60" alt="">
+            <span class="name">{{ $musers['nickname'] }}</span>
         </a>
 
         <input type="hidden" id="csrf" name="_csrf" value="Zy1RUnl1bDUjYisjOkUjehBcA38eAxsGMhQABgE6JmVWaAcmE0EeWQ==">        <textarea  placeholder="我来说两句" id="question_content" class="post-text"></textarea>
@@ -511,8 +520,8 @@
     })
     $('.comment-button').click(function(){
         var umessage = $('textarea').val();
-        $.get('/home/goods/bbbbb',{umessage:umessage,rid:{{ $goods['rid'] }} },function(d){
-               
+        $.get('/home/goods/bbbbb',{umessage:umessage,rid:{{ $goods['rid'] }},uid:{{ $musers['uid'] }}},function(d){
+               console.log(d);
             })
 
         $('textarea').val('');
@@ -520,26 +529,34 @@
 </script>
 </div>
 <!-- //message-post -->
-
+@foreach ($liu as $v)
 <ul class="comment-list">
-    <li class='comment-item clearfix' id='qa_14674'>
-        <a href="/10820479/credit.html" class='avaor'>
-            <img src="" width='40' height='40' alt="">
+    <li class='comment-item clearfix' id='qa_14311'>
+        <a href="/10820479/credit.html" class='avator'>
+            @if(empty($v['portrait']))
+             <img src="/Picture/default.png" width="60" height="60" alt="">
+            @else
+            <img src="/uploads/{{ $v['portrait'] }}" width='60' height='40' alt="">
+            @endif
         </a>
         <div class='item-content'> 
             <div class='comment-text clearfix'>
-                <a href="/10820479/credit.html" class='name'>{{ $users['username'] }}</a>
-                <span class='text'></span>
-                
+                @if(empty($v['nickname']))
+                <a href="/10820479/credit.html" class='name'>暂无昵称</a><span class='text'> {{ $v['umessage'] }}</span>
+                @else
+                <a href="/10820479/credit.html" class='name'>{{ $v['nickname'] }}: </a><span class='text'> {{ $v['umessage'] }}</span>
+                @endif
             </div>
             <div class='comment-toolbar clearfix'>
-                <span class='reply-link' onclick='show_reply(14674);'>回复</span>
-                <span class='delete-link' onclick='qa_dlt(14674);'>删除</span>
-                <span class='date'>时间</span>
+                <span id='huifu' class='reply-link'>回复</span>
+                
+                <span id='shanchu' class='delete-link'>删除</span>
+                
+                <span class='date'>{{ $v['created_at'] }}</span>
                 <div style='display:none' class='reply-box' id='reply_14674'>
                     <i class='arrow-icon'></i>
-                    <textarea name id="reply_content_14674" placeholder='请填写您的回复内容'></textarea>
-                    <span onclick='qa_reply(14674);' class='comment-button' >评论</span>
+                    <textarea name='neirong' id="reply_content_14674" placeholder='请填写您的回复内容'></textarea>
+                    <span class='comment-button' >评论</span>
                 </div>
                 
             </div>
@@ -547,6 +564,27 @@
 
     </li>
     </ul>
+    
+    @endforeach
+    <script>
+        // 回复留言
+        $('#huifu').click(function(){
+            $('#reply_14674').css('display','block');
+        })
+        $('.comment-button').click(function(){
+            var text = $('textarea[name=neirong]').val();
+            $.get('/home/goods/ccccc',{text:text,pid:{{$v['wid']}},rid:{{ $goods['rid'] }} },function(d){
+            })
+        })
+        //删除留言
+        $('#shanchu').click(function(){
+
+
+             $.get('/home/goods/ddddd',{wid:{{ $v['wid'] }}},function(d){
+                
+            })
+        })
+    </script>
 
 
  <!-- <script type="text/javascript">
@@ -679,7 +717,7 @@
                 <div class="summary-box clearfix">
     <div class="user-box clearfix">
         <a href="/10821229/credit.html" target="_blank" class="avtor"><img
-                src="/Picture/head50.png" width="40" height="40" alt=""></a>
+                src="/uploads/{{ $users['portrait'] }}" width="40" height="40" alt=""></a>
         <ul class="user-infor">
             <li class="clearfix">
                 {{ $users['nickname'] }}<img src="/Picture/redheart.png" alt="卖家信用" title="卖家信用">            </li>
@@ -740,8 +778,8 @@
 <div class="top-parameter-item top-parameter-activity">
             <div class="parameter-item clearfix">
         <span class="parameter-title">商品价</span>
-        <span class="parameter-price">&yen; <strong>{{ $goods['newprice'] }}.00</strong></span>                    <span  id="bidPriceButton" class="bid-button">出价试试</span>                <div class="view-num">已被浏览 <br><strong> 227</strong> 次</div>
-        <div class="comment-num">累计留言 <br> <strong> 0 </strong> 条</div>
+        <span class="parameter-price">&yen; <strong>{{ $goods['newprice'] }}.00</strong></span>                    <span  id="bidPriceButton" class="bid-button">出价试试</span>                <div class="view-num">已被浏览 <br><strong>{{ $goods['PV'] }}</strong> 次</div>
+        <div class="comment-num">累计留言 <br> <strong>{{ $count }}</strong> 条</div>
     </div>
             </div>                        <div id='dvs' class="parameter-item  quality-parameter-item   clearfix">
     <span class="parameter-title">成色</span>
@@ -765,13 +803,13 @@
 </div>
                         <div class="parameter-item parameter-contact clearfix starting" >
     <span class="parameter-title">联系方式</span>
-    <span  goods_id="3266810"  data-url="/secforum/3266810.html" data-title="Hasselblad 500 C/M    +    CF80" userId="10821229" class="tag message-tag sendPrivateLetterBtn">
+    <!-- <span  goods_id="3266810"  data-url="/secforum/3266810.html" data-title="Hasselblad 500 C/M    +    CF80" userId="10821229" class="tag message-tag sendPrivateLetterBtn">
         <i class="message-icon "></i>与TA对话
-    </span>
-   {{-- <span id="showMobileButton" class="tag telephone-tag"><i class="telephone-icon"></i>查看电话</span>--}}
+    </span> -->
+   
                             {{ $goods['rphone'] }}
 </div>
-                            <div title=""   class="parameter-item parameter-buy clearfix"><span goods_id="3266810"  subid="3266810_0"   id="buy-button"  class="buy-button ">立即购买</span></div>                    </div>
+                            <div title=""   class="parameter-item parameter-buy clearfix"><a href="/home/goods/buy/{{ $goods['rid'] }}" style='text-decoration:none;' goods_id="3266810"  subid="3266810_0"   id="buy-button"  class="buy-button ">立即购买</a></div>                    </div>
                     <!-- //product-parameter -->
                     <div class="saleout-tip" style="display: none">
     <strong>对不起，此商品已下架。</strong>
@@ -781,6 +819,13 @@
                                     </div>
             </div>
         <!-- //follow-box -->
+<!--         <script>
+    $('.buy-button').click(function(){
+       
+
+
+    })
+</script> -->
         
 <div class="recommend-pic">
     <div>

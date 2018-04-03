@@ -11,6 +11,8 @@ use App\Model\Admin_User;
 use App\Model\collect;
 use App\Model\user_home;
 use App\Model\userinfo_home;
+use App\Model\address;
+use App\Model\Order;
 
 
 
@@ -21,27 +23,50 @@ use Illuminate\Support\Facades\Session;
 class GoodsController extends Controller
 {
     //商品列表页综合排序
-    public function index(){
+    public function index(Request $request){
 
+        $req = $request->input('cid');
         //获取一级分类
         $zong = cate::where('pid','0')->get();
+        //获取二级分类
+        $er = cate::where('pid','1')->get();
 
-        //获取所有商品
-        $goods = release::get();
+
+
+
+
+        //获取
+        $goods = release::where('cid',$req)->paginate(1);
+
+
+        if($goods->count() == 0){
+
+            $release = new Release;
+            $goods = $release->paginate(1);
+        }
+
+
+        
+
+        
+        
 
         //分页
-        $limits = release::paginate(1);
+       
 
 
 
-        return view('home.fenlei',['cname'=>$zong,'goods'=>$goods,'limits'=>$limits]);
+        return view('home.fenlei',['er'=>$er,'cname'=>$zong,'goods'=>$goods]);
     }
     // ajax
     public function ajax(Request $request)
     {
-       return 123;
+       $cid = $request->input('cid');
 
-//        echo $b;
+       $er = cate::where('pid',$cid)->get();
+
+       echo $er;
+
 
     }
 
@@ -53,7 +78,7 @@ class GoodsController extends Controller
     //商品详情
     public function details(Request $request){
         //选择的商品
-        $goods = Release::find(2);
+        $goods = Release::find(11);
         //获取发布人信息
         $a = $goods['uid'];
         //发布人详情
@@ -67,8 +92,18 @@ class GoodsController extends Controller
         $e = $d - $c;
         $f = ceil($e/86400);
 
+        //浏览量
+        Release::where('rid','11')->increment('PV');
 
 
+       
+
+      
+
+
+
+    //获取收藏情况
+    $collect = Collect::where('rid','33')->get();
 
         
        
@@ -84,11 +119,26 @@ class GoodsController extends Controller
         }
 
 
+        //获取留言个数
+        $count = count(Words::where('pid','0')->get());
 
         //获取所有留言及回复
-        $ping = Words::where('rid',2)->get();
+        $liu = Words::get();
 
        
+        //获取登录uid
+      $useruid = Session('user')['uid']; 
+
+
+
+      //获取买家信息
+      $musers = userinfo_home::where('uid',$useruid)->first();
+
+
+
+
+     
+
       
 
         
@@ -99,7 +149,7 @@ class GoodsController extends Controller
 
 
 
-        return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'ping'=>$ping]);
+       return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'liu'=>$liu,'collect'=>$collect,'count'=>$count,'musers'=>$musers]);
     }
 
     //商品收藏ajax
@@ -111,12 +161,6 @@ class GoodsController extends Controller
         $uid = Session('user')['uid'];
 
 
-        /*$uid = $_GET['uid'];
-        $rid = $_GET['cid'];*/
-
-
-//        $uid = $all[uid];
-//        $rid = $all[cid];
 
 
         //将数据加入收藏表
@@ -148,33 +192,224 @@ class GoodsController extends Controller
     public function ajaxss(Request $request){
 
         $rid = $request->input('rid');
+
+
         $umessage = $request->input('umessage');
 
+
+
+
          //登录用户的信息
-        $useruid = Session('user')['uid'];
-
-        $a = userinfo_home::where('uid',$useruid)->get();
-
-        return var_dump($a);
+        $useruid = $request->input('uid');
 
 
+
+        $info = userinfo_home::where('uid',$useruid)->first();
+
+        
+
+        $nickname = $info -> nickname;
+
+        $portrait = $info->portrait;
+
+        
 
         
        
         /*添加留言*/
         $words = new Words;
 
-        $words->uid = $user;
+        $words->uid = $useruid;
 
         $words->rid = $rid;
 
+        /*$words->pid = $pid;*/
+
         $words->umessage = $umessage;
+
+        $words->nickname = $nickname;
+
+        $words->portrait = $portrait;
 
         $words->save();
 
-
         return 123;
 
+
+
     }   
+    //回复留言
+    Public function ajaxsss(Request $request){
+        $text = $request->input('text');
+        $pid = $request->input('pid');
+        $rid = $request->input('rid');
+
+         $useruid = Session('user')['uid'];
+
+        $info = userinfo_home::where('uid',$useruid)->first();
+
+
+
+
+        $nickname = $info -> nickname;
+
+        $portrait = $info->portrait;
+
+        /*添加留言*/
+        $words = new Words;
+
+        $words->uid = $useruid;
+
+        $words->rid = $rid;
+
+        $words->pid = $pid;
+
+
+        $words->umessage = $text;
+
+        $words->nickname = $nickname;
+
+        $words->portrait = $portrait;
+
+        $save = $words->save();
+
+
+    }
+    //删除留言
+    Public function ajaxssss(Request $request){
+
+        $wid = $request->input('wid');
+
+
+
+        $words =Words::where('wid', $wid)->delete();;
+        
+
+        
+    }
+
+
+    //商品购买
+    Public function buy($rid){
+
+
+
+        $useruid = Session('user')['uid']; 
+
+        //商品信息
+       $goods = Release::find($rid);
+       //买家信息
+       $users = userinfo_home::where('uid',$useruid)->first();
+       //卖家收货信息
+       $address = address::where('uid',$useruid)->first();
+
+
+
+
+
+
+
+
+       return view('home.buy',['goods'=>$goods,'users'=>$users,'address'=>$address]);
+    }
+//提交表单到数据库ajax
+    public function ajaxsssss(Request $request){
+
+
+    }
+
+//付款
+    Public function pay(Request $request){
+
+        $rid = $request->input('rid');
+
+        $buyid = $request->input('buyid');
+
+        $price = $request->input('price');
+
+        $omsg = $request->input('omsg');
+
+        $onumber = time();
+
+        $userinfo = userinfo_home::where('uid',$buyid)->first();
+
+        $payPass = $userinfo['payPass'];
+
+
+
+        
+
+        
+
+        return view('home.pay',['rid'=>$rid,'buyid'=>$buyid,'price'=>$price,'omsg'=>$omsg,'onumber'=>$onumber,'payPass'=>$payPass]);
+
+    }
+
+    //购买成功
+    public function success(Request $request){
+
+        $rrid = $request->input('rid');
+
+        $buyid = $request->input('buyid');
+
+        $sole= Release::where('rid',$rrid)->first();
+
+        $soleid = $sole-> uid;
+
+        $t = address::where('uid',$buyid)->first();
+
+        $tid = $t -> aid;
+
+        
+        $price = $request->input('price');
+
+        $omsg = $request->input('omsg');
+
+        $onumber = $request->input('onumber');
+
+
+
+        $order = new Order;
+
+        $order->soleid = $soleid;
+
+        $order->buyid = $buyid;
+
+        $order->onumber = $onumber;
+
+        $order->price = $price;
+
+        $order->omsg = $omsg;
+
+        $order->tid = $tid;
+
+        $order->rrid = $rrid;
+
+        $order->save();
+
+
+
+        
+    }
+
+
+    //获取所有的留言及评论
+    public function getCateTree( $cates=[], $pid=0 )
+        {
+            if( empty($cates) ){
+                $cates = $this->cates -> select();
+            }
+            
+            $sub = [];
+            foreach( $cates as $k=>$v ){
+                if( $v->pid == $pid ){
+                    $v->sub = $this -> getCateTree( $cates, $v->cid );
+                    $sub[] = $v;
+                }
+            }
+            
+            return $sub;
+    }
+
 }
 

@@ -162,6 +162,23 @@ Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
 
 //留言
 Route::get('/home/goods/bbbbb','home\GoodsController@ajaxss');
+// 回复留言
+Route::get('/home/goods/ccccc','home\GoodsController@ajaxsss');
+//删除留言
+Route::get('/home/goods/ddddd','home\GoodsController@ajaxssss');
+//订单提交ajax
+Route::get('/home/goods/eeeee','home\GoodsController@ajaxsssss');
+
+//购买商品
+Route::get('/home/goods/buy/{rid}','home\GoodsController@buy');
+//付款
+Route::get('/home/goods/pay','home\GoodsController@pay');
+//购买成功
+Route::get('/home/goods/success','home\GoodsController@success');
+
+
+
+
 
 
 
