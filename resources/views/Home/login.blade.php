@@ -195,9 +195,9 @@
 
 
             if (username) {
-                if (username.length >= 6 && username.length <= 16) {
-                    if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{6,16}$/m.test(username)) {
-                        if (!/^[0-9]{6,16}$/m.test(username)) {
+                if (username.length >= 5 && username.length <= 18) {
+                    if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{5,18}$/m.test(username)) {
+                        if (!/^[0-9]{5,18}$/m.test(username)) {
                             $("#username").parent().parent().removeClass('active warning');
                         } else {
                             $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能为纯数字').css('color','red');
@@ -206,7 +206,7 @@
                         $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能包含特殊字符').css('color','red');
                     }
                 } else {
-                    $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名长度为6-16位字符').css('color','red');
+                    $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名长度为5-18位字符').css('color','red');
                 }
             } else {
                 $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('请您输入用户名').css('color','red');

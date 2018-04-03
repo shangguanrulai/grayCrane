@@ -51,7 +51,7 @@ class LoginController extends Controller
             'uname.required'=>'用户名不能为空',
             'uname.between'=>'用户名的长度必须在5-18位',
             'upass.required'=>'密码不能为空',
-            'upass.between'=>'密码的长度必须在5-18位',
+            'upass.between'=>'密码的长度必须在6-16位',
             'upass.alpha_dash'=>'密码必须是数字字母下划线',
 
         ];

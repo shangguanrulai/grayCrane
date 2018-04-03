@@ -126,7 +126,7 @@
     var RPV = true;
     $(function(){
         $("#username").focus(function(){
-            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('5个字符以上，支持中文、英文、数字');
+            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('4个字符以上，支持数字、字母、特殊字符');
         }).blur(function(){
             $("#username").parent().parent().removeClass('warning active');
             checkUsername();
@@ -173,9 +173,9 @@
 
 
             if (username) {
-                if (username.length >= 6 && username.length <= 16) {
-                    if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{6,16}$/m.test(username)) {
-                        if (!/^[0-9]{6,16}$/m.test(username)) {
+                if (username.length >= 5 && username.length <= 18) {
+                    if (/^[0-9a-zA-Z!@#$%^&*()_+|?\/-=]{5,18}$/m.test(username)) {
+                        if (!/^[0-9]{5,18}$/m.test(username)) {
                             $("#username").parent().parent().removeClass('active warning');
                         } else {
                             $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能为纯数字');
@@ -184,7 +184,7 @@
                         $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名不能包含特殊字符');
                     }
                 } else {
-                    $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名长度为6-16位字符');
+                    $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('用户名长度为5-18位字符');
                 }
             } else {
                 $("#username").parent().parent().removeClass('active').addClass('warning').children('em').text('请您输入用户名');

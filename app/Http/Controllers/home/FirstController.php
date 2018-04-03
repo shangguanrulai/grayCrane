@@ -4,6 +4,7 @@ namespace App\Http\Controllers\home;
 
 use App\Model\cate;
 use App\Model\release;
+use App\Model\Carousel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,8 +20,10 @@ class FirstController extends Controller
         $cates = $this->getCateTree();
         $hot = release::where('status',1)->orderby('PV','desc')->get();
         $goods = release::where('status',1)->get();
+        $Carousel = Carousel::get();
+        // dd($Carousel);
+        return view('home/first/index',compact('cates','hot','goods','Carousel'));
 
-        return view('home/first/index',compact('cates','hot','goods'));
     }
 
 
@@ -40,4 +43,8 @@ class FirstController extends Controller
 
         return $sub;
     }
+
+
+
+
 }
