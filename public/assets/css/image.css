@@ -1,0 +1,222 @@
+
+  .photo-mask {
+      position: fixed;
+      z-index: 10;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      filter: alpha(opacity=20);
+      -moz-opacity: 0.8;
+      opacity: 0.8;
+      display: none;
+  }
+
+.photo-panel {
+    position: absolute;
+    display: none;
+    clear: both;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.photo-panel .photo-div,
+.photo-panel .photo-bar {
+    width: 100%;
+}
+
+.photo-panel .photo-div {
+    width: 960px;
+    height: 560px;
+    z-index: 11;
+    margin: auto;
+    position: relative;
+}
+
+.photo-panel .photo-close {
+    background: url(/assets/images/close.png);
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    margin-left: 664px;
+}
+
+.photo-panel .photo-close:hover {
+    background: url(/assets/img/close_ch.png);
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    margin-left: 664px;
+}
+
+.photo-panel .photo-bar-tip {
+    width: 700px;
+    height: 44px;
+    position: absolute;
+    margin-top: -64px;
+    padding: 10px;
+}
+
+.photo-panel .photo-bar-tip:hover {
+    width: 700px;
+    height: 44px;
+    position: absolute;
+    margin-top: -64px;
+    background: #000;
+    filter: alpha(opacity=20);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+    color: #fff;
+    padding: 10px;
+}
+
+.photo-panel .photo-img {
+    width: 720px;
+    float: left;
+    height: 560px;
+    background: #fff;
+}
+
+.photo-panel .photo-view-w {
+    width: 720px;
+    height: 560px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.photo-panel .photo-view-h {
+    width: 720px;
+    height: 560px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.photo-panel .photo-view-w img {
+    max-width: 700px;
+    height: auto;
+    vertical-align: middle;
+    text-align: center;
+    max-height: 540px;
+    margin: 10px;
+    -moz-box-shadow: 5px 5px 5px #a6a6a6;
+    /* 老的 Firefox */
+    box-shadow: 5px 5px 5px #a6a6a6;
+    -webkit-animation: swing 1s .2s ease both;
+    -moz-animation: swing 1s .2s ease both;
+}
+
+.photo-panel .photo-view-h img {
+    max-width: 700px;
+    height: 540px;
+    margin: 10px;
+    -moz-box-shadow: 5px 5px 5px #a6a6a6;
+    /* 老的 Firefox */
+    box-shadow: 5px 5px 5px #a6a6a6;
+    -webkit-animation: swing 1s .2s ease both;
+    -moz-animation: swing 1s .2s ease both;
+}
+
+@-webkit-keyframes swing {
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        -webkit-transform-origin: top center
+    }
+    20% {
+        -webkit-transform: rotate(15deg)
+    }
+    40% {
+        -webkit-transform: rotate(-10deg)
+    }
+    60% {
+        -webkit-transform: rotate(5deg)
+    }
+    80% {
+        -webkit-transform: rotate(-5deg)
+    }
+    100% {
+        -webkit-transform: rotate(0deg)
+    }
+}
+
+@-moz-keyframes swing {
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        -moz-transform-origin: top center
+    }
+    20% {
+        -moz-transform: rotate(15deg)
+    }
+    40% {
+        -moz-transform: rotate(-10deg)
+    }
+    60% {
+        -moz-transform: rotate(5deg)
+    }
+    80% {
+        -moz-transform: rotate(-5deg)
+    }
+    100% {
+        -moz-transform: rotate(0deg)
+    }
+}
+
+.photo-panel .photo-left,
+.photo-panel .photo-right {
+    width: 120px;
+    float: left;
+    margin-top: 220px;
+}
+
+.photo-panel .arrow-prv {
+    background: url(images/l.png);
+    width: 120px;
+    height: 120px;
+}
+
+.photo-panel .arrow-prv:hover {
+    background: url(images/l_ch.png);
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.photo-panel .arrow-next {
+    background: url(images/r.png);
+    width: 120px;
+    height: 120px;
+}
+
+.photo-panel .arrow-next:hover {
+    background: url(images/r_ch.png);
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.demo {
+    width: 800px;
+    margin: 10px auto;
+}
+
+.demo li {
+    width: 200px;
+    overflow: hidden;
+    height: 200px;
+    float: left;
+}
+
+.demo li img {
+    width: auto;
+    height: auto;
+}
