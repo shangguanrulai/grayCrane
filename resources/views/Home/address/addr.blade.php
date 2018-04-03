@@ -46,12 +46,13 @@
                 @endforeach
                 </tbody>
             </table>
+            <center>{{ $addr->links() }}</center>
         </div>
     </div>
 
     </div>
     </div>
-            {{ $addr->links() }}
+
 
     <script>
         layui.use('layer', function(){

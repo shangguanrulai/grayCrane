@@ -16,7 +16,7 @@ class AddrController extends Controller
 
         $user = user_home::find($uid);
         $userinfo = $user->userinfo_home;
-        $addr = address::where('uid',$uid)->paginate(5);
+        $addr = address::where('uid',$uid)->paginate(8);
 
         return view('home.address.addr',compact('user','userinfo','addr'));
 

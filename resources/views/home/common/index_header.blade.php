@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>灰鹤二手交易平台</title>
+    <title>{{ config('webconfig.web_title') }}</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="renderer" content="webkit">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base target=_blank>
     <meta name="keywords" content="灰鹤二手">
-    <meta name="description" content="灰鹤二手交易平台，买二手就上灰鹤网二手交易平台">
+    <meta name="description" content="灰鹤二手交易">
     <link id="narrowScreen" rel="stylesheet">
     <link href="http://m.2.fengniao.com" rel="alternate" media="only screen and (max-width: 640px)">
     {{--<link href="/Content/globalceiling.css" rel="stylesheet">--}}
@@ -16,7 +16,7 @@
     <link href="/Content/jquery.bxslider.css" rel="stylesheet">
     <link href="/Content/header.css" rel="stylesheet">
     <link href="/Content/secondarytradingpublic.css" rel="stylesheet">
-    <link href="/Content/homepage.css" rel="stylesheet" 0="frontend\assets\BaseAsset">
+    <link href="/Content/homepage.css" rel="stylesheet">
     <script src="/Scripts/jquery.min.js" charset="UTF-8"></script>
     {{--<script src="/Scripts/jquery-3.2.1.min.js" charset="UTF-8"></script>--}}
     <script src="/Scripts/jqueryui.1.11.4.js" charset="UTF-8"></script>
@@ -103,8 +103,7 @@
 
     <div class="logo">
         <a href="/?click_source=logo">
-            <img class="fn-shop-logo-b" src="/Picture/7df5beae4fc9e31d548c6dbafbec869b.png">
-            <img class="fn-shop-logo-s" style="display: none;" src="">
+            <img class="fn-shop-logo-b" src="/Images/logo.jpg" style="width: 200px;">
         </a>
     </div>
 

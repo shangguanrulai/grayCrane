@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>蜂鸟登录</title>
+    <title>灰鹤登录</title>
     <link rel="shortcut icon" href="https://my.fengniao.com/icon/images/favicon.ico"/>
     <link rel="bookmark" href="https://my.fengniao.com/icon/images/favicon.ico"/>
     <meta name="description" content=""/>
@@ -29,7 +29,7 @@
     <div class="login" id="login">
         <!--logo-->
         <!--logo这里的行内样式是在输入错3次之后出现验证码时使用，如果没有验证码去掉行内样式-->
-        <a href="#" class="logo" style="margin: 20px 0;">蜂鸟网</a>
+        <a href="#" class="logo" style="margin: 20px 0;">灰鹤网</a>
         <!--logo-->
         <!--content-->
          <!--<div class="hint"><a href="javascript:;" class="messagelogin" id="changeMessageLogin">短信快捷登录</a></div>-->
@@ -101,10 +101,10 @@
     <div class="login loginMessage" id="loginMessage" style="display:none;">
         <!--logo-->
         <!--logo这里的行内样式是在输入错3次之后出现验证码时使用，如果没有验证码去掉行内样式-->
-        <a href="http://www.fengniao.com" class="logo" style="margin: 20px 0;">蜂鸟网</a>
+        <a href="http://www.fengniao.com" class="logo" style="margin: 20px 0;">灰鹤网</a>
         <!--logo-->
         <!--content-->
-        <div class="hint-message">注意：如果您已注册过蜂鸟账号，请确认该手机号和账号做了绑定，否则系统将自动创建新账号</div>
+        <div class="hint-message">注意：如果您已注册过灰鹤账号，请确认该手机号和账号做了绑定，否则系统将自动创建新账号</div>
         <div class="message">
             <p class="">
             <span>
@@ -124,7 +124,7 @@
         <input type="button" class="login-sunmit" id="toMessageLogin" value="立即登录">
         <div class="messagebottom">
             <a href="javascript:;" class="change" id="changeLogin">账号密码登录</a>
-            我已阅读并同意<a href="http://www.fengniao.com/law.html">《蜂鸟用户注册协议》</a>
+            我已阅读并同意<a href="http://www.fengniao.com/law.html">《灰鹤用户注册协议》</a>
         </div>
         <!--content-->
     </div>
@@ -138,9 +138,9 @@
 <div id="foot" class="foot foot-box">
     <div class="wrapper">
         <p class="link">
-            <a href="http://www.fengniao.com/about.html">蜂鸟简介</a>|<a href="http://www.fengniao.com/contact.html">联系我们</a>|<a href="http://www.fengniao.com/sitelinks.php">友情链接</a>|<a href="http://www.fengniao.com/zhaopin.html">招聘信息</a>|<a href="http://www.fengniao.com/law.html">用户服务协议</a>|<a href="http://www.fengniao.com/copyright.html">隐私权声明</a>|<a href="http://www.fengniao.com/shengming.html">法律投诉声明</a>
+            <a href="http://www.fengniao.com/about.html">灰鹤简介</a>|<a href="http://www.fengniao.com/contact.html">联系我们</a>|<a href="http://www.fengniao.com/sitelinks.php">友情链接</a>|<a href="http://www.fengniao.com/zhaopin.html">招聘信息</a>|<a href="http://www.fengniao.com/law.html">用户服务协议</a>|<a href="http://www.fengniao.com/copyright.html">隐私权声明</a>|<a href="http://www.fengniao.com/shengming.html">法律投诉声明</a>
         </p>
-        <p class="copyright"><script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script> fengniao.com. All rights reserved . 北京蜂鸟映像电子商务有限公司（蜂鸟网）</p>
+        <p class="copyright"><script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script> fengniao.com. All rights reserved . 北京灰鹤映像电子商务有限公司（灰鹤网）</p>
         <p>版权所有 京ICP证150110号</p>
     </div>
 </div>
