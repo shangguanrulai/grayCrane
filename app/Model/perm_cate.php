@@ -16,6 +16,6 @@ class perm_cate extends Model
 
     public function perm()
     {
-        return $this->hasMany('App\Model\perm','pid','id');
+        return $this->hasMany('App\Model\Perm','pid','id');
     }
 }

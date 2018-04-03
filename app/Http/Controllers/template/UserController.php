@@ -4,11 +4,13 @@ namespace App\Http\Controllers\template;
 
 use App\Model\Admin_User;
 use App\Model\user_home;
+use App\Model\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Hash;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -92,7 +94,7 @@ class UserController extends Controller
         }
 
         //密码加密
-        $input['userpass'] = Crypt::encrypt($input['userpass']);
+        $input['userpass'] =Hash::make($input['userpass']);
 
 //      添加到用户表
         $user = new Admin_User();
@@ -233,20 +235,14 @@ class UserController extends Controller
 
    }
 
+
    public function delall(Request $request)
    {
-        $ids = $request -> input('ids');
-
-
+       $ids = $request -> input('ids');
        $res = Admin_User::destroy($ids);
-
-
        if($res) {
-
            $arr = [
-
                'msg' => '删除成功'
-
            ];
        } else{
             $arr = [
@@ -254,7 +250,49 @@ class UserController extends Controller
             ];
        }
        return $arr;
-
    }
+
+
+    public function auth($id)
+    {
+        //获取当前角色
+        $user = Admin_User::find($id);
+        //获取所有权限
+        $roles = Role::get();
+
+        $own_role = $user->role;
+        $own_roleid = [];
+        foreach($own_role as $v){
+            $own_roleid[] = $v->id;
+        }
+        return view('template.user.auth',compact('user','roles','own_roleid'));
+    }
+
+
+//添加授权
+    public function doauth(Request $request)
+    {
+        $input = $request->all();
+//      将提交的数据提交到用户角色关联表
+        DB::beginTransaction();
+        try{
+            //先删除当前角色所有被授予的角色
+            DB::table('user_role')->where('uid',$input['uid'])->delete();
+            if(!empty($input['checkbox'])){
+                foreach($input['checkbox'] as $v) {
+                    DB::table('user_role')->insert([
+                        'uid' => $input['uid'],
+                        'role_id' => $v
+                    ]);
+                }
+            }
+            DB::commit();
+            return redirect('/user')->with('msg','授权成功');
+        }catch(Exception $e){
+            DB::rollBack()
+                ->withErrors(['error'=>$e->getMessage()]);
+        }
+    }
+
 
 }

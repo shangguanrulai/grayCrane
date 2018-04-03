@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\template;
 
+use App\Model\perm;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Perm_cate;
@@ -96,16 +97,12 @@ class Perm_cateController extends Controller
     {
         $res = Perm_cate::destroy($id);
         if($res){
-            $arr=[
-                'msg'=>'删除成功'
-            ];
-        }else{
-            $arr=[
-                'msg'=>'删除失败'
+            return back()->with('msg','删除成功');
 
-            ];
+        }else{
+           return back()->with('msg','删除失败');
         }
-        return $arr;
+
     }
 
     public function delall(Request $request)
@@ -116,18 +113,28 @@ class Perm_cateController extends Controller
         $res = Perm_cate::destroy($ids);
 
 
-//        if($res) {
-//
-//            $arr = [
-//
-//                'msg' => '删除成功'
-//
-//            ];
-//        } else{
-//            $arr = [
-//                'msg' => '删除失败'
-//            ];
-//        }
-//        return $arr;
+        if($res) {
+
+            $arr = [
+
+                'msg' => '删除成功'
+
+            ];
+        } else{
+            $arr = [
+                'msg' => '删除失败'
+            ];
+        }
+        return $arr;
+    }
+
+
+    public function showperm($id)
+    {
+
+
+        $perms =perm::where('pid',$id)->get();
+        return view('template.perm_cate.perms',compact('perms'));
+
     }
 }

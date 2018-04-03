@@ -35,7 +35,7 @@
                                 <div class="am-form-group">
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
-                                            <a href="{{ url('user/create') }}"><button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button></a>
+                                            <a href="{{ url('car/create') }}"><button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button></a>
 
                                             <a href="javascript:;"><button onclick="delall()"  class="am-btn am-btn-default am-btn-danger"><span class="am-icon-plus"></span> 删除</button></a>
 

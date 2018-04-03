@@ -5,7 +5,9 @@ namespace App\Http\Controllers\template;
 use App\Model\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Perm_cate;
+use App\Model\perm_cate;
+use App\Model\Perm;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -74,7 +76,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::find($id);
+
 
     }
 
@@ -165,9 +167,67 @@ class RoleController extends Controller
         //获取当前角色
         $role = Role::find($id);
         //获取所有权限
-        $perms =Perm_cate::get()->prem;
-        dd($perms);
+        $perm_cate = perm_cate::get();
+        //获取当前角色已经被授予的权限
 
-//        return view('template.role.auth',compact('role'));
+        return view('template.role.auth',compact('role','perm_cate'));
     }
+
+    public function showperm(Request $request)
+    {
+        $id = $request->input('id');
+        $pid = $request->input('pid');
+        $role = Role::find($id);
+         $own_perms = $role->permission;
+//        return $own_perms;
+        $own_perids = [];
+        foreach($own_perms as $v){
+            $own_perids[] = $v->id;
+        }
+
+        $perms = Perm::where('pid',$pid)->get();
+        $arr = [
+            'own_perids' => $own_perids,
+            'perms' => $perms,
+        ];
+        return $arr;
+  }
+//添加授权
+  public function doauth(Request $request)
+  {
+        $input = $request->all();
+
+
+//      将提交的数据提交到角色权限关联表
+      DB::beginTransaction();
+      try{
+          //先删除当前角色所有被授予的权限
+//          dd($input['cateid']);
+          $permid = [];
+          foreach($input['cateid'] as $v){
+            $perm=Perm::where('pid',$v)->get();
+                foreach($perm as $vv){
+                    $permid[] = $vv->id;
+                }
+          }
+          DB::table('role_permission')->whereIn('permission_id',$permid)->delete();
+          if(!empty($input['checkbox'])){
+              foreach($input['checkbox'] as $v) {
+                  DB::table('role_permission')->insert([
+                      'role_id' => $input['field_type'],
+                      'permission_id' => $v
+                  ]);
+          }
+
+          }
+          DB::commit();
+          return redirect('/role')->with('msg','授权成功');
+
+      }catch(Exception $e){
+          DB::rollBack()
+              ->withErrors(['error'=>$e->getMessage()]);
+
+      }
+  }
+
 }

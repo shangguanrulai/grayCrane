@@ -150,8 +150,7 @@ class ConfigController extends Controller
      */
     public function edit($id)
     {
-        $configs =Config::find($id);
-        return view('template.config.edit',compact('configs'));
+
     }
 
     /**

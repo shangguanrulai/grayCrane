@@ -26,4 +26,5 @@ class release extends Model
     {
         return $this->hasMany('App\Model\Words','rid','rid');
     }
+
 }

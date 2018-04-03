@@ -82,19 +82,6 @@
                                     </div>
 
                                     <div class="am-form-group">
-                                        <label for="user-phone" class="am-u-sm-3 am-form-label">权限: <span class="tpl-form-line-small-title">auth</span></label>
-                                        <div class="am-u-sm-9">
-                                            <select data-am-selected="" style="display: none;"name="auth">
-                                                <option value="1">超级管理员</option>
-                                                <option value="2">普通管理员</option>
-                                            </select>
-
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="am-form-group">
                                         <label for="user-weibo" class="am-u-sm-3 am-form-label">头像: <span class="tpl-form-line-small-title">Images</span></label>
                                         <div class="am-u-sm-9" style="position: relative;">
                                             <input id="file_upload" type="file" name="fileupload" value="" style="opacity:0.0;position: relative;z-index:99999999"   >
