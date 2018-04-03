@@ -56,9 +56,7 @@
 </script>
 <div class="y-center-header fn-sec-header">
     <div class="y-center-warp clearfix">
-                <div class="y-center-logo"><a href="http://2.fengniao.com/" target="_blank">二手交易</a></div>
-
-<!--        <a href="http://2.fengniao.com/" class="home-link" target="_blank"><i class="arrow-icon"></i>返回灰鹤二手首页</a>-->
+                <div class="y-center-logo"><a href="/" target="_blank" style="margin-left:80px;">二手交易</a></div>
 
         <div class="y-center-nav-box ">
             <a class="trigger" href="/"

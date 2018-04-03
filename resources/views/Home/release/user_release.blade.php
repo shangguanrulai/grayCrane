@@ -60,7 +60,7 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $release->links() }}
+            <center>{{ $release->links() }}</center>
         </div>
     </div>
     </div>

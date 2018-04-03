@@ -102,7 +102,7 @@ layui.use('carousel', function(){
                                         @foreach($hot as $k=>$v)
                                             @if($k<=4)
                                             <li class="goods-item">
-                                                <a href="http://kefu.qycn.com/vclient/chat/?websiteid=123435" class="goods-title">{{$v->gname}}</a>
+                                                <a href="" class="goods-title">{{$v->gname}}</a>
                                                 <div class="price-bar"><span class="price"> 二手价<em>&yen;{{$v->nowprice}}</em></span></div>
                                                 <a href="" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt=""></a>
                                             </li>
@@ -203,7 +203,6 @@ layui.use('carousel', function(){
                     </div>
                 </div>
 
-
-
 </div>
+
 @include('home.common.index_footer');

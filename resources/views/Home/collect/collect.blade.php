@@ -46,7 +46,7 @@
                 </dd>
                 @endforeach
             </dl>
-            {{ $releases->links() }}
+            <center>{{ $releases->links() }}</center>
         </div>
     </div>
     </div>

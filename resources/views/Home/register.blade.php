@@ -25,7 +25,7 @@
 <div id="box" class="wrapper">
     <!--logo-->
     <div class="logo-box">
-        <a href="#" class="logo">蜂鸟网</a>
+        <a href="#" class="logo">灰鹤网</a>
         <span>开启你的视觉之旅</span>
     </div>
     <!--logo-->
@@ -48,7 +48,7 @@
 	{{ csrf_field() }}
     <div class="content">
         <div class="title">
-            注册蜂鸟账号
+            注册灰鹤账号
             <span>我已注册，现在就<a href="{{url('home/login')}}">登录</a></span>
         </div>
         <div class="register">
@@ -102,9 +102,9 @@
 <div id="foot" class="foot foot-box">
     <div class="wrapper">
         <p class="link">
-            <a href="http://www.fengniao.com/about.html">蜂鸟简介</a>|<a href="http://www.fengniao.com/contact.html">联系我们</a>|<a href="http://www.fengniao.com/sitelinks.php">友情链接</a>|<a href="http://www.fengniao.com/zhaopin.html">招聘信息</a>|<a href="http://www.fengniao.com/law.html">用户服务协议</a>|<a href="http://www.fengniao.com/copyright.html">隐私权声明</a>|<a href="http://www.fengniao.com/shengming.html">法律投诉声明</a>
+            <a href="http://www.fengniao.com/about.html">灰鹤简介</a>|<a href="http://www.fengniao.com/contact.html">联系我们</a>|<a href="http://www.fengniao.com/sitelinks.php">友情链接</a>|<a href="http://www.fengniao.com/zhaopin.html">招聘信息</a>|<a href="http://www.fengniao.com/law.html">用户服务协议</a>|<a href="http://www.fengniao.com/copyright.html">隐私权声明</a>|<a href="http://www.fengniao.com/shengming.html">法律投诉声明</a>
         </p>
-        <p class="copyright"><script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script> fengniao.com. All rights reserved . 北京蜂鸟映像电子商务有限公司（蜂鸟网）</p>
+        <p class="copyright"><script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script> fengniao.com. All rights reserved . 北京灰鹤映像电子商务有限公司（灰鹤网）</p>
         <p>版权所有 京ICP证150110号</p>
     </div>
 </div>
