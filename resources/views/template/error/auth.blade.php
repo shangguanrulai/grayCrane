@@ -87,3 +87,10 @@
 </div>
 </body>
 </html>
+<script language="javascript">
+    setTimeout(function(){
+        alert("非法访问,立即返回");
+        window.history.back(-1);
+    },3000)
+
+</script>

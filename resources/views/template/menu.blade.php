@@ -2,7 +2,7 @@
 
     <script src="/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
-      s  <!-- 头部 -->
+        <!-- 头部 -->
         <header>
             <!-- logo -->
             <div class="am-fl tpl-header-logo">
@@ -92,7 +92,7 @@
                     <div class="tpl-sidebar-user-panel">
                         <div class="tpl-user-panel-slide-toggleable">
                             <div class="tpl-user-panel-profile-picture">
-                                <img src="/uploads/{{Session('user')->profile}}" alt="">
+                                <img src="/uploads/{{Session('user')->profile}}" alt="" style="weight:50px;height:50px">
                             </div>
                             <span class="user-panel-logged-in-text">
                       <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
@@ -268,66 +268,49 @@
 
                             </ul>
                         </li>
-                        <!-- 推荐位管理 -->
+
+
+                        {{--网站配置管理--}}
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
-                                <i class="am-icon-table sidebar-nav-link-logo"></i> 推荐位管理
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 网站配置管理
                                 <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="table-list.html">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加推荐
+                                    <a href="{{url('config/create')}}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加网站配置
                                     </a>
                                 </li>
 
                                 <li class="sidebar-nav-link">
-                                    <a href="table-list-img.html">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看推荐
+                                    <a href="{{url('config')}}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看网站配置
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <!-- 评论管理 -->
+                        {{--轮播图管理--}}
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
-                                <i class="am-icon-table sidebar-nav-link-logo"></i> 评论管理
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 轮播图管理
                                 <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="table-list.html">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户评论
+                                    <a href="{{url('car/create')}}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加图片
                                     </a>
                                 </li>
 
                                 <li class="sidebar-nav-link">
-                                    <a href="table-list-img.html">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户留言
+                                    <a href="{{url('car')}}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看图片
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="sidebar-nav-link">
-                            <a href="javascript:;" class="sidebar-nav-sub-title">
-                                <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
-                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
-                            </a>
-                            <ul class="sidebar-nav sidebar-nav-sub">
-                                <li class="sidebar-nav-link">
-                                    <a href="table-list.html">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-nav-link">
-                                    <a href="table-list-img.html">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
 
 
                     </ul>
