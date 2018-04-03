@@ -1,0 +1,81 @@
+﻿/**  
+ * @Description: the stylesheet  二手交易公共头吸顶
+ * @authors: hanjw (han.jingwei@fengniao.com)
+ * @date:    2016-1-20 09:45:20
+ * @version: 1.0
+ */
+
+ /* global-secondaryTopbar reset */
+.global-secondaryTopbar *{margin: 0; padding: 0;}
+.global-secondaryTopbar ul,
+.global-secondaryTopbar ol{list-style:none outside none;}  
+.global-secondaryTopbar em{font-style:normal;}
+.global-secondaryTopbar .clear{clear:both; display:block; height:0; visibility:hidden; font:0/0 arial;}
+.global-secondaryTopbar .clearfix:after{content:"."; display: block; height: 0; clear: both; visibility: hidden; font-size:0;}
+.global-secondaryTopbar .clearfix {*zoom:1;} 
+.global-secondaryTopbar a{color: #333; text-decoration: none; outline: 0 none;}
+.global-secondaryTopbar a:hover{color: #ff6619; text-decoration: underline;}
+
+/* global-secondaryTopbar */
+.global-secondaryTopbar{position: relative; top: 0; left: 0; z-index: 100000; width: 100%; min-width: 980px; height: 44px; background: #111; color: #fff; font: normal 12px/44px arial;}
+.global-secondaryTopbar .wrapper{width: 980px; margin: 0 auto;}
+.global-secondaryTopbar .line-icon{float: left; height: 12px; width: 1px; overflow: hidden; margin: 16px 15px 0; background: #333; font: 0/0 arial;}
+
+.global-secondaryTopbar .global-personal-nav{float: right;}
+.global-secondaryTopbar .global-personal-nav .num-icon{float: right; height: 18px; width: 18px; overflow: hidden; margin: 12px 0 0 5px; -webkit-border-radius: 50%; border-radius: 50%; background: #ff6619; color: #fff; font: normal 12px/18px SimSun; text-align: center;}
+.global-secondaryTopbar .global-personal-nav .arrow-icon{position: absolute; top: 20px; right: 0; float: right; width: 0; height: 0; overflow: hidden; border: 4px solid #111; border-top-color: #666; font: 0/0 arial;}
+.global-secondaryTopbar .global-personal-nav .global-personal-item{position: relative; float: left; height: 44px;}
+.global-secondaryTopbar .global-personal-nav .topBarfollowIcon{float: left; margin: 16px 5px 0 0;}
+.global-secondaryTopbar .global-personal-nav .trigger{position: relative; float: left; padding: 0 14px 0 0; cursor: pointer;}
+.global-secondaryTopbar .global-personal-nav .global-sub-links{display: none; position: absolute; left: -44px; top: 44px; width: 86px; padding: 0 8px; border: 1px solid #e9e9e9; background: #fff;}
+.global-secondaryTopbar .global-personal-nav .global-sub-links a{color: #666;}
+.global-secondaryTopbar .global-personal-nav .global-sub-links a:hover{color: #ff6619; text-decoration: none;}
+.global-secondaryTopbar .global-personal-nav .global-sub-links .current{color: #ff6619;}
+.global-secondaryTopbar .global-personal-nav .global-sub-links .num-icon{margin-top: 8px;}
+.global-secondaryTopbar .global-personal-nav .global-sub-links .global-sub-link{height: 34px; overflow: hidden; padding: 0 0 0 4px; border-top: 1px dashed #e9e9e9; line-height: 34px;}
+.global-secondaryTopbar .global-personal-nav .global-sub-links .global-sub-link:first-child{border-top: 0 none;}
+.global-secondaryTopbar .global-personal-nav .global-personal-item.current-item .global-sub-links{display: block;}
+.global-secondaryTopbar .global-personal-nav .global-personal-item.current-item .arrow-icon{ top: 16px; border: 4px solid #111; border-bottom-color: #666;}
+.global-secondaryTopbar .global-personal-nav .website-links{width: 428px; padding: 0 20px; overflow: hidden;}
+.global-secondaryTopbar .global-personal-nav .website-links dt{float: left; width: 40px; height: 34px; overflow: hidden; margin: -1px 0 0; border-top: 1px dashed #e9e9e9; font: normal 12px/34px arial;}
+.global-secondaryTopbar .global-personal-nav .website-links dd{float: left; width: 388px; height: 34px; overflow: hidden; margin: -1px 0 0; border-top: 1px dashed #e9e9e9; font: normal 12px/34px arial;}
+.global-secondaryTopbar .global-personal-nav .website-links a{float: left; margin: 0 0 0 13px; color: #666;}
+.global-secondaryTopbar .global-personal-nav .website-links a:hover{color: #ff6619;}
+.global-secondaryTopbar .global-personal-nav .website-links dt a{height: 16px; margin: 9px 0 0; padding: 0 10px 0 0; border-right: 1px solid #d7d7d7; color: #ed3945; line-height: 16px;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links{width: 246px; padding-bottom: 8px;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links .onlineService-mobile{float: right; width: 120px; padding: 0 10px 0 0;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links dt{height: 18px; margin: 10px 0 0; color: #666; font: normal 14px/18px arial; text-align: center;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links dd{padding: 0 0 4px; line-height: 1;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links dd a{display: block; float: none; margin: 10px 0 0; padding: 0 0 10px;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links .telephone-tag{display: block; margin: 2px 0 0; color: #ff6619; font-weight: normal;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links .onlineService-vcode{float: left; width: 86px; padding: 0 0 0 10px;}
+.global-secondaryTopbar .global-personal-nav .onlineService-links .onlineService-pic{display: block; width: 86px; height: 86px; overflow: hidden; margin: 10px 0 0;}
+
+.global-secondaryTopbar .global-personal-nav .my-secondary-item .global-sub-links{width: 60px; right: 26px;}
+.global-secondaryTopbar .global-personal-nav .my-follow-item .global-sub-links{right: 22px;}
+
+.global-secondaryTopbar .global-login-bar{float: left; color: #fff;}
+.global-secondaryTopbar .global-login-bar .home-link{float: left; margin: 0 15px 0 0; color: #fff;}
+.global-secondaryTopbar .global-login-bar .home-link:hover{color: #ff6619; text-decoration: none;}
+.global-secondaryTopbar .global-login-bar .global-welcome{float: left; margin: 0 15px 0 0;}
+.global-secondaryTopbar .global-login-bar .name{color: #fff;}
+.global-secondaryTopbar .global-login-bar .name:hover{color: #ff6619; text-decoration: none;}
+.global-secondaryTopbar .global-login-bar .welcome-tip{float: left; color: #fff;}
+.global-secondaryTopbar .global-login-bar .registered-link{float: left; color: #fff;}
+.global-secondaryTopbar .global-login-bar .registered-link:hover{color: #ff6619; text-decoration: none;}
+.global-secondaryTopbar .global-login-bar .login-out{margin: 0 0 0 10px; color: #fff;}
+.global-secondaryTopbar .global-login-bar .login-out:hover{color: #ff6619; text-decoration: none;}
+.global-secondaryTopbar .global-login-bar .coupon-link{float: left; width:62px; color: #fff;}
+.global-secondaryTopbar .global-login-bar .coupon-link:hover{color: #ff6619; text-decoration: none;}
+.global-secondaryTopbar .global-login-bar .coupon-link .num-icon{float: right; height: 18px; width: 18px; overflow: hidden; margin: 12px 0 0 5px; -webkit-border-radius: 50%; border-radius: 50%; background: #ff6619; color: #fff; font: normal 12px/18px SimSun; text-align: center;}
+
+.global-secondaryTopbar .global-login-bar .global-login-inner{ float: left;}
+.global-secondaryTopbar .global-login-bar .global-personal-nav{ float: left; width: 62px; margin: 0 15px 0 0; }
+.global-secondaryTopbar .global-login-bar .global-personal-nav .line-icon{display: none;}
+
+.global-secondaryTopbar .global-personal-center{float: right; width: 550px;}
+.global-secondaryTopbar .global-personal-center a{float: left; color: #fff;}
+.global-secondaryTopbar .global-personal-center a:hover{color: #ff6619; text-decoration: none;}
+
+.global-special-ie7-li {*width:62px; *margin-right:31px;}
+.global-special-ie7-i {*display: none;}

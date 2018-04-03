@@ -13,6 +13,9 @@ class Words extends Model
     //允许批量更新
     protected $fillable = [];
 
-
+    public function release()
+    {
+        return $this->belongsTo('App\Molde\release', 'rid', 'rid');
+    }
 
 }

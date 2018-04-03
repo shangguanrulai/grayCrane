@@ -1,0 +1,26 @@
+﻿@CHARSET "UTF-8";
+
+/* address-layerbox */
+.address-layerbox{font: normal 12px/1.5 arial;}
+.address-layerbox .address-items .address-item{margin: 15px 0 0; line-height: 34px;}
+.address-layerbox .address-items .item-title{float: left; width: 70px; padding: 0 17px 0 0; text-align: right;}
+.address-layerbox .address-items select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; height: 32px; margin: 0 10px 0 0; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 92% 50%; color: #666; font: 14px/28px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.address-layerbox .address-items select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 92% 50%; color: #999;}
+.address-layerbox .address-items input[type="text"]{height: 14px; padding: 8px 10px; border: 1px solid #e9e9e9; font: normal 14px/14px 'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';}
+.lowIE .address-layerbox .address-items select{padding: 5px 5px 5px 10px; background: #fff;}
+.lowIE .address-layerbox .address-items input[type=checkbox]{padding: 0; border: 0 none; background: none; outline: 0 none;}
+.address-layerbox .address-items select::-ms-expand{display: none;}
+.address-layerbox .address-items .tip{height: 14px; overflow: hidden; margin: 5px 0 0 3px; padding: 3px 6px; border: 1px solid #ff9e6d; background: #fff6f2; color: #ff6619; line-height: 14px;}
+.address-layerbox .address-items .street-text{width: 310px;}
+.address-layerbox .address-items input[type="text"]:focus{outline: 0 none; border: 1px solid #ff6619; box-shadow: 0 0 1px #ff6619;}
+
+/* closedOrder-layerbox */
+.closedOrder-layerbox{padding: 0 0 10px; font: normal 12px/1.5 arial;}
+.closedOrder-layerbox p{height: 20px; margin: 10px 0 0; padding: 6px 0 6px 20px; line-height: 20px;}
+.closedOrder-layerbox p a{color: #ff6619;}
+.closedOrder-layerbox select{-webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: 0 none; display: block; height: 32px; max-width: 255px; margin: 10px 20px 0; padding: 0 22px 0 10px; border: 1px solid #e9e9e9; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX/////Zhm8loNyAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #333; font: 12px/28px arial;}
+.closedOrder-layerbox select:disabled{background: #f8f8f8 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQMAAABGqu8rAAAABlBMVEX///+2trYEjE5bAAAAAXRSTlMAQObYZgAAABdJREFUeF5jOHCAIbGBwZiBQY6BgYcBAB/AAr8TSoWpAAAAAElFTkSuQmCC) no-repeat 96% 50%; color: #999;}
+.lowIE .closedOrder-layerbox select{padding: 5px 5px 5px 10px; background: #fff;}
+.closedOrder-layerbox select::-ms-expand{display: none;}
+
+.item-title .star{margin: 0 5px 0 0; color: #c00; font-family: arial;}

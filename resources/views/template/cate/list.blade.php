@@ -55,7 +55,7 @@
                                 </div>
                             </form>--}}
                             <div class="am-u-sm-12">
-                                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="">
+                                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " >
                                     <thead>
                                     <tr pid="0">
                                         <td>删除</td>

@@ -46,7 +46,7 @@
                             <form action="{{url('template/config/change')}}" class="am-form tpl-form-line-form" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="am-u-sm-12">
-                                    <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                                    <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " >
                                         <thead>
                                         <tr>
                                             <td>删除</td>

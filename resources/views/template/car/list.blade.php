@@ -35,7 +35,7 @@
                                 <div class="am-form-group">
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
-                                            <a href="{{ url('user/create') }}"><button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button></a>
+                                            <a href="{{ url('car/create') }}"><button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button></a>
 
                                             <a href="javascript:;"><button onclick="delall()"  class="am-btn am-btn-default am-btn-danger"><span class="am-icon-plus"></span> 删除</button></a>
 
@@ -137,9 +137,9 @@
         //禁用 启用
         function star(obj,id){
             if($(obj).attr('pstatus')==0){
-                var str = '你确定收藏吗?';
-            }else{
                 var str = '你确定展示吗?';
+            }else{
+                var str = '你确定收藏吗?';
             }
             if(confirm(str)){
                 var pstatus = $(obj).attr('pstatus');

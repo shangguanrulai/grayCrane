@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\DB;
 
 class ConfigController extends Controller
 {
+//    取出网站配置项,写入config/webconfig.php文件
+    public function putFile()
+    {
+//        从config中取出config_name config_desc两列的值
+        $configs =Config::pluck('config_desc','config_name')->all();
+//        写入webconfig.php中
+        $str = '<?php return '.var_export($configs, true).';';
+        file_put_contents(config_path().'/webconfig.php',$str);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -140,8 +150,7 @@ class ConfigController extends Controller
      */
     public function edit($id)
     {
-        $configs =Config::find($id);
-        return view('template.config.edit',compact('configs'));
+
     }
 
     /**
@@ -153,41 +162,7 @@ class ConfigController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'config_title' => 'required',
-            'config_name' => 'required',
-            'config_desc' => 'required',
-            'field_type' => 'required',
-            'config_order'=>'required',
 
-        ],[
-            'config_title.required'=>'标题不能为空',
-            'config_name.required'=>'名称不能为空',
-            'config_desc.required'=>'内容不能为空',
-            'field.type.required'=>'请选择类型',
-            'config_order.required'=>'排序不能为空',
-        ]);
-
-        // 接受提交过来的数据
-        $input = $request -> except('_token','fileupload','_method');
-        //验证名称是否已经存在
-        $arr = Config::where('config_name',$input['config_name'])->first();
-
-        if($arr){
-            return back()->with('error','该用户已存在!');
-        }
-//      添加到配置表
-        $res = Config::create($input);
-        /*foreach($input as $k => $v){
-            $user -> $k = $v;
-        }
-        $res = $user -> save();*/
-
-        if($res){
-            return redirect('/config');
-        }else{
-            return back()->with('msg','添加失败');
-        };
     }
 
     /**
@@ -211,14 +186,7 @@ class ConfigController extends Controller
         }
         return $arr;
     }
-    //图片上传
-    public function uploads(Request $request)
-    {
-        $files = $request -> file('fileupload');
-//        dd($files);
-        $path = $files->store('uploads');
-        return $path;
-    }
+
     //批量修改
     public function change(Request $request)
     {

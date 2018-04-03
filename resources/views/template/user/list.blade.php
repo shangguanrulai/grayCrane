@@ -36,9 +36,9 @@
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
                                             <a href="{{ url('user/create') }}"><button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button></a>
-                                            <a href="javascript:;"><button onclick="checkall()"  class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 全选</button></a>
-                                            <a href="javascript:;"><button onclick="removeall()"  class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 反选</button></a>
-                                            <a href="javascript:;"><button onclick="delall()"  class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 删除</button></a>
+                                            <a href="javascript:;"><button onclick="checkall()"  class="am-btn am-btn-default am-btn-default"><span class="am-icon-plus"></span> 全选</button></a>
+                                            <a href="javascript:;"><button onclick="removeall()"  class="am-btn am-btn-default am-btn-info"><span class="am-icon-plus"></span> 反选</button></a>
+                                            <a href="javascript:;"><button onclick="delall()"  class="am-btn am-btn-default am-btn-danger"><span class="am-icon-plus"></span> 删除</button></a>
 
                                         </div>
                                     </div>
@@ -46,26 +46,11 @@
                             </div>
                             <form action="{{ url('/user') }}" method="get">
                                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-                                    <div class="am-form-group tpl-table-list-select">
-                                        <select data-am-selected="{btnSize: 'sm'}"  name="keywords2">
-                                            <option value="0" >所有类别</option>
-                                            <option value="1"
-                                            @if($request->keywords2==1)
-                                                selected
-                                            @endif
 
-                                                >超级管理员</option>
-                                            <option value="2"
-                                            @if($request->keywords2==2)
-                                                selected
-                                            @endif
-                                            >普通管理员</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
-                                        <input type="text" class="am-form-field " value="{{ $request->keywords1 }}" name="keywords1">
+                                        <input type="text" class="am-form-field " value="{{ $request->keywords1 }}" name="keywords1" >
                                         <span class="am-input-group-btn">
                                                 <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" ></button>
                                             </span>
@@ -73,14 +58,14 @@
                                 </div>
                             </form>
                             <div class="am-u-sm-12">
-                                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " >
                                     <thead>
                                     <tr>
                                         <td>删除</td>
                                         <th>编号</th>
                                         <th>用户名</th>
                                         
-                                        <th>权限</th>
+
                                         <th>创建时间</th>
                                         <th>头像</th>
                                         <th>状态</th>
@@ -93,13 +78,7 @@
                                             <td><input type="checkbox" del-id="{{ $v->id }}"/></td>
                                             <td>{{ $v->id }}</td>
                                             <td>{{ $v->username }}</td>
-                                            <td>
-                                                @if( $v->auth ==1)
-                                                    超级管理员
-                                                @else
-                                                    普通管理员
-                                                @endif
-                                            </td>
+
                                             <td>{{ $v->created_at }}</td>
                                             <td><img style="width:40px;height:30px" src="/uploads/{{$v->profile}}" alt=""></td>
                                             <td>
@@ -111,6 +90,13 @@
                                             </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
+                                                    <div style="display: inline-block">
+                                                        <form action="{{ url('template/user/auth/'.$v->id) }}" method="get">
+                                                            <button class="btn-default" >
+                                                                <i class="am-icon-pencil"></i>添加角色
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                     <div style="display: inline-block">
                                                         <form action="{{ url('user/'.$v->id.'/edit') }}" method="get">
                                                             <button class="btn-info" >

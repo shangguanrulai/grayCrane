@@ -1,0 +1,697 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body,html{ overflow: hidden}
+body{ font-size:12px; text-align:left; font-family: arial, "宋体"; background:#FEFEFE; height:100%}
+a{ color:#656565;text-decoration:none;outline:none}
+*{margin:0;padding:0;}
+img { border:none;}
+ul,li{ padding:0px; list-style:none;}
+select,input { vertical-align:middle}
+textarea{overflow:auto}
+.left{ float:left}
+.right{ float:right}
+.Enter {word-wrap:break-word; word-break:keep-all; white-space:normal;}
+.Abridge { text-overflow: ellipsis; -moz-text-overflow: ellipsis; overflow:hidden; white-space:nowrap;}
+.middle{ vertical-align:middle}
+.center{ text-align:center}
+.text_center{ text-align:center}
+.right_boder{}
+.cls {zoom:1;}
+.cls:after {content:"";visibility:hidden;display:block;height:0;clear:both;}
+.mt5{ margin-top:5px}
+select{border: solid 1px #c0bfbf}
+
+/*蓝色风格*/
+.Blue_main_box{ background:#fff; color:#38476c;}
+.Blue_main_box .Display_box{ /**border:1px solid #DADADA;**/border-top:none;  overflow-y:auto; overflow-x:hidden; padding:5px 7px; line-height:24px; height:350px;   }
+/**.Blue_main_box .Display_box .title{ line-height:18px }**/
+.Blue_main_box .Display_box .title img{ vertical-align:-2px}
+
+.Blue_main_box    #chatTitle{ height: 60px; width: 100%; overflow: hidden; position: relative;}
+.Blue_main_box    #chatTitle .picbg{ height: 100%; width:100%; overflow: hidden; clear:none; float: left;position: relative}
+.Blue_main_box    #chatTitle .picbg p { color: #ffffff; line-height: 31px}
+.Blue_main_box    #chatTitle .picbg div span { display: block; float: left; height: 60px;line-height: 60px;
+    margin-left: 10px; color: #ffffff; padding-top: 0px; margin-top: 0px;  overflow: hidden; font-size: 22px}
+.Blue_main_box    #chatTitle .picbg div span.img {width: 60px; height: 60px}
+
+.Blue_main_box   #chatTitle  #ccVersion { position: absolute; height: 30px; top: 12px;  right: 20px; overflow: hidden; color: white }
+
+.Blue_main_box   #main_left  .Function_box #sentButtonBox{ width: 86px; height: 52px;  position: relative; padding-top: 0px;}
+.Blue_main_box   #main_left  .Function_box  #sentButtonBox #sentButton{width: 47px; height:28px;padding-left: 8px; padding-top:14px;  margin-top: 23px; margin-left: 0px;  cursor: pointer}
+
+.Blue_main_box .Function_box{ border:1px solid #dadada;  border-left:none; border-right:none; position:relative }
+.Blue_main_box .Function_box .fun1_box{background: none repeat scroll 0 0 #fff; border:1px solid #efefef ; border-bottom:none;     color: #000000;    display: none ;    height: 25px;    left: -1px;    line-height: 21px;    padding-top: 3px;    position: absolute;    top: -30px;    width: 99.2%;    z-index: 3; padding-left:10px;}
+
+.Blue_main_box #main_left #messageStyleSettingPanel  { display: none; position: relative; display: none;}
+
+.Blue_main_box #main_left #chatMessageAreaBox #chatMessageTitle  {margin: 0px; margin-top: 0px; margin-bottom: 0px;padding-top: 8px;_padding-top: 0px;
+    padding-bottom:0px;padding-left: 0px; overflow: hidden; word-break: break-all}
+
+.Blue_main_box .Function_top{ }
+.Blue_main_box .Function_top ul{ _border-bottom:1px solid #dadada; padding:3px 10px 3px}
+.Blue_main_box .Function_top ul li{ float:left; margin-right:9px; cursor:pointer}
+.Blue_main_box .Function_top ul li a{ display:block}
+
+.Blue_main_box .left_foot{ padding:6px 15px 2px;color:#38476c;position:relative}
+.Blue_main_box .left_foot .right_send_btn{ background:url(../Images/bt_00.gif) no-repeat; width:73px; height:18px; float:right; margin-left:20px; padding:6px 8px 0; display:inline; cursor:pointer; }
+.Blue_main_box .left_foot .right_send_btn span{ float:left;}
+.Blue_main_box .left_foot .right_send_btn span.sent{ width:53px; height:24px; cursor:pointer; margin-top:-20px; margin-left:-8px;  }
+.Blue_main_box .left_foot .right_send_btn span.change{ width:20px; height:24px;cursor:pointer;margin-top:-20px; }
+.Blue_main_box .fun_enter_box{ display:none; border:1px solid #666666; background:#FDFEFF; position:absolute; width:158px; right:0px; bottom:30px; z-index:100;}
+.Blue_main_box .fun_enter_box a{ display:block; color:#5C3333; padding:5px 10px; text-decoration:none}
+.Blue_main_box .fun_enter_box a:hover{ background:#999; color:#FFF}
+.Blue_main_box #main_left .Function_box  #sentButtonBox #chooseSentEvent{ cursor: pointer}
+
+.Blue_main_box .change_li li{ float:left; width:101px; height:30px; line-height:30px;border-bottom:1px solid #efefef; background:#fff; text-align:center; cursor:pointer }
+
+.Blue_main_box .main_right{ float:right; width:203px; border-left:1px solid #dadada; border-top:none; background:#FFF ; height:527px; position:relative ; overflow: hidden;}
+
+.Blue_main_box #main_left .Function_box .Function_top ul li a span{ cursor: pointer;width: 24px; height: 24px;  display: block; clear: none}
+
+.Blue_main_box #main_left .Function_box  .Function_top ul li.fun6 p{width:120px; color: #ffffff; }
+
+.Blue_main_box #main_left .Function_box  .Function_top .toolMask{position: absolute;width: 250px; height: 31px; display:none; top: 0px;z-index:9999999999}
+
+.Blue_main_box #main_left .Function_box  .Function_top ul li.noHover {float: right; padding: 0px; margin: 0px; width: 80px; border:1px solid #afafaf; padding-left: 5px}
+
+.Blue_main_box #main_left .Function_box  .Function_top ul li.noHover p{width:60px; height: 100%; margin:0px;padding: 0px;  overflow: hidden; padding-left:17px; text-align: center;padding-top:0px; line-height:24px;}
+
+.textarea1{ width:100%; height:115px; border:none; resize: none; overflow:auto; font-family: arial,'宋体';}
+.main_left{width:100%;margin-left:-204px; float:left;}
+#innerLeft{margin-left:203px;}
+#qckf_innerLeft{margin-left:203px;}
+#leavingMessageArea{margin-left:203px; display: none}
+#leavingMessageArea .subMessage, #leavingMessageArea .subLeaveMessage{width:147px;height: 45px; line-height: 45px;font-size: 18px;font-family: arial, "微软雅黑", "宋体";cursor: pointer}
+#leavingMessageArea .subMessage label, #leavingMessageArea .subLeaveMessage label{cursor: pointer}
+.msgBox{font-family:'Microsoft YaHei',Arial, '\9ED1\4F53';padding-top:50px;box-shadow: 0 0 10px rgba(0,0,0,0.3);border-radius:3px;position: absolute; height: 110px; width: 430px;display: none; text-align: center;
+    color:#333;background: #FFF; top:0px; left: 0;font-size: 14px;border: 0px solid rgb(210, 209, 209);z-index:2147483647;}
+.msgBox .close{position: absolute; right: 8px; top: 8px; height: 17px; width: 17px;   cursor: pointer}
+.msgBox img{margin: 0 15px; vertical-align: middle;}
+.screenMask{width: 200px; display: none; height: 200px; position: absolute; top:60px;left:0;z-index:5000;filter:alpha(opacity=20);-moz-opacity:0.2;opacity: 0.2; background: rgb(0, 0, 0);}
+.leavingMessageArea #leavingMessageForm{float: left;  padding-left: 100px;padding-top: 50px;}
+.leavingMessageArea table {
+    background: white;
+    font-size: 14px;
+    float: left;
+}
+
+
+.leavingMessageArea table tr {
+    height: 52px;
+    *height: 42px;
+}
+
+.leavingMessageArea table input {
+    height: 32px;
+    line-height: 32px;
+    width: 420px;
+    border: 1px solid #cccccc;
+    margin-left: 10px;
+    padding: 0 8px;
+    font-family: arial,'宋体';
+}
+
+.leavingMessageArea table textarea {
+    width: 420px;
+    height: 133px;
+    border: 1px solid #cccccc;
+    margin-left: 10px;
+    padding: 3px 8px;
+    font-family: arial, '宋体';
+}
+
+.leavingMessageArea table th, .leavingMessageArea table td {
+    font-weight: normal;
+}
+
+.leavingMessageArea .item {
+    padding-right: 10px;
+    text-align: right;
+}
+
+.leavingMessageArea .start {
+    color: red;
+    padding-top: 10px;
+    width: 40px;
+    text-align: center;
+}
+#clerkInfo{background: #fbfbfb;width:202px; float:left;clear:none; overflow: hidden; border-right:1px solid #dadada;_position: absolute; _top: 60px;_z-index: 5000000; _left:0 }
+#clerkInfo .portrait{text-align: center; vertical-align: middle; padding: 15px 0px;}
+#clerkInfo .portrait img {/*border:1px solid #dadada;*/ width: 165px;display: none;border-radius: 2px;}
+
+#mainContent{margin-left: 203px; height: 100%;}
+.img_logo{ padding:10px 0}
+.card_box{ padding:5px; line-height: 1.42857143; height:300px; /**overflow:hidden**/}
+.tab_box{padding:5px;}
+.tab_01{  line-height:18px}
+.card_info{ position:absolute; right:0px; bottom:0; z-index:1; width: 100%;}
+#fileUpload{ overflow-y:auto; overflow-x:hidden; display:none; width:203px;}
+
+.file_tp { width:173px; padding:8px 8px 8px 12px;}
+.file_tp dl { margin-bottom:6px; line-height:18px}
+.file_tp dl dt { width:40px}
+.file_tp_pr { border:1px solid #bcbcbc; background:#e6e6e6; height:16px; line-height:16px; margin-bottom:10px; text-align:center;}
+
+.hot_list{ overflow-y:auto;padding: 0 5px}
+.hot_list ul{ margin-top:8px}
+.hot_list ul li{clear:both; padding: 0px; margin: 0px; padding-left:8px; line-height:18px; margin-bottom:7px; border:none; word-break:break-all; padding-right:0px; }
+.hot_list ul li a{color:#536677; padding: 0px; margin: 0px; border:none; line-height:25px; height: 25px; overflow: hidden; }
+.hot_list ul li a:hover{  color: blue}
+.hot_list ul li .value{float: left;padding-left: 2px;width: 148px;*+width: 147px; width: 147px\0 }
+.hot_list ul li .item{float:left;width:17px;line-height: 25px;}
+.hot_list_tit{ padding-top:2px; padding-left:0px; font-family:arial,"微软雅黑","宋体";height:35px;
+    line-height:41px; font-size:18px; font-weight:bold;color:#EBAB26;}
+#hotList .hot_list_tit .img{ display:block; height:35px; width:35px; float:left; }
+
+#clerkContact ul, #clerkContact ul li {  margin: 0px;padding: 0px;width: 100%;}
+#clerkContact ul li {  height: 20px;}
+#clerkContact * { font-size: 13px;}
+#clerkContact{padding: 0 10px}
+
+
+/**********/
+/*
+英文样式
+***/
+#clerkContact span.item_russian { width: 45px;padding-right: 0px; text-align: right; float: left;  line-height: 15px; _line-height: 13px; display: block;}
+#clerkContact span.value_russian ,#clerkContact span.value_russian a{display: block; float: right; width: 127px; word-break: break-all; }
+#clerkContact span.value_russian a * {vertical-align:top;}
+
+/*
+俄文样式
+***/
+#clerkContact span.item_en { width: 60px;padding-right: 0px; text-align: right; float: left;  line-height: 15px; _line-height: 13px; display: block;}
+#clerkContact span.value_en ,#clerkContact span.value_en a{display: block; float: right; width: 112px; word-break: break-all; }
+#clerkContact span.value_en a * {vertical-align:top;}
+
+/*
+中文
+***/
+#clerkContact span.item_zh-cn { width: 33px;padding-right: 0px; text-align: right; float: left;  line-height: 16px; display: block;  }
+#clerkContact span.value_zh-cn ,#clerkContact span.value_zh-cn a{display: block; float: right; width: 142px; word-break: break-all; }
+#clerkContact span.value_zh-cn a * {vertical-align:top;}
+
+/*
+繁体样式
+***/
+#clerkContact span.item_zh-tw { width: 33px;padding-right: 0px; text-align: right; float: left;  line-height: 16px; display: block;  }
+#clerkContact span.value_zh-tw ,#clerkContact span.value_zh-tw a{display: block; float: right; width: 142px; word-break: break-all; }
+#clerkContact span.value_zh-tw a * {vertical-align:top;}
+
+/*
+日语样式
+***/
+#clerkContact span.item_japanese { width: 52px;padding-right: 0px; text-align: right; float: left;  line-height: 16px; display: block;  }
+#clerkContact span.value_japanese ,#clerkContact span.value_japanese a{display: block; float: right; width: 123px; word-break: break-all; }
+#clerkContact span.value_japanese a * {vertical-align:top;}
+#clerkContact span.value_japanese a * {vertical-align:top;}
+#clerkContact .clerkAliWangWang .item_japanese div {left:29px !important;}
+
+/**********/
+
+#clerkContact span input{width:18px; height:18px; border: none; cursor: pointer}
+#clerkContact ul li {display: none; height: 20px;  clear: both;}
+
+label.pointer{cursor: pointer}
+
+#messageStyleSettingPanel{ border-top:1px solid #dadada;}
+#messageStyleSettingPanel span{float: left; margin-left: 5px;}
+
+#messageStyleSettingPanel input,#messageStyleSettingPanel select{   cursor: pointer;}
+
+#messageStyleSettingPanel input{   width:20px; height:20px; border: none; }
+
+#emotionSelector *{margin: 0px; padding: 0px;}
+
+#emotionSelector {background:url(../Images/_2.png);    height: 165px;    width: 363px;    position:absolute;    display:none;    zIndex:999999;    border-top:1px solid #dadada;    border-left:1px solid #dadada;    padding:0px;    left:0px;    top:-166px;    display: none;}
+
+#emotionSelector div{position: relative;   float: left;    border: none;  height: 33px;   width: 33px;   padding: 0px;}
+
+#emotionSelector div a{ height: 32px;  width: 32px; display: block;overflow: hidden; background-image: url("../Images/emotioms.png")}
+
+#emotionSelector div  a:hover{ height: 32px; width: 32px;   position: absolute;;top: -1px; left: -1px; border: 1px solid red; padding: 0px;margin: 0px;overflow: hidden;}
+
+#emotionSelector div a img {  height: 31px;  width: 31px; border: none; margin: 0px;padding: 0px}
+
+#clerkDesc{ padding-left:6px; word-break: break-all}
+
+#imSelector{position: absolute;bottom: 31px; _bottom: 156px;  left:100px;border:1px solid #dadada;  overflow: hidden;width:100px; background: white; padding: 0;  margin: 0; display: hide}
+#imSelector ul { padding: 0; margin: 0; }
+#imSelector li { width: 100%;float: left;clear: both; height: 26px; border-bottom: 1px solid #D6D5D4; padding: 0; margin: 0;padding-left: 10px; }
+#imSelector li.hover{background: #f0f0f0; overflow: hidden}
+#imSelector li * { padding: 0;  margin: 0;float: left;cursor: pointer}
+#imSelector li span.item {display: inline-block;padding-top: 4px; height: 22px; padding-left:10px; width: 23px; background: white;}
+#imSelector li span.value {display: inline-block;height: 26px; line-height: 26px; _line-height: 26px; background: white }
+#imSelector li span.hover{background: #f0f0f0;}
+#imSelector li.noBottomBorder{border-bottom:none}
+
+#colorPickerObj { width: 241px; height: 40px; border: 1px solid #808080; padding: 1px; display: none;background: #ffffff}
+#colorPickerObj .colorPickTitle{width: 100%; height: 20px; }
+#colorPickerObj .colorValue{ height: 18px;width: 18px; background: pink; float: left; margin-left:2px;}
+
+/**评价**/
+.Blue_main_box #main_left .Function_box .pj_rating .left { float:left}
+.Blue_main_box #main_left .Function_box .pj_rating .right { float:right;}
+.Blue_main_box #main_left .Function_box .pj_rating .close {  cursor: pointer}
+.Blue_main_box #main_left .Function_box .pj_rating .subAssess { display: block;text-align: center; width:65px; height:21px; padding-top:1px; line-height:22px; border:0; cursor:pointer}
+.Blue_main_box #main_left .Function_box .pj_rating { width:382px; background:#fff8f4; border:2px solid #e8bd79; padding:6px 8px 10px 8px; line-height:22px;position: absolute;
+    left:20px; top:-158px; }
+.Blue_main_box #main_left .Function_box .pj_rating	.pj_radio { vertical-align:-2px; _vertical-align:0px;  margin-right:3px}
+
+/** 消息颜色**/
+.Blue_main_box #main_left #chatMessageAreaBox{margin-top: 0px; margin-bottom: 0px;padding-top: 0px;padding-bottom: 0px; border-bottom: none;
+   }
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea{margin-top: 0px; margin-bottom: 0px;padding-top: 0px;padding-bottom: 0px;}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .sentMessageTitle {color:#066e44}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .receiveMessageTitle {color:#044b96}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .CCRobotMessage{color:#535d69}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .queue{color:#0066cc}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .noticeMessage{}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .errorMessage{}
+
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea a{color: blue;  text-decoration: underline; cursor: pointer;}
+
+/**flash pic**/
+.img_slide_box div {display: block;}
+.img_slide_box  .span, .span_hover { width: 10px; height: 10px;font-size: 0; float: left;margin: 0 2px; cursor: pointer;}
+.img_slide_box  .span {background: pink;}
+.img_slide_box .span_hover {background: red;}
+.img_slide_box .img_inner {position: relative;}
+.img_slide_box  .img_inner img {width: 490px;height: 280px;position: relative;float: left;}
+.img_slide_box, .free_slide_box {width: 202px;height: 117px; position: relative; overflow: hidden;}
+.img_slide_box .img_slide_box div {display: block;}
+.img_slide_box .img_dot_box { position: absolute; right: 5px;  bottom: 3px; overflow: hidden;}
+
+/**float ad**/
+.Blue_main_box .main_right #floatAdvertismentContainer{background: white; width:253px;position: absolute; overflow: hidden;cursor:pointer;border-top:1px solid white; display: none;z-index: 99999998}
+.Blue_main_box .main_right #floatAdvertismentContainer #floatAdvertismentCloseButton {position: absolute; top:10px; left: 180px; cursor: pointer;}
+
+#statusBarPanel{font-family: arial, '微软雅黑','宋体';position: absolute}
+#ccVersion{display: none}
+#sendBar{height: 40px; background: #fbfbfb; position: relative;  }
+#sendBar .send,#sendBar .close{font-family: arial, '微软雅黑','宋体'; font-size:14px; height: 40px; line-height:40px;width: 101px; position:absolute; top:0; right:20px; cursor: pointer }
+#sendBar .close{right:130px;text-align:center ;vertical-align: middle}
+#sendBar .send .word{width: 70px;display: block; float: left; clear:none;text-align:center; vertical-align: middle}
+#sendBar .send #chooseSentEvent{width: 20px; height: 20px; margin:10px 0; display: block;  float: left;}
+
+.navBar{
+    height:51px ; padding:9px 20px 20px 20px;  right:0; top:0; position: absolute;*width:430px;
+}
+
+#closeWindow *,
+.navBar .consultation *,
+.navBar .leavingMessage *,
+.navBar .robot * {
+    cursor: pointer;
+}
+.navBar .consultation ,
+.navBar .leavingMessage,
+.navBar .robot {
+    width: 146px;;
+    height: 51px;
+    cursor: pointer;
+    float: right;
+}
+
+.navBar .consultation .icon,
+.navBar .leavingMessage .icon,
+.navBar .robot .icon {
+    float: left;
+    width: 45px;
+    height: 51px;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+}
+
+.navBar .consultation .word,
+.navBar .leavingMessage .word,
+.navBar .robot .word {
+    float: left;
+    width: 96px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 51px;
+    font-family: arial, "微软雅黑", "宋体"
+}
+.navBar  span.word {
+    color:white;
+}
+.navBar  span.index {
+    color:black;
+}
+
+#chatMessageArea .message {
+    margin-top: 10px;
+    line-height: 25px;
+    clear: both;
+}
+
+#chatMessageArea .message table #chatMessageArea .message tr, #chatMessageArea .message td {
+    vertical-align: top
+}
+
+#chatMessageArea .message .left {
+    width: 60px;
+    height: 90px;
+}
+
+#chatMessageArea .message .left .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#chatMessageArea .message .left .portrait img {
+    width: 100%;
+    height: 100%;
+}
+
+#chatMessageArea .message .left .name {
+    width: 100%;
+    padding-top: 8px;
+    text-align: center;
+}
+
+#chatMessageArea .message .right .content {
+    padding-left: 10px;
+    position: relative;
+    *position: static;
+    margin-bottom: 5px;
+}
+
+#chatMessageArea .message .right .content2 {
+    padding-right: 10px;
+    position: relative;
+    *position: static;
+    margin-bottom: 5px;
+}
+
+#chatMessageArea .message .right .msg {
+    border-radius:6px;
+    background: #f6f6f6;
+    *background: #E4E5E5;
+    padding: 6px 15px;
+    color: #464c4e;
+    border:1px solid #dbdcde;
+    *border:none;
+}
+
+#chatMessageArea .message .right .msg2 {
+    border-radius: 6px;
+    background: #cce8fb;
+    padding: 6px 15px;
+    border:1px solid #97ccee;
+    *border:none
+}
+
+#chatMessageArea .message .right .tail {
+    *display: none;
+    position: absolute;
+    *position: static;
+    top: 5px;
+    left: 0px;
+    *left: 6px;
+}
+
+#chatMessageArea .message .right .tail2 {
+    *display: none;
+    position: absolute;
+    *position: static;
+    top: 5px;
+    right: 0px;
+    *right: 5px;
+}
+
+#chatMessageArea  .message_center {
+    text-align: center;
+    padding: 10px 13px;
+}
+
+#chatMessageArea .message_center span {
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #575757;
+    border: 1px solid #dfdfdf;
+    display: inline-block;
+}
+
+#chatMessageArea .sentMessageTitle  span,#chatMessageArea .receiveMessageTitle span{
+    background: #FFFCD5;
+}
+
+#chatMessageArea .chatStatus  span{
+    background: #EAF1FF;
+}
+
+/*******************************************************/
+.messageThemes table{
+    margin-bottom: 6px;
+    font-family: "Microsoft YaHei","微软雅黑",arial,"\5B8B\4F53",sans-serif;
+}
+.messageThemes_0 table, .messageThemes_1 table{
+    margin-bottom: 0px;
+}
+
+.messageThemes { clear: both; }
+.messageThemes .v2 .b {
+    background: #d3ebfb;
+    display: inline-block;
+}
+
+.messageThemes .v2 .c {
+    width: 100%;
+    height: 100%;
+}
+
+.messageThemes .v2 .lt {
+    background: url(../Images/lt.png) scroll left top no-repeat;
+}
+
+.messageThemes .v2 .lb {
+    background: url(../Images/lb.png) scroll left bottom no-repeat;
+}
+
+.messageThemes .v2 .rt {
+    background: url(../Images/rt.png) scroll right top no-repeat;
+}
+
+.messageThemes .v2 .rb {
+    background: url(../Images/rb.png) scroll right bottom no-repeat;
+}
+
+.messageThemes .v2 .ht {
+    background: url(../Images/h.png) scroll left top repeat-x;
+}
+
+.messageThemes .v2 .hb {
+    background: url(../Images/h.png) scroll left bottom repeat-x;
+}
+
+.messageThemes .v2 .vr {
+    background: url(../Images/vr.png) scroll right top repeat-y;
+}
+
+.messageThemes .v2 .vl {
+    background: url(../Images/vl.png) scroll left top repeat-y;
+}
+
+.messageThemes .v2 .cc {
+    margin: 0 11px 0 4px;
+}
+
+.messageThemes .v2 .ccc {
+    padding: 4px 6px 4px 3px;
+    word-break: break-all; word-wrap: break-word;
+}
+
+/********/
+.messageThemes .v1 .b {
+    background: #f6f6f6;
+    display: inline-block;
+}
+
+.messageThemes .v1 .c {
+    width: 100%;
+    height: 100%;
+}
+
+.messageThemes .v1 .lt {
+    background: url(../Images/lt.png) scroll left top no-repeat;
+}
+
+.messageThemes .v1 .lb {
+    background: url(../Images/lb.png) scroll left bottom no-repeat;
+}
+
+.messageThemes .v1 .rt {
+    background: url(../Images/rt.png) scroll right top no-repeat;
+}
+
+.messageThemes .v1 .rb {
+    background: url(../Images/rb.png) scroll right bottom no-repeat;
+}
+
+.messageThemes .v1 .ht {
+    background: url(../Images/h.png) scroll left top repeat-x;
+}
+
+.messageThemes .v1 .hb {
+    background: url(../Images/h.png) scroll left bottom repeat-x;
+}
+
+.messageThemes .v1 .vr {
+    background: url(../Images/vr.png) scroll right top repeat-y;
+}
+
+.messageThemes .v1 .vl {
+    background: url(../Images/vl.png) scroll left top repeat-y;
+}
+
+.messageThemes .v1 .cc {
+    margin: 0 4px 0 11px;
+}
+
+.messageThemes .v1 .ccc {
+    padding: 4px 3px 4px 6px;
+    word-break: break-all; word-wrap: break-word;
+}
+.messageThemes .v1 .ccc p {
+    font-size:14px;
+}
+/******/
+.messageThemes .v3 .b {
+    background: #f0f0f0;
+    display: inline-block;
+}
+
+.messageThemes .v3 .c {
+    width: 100%;
+    height: 100%;
+}
+
+.messageThemes .v3  .lt {
+    background: url(../Images/lt.png) scroll left top no-repeat;
+}
+
+.messageThemes .v3  .lb {
+    background: url(../Images/lb.png) scroll left bottom no-repeat;
+}
+
+.messageThemes .v3  .rt {
+    background: url(../Images/rt.png) scroll right top no-repeat;
+}
+
+.messageThemes .v3  .rb {
+    background: url(../Images/rb.png) scroll right bottom no-repeat;
+}
+
+.messageThemes .v3  .ht {
+    background: url(../Images/h.png) scroll left top repeat-x;
+}
+
+.messageThemes .v3  .hb {
+    background: url(../Images/h.png) scroll left bottom repeat-x;
+}
+
+.messageThemes .v3  .vr {
+    background: url(../Images/v.png) scroll right top repeat-y;
+}
+
+.messageThemes .v3  .vl {
+    background: url(../Images/v.png) scroll left top repeat-y;
+}
+
+.messageThemes .v3  .ccc {
+    padding: 4px 8px;
+    line-height: 18px;
+    word-break: break-all; word-wrap: break-word;
+}
+
+/******/
+
+.messageThemes .v4 .c {
+    width: 100%;
+    height: 100%;
+}
+
+.messageThemes .v4  .ccc {
+    line-height: 20px;
+    color: #8B8B8B;
+    word-break: break-all; word-wrap: break-word;
+}
+.messageThemes_0 .v4  .ccc {
+    padding: 2px 10px 0px 0px;
+    word-break: break-all; word-wrap: break-word;
+}
+.messageThemes_1 .v4  .ccc {
+    padding: 2px 0px 0px 10px;
+    word-break: break-all; word-wrap: break-word;
+}
+#pickfilesContainer #pickfiles, #pickimgsContainer #imgSelectButton {display:inline-block;position:relative;overflow:hidden;}
+#pickfilesContainer #vclient_file_upload, #pickimgsContainer #vclient_img_upload {outline:none;border:none;position:absolute;top:0;right:0;margin:0;opacity:0;filter:alpha(opacity=0);font-size:200px;cursor:pointer;}
+
+#poweredby a {font-family:tahoma;font-size:12px;}
+#poweredby a:hover {text-decoration:underline;color:#f60;}
+#leavingMessageArea input, #leavingMessageArea textarea {border-radius:2px;}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .lastActiveTimeoutNoticeBtn, .Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .clerkOfflineNoticeBtn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 5px;
+    background-color: #4FB910;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    line-height: 18px;
+}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .lastActiveTimeoutNoticeBtn:hover, .Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea .clerkOfflineNoticeBtn:hover {
+    background-color: #48af0b;
+}
+#robotQuestionList {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    z-index: 9999999999;
+    background: #FFF;
+    width:100%;
+    font-family:"Microsoft YaHei","微软雅黑",arial,"\5B8B\4F53",sans-serif;
+}
+#robotQuestionList ul {
+    border: 1px solid #CCC;
+    border-radius: 1px;
+}
+#robotQuestionList ul li {
+    font-size: 13px;
+    line-height: 24px;
+    color: #595757;
+    text-indent:3px;
+    cursor: pointer;
+}
+#robotQuestionList ul li:hover {
+    background-color: #ececec;
+}
+#robot_simlqs_tips {
+    color:#4A4A4A;
+    background: url('../Images/rbt_guess.png') left 8px no-repeat;
+    padding: 4px 0 0 21px;
+    font-size:14px;
+    border-top: 1px dashed #58595b;
+    margin-top: 3px;
+}
+#robot_simlqs_list {
+    padding-left: 18px;
+}
+#robot_simlqs_list a {
+    display: block;
+}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea #robot_simlqs_list a {
+    color: #3B71DF;
+    font-size:14px;
+    line-height:22px;
+    text-decoration: none;
+}
+.Blue_main_box #main_left #chatMessageAreaBox  #chatMessageArea #robot_simlqs_list a:hover {
+    color: #F60;
+}

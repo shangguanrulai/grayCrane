@@ -2,7 +2,7 @@
 
     <script src="/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
-        <!-- 头部 -->
+      s  <!-- 头部 -->
         <header>
             <!-- logo -->
             <div class="am-fl tpl-header-logo">
@@ -11,84 +11,30 @@
             <!-- 右侧内容 -->
             <div class="tpl-header-fluid">
                 <!-- 侧边切换 -->
-                <div class="am-fl tpl-header-switch-button am-icon-list">
+                <div clas="am-fl tpl-header-switch-button am-icon-list">
                     <span>
 
                 </span>
                 </div>
-                <!-- 搜索 -->
-                <div class="am-fl tpl-header-search">
-                    <form class="tpl-header-search-form" action="javascript:;">
-                        <button class="tpl-header-search-btn am-icon-search"></button>
-                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
-                    </form>
-                </div>
+
                 <!-- 其它功能-->
                 <div class="am-fr tpl-header-navbar">
                     <ul>
                         <!-- 欢迎语 -->
                         <li class="am-text-sm tpl-header-navbar-welcome">
-                            <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
+                            <a href="javascript:;">欢迎你, <span>{{Session('user')->username}}</span> </a>
                         </li>
 
-                        <!-- 新邮件 -->
-                        <li class="am-dropdown tpl-dropdown" data-am-dropdown>
-                            <a href="javascript:;" class="am-dropdown-toggle tpl-dropdown-toggle" data-am-dropdown-toggle>
-                                <i class="am-icon-envelope"></i>
-                                <span class="am-badge am-badge-success am-round item-feed-badge">4</span>
-                            </a>
-                            <!-- 弹出列表 -->
-                            <ul class="am-dropdown-content tpl-dropdown-content">
-                                <li class="tpl-dropdown-menu-messages">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
-                                        <div class="menu-messages-ico">
-                                            <img src="/assets/img/user04.png" alt="">
-                                        </div>
-                                        <div class="menu-messages-time">
-                                            3小时前
-                                        </div>
-                                        <div class="menu-messages-content">
-                                            <div class="menu-messages-content-title">
-                                                <i class="am-icon-circle-o am-text-success"></i>
-                                                <span>夕风色</span>
-                                            </div>
-                                            <div class="am-text-truncate"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </div>
-                                            <div class="menu-messages-content-time">2016-09-21 下午 16:40</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="tpl-dropdown-menu-messages">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
-                                        <div class="menu-messages-ico">
-                                            <img src="/assets/img/user02.png" alt="">
-                                        </div>
-                                        <div class="menu-messages-time">
-                                            5天前
-                                        </div>
-                                        <div class="menu-messages-content">
-                                            <div class="menu-messages-content-title">
-                                                <i class="am-icon-circle-o am-text-warning"></i>
-                                                <span>禁言小张</span>
-                                            </div>
-                                            <div class="am-text-truncate"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </div>
-                                            <div class="menu-messages-content-time">2016-09-16 上午 09:23</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="tpl-dropdown-menu-messages">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
-                                        <i class="am-icon-circle-o"></i> 进入列表…
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
 
                         <!-- 新提示 -->
                         <li class="am-dropdown" data-am-dropdown>
                             <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
                                 <i class="am-icon-bell"></i>
-                                <span class="am-badge am-badge-warning am-round item-feed-badge">5</span>
+                                <span class="am-badge am-badge-warning am-round item-feed-badge">
+                                    @if(Session('count')!=0)
+                                        1
+                                    @endif
+                                </span>
                             </a>
 
                             <!-- 弹出列表 -->
@@ -96,38 +42,18 @@
                                 <li class="tpl-dropdown-menu-notifications">
                                     <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
                                         <div class="tpl-dropdown-menu-notifications-title">
+
                                             <i class="am-icon-line-chart"></i>
-                                            <span> 有6笔新的销售订单</span>
-                                        </div>
-                                        <div class="tpl-dropdown-menu-notifications-time">
-                                            12分钟前
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="tpl-dropdown-menu-notifications">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
-                                        <div class="tpl-dropdown-menu-notifications-title">
-                                            <i class="am-icon-star"></i>
-                                            <span> 有3个来自人事部的消息</span>
-                                        </div>
-                                        <div class="tpl-dropdown-menu-notifications-time">
-                                            30分钟前
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="tpl-dropdown-menu-notifications">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
-                                        <div class="tpl-dropdown-menu-notifications-title">
-                                            <i class="am-icon-folder-o"></i>
-                                            <span> 上午开会记录存档</span>
-                                        </div>
-                                        <div class="tpl-dropdown-menu-notifications-time">
-                                            1天前
-                                        </div>
-                                    </a>
-                                </li>
+                                            @if(Session('count')!=0)
+                                            <span>
 
+                                                    有{{Session('count')}}笔发布信息未处理
 
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </a>
+                                </li>
                                 <li class="tpl-dropdown-menu-notifications">
                                     <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
                                         <i class="am-icon-bell"></i> 进入列表…
@@ -138,7 +64,7 @@
 
                         <!-- 退出 -->
                         <li class="am-text-sm">
-                            <a href="javascript:;">
+                            <a href="/login/exit">
                                 <span class="am-icon-sign-out"></span> 退出
                             </a>
                         </li>
@@ -166,13 +92,13 @@
                     <div class="tpl-sidebar-user-panel">
                         <div class="tpl-user-panel-slide-toggleable">
                             <div class="tpl-user-panel-profile-picture">
-                                <img src="/assets/img/user04.png" alt="">
+                                <img src="/uploads/{{Session('user')->profile}}" alt="">
                             </div>
                             <span class="user-panel-logged-in-text">
                       <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-                      禁言小张
+                      {{Session('user')->username}}
                   </span>
-                            <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+
                         </div>
                     </div>
 
@@ -180,10 +106,14 @@
                     <ul class="sidebar-nav">
 
                         <li class="sidebar-nav-link">
-                            <a href="/template" class="active">
+                            <a href="/" class="active">
                                 <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
                             </a>
                         </li>
+
+
+
+                        <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用模块</span></li>
                         <!-- 用户管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
@@ -227,27 +157,66 @@
                                 </ul>
                             </ul>
                         </li>
-                        <!-- 分类管理 -->
+						<!--角色管理-->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
-                                <i class="am-icon-table sidebar-nav-link-logo"></i> 分类管理
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 角色管理
                                 <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="{{ url('cate/create') }}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加分类
+                                    <a href="{{ url('role/create') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加角色
                                     </a>
                                 </li>
 
                                 <li class="sidebar-nav-link">
-                                    <a href="{{ url('cate') }}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看分类
+                                    <a href="{{ url('role') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看角色
                                     </a>
                                 </li>
                             </ul>
                         </li>
+                        <!--权限分类管理-->
+                        <li class="sidebar-nav-link">
+                            <a href="javascript:;" class="sidebar-nav-sub-title">
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 权限分类管理
+                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                            </a>
+                            <ul class="sidebar-nav sidebar-nav-sub">
+                                <li class="sidebar-nav-link">
+                                    <a href="{{ url('perm_cate/create') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加权限分类
+                                    </a>
+                                </li>
 
+                                <li class="sidebar-nav-link">
+                                    <a href="{{ url('perm_cate') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看权限分类
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--权限管理-->
+                        <li class="sidebar-nav-link">
+                            <a href="javascript:;" class="sidebar-nav-sub-title">
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 权限管理
+                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                            </a>
+                            <ul class="sidebar-nav sidebar-nav-sub">
+                                <li class="sidebar-nav-link">
+                                    <a href="{{ url('perm/create') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加权限
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-nav-link">
+                                    <a href="{{ url('perm') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看权限
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <!-- 商品管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
@@ -256,19 +225,33 @@
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="{{ url('shop/form') }}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加商品
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-nav-link">
-                                    <a href="{{ url('goods/index') }}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 商品类别管理
+                                    <a href="/user/shop_admin">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 管理商品
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
+                        <!-- 分类管理 -->
+                        <li class="sidebar-nav-link">
+                            <a href="javascript:;" class="sidebar-nav-sub-title">
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 商品分类管理
+                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                            </a>
+                            <ul class="sidebar-nav sidebar-nav-sub">
+                                <li class="sidebar-nav-link">
+                                    <a href="{{ url('cate/create') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加商品分类
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-nav-link">
+                                    <a href="{{ url('cate') }}">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看商品分类
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <!-- 订单管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
@@ -277,7 +260,7 @@
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="{{url('order')}}">
+                                    <a href="table-list.html">
                                         <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看订单
                                     </a>
                                 </li>
@@ -326,46 +309,6 @@
                             </ul>
                         </li>
 
-                        {{--网站配置管理--}}
-                        <li class="sidebar-nav-link">
-                            <a href="javascript:;" class="sidebar-nav-sub-title">
-                                <i class="am-icon-table sidebar-nav-link-logo"></i> 网站配置管理
-                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
-                            </a>
-                            <ul class="sidebar-nav sidebar-nav-sub">
-                                <li class="sidebar-nav-link">
-                                    <a href="{{url('config/create')}}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加网站配置
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-nav-link">
-                                    <a href="{{url('config')}}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看网站配置
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        {{--轮播图管理--}}
-                        <li class="sidebar-nav-link">
-                            <a href="javascript:;" class="sidebar-nav-sub-title">
-                                <i class="am-icon-table sidebar-nav-link-logo"></i> 轮播图管理
-                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
-                            </a>
-                            <ul class="sidebar-nav sidebar-nav-sub">
-                                <li class="sidebar-nav-link">
-                                    <a href="{{url('car/create')}}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加图片
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-nav-link">
-                                    <a href="{{url('car')}}">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看图片
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
                                 <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表

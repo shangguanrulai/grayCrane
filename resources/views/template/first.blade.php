@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 
-@section('title','新闻管理系统')
+@section('title','灰鹤交易后台首页')
 
 @section('content')
 
