@@ -41,8 +41,8 @@ class RegisterController extends Controller
         $rule = [
             'uname'=> 'required|min:5|max:18',
             'uname'=> 'regex:/^\w{5,18}$/',
-            'upass'=>'required|min:5|max:18 ',
-            'upass'=>'regex:/^\w{5,18}$/ ',
+            'upass'=>'required|min:6|max:16 ',
+            'upass'=>'regex:/^\w{6,16}$/ ',
             're-upass'=>'required|same:upass',
              // 'email'=>'required|email',
         ];
@@ -52,9 +52,9 @@ class RegisterController extends Controller
             'uname.required'=>'用户名不能为空',
             'uname.regex'=>'用户名的长度必须在5-18位',
             'upass.required'=>'密码不能为空',
-            'upass.regex'=>'密码的长度必须在5-18位',
+            'upass.regex'=>'密码的长度必须在6-16位',
             're-upass.required'=>'密码不能为空',
-            're-upass.same:upass'=>'两次输入的密码不一致',
+            're-upass.same'=>'两次输入的密码不一致',
         ];
 
         // $input['password'] = encrypt($input['password']);

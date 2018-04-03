@@ -8,13 +8,14 @@
         <div class="banner-slider-wrap" style="margin-top: -45px">
 
             <div class="layui-carousel" id="test1">
+                @foreach($Carousel as $k=>$v)
+                @if($v->pstatus==1)
   <div carousel-item>
-    <div><img src="/Images/3b97ccd974f522aeb7031b9453ff4a49.gif"  width="1420px" alt=""></div>
-    <div><img src="/Images/2.jpg" width="1420px" alt=""></div>
-    <div><img src="/Images/3.jpg" width="1420px" alt=""></div>
-    <div><img src="/Images/4.jpg" width="1420px" alt=""></div>
+    <div><img src="/uploads/{{$v->profile}}"  width="1420px" alt=""></div>
     <!-- <div><img src="/Images/1.jpg" alt=""></div> -->
   </div>
+                @endif
+                @endforeach
 </div>
 <!-- 条目中可以是任意内容，如：<img src=""> -->
 

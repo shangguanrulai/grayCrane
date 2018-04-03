@@ -68,7 +68,7 @@ class LoginController extends Controller
 
         if(!$user){
             return back()->with('errors','用户名不存在');
-        }else if($user->)
+        }
         $goods = release::get();
         $count = 0;
         foreach($goods as $v){
