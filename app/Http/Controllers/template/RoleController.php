@@ -100,26 +100,40 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $res = Role::destroy($id);
-        if($res){
-            return back()->with('msg','删除成功');
+        $perm = Role::find($id)->permission;
+        if($perm->count()!=0){
+            return back()->with('msg','请先清空所有权限');
         }else{
-            return back()->with('msg','删除失败');
+            $res = Role::destroy($id);
+            if($res){
+                return back()->with('msg','删除成功');
+            }else{
+                return back()->with('msg','删除失败');
+            }
         }
     }
 
     public function delall(Request $request)
     {
         $ids = $request -> input('ids');
+        foreach($ids as $v){
+            $perm = Role::find($v)->permission;
+            if($perm->count()!=0){
+                $arr = [
+                    'a'=>1,
+                    'msg' => '请先清空权限'
 
-
+                ];
+                return $arr;
+            }
+        }
         $res = Role::destroy($ids);
 
 
         if($res) {
 
             $arr = [
-
+                'a'=>0,
                 'msg' => '删除成功'
 
             ];
@@ -129,8 +143,8 @@ class RoleController extends Controller
             ];
         }
         return $arr;
-
     }
+
 
     public function change(Request $request)
     {
@@ -198,6 +212,7 @@ class RoleController extends Controller
         $input = $request->all();
 
 
+
 //      将提交的数据提交到角色权限关联表
       DB::beginTransaction();
       try{
@@ -210,7 +225,7 @@ class RoleController extends Controller
                     $permid[] = $vv->id;
                 }
           }
-          DB::table('role_permission')->whereIn('permission_id',$permid)->delete();
+          DB::table('role_permission')->where('role_id',$input['field_type'])->whereIn('permission_id',$permid)->delete();
           if(!empty($input['checkbox'])){
               foreach($input['checkbox'] as $v) {
                   DB::table('role_permission')->insert([

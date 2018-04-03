@@ -20,18 +20,25 @@ class hasRole
 //        $route = $request;
         $route = \Route::current()->getActionName();
 
-//       2. 获取到当前用户应有的角色
+//       2. 获取到当前用户应有的角色(为禁用的角色)
 
-        $roles = Admin_User::find(session('user')->id)->role;
+
+        $roles = Admin_User::find(session('user')->id)->role()->where('role_status',0)->get();
+
+
 //       3. 获取当前用户拥有的权限
 
         $arr = [];
         foreach($roles as $v){
            $perms = $v->permission;
            foreach($perms as $a){
-               $arr[]=$a->urls;
+               if($a->status==0){
+                   $arr[]=$a->urls;
+               }
+
            }
         }
+
 //       4. 去掉重复的权限
             $arr = array_unique($arr);
 

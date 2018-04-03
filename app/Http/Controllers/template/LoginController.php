@@ -68,7 +68,9 @@ class LoginController extends Controller
 
         if(!$user){
             return back()->with('errors','用户名不存在');
-        }else if($user->)
+        }else if($user->status !=0){
+            return back()->with('errors','你的用户名已被禁用,请与管理员联系');
+        }
         $goods = release::get();
         $count = 0;
         foreach($goods as $v){
