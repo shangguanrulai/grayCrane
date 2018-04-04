@@ -6,6 +6,8 @@ use App\Model\Goods;
 use App\Model\Words;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Session;
+
 
 class GoodsController extends Controller
 {
@@ -54,7 +56,16 @@ class GoodsController extends Controller
             $status=1;
         }
 
+        $goods=Goods::get();
+        $count = 0;
 
+        foreach($goods as $k=>$v){
+            if ($v->status==0) {
+                $count++;
+            }
+        }
+
+        Session::put('count',$count);
 
        $res = Goods::where('rid',$rid)->update(['status'=>$status]);
 
@@ -85,7 +96,8 @@ class GoodsController extends Controller
         return view('template.goods.details',compact('details'));
    }
 
-   public function delete($wid){
+   public function delete($wid)
+   {
 
 
 
@@ -106,6 +118,31 @@ class GoodsController extends Controller
        }
 
 
+   }
+
+   public function del($rid)
+   {
+        $good = Goods::where('rid',$rid)->first();
+
+
+        if($good->status==2){
+            $res =Goods::where('rid',$rid)->delete();
+        }else{
+            return back()->with('msg','商品未下架不能进行删除操作');
+        }
+
+        if($res) {
+
+
+
+               return back()->with('msg','删除成功');
+
+
+       } else{
+
+                return back()->with('msg','删除失败');
+
+       }
    }
 
 

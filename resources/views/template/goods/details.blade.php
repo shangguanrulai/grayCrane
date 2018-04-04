@@ -34,7 +34,6 @@
                                     <thead>
                                     <tr>
                                         <th>买家</th>
-                                        <th>卖家</th>
                                         <th>商品名称</th>
                                         <th>留言内容</th>
                                         <!-- <th>创建时间</th>
@@ -47,7 +46,6 @@
                                     @foreach($details as $k => $v)
                                         <tr class="gradeX">
                                             <td>{{$v->nickname}}</td>
-                                            <td></td>
                                             <td>{{$v->gname}}</td>
 
                                             <td>{{ $v->umessage }}</td>

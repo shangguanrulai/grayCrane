@@ -225,8 +225,8 @@
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="/user/shop_admin">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 管理商品
+                                    <a href="/goods/index">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看商品
                                     </a>
                                 </li>
                             </ul>
