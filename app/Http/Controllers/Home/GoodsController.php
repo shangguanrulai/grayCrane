@@ -33,7 +33,7 @@ class GoodsController extends Controller
 
     //获取分类下的所有商品
 
-
+        $cates = $this->getCateTree();
 
     $goods = release::where('cid',$cid)->paginate(3);
 
@@ -45,45 +45,43 @@ class GoodsController extends Controller
         }
 
     //检测关键字
-    $gname = $request->input('uname');
+    $gname = $request->input('gname');
     //检测价格区间
     $tp = $request->input('tp');
     $bp = $request->input('bp');
 
-    if(!empty($gname) || !empty($email)){
+   
+
+    if(!empty($gname) || !empty($tp) || !empty($bp)){
+
+        
     //多条件并分页
-        $goods = Release::orderBy('created_at','asc')
+        $goods = Release::orderBy('rid','asc')
             ->where(function($query) use($request){
                 
                 //如果用户名不为空
                 if(!empty($gname)) {
                     $query->where('gname','like','%'.$gname.'%');
                 }
-                //如果邮箱不为空
-                if(!empty($email)) {
-                    $query->where('newprice'<= $tp,'newprice'>=$bp);
+                //如果价格不为空
+                if(!empty($tp)){
+                    $query->where('newprice','<=',$tp);
+                }
+                if(!empty($bp)){
+                     $query->where('newprice','<=',$tp);
                 }
             })
             ->paginate($request->input('num', 5));
     }
+    /*if(!empty($gname)){
+     $goods = Release::where('gname','like','%'.$gname.'%')->paginate(3);
 
-  
-        
-
-        
-
-
-        
-
-        
-        
-
-        
-       
+           
+        }*/
 
 
 
-        return view('home.fenlei',['goods'=>$goods]);
+        return view('home.fenlei',['goods'=>$goods,'cates'=>$cates]);
     }
     // ajax
     public function ajax(Request $request)
@@ -108,8 +106,12 @@ class GoodsController extends Controller
 
     //商品详情
     public function details(Request $request){
+
+        $rid = $request->input('rid');
+
+
         //选择的商品
-        $goods = Release::find(11);
+        $goods = Release::find($rid);
         //获取发布人信息
         $a = $goods['uid'];
         //发布人详情
@@ -179,7 +181,7 @@ class GoodsController extends Controller
 
 
      
-
+      $cates = $this->getCateTree();
       
 
         
@@ -190,7 +192,7 @@ class GoodsController extends Controller
 
 
 
-       return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'liu'=>$liu,'collect'=>$collect,'count'=>$count,'musers'=>$musers,'useruid'=>$useruid]);
+       return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'liu'=>$liu,'collect'=>$collect,'count'=>$count,'musers'=>$musers,'useruid'=>$useruid,'cates'=>$cates]);
     }
 
      //获取所有留言及回复
@@ -428,7 +430,7 @@ class GoodsController extends Controller
 
          if(!Hash::check($password,$payPass)){
             return back()->with('errors','支付密码错误');
-        }
+        }else{
 
         $rrid = $request->input('rid');
 
@@ -469,6 +471,8 @@ class GoodsController extends Controller
 
         $order->save();
 
+    }
+
 
         return view('home.success');
 
@@ -478,6 +482,23 @@ class GoodsController extends Controller
 
 
         
+    }
+
+    public function getCateTree( $cates=[], $pid=0 )
+    {
+        if( empty($cates) ){
+            $cates = cate::get();
+        }
+
+        $sub = [];
+        foreach( $cates as $k=>$v ){
+            if( $v->pid == $pid ){
+                $v->sub = $this->getCateTree( $cates, $v->cid );
+                $sub[] = $v;
+            }
+        }
+
+        return $sub;
     }
 
 

@@ -27,7 +27,8 @@
     <script src="/Scripts/swfobject.js" charset="UTF-8"></script>
     <link rel="stylesheet" id="WideGoodsSheet" rel="stylesheet">
     <link rel="stylesheet" href="/layui/css/layui.css">
-    <script src="/layui/layui.js"></script>
+    <link href="/Content/globalceiling.css" rel="stylesheet">
+    
     <script>
         if (!$.support.leadingWhitespace || /msie 9/.test(navigator.userAgent.toLowerCase())) {
             document.documentElement.className += ' lowIE';
