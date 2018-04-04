@@ -23,7 +23,7 @@ class hasRole
 //       2. 获取到当前用户应有的角色(为禁用的角色)
 
 
-        $roles = Admin_User::find(session('user')->id)->role()->where('role_status',0)->get();
+        $roles = Admin_User::find(session('user_admin')->id)->role()->where('role_status',0)->get();
 
 
 //       3. 获取当前用户拥有的权限

@@ -22,7 +22,7 @@
                     <ul>
                         <!-- 欢迎语 -->
                         <li class="am-text-sm tpl-header-navbar-welcome">
-                            <a href="javascript:;">欢迎你, <span>{{Session('user')->username}}</span> </a>
+                            <a href="javascript:;">欢迎你, <span>{{Session('user_admin')->username}}</span> </a>
                         </li>
 
 
@@ -92,11 +92,11 @@
                     <div class="tpl-sidebar-user-panel">
                         <div class="tpl-user-panel-slide-toggleable">
                             <div class="tpl-user-panel-profile-picture">
-                                <img src="/uploads/{{Session('user')->profile}}" alt="" style="weight:50px;height:50px">
+                                <img src="/uploads/{{Session('user_admin')->profile}}" alt="" style="weight:50px;height:50px">
                             </div>
                             <span class="user-panel-logged-in-text">
                       <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-                      {{Session('user')->username}}
+                      {{Session('user_admin')->username}}
                   </span>
 
                         </div>

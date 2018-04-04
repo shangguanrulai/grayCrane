@@ -83,7 +83,7 @@ class LoginController extends Controller
 //     判断密码是否正确（加密方式）
 
         if(Hash::check($input['userpass'], $user->userpass)  ) {
-            Session::put('user',$user);
+            Session::put('user_admin',$user);
             return redirect('/template');
 
         }else{
