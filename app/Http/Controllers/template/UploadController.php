@@ -85,6 +85,7 @@ class UploadController extends Controller
 
     public function uploads(Request $request)
     {
+
         $files = $request -> file('fileupload');
 
         $path = $files->store('uploads');

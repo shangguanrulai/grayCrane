@@ -136,7 +136,7 @@
                             "                                    <div id='tianjia1' class=\"layui-form-item layui-form-text\">\n" +
                             "                                        <label class=\"layui-form-label\"></label>\n" +
                             "                                        <div class=\"layui-input-block\" style=\"position:relative;left:270px;top:-30px;width:60px;height:60px\">\n" +
-                            "                                            <input id=\"content\" type=\"hidden\" name=\"config_desc\" value=\"\">\n" +
+                            "                                            <input id=\"content\" type=\"hidden\" name=\"profile\" value=\"\">\n" +
                             "                                            <img id=\"art_thumb\" src=\"\" style=\"width:60px;\">\n" +
                             "                                        </div>\n" +
                             "                                    </div>")
@@ -147,7 +147,7 @@
                         $('#flag').before("<div id='tianjia' class=\"am-form-group\">\n" +
                             "                                    <label for=\"user-email\" class=\"am-u-sm-3 am-form-label\">配置项内容: <span class=\"tpl-form-line-small-title\">config_desc</span></label>\n" +
                             "                                    <div class=\"am-u-sm-9\">\n" +
-                            "                                        <textarea name=\"config_desc\" placeholder=\"请输入内容\" class=\"layui-textarea\"></textarea>\n" +
+                            "                                        <textarea name=\"profile\" placeholder=\"请输入内容\" class=\"layui-textarea\"></textarea>\n" +
                             "\n" +
                             "                                    </div>\n" +
                             "                                </div>");

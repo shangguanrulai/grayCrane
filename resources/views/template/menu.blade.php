@@ -55,8 +55,8 @@
                                     </a>
                                 </li>
                                 <li class="tpl-dropdown-menu-notifications">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
-                                        <i class="am-icon-bell"></i> 进入列表…
+                                    <a href="{{url('goods/index')}}" class="tpl-dropdown-menu-notifications-item am-cf">
+                                        <i class="am-icon-bell"></i> 立即处理…
                                     </a>
                                 </li>
                             </ul>
