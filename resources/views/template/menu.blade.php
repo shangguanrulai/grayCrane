@@ -260,7 +260,7 @@
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="table-list.html">
+                                    <a href="/order">
                                         <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看订单
                                     </a>
                                 </li>
