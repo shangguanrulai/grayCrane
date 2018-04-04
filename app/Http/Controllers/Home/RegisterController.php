@@ -136,7 +136,7 @@ class RegisterController extends Controller
 
              });*/
              //如果添加成功，跳转到列表页
-            return redirect('/');
+            return redirect('/home/login');
         }else{
             //如果添加失败，返回到添加页
             return back()->with('msg','添加失败');

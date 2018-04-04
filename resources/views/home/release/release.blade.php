@@ -13,7 +13,9 @@
     .unloading{
         display: none;
     }
+    .hc_lnav .allbtn:hover ul{display:none}
 </style>
+
 
 <div class="wrapper">
     <div class="goodsRelease-switch">

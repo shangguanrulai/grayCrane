@@ -84,9 +84,9 @@ layui.use('carousel', function(){
                 <div class="recycle-box">
                     <span class="slogan"></span>
                     <div class="recycle-header">
-                        <a href="http://2.fengniao.com/recycle" class="more-link">更多</a>
-                        <h3><a href="http://2.fengniao.com/recycle">灰鹤热门</a></h3>
-                        <a href="http://2.fengniao.com/recycle" class="slogan">低价、便捷、安全、快速</a>
+                        <a href="/home/goods/index" class="more-link">更多</a>
+                        <h3><a href="/home/goods/index">灰鹤热门</a></h3>
+                        <a href="/home/goods/index" class="slogan">低价、便捷、安全、快速</a>
                     </div>
 
                     <div class="recycle-container">
@@ -118,7 +118,7 @@ layui.use('carousel', function(){
                                         @endforeach
                                         <li class="goods-item item3" style="width:160px;">
                                             <div class="more-link-wrap">
-                                                <a href="" class="more-link" >更多 GO</a>
+                                                <a href="/home/goods/index" class="more-link" >更多 GO</a>
                                             </div>
                                         </li>
                                     </ul>
