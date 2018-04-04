@@ -85,12 +85,12 @@
                     <div class="am-u-sm-12 am-u-md-12 am-u-lg-4 widget-margin-bottom-lg ">
                         <div class="tpl-user-card am-text-center widget-body-lg">
                             <div class="tpl-user-card-title">
-                                {{Session()->get('user')->username}}
+                                {{Session()->get('user_admin')->username}}
                             </div>
                             <div class="achievement-subheading">
                                 月度最佳员工
                             </div>
-                            <img class="achievement-image" src="/uploads/{{Session('user')->profile}}" alt="" style="weight:100px;height:100px">
+                            <img class="achievement-image" src="/uploads/{{Session('user_admin')->profile}}" alt="" style="weight:100px;height:100px">
                             <div class="achievement-description" style="font-size:20px">
                                细节决定成败
                             </div>

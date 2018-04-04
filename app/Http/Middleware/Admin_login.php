@@ -16,7 +16,7 @@ class Admin_login
      */
     public function handle($request, Closure $next)
     {
-        if(Session()->get('user')){
+        if(Session()->get('user_admin')){
             return $next($request);
         }else{
             return redirect('/login')->with('msg','请先登录');
