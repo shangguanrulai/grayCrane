@@ -46,7 +46,7 @@
         </div>
             <div class="tpl-login-content">
 
-                    @if (count($errors) > 1)
+                    @if (count($errors) > 0)
                         <div class="alert alert-danger"style="background:pink"  >
                             <ul>
                                 @if(is_object($errors))

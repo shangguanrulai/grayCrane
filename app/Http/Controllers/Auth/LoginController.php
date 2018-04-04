@@ -30,6 +30,12 @@ class LoginController extends Controller
          $code = new  Code;
          return $code->make();
     }
+    //生成验证码
+    public function code()
+    {
+        $code = new  Code;
+        return $code->make();
+    }
     /**
      * Where to redirect users after login.
      *

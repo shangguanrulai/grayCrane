@@ -66,10 +66,10 @@ class LoginController extends Controller
 
         //判断是否有此用户
 
-        $user = User::where('username',$input['username'])->first();
+        $user = User::where('username',   $input['username'])->first();
 
         if(!$user){
-            return back()->with('errors','用户名不存在');
+            return back()->with('errors',   '用户名不存在');
         }
 
 //     判断密码是否正确（加密方式）
@@ -84,6 +84,19 @@ class LoginController extends Controller
 
 
     }
+     判断密码是否正确（加密方式）
+        if($input['userpass'] != Crypt::decrypt($user->userpass)) {
+            return back()->with('errors','密码错误');
+        }
+
+        Session::put('user',$user);
+
+        return redirect('tempalate/index');
+
+
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -101,7 +114,7 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request   $request)
     {
         //
     }
@@ -112,7 +125,7 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function   show($id)
     {
         //
     }

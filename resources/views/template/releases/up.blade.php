@@ -334,7 +334,7 @@
                                                 <th>商品描述</th>
                                                 <th>状态</th>
                                                 <th>浏览量</th>
-                                                <th>发布时间</th>
+
                                             </tr>
                                         </thead>
                                         <body>
