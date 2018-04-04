@@ -66,7 +66,7 @@
                                 <input style='margin:25px;width:500px;' type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入交易密码" name='password'> 
                                 <em class='em'></em> 
                                 @if (count($errors) > 0)
-        <div class="alert alert-danger" >
+        <div class="alert alert-danger" style="width:300px;margin:50px 150px;">
             <ul>
                 
                     <li>{{ $errors }}</li>

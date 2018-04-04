@@ -187,8 +187,7 @@ Route::get('template/user_home','template\User_homeController@user_home');
 //商品分类
     Route::get('/home/goods/index','home\GoodsController@index');
     Route::get('/home/goods/ajax','home\GoodsController@ajax');
-//商品筛选
-    Route::get('/home/goods/choose','home\GoodsController@choose');
+
 
 
 

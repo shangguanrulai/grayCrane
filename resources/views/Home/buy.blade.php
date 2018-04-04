@@ -13,6 +13,7 @@
 <link href="/Content/jquery.bxslider.css" rel="stylesheet">
 <link href="/Content/header.css" rel="stylesheet">
 <link href="/Content/secondarytradingpublic.css" rel="stylesheet">
+<link rel="stylesheet" href="/layui/css/layui.css">
 <link href="/Content/secondarytradingorder.css" rel="stylesheet" 0="frontend\assets\BaseAsset">
 <script src="/Scripts/jquery-3.2.1.js" charset="UTF-8"></script>
 <script src="/Scripts/jqueryui.1.11.4.js" charset="UTF-8"></script>
@@ -34,28 +35,40 @@
      </script>
 </head>
 <body>
-<div id="globalCeiling-topBar" style="height: 44px;background-color: #111111;"></div>
-<!-- <div class="top-bar"><span class="text">蜂鸟购为您提供全程的专业技术支持及安全保障!</span></div> -->
-<!-- header -->
-    <div class="shopPage-header fn-sec-header">
+
+    <!-- header -->
+<ul class="layui-nav" lay-filter="">
+    <li class="layui-nav-item"><a href="/">灰鹤首页</a></li>
+    <li class="layui-nav-item"><a href="">HI 欢迎来到灰鹤</a></li>
+    @for ($i=0; $i < 17; $i++)
+        <li class="layui-nav-item"><a href=""></a></li>
+    @endfor
+    @if(empty(Session('user')))
+        <li class="layui-nav-item"><a href="/home/login">登录</a></li>
+        <li class="layui-nav-item"><a href="/home/register">注册</a></li>
+    @else
+        <li class="layui-nav-item"><a href=""></a></li>
+        <li class="layui-nav-item"><a href="/home/user">{{ Session('user')['uname'] }}</a></li>
+    @endif
+    <li class="layui-nav-item"><a href="/home/user">用户中心</a></li>
+    <li class="layui-nav-item"><a href="/home/loginout">退出</a></li>
+</ul>
+
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<br />
         <div class="wrapper clearfix">
             <div class="logo">
     <a title="蜂鸟网--二手交易" href="/?click_source=logo"><img src="/Picture/logov2.png" alt="蜂鸟网--二手交易"></a>
 </div>
             
-<div class="search-box" id="searchContainer">
-    <ul class="search-tab clearfix">
-        <!--        <li index="0" class="current">一口价</li>-->
-<!--        <li index="2" class="">拍卖</li>-->
-    </ul>
-    
 
-    
-    <div class="search-focus-layerbox clearfix" style="display: none;"></div>
-    <div class="search-click-layerbox" style="display: none;"></div>
-</div>
         </div>
-    </div>
+    
     <div class="wrapper-box">
             <ul class="order-steps clearfix">
                 <li class="current">
