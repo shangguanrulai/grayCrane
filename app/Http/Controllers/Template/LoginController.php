@@ -27,14 +27,6 @@ class LoginController extends Controller
         return view( 'template.logins.index');
     }
 
-   //生成验证码
-    public function code()
-    {
-
-        $code = new Code;
-        return $code->make();
-//        return Code::make();
-    }
 
     //登录处理逻辑
     public function doLogin(Request $request)
@@ -92,26 +84,6 @@ class LoginController extends Controller
 
 
     }
-    //加密
-    public function jiami(){
-
-//        3. hash加密   60位
-        $str = '123456';
-        $hashstr = Hash::make($str);
-        $hash = "$2y$10$9d1uqmGSNCJYnsQUd14MzuKAaj8XXNBxu7gNJI/SdaCqnzFKkNshC";
-
-        if(Hash::check('123457',$hash)){
-            return "密码正确";
-        }else{
-            return "密码错误";
-        }
-//        return $hashstr;
-    }
-
-//    public function index()
-//    {
-//        //
-//  }
 
     /**
      * Show the form for creating a new resource.

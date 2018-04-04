@@ -39,10 +39,6 @@ Route::post('templates','Template\LoginController@doLogin');
 //加密
 Route::get('jiami','Admin\LoginController@jiami');
 
-//商品管理
-Route::get('/rele', function(){
-    return view('template.releases.release');
-
 
 });
 //
