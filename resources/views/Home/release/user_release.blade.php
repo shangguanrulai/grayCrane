@@ -61,7 +61,7 @@
                             @if($v['status']==0)
                                 <font color="#ff7733">待审核···</font>
                             @else
-                                <font color="#009688">售卖中···</font>
+                                <font color="#009688">出售中···</font>
                             @endif
                         </td>
                         <td>{{$v['describe']}}</td>

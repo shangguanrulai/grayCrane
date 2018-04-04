@@ -48,7 +48,6 @@ class MsgController extends Controller
             $user_msg[$k]['gname'] = $user_gname[$k];
         }
 
-
         return view('home.msg.msg',compact('user','userinfo','msg','user_msg','data'));
     }
 
