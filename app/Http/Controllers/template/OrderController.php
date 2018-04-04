@@ -37,6 +37,7 @@ class OrderController extends Controller
                 }
             })
             ->paginate(10);
+
         return view('template.order.list',compact('orders','request'));
 
     }
@@ -104,7 +105,13 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        $res =Order::destroy($id);
+        $orders = Order::find($id);
+        if($orders->ostatus==3){
+            $res =Order::destroy($id);
+        }else{
+            return back()->with('msg','订单未完成,不可删除');
+        }
+
 
         if($res){
             return back()->with('msg','删除成功');

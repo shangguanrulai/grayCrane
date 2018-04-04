@@ -102,25 +102,34 @@ class ConfigController extends Controller
         $this->validate($request, [
             'config_title' => 'required',
             'config_name' => 'required',
-            'config_desc' => 'required',
+            'profile' => 'required',
+
             'field_type' => 'required',
 
         ],[
             'config_title.required'=>'标题不能为空',
             'config_name.required'=>'名称不能为空',
-            'config_desc.required'=>'内容不能为空',
+            'profile.required'=>'内容不能为空',
+
             'field.type.required'=>'请选择类型',
             'config_order.required'=>'排序不能为空',
         ]);
 
         // 接受提交过来的数据
         $input = $request -> except('_token','fileupload');
+
         //验证名称是否已经存在
         $arr = Config::where('config_name',$input['config_name'])->first();
 
         if($arr){
             return back()->with('error','该用户已存在!');
         }
+
+            $input['config_desc']=$input['profile'];
+
+
+        unset($input['profile']);
+     
 //      添加到配置表
         $res = Config::create($input);
         if($res){
