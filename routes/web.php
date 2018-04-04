@@ -132,12 +132,15 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
     //后台分类控制器
     Route::get('template/cate/delall','template\CateController@delall');
     Route::resource('cate','template\CateController');
-	
+
 	//后台商品
     Route::get('goods/index','template\GoodsController@index');
     Route::get('goods/change','template\GoodsController@change');
+    Route::get('goods/del/{rid}','template\GoodsController@del');
+    //留言管理
     Route::get('goods/details/{rid}','template\GoodsController@details');
     Route::get('goods/delete/{wid}','template\GoodsController@delete');
+
 
     //后台网站配置控制器
     Route::get('template/config/putFile','template\ConfigController@putFile');
@@ -179,10 +182,6 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
 
 
 });
-
-
-//后台控制前台用户
-Route::get('template/user_home','template\User_homeController@user_home');
 
 
 //商品分类

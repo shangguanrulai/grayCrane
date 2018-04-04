@@ -9,7 +9,7 @@
 		<div class="container-fluid am-cf">
 			<div class="row">
 				<div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-					<div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 管理员模块<small></small></div>
+					<div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 商品模块<small></small></div>
 					<p class="page-header-description"></p>
 				</div>
 
@@ -20,7 +20,7 @@
 				<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
 					<div class="widget am-cf">
 						<div class="widget-head am-cf">
-							<div class="widget-title  am-cf">管理员列表</div>
+							<div class="widget-title  am-cf">商品列表</div>
 
 
 						</div>
@@ -35,9 +35,7 @@
 								<table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
 									<thead>
 									<tr>
-										<td>删除</td>
-										<th>编号</th>
-										<th>用户名</th>
+										<th>商品名</th>
 										<th>创建时间</th>
 										<th>商品图片</th>
 										<th>状态</th>
@@ -47,8 +45,6 @@
 									<tbody>
 									@foreach($goods as $k => $v)
 										<tr class="gradeX">
-											<td><input type="checkbox" del-id="{{ $v->id }}"/></td>
-											<td>{{ $v->rid }}</td>
 											<td>{{ $v->gname }}</td>
 											<td>{{ $v->created_at }}</td>
 											<td><img style="width:40px;height:30px" src="/uploads/{{$v->gpic}}" alt=""></td>
@@ -64,9 +60,8 @@
 											<td>
 
 													<div style="display: inline-block">
-														<form action="{{ url('user/'.$v->id) }}" method="post">
-															{{ csrf_field() }}
-															{{ method_field('DELETE') }}
+														<form action="{{ url('goods/del/'.$v->rid) }}" method="get">
+
 															<button class="btn-danger" >
 																<i class="am-icon-trash"></i>删除
 															</button>
@@ -109,8 +104,10 @@
 		function star(obj,id){
 			if($(obj).attr('status')==0){
 				var str = '你确定该商品通过审核';
-			}else{
+			}else if($(obj).attr('status')==1){
 				var str = '你确定下架该商品吗?';
+			}else if($(obj).attr('status')==2){
+				var str = '你确定上架该商品吗?';
 			}
 			if(confirm(str)){
 				var status = $(obj).attr('status');
