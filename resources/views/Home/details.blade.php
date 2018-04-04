@@ -495,21 +495,27 @@
 <!-- message-post -->
 <div class="message-post clearfix">
     <div class="clearfix">
-        <a href="javascript:;" class="avtor">  
-            <img src="/uploads/{{ $musers->portrait }}" width="60" height="60" alt="">
+        <a href="javascript:;" class="avtor">
+            @if($musers['portrait'] == 0)  
+            <img src="/Picture/head80.png" width="60" height="60" alt="">
+            @else
+            <img src="/uploads/{{ $musers['portrait'] }}" width="60" height="60" alt="">
+            @endif
+
             <span class="name">{{ $musers['nickname'] }}</span>
         </a>
 
-        <input type="hidden" id="csrf" name="_csrf" value="Zy1RUnl1bDUjYisjOkUjehBcA38eAxsGMhQABgE6JmVWaAcmE0EeWQ==">        <textarea  placeholder="我来说两句" id="question_content" class="post-text"></textarea>
+        <input type="hidden" id="csrf" name="_csrf" value="Zy1RUnl1bDUjYisjOkUjehBcA38eAxsGMhQABgE6JmVWaAcmE0EeWQ==">        <textarea  name="liuliuyan" placeholder="我来说两句" id="question_content" class="post-text"></textarea>
     </div>
     <div class="post-button">
-        <span class="comment-button">评论</span>
+        <span name="pinglun" class="comment-button">评论</span>
         <span id="showWechatLayer" class="wechat-tip">关注小蜂，微信管理</span>
     </div>
 
 <!-- 提交留言 -->
 <script>
-    $('textarea').focus(function(){
+    $('textarea[name=liuliuyan]').focus(function(){
+      
 
            if(!{{  $flag }}){
                 {!! Session::put('url','/home/goods/details') !!}
@@ -518,18 +524,21 @@
                
             } 
     })
-    $('.comment-button').click(function(){
+    $('span[name=pinglun]').click(function(){
         var umessage = $('textarea').val();
-        $.get('/home/goods/bbbbb',{umessage:umessage,rid:{{ $goods['rid'] }},uid:{{ $musers['uid'] }}},function(d){
+        $.get('/home/goods/bbbbb',{umessage:umessage,rid:{{ $goods['rid'] }}},function(d){
                console.log(d);
             })
 
-        $('textarea').val('');
+        location.reload();
+
+        /*$('textarea').val('');*/
     })
 </script>
 </div>
 <!-- //message-post -->
-@foreach ($liu as $v)
+
+@foreach($liu as $k=>$v)
 <ul class="comment-list">
     <li class='comment-item clearfix' id='qa_14311'>
         <a href="/10820479/credit.html" class='avator'>
@@ -548,43 +557,112 @@
                 @endif
             </div>
             <div class='comment-toolbar clearfix'>
-                <span id='huifu' class='reply-link'>回复</span>
+                <span id='huifu' class='reply-link' num="{{ $k }}">回复</span>
                 
-                <span id='shanchu' class='delete-link'>删除</span>
+                <span id='shanchu' wid="{{ $v['wid'] }}" class='delete-link'>删除</span>
                 
                 <span class='date'>{{ $v['created_at'] }}</span>
-                <div style='display:none' class='reply-box' id='reply_14674'>
+                <div style='display:none' class="reply-box ccc{{ $k }}" id='reply_14674' >
                     <i class='arrow-icon'></i>
                     <textarea name='neirong' id="reply_content_14674" placeholder='请填写您的回复内容'></textarea>
-                    <span class='comment-button' >评论</span>
+                    <span class='comment-button' wid="{{ $v['wid'] }}" >评论</span>
                 </div>
                 
             </div>
         </div>
 
     </li>
+     
+    @if($v->children)
+    @foreach($v->children as $v2)
+    <ul class="comment-list">
+    <li class='comment-item clearfix' id='qa_14311'>
+        <a href="/10820479/credit.html" class='avator'>
+            @if(empty($v2['portrait']))
+             <img src="/Picture/default.png" width="60" height="60" alt="">
+            @else
+            <img src="/uploads/{{ $v['portrait'] }}" width='60' height='40' alt="">
+            @endif
+        </a>
+        <div class='item-content'> 
+            <div class='comment-text clearfix'>
+                @if(empty($v2['nickname']))
+                <a href="/10820479/credit.html" class='name'>暂无昵称</a><span class='text'> {{ $v['umessage'] }}</span>
+                @else
+                <a href="/10820479/credit.html" class='name'>回复:{{ $v2['nickname'] }}: </a><span class='text'> {{ $v2['umessage'] }}</span>
+                @endif
+            </div>
+            <div class='comment-toolbar clearfix'>
+               
+                
+                <span id='shanchu' class='delete-link' wid="{{ $v2['wid'] }}">删除</span>
+                
+                <span class='date'>{{ $v2['created_at'] }}</span>
+                
+            </div>
+        </div>
+
+    </li>
     </ul>
-    
     @endforeach
+    @endif
+
+    
+    
+ </ul>  
+@endforeach
+
+
     <script>
         // 回复留言
-        $('#huifu').click(function(){
-            $('#reply_14674').css('display','block');
+        var k = 0;
+        $('.reply-link').each(function(){
+             k=$(this).attr('num');
+            $(this).click(function(){
+               
+            $(".ccc"+k).css('display','block');
         })
-        $('.comment-button').click(function(){
-            var text = $('textarea[name=neirong]').val();
-            $.get('/home/goods/ccccc',{text:text,pid:{{$v['wid']}},rid:{{ $goods['rid'] }} },function(d){
-            })
+        })
+        $('.comment-button').each(function(){
+
+            var wid = $(this).attr('wid');
+            $(this).click(function(){
+            var text = $('textarea[name=neirong]').eq(k).val();
+
+            
+            $.get('/home/goods/ccccc',{text:text,pid:wid,rid:{{ $goods['rid'] }} },function(d){
+                console.log(d);
+           })
+
+             location.reload();
+        })
         })
         //删除留言
-        $('#shanchu').click(function(){
+        $('.delete-link').each(function(){
+
+            var wid = $(this).attr('wid');
+            $(this).click(function(){
+
+                console.log(wid);
 
 
-             $.get('/home/goods/ddddd',{wid:{{ $v['wid'] }}},function(d){
+             $.get('/home/goods/ddddd',{wid:wid},function(d){
+
+                console.log(d);
                 
             })
+
+
+
+             location.reload();
         })
+
+    })
     </script>
+
+
+
+
 
 
  <!-- <script type="text/javascript">
@@ -809,7 +887,21 @@
    
                             {{ $goods['rphone'] }}
 </div>
-                            <div title=""   class="parameter-item parameter-buy clearfix"><a href="/home/goods/buy/{{ $goods['rid'] }}" style='text-decoration:none;' goods_id="3266810"  subid="3266810_0"   id="buy-button"  class="buy-button ">立即购买</a></div>                    </div>
+                            <div title=""   class="parameter-item parameter-buy clearfix"><a style='text-decoration:none;' goods_id="3266810"  subid="3266810_0"   id="buy-button"  class="buy-button ">立即购买</a></div>
+                                                </div>
+                                                <script>
+                                                    $('#buy-button').click(function(){
+
+                                                        if(!{{  $flag }}){
+                                                        {!! Session::put('url','/home/goods/details') !!}
+            
+                                                                window.location.href ='/home/login';
+               
+                                                            }else{
+                                                                $(this).attr('href','/home/goods/buy/{{ $goods['rid'] }}');
+                                                            } 
+                                                        })
+                                                </script>
                     <!-- //product-parameter -->
                     <div class="saleout-tip" style="display: none">
     <strong>对不起，此商品已下架。</strong>
@@ -1220,7 +1312,10 @@
         $('#dvs').attr('class','parameter-item  quality-parameter-item   clearfix');
     });
 </script> -->
+
 </body>
 
 
 </html>
+
+
