@@ -39,8 +39,23 @@ Route::post('templates','Template\LoginController@doLogin');
 //加密
 Route::get('jiami','Admin\LoginController@jiami');
 
-//Route::resource('template','Template\LoginController');
+//商品管理
+Route::get('/rele', function(){
+    return view('template.releases.release');
 
-//Route::resource('/user/code','LoginController@code');
+
+});
+//
+//商品上架管理
+Route::get('releases/up','Template\ReleaseController@up');
+//商品待审核
+Route::get('releases/await','Template\ReleaseController@await');
+//删除
+//Route::get('release/{id}','GoodsController@del');
+
+
+
+
 Route::post('admin/template','Template\LoginController@index');
 
+//
