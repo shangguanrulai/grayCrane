@@ -11,7 +11,7 @@
             <!-- 右侧内容 -->
             <div class="tpl-header-fluid">
                 <!-- 侧边切换 -->
-                <div clas="am-fl tpl-header-switch-button am-icon-list">
+                <div class="am-fl tpl-header-switch-button am-icon-list">
                     <span>
 
                 </span>
@@ -106,14 +106,10 @@
                     <ul class="sidebar-nav">
 
                         <li class="sidebar-nav-link">
-                            <a href="/" class="active">
+                            <a href="/template" class="active">
                                 <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
                             </a>
                         </li>
-
-
-
-                        <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用模块</span></li>
                         <!-- 用户管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
@@ -129,7 +125,7 @@
                                     </a>
                                     <ul class="sidebar-nav sidebar-nav-sub">
                                         <li class="sidebar-nav-link">
-                                            <a href="table-list-img.html">
+                                            <a href="{{url('userhome')}}">
                                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看用户
                                             </a>
                                         </li>
@@ -157,7 +153,7 @@
                                 </ul>
                             </ul>
                         </li>
-						<!--角色管理-->
+                        {{--角色管理--}}
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
                                 <i class="am-icon-table sidebar-nav-link-logo"></i> 角色管理
@@ -177,7 +173,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!--权限分类管理-->
+                        {{--权限分类管理--}}
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
                                 <i class="am-icon-table sidebar-nav-link-logo"></i> 权限分类管理
@@ -197,7 +193,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!--权限管理-->
+                        {{--权限管理--}}
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
                                 <i class="am-icon-table sidebar-nav-link-logo"></i> 权限管理
@@ -217,21 +213,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- 商品管理 -->
-                        <li class="sidebar-nav-link">
-                            <a href="javascript:;" class="sidebar-nav-sub-title">
-                                <i class="am-icon-table sidebar-nav-link-logo"></i> 商品管理
-                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
-                            </a>
-                            <ul class="sidebar-nav sidebar-nav-sub">
-                                <li class="sidebar-nav-link">
-                                    <a href="/goods/index">
-                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看商品
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
                         <!-- 分类管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
@@ -252,6 +233,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <!-- 订单管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
@@ -260,7 +242,7 @@
                             </a>
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="/order">
+                                    <a href="{{url('order')}}">
                                         <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看订单
                                     </a>
                                 </li>
@@ -268,7 +250,6 @@
 
                             </ul>
                         </li>
-
 
                         {{--网站配置管理--}}
                         <li class="sidebar-nav-link">

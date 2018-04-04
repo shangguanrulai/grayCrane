@@ -60,7 +60,7 @@
                             <ul style="margin: 0px;padding: 0px;">
                                 @if(is_object($errors))
                                     @foreach ($errors->all() as $error)
-                                        <li >{{ $error }}</li>
+                                        <li style="color:red;text-align: center;">{{ $error }}</li>
                                     @endforeach
                                 @else
                                     <li style="color:red;text-align: center;">{{ $errors }}</li>

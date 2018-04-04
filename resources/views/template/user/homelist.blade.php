@@ -77,24 +77,24 @@
                                         <tr class="gradeX">
                                             <td><input type="checkbox" del-id="{{ $v->uid }}"/></td>
                                             <td>{{ $v->uname }}</td>
-                                            <td>{{ $v->userinfo_home->nickname }}</td>
+                                            <td>{{ $v->userinfo_home['nickname']}}</td>
                                             <td>{{ $v->phone }}</td>
                                             <td>{{ $v->email }}</td>
-                                            <td><img src="/uploads/{{ $v->userinfo_home->portrait }}" alt=""></td>
-                                            <td>{{$v->userinfo_home->score}}</td>
-                                            <td>{{$v->userinfo_home->trueNamee}}</td>
-                                            <td>{{$v->userinfo_home->prcid}}</td>
-                                            <td>@if($v->userinfo_home->isTrue==0)
+                                            <td><img src="/uploads/{{ $v->userinfo_home['portrait'] }}" alt=""></td>
+                                            <td>{{$v->userinfo_home['score']}}</td>
+                                            <td>{{$v->userinfo_home['trueNamee']}}</td>
+                                            <td>{{$v->userinfo_home['prcid']}}</td>
+                                            <td>@if($v->userinfo_home['isTrue']==0)
                                                     未实名认证
                                                 @else
                                                     已实名认证
                                                 @endif
                                             </td>
                                             <td>
-                                                @if( $v->userinfo_home->status ==1)
-                                                    <button class="btn-success" onclick="star(this,{{$v->uid}})" status="{{$v->userinfo_home->status}}">已启用</button>
+                                                @if( $v->userinfo_home['status'] ==1)
+                                                    <button class="btn-success" onclick="star(this,{{$v->uid}})" status="{{$v->userinfo_home['status']}}">已启用</button>
                                                 @else
-                                                    <button class="btn-danger" onclick="star(this,{{$v->uid}})" status="{{$v->userinfo_home->status}}">已禁用</button>
+                                                    <button class="btn-danger" onclick="star(this,{{$v->uid}})" status="{{$v->userinfo_home['status']}}">已禁用</button>
                                                 @endif
                                             </td>
 
@@ -132,6 +132,7 @@
             }
             if(confirm(str)){
                 var status = $(obj).attr('status');
+                
                 $.ajax({
                     type: "GET",
                     url: "/template/userhome/change",

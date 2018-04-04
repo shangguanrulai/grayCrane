@@ -90,8 +90,6 @@
             </a>
         </li>
     @endif
-
-
 </ul>
 
 <script>
