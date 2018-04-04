@@ -141,7 +141,6 @@ Route::get('/login/exit','template\LoginController@exit');
 
 //生成验证码路由
 Route::get('/login/code','Template\LoginController@code');
-
 Route::post('/login/dologin','template\LoginController@doLogin');
 
 
@@ -225,8 +224,6 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
 });
 
 
-//后台控制前台用户
-Route::get('template/user_home','template\User_homeController@user_home');
 
 
 

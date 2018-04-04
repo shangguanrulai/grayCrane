@@ -213,6 +213,20 @@
                                 </li>
                             </ul>
                         </li>
+						<!--商品管理-->
+						<li class="sidebar-nav-link">
+                            <a href="javascript:;" class="sidebar-nav-sub-title">
+                                <i class="am-icon-table sidebar-nav-link-logo"></i> 商品管理
+                                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                            </a>
+                            <ul class="sidebar-nav sidebar-nav-sub">
+                                <li class="sidebar-nav-link">
+                                    <a href="/goods/index">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看商品
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <!-- 分类管理 -->
                         <li class="sidebar-nav-link">
                             <a href="javascript:;" class="sidebar-nav-sub-title">
