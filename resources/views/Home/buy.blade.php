@@ -107,6 +107,7 @@
                                 <h3 class="parameter-title">核对收货人信息</h3>
                             </div>
                             <div class="parameter-content">
+                            @if(!empty($address))
                                 <div id="addressBox" class="address-box">
                                 <ul id="addressList" class="address-list">
                                 	                                	                                		<li addressId='13802' class="address-item clearfix ">
@@ -130,6 +131,12 @@
 	                                    </li>
                                 	                                </ul>
                             </div>
+                        @else
+                        <div>
+                            暂未添加收货地址,请前去添加
+                        </div>
+                    @endif
+                        </div>
                         </li>
                         <li class="parameter-item">
                         	<div class="parameter-header"> 
@@ -203,10 +210,8 @@
                     			<textarea id='message' name='omsg'></textarea>
                 			</li>	
                     		<li class="pay-item clearfix">
-                    			<span class="item-title">优惠券</span>
-                    			<select name="" id="coupon">
-                    				<option money="0.00" value="0">请选择您要使用的优惠券</option>
-                    			</select>
+                    			
+                    			
                 			</li>	
                     		<li class="pay-item deduction-item clearfix">
                     			<span class="item-title">积分抵扣</span>

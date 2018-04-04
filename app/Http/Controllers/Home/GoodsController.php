@@ -79,9 +79,13 @@ class GoodsController extends Controller
            
         }*/
 
+        $uid = Session('user')['uid'];
+        $user = user_home::where('uid',$uid)->first();
+        $userinfo = userinfo_home::where('uid',$uid)->first();
 
 
-        return view('home.fenlei',['goods'=>$goods,'cates'=>$cates]);
+
+        return view('home.fenlei',['goods'=>$goods,'cates'=>$cates,'user'=>$user,'userinfo'=>$userinfo]);
     }
     // ajax
     public function ajax(Request $request)
@@ -182,6 +186,10 @@ class GoodsController extends Controller
 
      
       $cates = $this->getCateTree();
+
+      $uid = Session('user')['uid'];
+        $user = user_home::where('uid',$uid)->first();
+        $userinfo = userinfo_home::where('uid',$uid)->first();
       
 
         
@@ -192,7 +200,7 @@ class GoodsController extends Controller
 
 
 
-       return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'liu'=>$liu,'collect'=>$collect,'count'=>$count,'musers'=>$musers,'useruid'=>$useruid,'cates'=>$cates]);
+       return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'liu'=>$liu,'collect'=>$collect,'count'=>$count,'musers'=>$musers,'useruid'=>$useruid,'cates'=>$cates,'user'=>$user,'userinfo'=>$userinfo]);
     }
 
      //获取所有留言及回复
@@ -442,7 +450,9 @@ class GoodsController extends Controller
 
         $t = address::where('uid',$buyid)->first();
 
-        $tid = $t -> aid;
+
+
+        $tid = $t['aid'];
 
         
         $price = $request->input('price');
