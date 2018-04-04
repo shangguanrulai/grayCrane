@@ -73,12 +73,12 @@
 <ul class="layui-nav" lay-filter="">
     <li class="layui-nav-item"><a href="/">灰鹤首页</a></li>
     <li class="layui-nav-item"><a href="">HI 欢迎来到灰鹤</a></li>
-    <li class="layui-nav-item" style="float:right"><a href="/home/loginout">退出</a></li>
+    
     @if(empty(Session('user')))
         <li class="layui-nav-item" style="float:right"><a href="/home/register">注册</a></li>
         <li class="layui-nav-item" style="float:right"><a href="/home/login">登录</a></li>
     @else
-        {{--<li class="layui-nav-item"><a href=""></a></li>--}}
+		<li class="layui-nav-item" style="float:right"><a href="/home/loginout">退出</a></li>
         <li class="layui-nav-item" style="float:right"><a href="/home/user">用户中心</a></li>
         <li class="layui-nav-item" style="float:right">
             <a href="/home/user"><img src="/uploads/{{$userinfo['portrait']}}" class="layui-nav-img">{{ $user['uname'] }}</a>
