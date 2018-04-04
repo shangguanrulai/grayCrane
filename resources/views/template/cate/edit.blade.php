@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 
-@section('title','添加后台用户')
+@section('title','修改商品分类')
 
 @section('content')
 

@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 
-@section('title','添加后台用户')
+@section('title','商品分类列表')
 
 @section('content')
 
@@ -59,7 +59,7 @@
                                     <thead>
                                     <tr pid="0">
                                         <td>删除</td>
-                                        <th>编号</th>
+
                                         <th>类别名称</th>
                                         <th>操作</th>
                                     </tr>
@@ -68,7 +68,7 @@
                                     @foreach($arr as $v)
                                         <tr class="gradeX" pid="{{$v->pid}}" style="background:'';">
                                             <td><input type="checkbox" del-id="{{ $v->cid }}"/></td>
-                                            <td>{{ $v->cid }}</td>
+
                                             <td>{{ $v->cname }}</td>
 
                                             <td>
@@ -181,12 +181,17 @@
                         anyac: false,
                         success: function (data) {
                             var arr = data;
-                            alert(arr['msg']);
-                            $(':checkbox').each(function () {
-                                if (this.checked == true) {
-                                    $(this).parents('tr').remove();
-                                }
-                            })
+                            if(arr['a']==0){
+                                alert(arr['msg']);
+                            }else{
+                                alert(arr['msg']);
+                                $(':checkbox').each(function () {
+                                    if (this.checked == true) {
+                                        $(this).parents('tr').remove();
+                                    }
+                                })
+                            }
+
 
                         },
                         error: function (data) {

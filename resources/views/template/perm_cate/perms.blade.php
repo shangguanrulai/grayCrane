@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 
-@section('title','添加后台用户')
+@section('title','分类下详细权限')
 
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">

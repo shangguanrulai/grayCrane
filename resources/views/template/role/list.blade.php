@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 
-@section('title','后台用户列表')
+@section('title','后台角色列表')
 
 @section('content')
     <!-- 内容区域 -->
@@ -145,8 +145,6 @@
             }
 
         }
-
-
 
         //批量删除
         function delall() {

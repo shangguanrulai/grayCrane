@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 
-@section('title','后台用户列表')
+@section('title','前台用户列表')
 
 @section('content')
     <!-- 内容区域 -->
@@ -132,7 +132,7 @@
             }
             if(confirm(str)){
                 var status = $(obj).attr('status');
-                
+
                 $.ajax({
                     type: "GET",
                     url: "/template/userhome/change",

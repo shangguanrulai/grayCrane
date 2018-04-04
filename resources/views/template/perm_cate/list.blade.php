@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 
-@section('title','后台用户列表')
+@section('title','权限分类列表')
 
 @section('content')
     <!-- 内容区域 -->
