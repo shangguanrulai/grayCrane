@@ -43,10 +43,11 @@ class ReleaseController extends Controller
     {
         $uid = Session('user')['uid'];
         $user = user_home::find($uid);
+        $userinfo = $user->userinfo_home;
         $cate = cate::get();
         $cates = $this->getCateTree();
 
-        return view('home.release.release',compact('cate','user','cates'));
+        return view('home.release.release',compact('cate','user','cates','userinfo'));
     }
 
     /**

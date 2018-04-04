@@ -5,6 +5,8 @@ namespace App\Http\Controllers\home;
 use App\Model\cate;
 use App\Model\release;
 use App\Model\Carousel;
+use App\Model\user_home;
+use App\Model\userinfo_home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,12 +19,16 @@ class FirstController extends Controller
      */
     public function index()
     {
+        $uid = Session('user')['uid'];
+        $user = user_home::where('uid',$uid)->first();
+        $userinfo = userinfo_home::where('uid',$uid)->first();
+
         $cates = $this->getCateTree();
         $hot = release::where('status',1)->orderby('PV','desc')->get();
         $goods = release::where('status',1)->get();
         $Carousel = Carousel::where('pstatus',1)->get();
 //         dd($Carousel);
-        return view('home/first/index',compact('cates','hot','goods','Carousel'));
+        return view('home/first/index',compact('cates','hot','goods','Carousel','user','userinfo'));
 
     }
 
