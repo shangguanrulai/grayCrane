@@ -130,9 +130,9 @@ layui.use('carousel', function(){
 
                 <div class="appraisal-box" style="margin-top:50px;">
                     <div class="appraisal-header">
-                        <a href="http://2.fengniao.com/quality" class="more-link">更多</a>
-                        <h3><a href="http://2.fengniao.com/quality" >灰鹤二手</a></h3>
-                        <a href="http://2.fengniao.com/quality" class="slogan">品质保障、真实描述</a>
+                        <a href="/home/goods/index" class="more-link">更多</a>
+                        <h3><a href="/home/goods/index" >灰鹤二手</a></h3>
+                        <a href="/home/goods/index" class="slogan">品质保障、真实描述</a>
                     </div>
 
                     <div class="appraisal-container">

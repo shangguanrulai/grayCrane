@@ -101,6 +101,7 @@
 
                                         <div class="am-u-sm-9 am-u-sm-push-3">
                                             <button  class="am-btn am-btn-primary tpl-btn-bg-color-success ">修改</button>
+                                            <a  href="/template/config/putFile" class="am-btn am-btn-primary tpl-btn-bg-color-success ">更新</a>
                                         </div>
                                     </div>
                                 </div>

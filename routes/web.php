@@ -16,6 +16,8 @@
 //     return view('welcome');
 // });
 
+Route::group(['middleware' => ['Gray']],function(){
+
 
 // 前台首页
 Route::get('/', 'home\FirstController@index');
@@ -86,20 +88,47 @@ Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']]
     Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
 });
 
+//商品分类
+    Route::get('/home/goods/index','home\GoodsController@index');
+    Route::get('/home/goods/ajax','home\GoodsController@ajax');
+//商品筛选
+    Route::get('/home/goods/choose','home\GoodsController@choose');
 
-Route::get('/login', function () {
-	return view('template.logins.login');
+
+
+//商品详情
+    Route::get('/home/goods/details','home\GoodsController@details');
+
+// 回复留言
+    Route::get('/home/goods/ccccc','home\GoodsController@ajaxsss');
+//删除留言
+    Route::get('/home/goods/ddddd','home\GoodsController@ajaxssss');
+//订单提交ajax
+    Route::get('/home/goods/eeeee','home\GoodsController@ajaxsssss');
+
+//留言
+    Route::get('/home/goods/bbbbb','home\GoodsController@ajaxss');
+
+//购买商品
+    Route::get('/home/goods/buy/{rid}','home\GoodsController@buy');
+
+//付款
+    Route::get('/home/goods/pay','home\GoodsController@pay');
+//购买成功
+    Route::get('/home/goods/success','home\GoodsController@success');
+
 });
 
 
-//生成验证码路由
-Route::get('/login/code','Template\LoginController@code');
 
-Route::post('/login/dologin','template\LoginController@doLogin');
 
-//退出登录
-Route::get('/login/exit','template\LoginController@exit');
 
+
+
+// 后台
+Route::get('/login', function () {
+    return view('template.logins.login');
+});
 
 //加密
 Route::get('jiami','Admin\LoginController@jiami');
@@ -107,6 +136,15 @@ Route::get('jiami','Admin\LoginController@jiami');
 Route::get('noaccess',function(){
     return view('template.error.auth');
 });
+
+//退出登录
+Route::get('/login/exit','template\LoginController@exit');
+
+//生成验证码路由
+Route::get('/login/code','Template\LoginController@code');
+
+Route::post('/login/dologin','template\LoginController@doLogin');
+
 
 //文件上传控制器
 
@@ -187,35 +225,6 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
 
 });
 
-
-//商品分类
-    Route::get('/home/goods/index','home\GoodsController@index');
-    Route::get('/home/goods/ajax','home\GoodsController@ajax');
-//商品筛选
-    Route::get('/home/goods/choose','home\GoodsController@choose');
-
-
-
-//商品详情
-    Route::get('/home/goods/details','home\GoodsController@details');
-
-// 回复留言
-    Route::get('/home/goods/ccccc','home\GoodsController@ajaxsss');
-//删除留言
-    Route::get('/home/goods/ddddd','home\GoodsController@ajaxssss');
-//订单提交ajax
-    Route::get('/home/goods/eeeee','home\GoodsController@ajaxsssss');
-
-//留言
-    Route::get('/home/goods/bbbbb','home\GoodsController@ajaxss');
-
-//购买商品
-    Route::get('/home/goods/buy/{rid}','home\GoodsController@buy');
-
-//付款
-    Route::get('/home/goods/pay','home\GoodsController@pay');
-//购买成功
-Route::get('/home/goods/success','home\GoodsController@success');
 
 
 

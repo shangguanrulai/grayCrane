@@ -36,6 +36,7 @@ class OrderController extends Controller
                     $query -> where('ostatus',$qx);
                 }
             })
+            ->orderBy('created_at','desc')
             ->paginate(10);
 
         return view('template.order.list',compact('orders','request'));

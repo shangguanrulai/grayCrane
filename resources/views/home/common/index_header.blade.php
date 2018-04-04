@@ -110,7 +110,7 @@
 
     <div class="logo">
         <a href="/?click_source=logo">
-            <img class="fn-shop-logo-b" src="/Images/logo.jpg" style="width: 200px;">
+            <img class="fn-shop-logo-b" src="/uploads/{{ config('webconfig.web_logo') }}" style="width: 200px;">
         </a>
     </div>
 
@@ -161,11 +161,7 @@
 
                 var cid = $(this).attr('cid');
 
-
                 $(this).click(function(){
-
-                    console.log(cid);
-
                    
                     $(this).attr('href','/home/goods/index?cid='+cid);
                 })

@@ -18,6 +18,8 @@ class ConfigController extends Controller
         $str = '<?php return '.var_export($configs, true).';';
         file_put_contents(config_path().'/webconfig.php',$str);
 
+        return back();
+
     }
     /**
      * Display a listing of the resource.
@@ -74,7 +76,7 @@ class ConfigController extends Controller
                     $v->config_desc = $str;
                     break;
                 case 'img':
-                    $v->config_desc = "<input id=\"file_upload\" type=\"file\" name=\"fileupload\" value=\"\" style=\"position:relative;top:30px;opacity:0.0;z-index:99999999\"   ><input id=\"content\" type='hidden' name='profile[]' value=''><img  id=\"art_thumb\" style=position:relative;top:-20px;width:70px;height:70px src='/uploads/". $v->config_desc."' />";
+                    $v->config_desc = "<input id=\"file_upload\" type=\"file\" name=\"fileupload\" value=\"\" style=\"position:relative;top:30px;opacity:0.0;z-index:99999999\"   ><input id=\"content\" type='hidden' name='profile[]' value='".$v->config_desc."'><img  id=\"art_thumb\" style=position:relative;top:-20px;width:70px;height:70px src='/uploads/". $v->config_desc."' />";
 
             }
         }
