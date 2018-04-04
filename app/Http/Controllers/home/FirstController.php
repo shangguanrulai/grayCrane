@@ -20,8 +20,8 @@ class FirstController extends Controller
         $cates = $this->getCateTree();
         $hot = release::where('status',1)->orderby('PV','desc')->get();
         $goods = release::where('status',1)->get();
-        $Carousel = Carousel::get();
-        // dd($Carousel);
+        $Carousel = Carousel::where('pstatus',1)->get();
+//         dd($Carousel);
         return view('home/first/index',compact('cates','hot','goods','Carousel'));
 
     }

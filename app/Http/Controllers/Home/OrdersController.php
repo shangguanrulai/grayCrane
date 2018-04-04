@@ -18,7 +18,9 @@ class OrdersController extends Controller
         $user = user_home::find($uid);
         $userinfo = $user->userinfo_home;
 
-        $orders = Order::where('soleid',$uid)->orderBy('created_at','desc')->paginate(5);
+        $orders = Order::where('soleid',$uid)
+                        ->orderBy('created_at','desc')
+                        ->paginate(7);
 
         foreach($orders as $k=>$v){
             $gname = release::find($v['rrid'])['gname'];
@@ -36,7 +38,7 @@ class OrdersController extends Controller
 
     public function send($oid)
     {
-        $ostatus = ['ostatus'=>1];
+        $ostatus = ['ostatus'=>2];
         $res = Order::where('oid',$oid)->update($ostatus);
         return back();
     }
@@ -47,7 +49,9 @@ class OrdersController extends Controller
         $user = user_home::find($uid);
         $userinfo = $user->userinfo_home;
 
-        $orders = Order::where('buyid',$uid)->orderBy('created_at','desc')->paginate(5);
+        $orders = Order::where('buyid',$uid)
+                        ->orderBy('created_at','desc')
+                        ->paginate(7);
 
         foreach($orders as $k=>$v){
             $gname = release::find($v['rrid'])['gname'];
@@ -65,7 +69,7 @@ class OrdersController extends Controller
 
     public function take($oid)
     {
-        $ostatus = ['ostatus'=>2];
+        $ostatus = ['ostatus'=>3];
         $res = Order::where('oid',$oid)->update($ostatus);
         return back();
     }

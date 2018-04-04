@@ -45,11 +45,11 @@
                         <td>{{$v['omsg']}}</td>
                         <td>{{$v['addr']}}</td>
                         <td>
-                            @if($v['ostatus'] == 0)
+                            @if($v['ostatus'] == 1)
                                 <font color="#FF5722">等待发货</font>
-                            @elseif($v['ostatus'] == 1)
-                                <a class="status" oid="{{$v['oid']}}"> <button class="layui-btn layui-btn-danger layui-btn-sm">确认收货</button></a>
                             @elseif($v['ostatus'] == 2)
+                                <a class="status" oid="{{$v['oid']}}"> <button class="layui-btn layui-btn-danger layui-btn-sm">确认收货</button></a>
+                            @elseif($v['ostatus'] == 3)
                                 订单已完成
                             @endif
                         </td>

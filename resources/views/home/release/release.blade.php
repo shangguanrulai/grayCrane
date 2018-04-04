@@ -22,19 +22,19 @@
                 <a href="">发布商品</a>
             </li>
         </ul>
-<div class="switch-panel clearfix">
+<div class="switch-panel clearfix" style="position:relative;top:-50px;">
     @if (count($errors) > 0)
         <div class="alert alert-danger" >
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li style="position:relative;top:-50px;float: left;color: red;margin: 10px;font-size: 14px;border-radius: 2px;">{{ $error }}</li>
+                    <li style="float: left;color: red;margin: 10px;font-size: 14px;border-radius: 2px;">{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
         <div style="clear: both"></div>
     @endif
 <!-- goods-form -->
-<div class="goods-form" style="position:relative;top:-50px;">
+<div class="goods-form" {{--style="position:relative;top:-50px;"--}}>
 
 <form id="goods-form" class="form-horizontal" action="{{url('/home/release')}}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
@@ -284,7 +284,7 @@
     $('input[name=dphone]').change(function(){
         if( $('input[name=dphone]').attr('checked') == true ){
 
-            $('input[name=rphone]').val({{$user->phone}});
+            $('input[name=rphone]').val({{$user['phone']}});
         } else {
 
             $('input[name=rphone]').val('');

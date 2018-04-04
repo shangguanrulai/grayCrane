@@ -1,25 +1,19 @@
 @include('Home.common.index_header');
 
-
+<script src="/layui/layui.js"></script>
 <div class="wrapper-box">
     <!-- banner-wrapper -->
     <div class="banner-wrapper">
-
         <div class="banner-slider-wrap" style="margin-top: -45px">
-
             <div class="layui-carousel" id="test1">
-                @foreach($Carousel as $k=>$v)
-                @if($v->pstatus==1)
-  <div carousel-item>
-    <div><img src="/uploads/{{$v->profile}}"  width="1420px" alt=""></div>
-    <!-- <div><img src="/Images/1.jpg" alt=""></div> -->
-  </div>
-                @endif
-                @endforeach
+                  <div carousel-item>
+                      @foreach($Carousel as $k=>$v)
+                         <div><a href="{{$v['purl']}}"><img src="/uploads/{{$v['profile']}}"  width="1420px" alt=""></a></div>
+                      @endforeach
+                  </div>
 </div>
 <!-- 条目中可以是任意内容，如：<img src=""> -->
 
-<script src="/layui/layui.js"></script>
 <script>
 
 layui.use('carousel', function(){
@@ -122,7 +116,6 @@ layui.use('carousel', function(){
                                                 </li>
                                             @endif
                                         @endforeach
-
                                         <li class="goods-item item3" style="width:160px;">
                                             <div class="more-link-wrap">
                                                 <a href="" class="more-link" >更多 GO</a>
@@ -169,10 +162,10 @@ layui.use('carousel', function(){
                 <!-- // appraisal-box -->            <!-- merchants-box -->
 
                 <div class="merchants-box">
-                    <div class="merchants-header clearfix">
+                    <div class="merchants-header clearfix" style="margin-top:50px;">
                         <h3 class="merchants-title">大家都在看</h3>
                     </div>
-                    <div class="merchants-content clearfix">
+                    <div class="merchants-content clearfix" style="margin-bottom:50px;">
                         <ul class="merchants-promotions">
                             @foreach($goods as $k=>$v)
                                 @if($k<=3 && $v['recommend']==1)

@@ -51,22 +51,23 @@
                     </div>
                 @endif
 
+
+                <div class="tpl-login-logo">
+
+                </div>
                     @if (count($errors) > 0)
-                        <div class="alert alert-danger"style="background:pink"  >
-                            <ul>
+                        <div>
+                            <ul style="margin: 0px;padding: 0px;">
                                 @if(is_object($errors))
                                     @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
+                                        <li >{{ $error }}</li>
                                     @endforeach
                                 @else
-                                    <li>{{ $errors }}</li>
+                                    <li style="color:red;text-align: center;">{{ $errors }}</li>
                                 @endif
                             </ul>
                         </div>
                     @endif
-                <div class="tpl-login-logo">
-
-                </div>
 
                 <form class="am-form tpl-form-line-form" action="{{ url('/login/dologin') }}" method="post">
                     {{ csrf_field()  }}

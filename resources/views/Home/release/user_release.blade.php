@@ -22,21 +22,25 @@
             @endif
             <table class="layui-table" lay-even="" lay-skin="nob" lay-size="sm">
                 <colgroup>
+                    <col width="80">
                     <col width="130">
                     <col width="130">
                     <col width="80">
                     <col width="100">
                     <col width="100">
+                    <col width="70">
                     <col>
                     <col width="50">
                 </colgroup>
                 <thead>
                     <tr>
+                        <th>发布时间</th>
                         <th>商品名称</th>
                         <th>标题</th>
                         <th>联系手机</th>
                         <th>商品图</th>
                         <th>发布价格</th>
+                        <th>状态</th>
                         <th>描述</th>
                         <th>删除</th>
                     </tr>
@@ -44,6 +48,7 @@
                 <tbody>
                 @foreach($release as $k=>$v)
                     <tr>
+                        <td>{{$v['created_at']}}</td>
                         <td>{{$v['gname']}}</td>
                         <td>{{$v['title']}}</td>
                         <td>{{$v['rphone']}}</td>
@@ -51,6 +56,13 @@
                         <td>
                             {{$v['nowprice']}}元
                            <i class="layui-icon upd" rid="{{$v['rid']}}">&#xe642;</i>
+                        </td>
+                        <td>
+                            @if($v['status']==0)
+                                <font color="#ff7733">待审核···</font>
+                            @else
+                                <font color="#009688">售卖中···</font>
+                            @endif
                         </td>
                         <td>{{$v['describe']}}</td>
                         <td>

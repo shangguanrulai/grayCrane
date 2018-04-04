@@ -25,7 +25,11 @@ class ReleaseController extends Controller
 
         $keywords = $request->input('keywords');
 
-        $release = release::where('uid',$uid)->whereIn('status',[0,1])->where('gname','like','%'.$keywords.'%')->paginate(5);
+        $release = release::where('uid',$uid)
+                            ->whereIn('status',[0,1])
+                            ->where('gname','like','%'.$keywords.'%')
+                            ->orderby('created_at','desc')
+                            ->paginate(7);
 
         return view('home.release.user_release',compact('user','userinfo','release'));
     }
