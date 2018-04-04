@@ -122,6 +122,16 @@ class OrderController extends Controller
 
     public function delall(Request $request)
     {
+        $ids = $request->input(ids);
+        foreach($ids as $k=>$v){
+            $orders = Order::find($v);
+            if($orders->ostatus==3){
+
+            }else{
+                return back()->with('msg','订单未完成,不可删除');
+            }
+        }
+
         $ids = $request -> input('ids');
         $res = Order::destroy($ids);
         if($res) {

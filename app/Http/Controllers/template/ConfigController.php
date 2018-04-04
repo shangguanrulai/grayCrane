@@ -47,12 +47,12 @@ class ConfigController extends Controller
                 //如果当前记录的类型是文本框
 //      aaaa   =====>    <input type="text" name="title"  class="layui-input" value="aaaa">
                 case 'input':
-                    $v->config_desc = '<input type="text" name="config_desc[]" value="'.$v->config_desc.'">';
+                    $v->config_desc = '<input type="text" name="profile[]" value="'.$v->config_desc.'">';
                     break;
                 //如果当前记录的类型是文本域
 //       bbbb   =====>     <textarea name=""  class="layui-textarea">bbbbb</textarea>
                 case 'textarea':
-                    $v->config_desc ='<textarea name="config_desc[]"  class="layui-textarea">'.$v->config_desc.'</textarea>';
+                    $v->config_desc ='<textarea name="profile[]"  class="layui-textarea">'.$v->config_desc.'</textarea>';
                     break;
                 //如果当前记录的类型是单选按钮
                 case 'radio':
@@ -69,12 +69,12 @@ class ConfigController extends Controller
                         $a = explode('|',$n);//[0=>1,1=>开启]
                         $checked =    ($a[0] == $v->config_desc)?'checked':'';
 
-                        $str.= '<input type="radio" name="config_desc[]" value="'.$a[0].'" title="'.$a[1].'" '.$checked.'>'.$a[1];
+                        $str.= '<input type="radio" name="profile[]" value="'.$a[0].'" title="'.$a[1].'" '.$checked.'>'.$a[1];
                     }
                     $v->config_desc = $str;
                     break;
                 case 'img':
-                    $v->config_desc = "<input id=\"file_upload\" type=\"file\" name=\"fileupload\" value=\"\" style=\"position:relative;top:30px;opacity:0.0;z-index:99999999\"   ><input id=\"content\" type='hidden' name='config_desc[]' value=''><img  id=\"art_thumb\" style=position:relative;top:-20px;width:70px;height:70px src='/uploads/". $v->config_desc."' />";
+                    $v->config_desc = "<input id=\"file_upload\" type=\"file\" name=\"fileupload\" value=\"\" style=\"position:relative;top:30px;opacity:0.0;z-index:99999999\"   ><input id=\"content\" type='hidden' name='profile[]' value=''><img  id=\"art_thumb\" style=position:relative;top:-20px;width:70px;height:70px src='/uploads/". $v->config_desc."' />";
 
             }
         }
@@ -122,14 +122,14 @@ class ConfigController extends Controller
         $arr = Config::where('config_name',$input['config_name'])->first();
 
         if($arr){
-            return back()->with('error','该用户已存在!');
+            return back()->with('error','该配置已存在!');
         }
 
             $input['config_desc']=$input['profile'];
 
 
         unset($input['profile']);
-     
+
 //      添加到配置表
         $res = Config::create($input);
         if($res){
@@ -202,15 +202,14 @@ class ConfigController extends Controller
 
         $input = $request->except('_token','fileupload');
 
-
-
 //        开启事务
        DB::beginTransaction();
 
         try{
             foreach($input['conf_id'] as $k=>$v){
                 //$v就是要更新的网站配置项的id
-                Config::find($v)->update(['config_desc'=>$input['config_desc'][$k]]);
+
+                Config::find($v)->update(['config_desc'=>$input['profile'][$k]]);
             }
             DB::commit();
             return redirect('/config')->with('msg','修改成功');

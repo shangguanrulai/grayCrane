@@ -35,6 +35,7 @@ function uploadImage() {
             console.log(data);
             $('#art_thumb').attr('src','/uploads/'+data);
             $("input[name='profile']").val(data);
+            $("#content").val(data);
         },
         error:function(data){
             alert('添加失败');
