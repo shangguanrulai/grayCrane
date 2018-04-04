@@ -1,7 +1,7 @@
 ﻿@extends('home.common.user_home')
 @section('content')
     <style>
-        #pass:hover{color: red;}
+        .pass:hover{color: red;}
         .layui-nav{top:-20px;}
         .fn-sec-header{top:-20px;}
     </style>
@@ -27,8 +27,8 @@
                         <span class="left"><font>灰鹤信用：<i>{{$userinfo['score']}}</i></font></span>
                         <span class="left"><font>手机认证：<i>@if ($user['phone']) 已认证 @else 未认证 @endif</i></font></span>
                         <span class="left"><font>实名认证：<i>@if ($userinfo['isTrue'] == 0) 未认证 @else 已认证 @endif</i></font></span>
-                        <span class="left"><font><a href="/home/user/pass" id="pass">修改密码</a></font></span>
-                        <span class="left"><font><a href="/home/user/addr">收货地址</a><i></i></font></span>
+                        <span class="left"><font><a href="/home/user/pass" class="pass">修改密码</a></font></span>
+                        <span class="left"><font><a href="/home/user/addr" class="pass">收货地址</a><i></i></font></span>
                     </div>
                     <div class="clear">&nbsp;</div>
                     <div class="btn clearfix">

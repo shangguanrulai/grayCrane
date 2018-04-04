@@ -42,7 +42,7 @@
                             <i class="layui-icon layui-timeline-axis"></i>
                             <div class="layui-timeline-content layui-text">
                                 <h3 class="layui-timeline-title"><a href="">{{$v['gname']}}</a></h3>
-                                <p><font color="red">我</font>&nbsp;在&nbsp;{{$vv['created_at']}}&nbsp;留言:&nbsp;&nbsp;<font color="#ff7733">{{$v['umessage']}}</font></p>
+                                <p><font color="red">我</font>&nbsp;在&nbsp;{{$v['created_at']}}&nbsp;留言:&nbsp;&nbsp;<font color="#ff7733">{{$v['umessage']}}</font></p>
                             </div>
                         </li>
                     @endforeach
