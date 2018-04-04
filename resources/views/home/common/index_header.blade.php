@@ -136,11 +136,11 @@
                     @foreach($cates as $v)
                         <li class='a1'>
                             <div class='tx' name="{{$v->cid}}">
-                                <a href="#" >{{$v->cname}}</a>
+                                <a name="yiji" cid="{{ $v->cid }}"  target="_self">{{$v->cname}}</a>
                             </div>
                             <div class='pop'>
                                 @foreach($v->sub as $vv)
-                                    <a class="ui-link" href="">{{$vv->cname}}</a>
+                                    <a class="ui-link" name="erji" cid="{{ $vv->cid }}"  target="_self" >{{$vv->cname}}</a>
                                 @endforeach
                                 <div class='clr'></div>
                             </div>
@@ -149,6 +149,31 @@
                 </ul>
             </div>
         </div>
+        <script>
+            //一级分类
+            $('a[name=yiji]').each(function(){
+
+                var cid = $(this).attr('cid');
+
+
+                $(this).click(function(){
+
+                    console.log(cid);
+
+                   
+                    $(this).attr('href','/home/goods/index?cid='+cid);
+                })
+            })
+            //二级分类
+            $('a[name=erji]').each(function(){
+
+                var cid = $(this).attr('cid');
+
+                $(this).click(function(){
+                    $(this).attr('href','/home/goods/index?cid='+cid);
+                })
+            })
+        </script>
 
         <div class="nav-link">
             <i class="bottom-line"></i>

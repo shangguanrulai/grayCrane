@@ -25,7 +25,7 @@
     </script>
 </head>
 <body>
-<div class="top-bar"><span class="text">蜂鸟购为您提供全程的专业技术支持及安全保障!</span></div>
+<div class="top-bar"><span class="text">灰鹤购为您提供全程的专业技术支持及安全保障!</span></div>
 <!-- header -->
 <div class="header">
     <div class="wrapper clearfix">
@@ -37,56 +37,25 @@
     <div class="wrapper">
         <div class="order-status pay-status">
             <i class="pay-icon"></i>
-            <h3 style='line-height:5px'>订单提交成功，请您确定付款购买！</h3>
-            <ul class="order-summary clearfix">
-                <li>订单号:{{ $onumber }}&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-                <li>应付金额(元) ：<span class="price"><strong>{{ $price }}</strong>&nbsp;元 </span></li>
-            </ul>
+            <h3 style='line-height:5px'>商品购买成功 .</h3>
+
             
             <div class="pay-num">
-                立即支付<strong class="price">{{ $price }}元</strong>
+                <a href="/">返回首页</a>
+                <a href="/home/user/orders/buy">查看订单</a>
+                
             </div>
         </div>
         <!-- pay-tabs -->
-        <div class="pay-tabs J_switchTab">
-            
-            <div class="tab-panels J_switchTab">
-                <div id="payItem1" class="tab-panel J_tabPanel"
-                     style="display:block">
-                    <div class="plat-pay-box J_switchTab">
-                        <form method="get" action="/home/goods/success">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                                <input type="hidden" name='rid' value = "{{ $rid }}" >
-                                <input type="hidden" name='buyid' value = "{{ $buyid }}" >
-                                <input type="hidden" name='price' value = "{{ $price }}" >
-                                <input type="hidden" name='omsg' value = "{{ $omsg }}" >
-                                <input type="hidden" name='onumber' value = "{{ $onumber }}" >
+    
 
-                                <label for="exampleInputPassword1" style='margin:0px 25px;'>支付密码</label>
-                                <input style='margin:25px;width:500px;' type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入交易密码" name='password'> 
-                                <em class='em'></em> 
-                                @if (count($errors) > 0)
-        <div class="alert alert-danger" >
-            <ul>
-                
-                    <li>{{ $errors }}</li>
-                
-            </ul>
-        </div>
         <div style="clear: both"></div>
-    @endif
-                            
-                            <div class="button-box J_tabPanels">
 
-                 
-                                <div  id="wechatItem" class="J_tabPanel" style="display:block;">
-                                    <input id="wechatSubButton" type="submit" value="确认付款" class="button">
-                                </div>
-                            </div>
-                        </form>
+                            
+
+                     
                         
-                    </div>
-                </div>
+                
 <!--                <div id="payItem4" class="tab-panel J_tabPanel" style="display: none;">-->
 <!--                    <div class="wechat-pay-box">-->
 <!--                        <h3 class="pay-title"><img src="/Picture/wechat-logo.png" width="30" alt="">微信支付</h3>-->
@@ -115,8 +84,7 @@
         <!-- //pay-tabs -->
 
 
-    </div>
-</div>
+<div style='height:125px;'></div>
 <i id="wechatLaryerMarsk" class="wechatLaryerMarsk"></i>
 <script type="text/javascript">
     var orderUrl = "http://2.fengniao.com/order/id/1015226548117190",

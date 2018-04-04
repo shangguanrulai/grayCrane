@@ -14,6 +14,8 @@ use App\Model\userinfo_home;
 use App\Model\address;
 use App\Model\Order;
 
+use Hash;
+
 
 
 use App\Model\Words;
@@ -25,38 +27,63 @@ class GoodsController extends Controller
     //商品列表页综合排序
     public function index(Request $request){
 
-        $req = $request->input('cid');
-        //获取一级分类
-        $zong = cate::where('pid','0')->get();
-        //获取二级分类
-        $er = cate::where('pid','1')->get();
+
+        $cid = $request->input('cid');
+
+
+    //获取分类下的所有商品
 
 
 
+    $goods = release::where('cid',$cid)->paginate(3);
 
-
-        //获取
-        $goods = release::where('cid',$req)->paginate(1);
-
-
-        if($goods->count() == 0){
+    //如果分类下没有商品 ,则显示所有商品
+    if($goods->count() == 0){
 
             $release = new Release;
-            $goods = $release->paginate(1);
+            $goods = $release->paginate(3);
         }
 
+    //检测关键字
+    $gname = $request->input('uname');
+    //检测价格区间
+    $tp = $request->input('tp');
+    $bp = $request->input('bp');
+
+    if(!empty($gname) || !empty($email)){
+    //多条件并分页
+        $goods = Release::orderBy('created_at','asc')
+            ->where(function($query) use($request){
+                
+                //如果用户名不为空
+                if(!empty($gname)) {
+                    $query->where('gname','like','%'.$gname.'%');
+                }
+                //如果邮箱不为空
+                if(!empty($email)) {
+                    $query->where('newprice'<= $tp,'newprice'>=$bp);
+                }
+            })
+            ->paginate($request->input('num', 5));
+    }
+
+  
+        
+
+        
+
 
         
 
         
         
 
-        //分页
+        
        
 
 
 
-        return view('home.fenlei',['er'=>$er,'cname'=>$zong,'goods'=>$goods]);
+        return view('home.fenlei',['goods'=>$goods]);
     }
     // ajax
     public function ajax(Request $request)
@@ -70,9 +97,13 @@ class GoodsController extends Controller
 
     }
 
-    //发布时间排序
-    public function fbsj(){
-        return view('home.fbsj');
+    //商品筛选
+    Public function choose(Request $request){
+
+        $goods = $request->input('goods');
+
+        return $goods;
+
     }
 
     //商品详情
@@ -123,7 +154,17 @@ class GoodsController extends Controller
         $count = count(Words::where('pid','0')->get());
 
         //获取所有留言及回复
-        $liu = Words::get();
+        /*$liu = Words::get();*/
+        $liu=array();
+        $liu=$this->getCommlist();//获取评论列表
+
+        /*dd($liu);*/
+
+        /*return $liu;*/
+        
+        
+
+        
 
        
         //获取登录uid
@@ -149,7 +190,26 @@ class GoodsController extends Controller
 
 
 
-       return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'liu'=>$liu,'collect'=>$collect,'count'=>$count,'musers'=>$musers]);
+       return view('home.details',['goods'=>$goods,'users'=>$users,'f'=>$f,'flag'=>$flag,'liu'=>$liu,'collect'=>$collect,'count'=>$count,'musers'=>$musers,'useruid'=>$useruid]);
+    }
+
+     //获取所有留言及回复
+    protected function getCommlist($parent_id = 0,&$result = array()){
+
+        $arr = words::where('pid',$parent_id)->get();
+
+        
+        if(empty($arr)){
+            return array();
+        }
+        foreach ($arr as $cm) {
+            $thisArr=&$result[];
+
+            $cm["children"] = $this->getCommlist($cm["wid"],$thisArr);
+
+            $thisArr = $cm;
+        }
+        return $result;
     }
 
     //商品收藏ajax
@@ -200,7 +260,8 @@ class GoodsController extends Controller
 
 
          //登录用户的信息
-        $useruid = $request->input('uid');
+        /*$useruid = $request->input('uid');*/
+        $useruid = Session('user')['uid']; 
 
 
 
@@ -240,6 +301,8 @@ class GoodsController extends Controller
     }   
     //回复留言
     Public function ajaxsss(Request $request){
+
+
         $text = $request->input('text');
         $pid = $request->input('pid');
         $rid = $request->input('rid');
@@ -273,12 +336,17 @@ class GoodsController extends Controller
 
         $save = $words->save();
 
+        return 123;
+
 
     }
     //删除留言
     Public function ajaxssss(Request $request){
 
         $wid = $request->input('wid');
+
+
+        
 
 
 
@@ -329,28 +397,42 @@ class GoodsController extends Controller
 
         $omsg = $request->input('omsg');
 
-        $onumber = time();
+        $onumber = date('Ymd').$rid.$buyid;
 
-        $userinfo = userinfo_home::where('uid',$buyid)->first();
-
-        $payPass = $userinfo['payPass'];
-
+       
 
 
         
 
         
 
-        return view('home.pay',['rid'=>$rid,'buyid'=>$buyid,'price'=>$price,'omsg'=>$omsg,'onumber'=>$onumber,'payPass'=>$payPass]);
+        return view('home.pay',['rid'=>$rid,'buyid'=>$buyid,'price'=>$price,'omsg'=>$omsg,'onumber'=>$onumber]);
 
     }
 
     //购买成功
     public function success(Request $request){
 
-        $rrid = $request->input('rid');
+        $password = $request->input('password');
+
+
 
         $buyid = $request->input('buyid');
+
+        //密码验证
+         $userinfo = userinfo_home::where('uid',$buyid)->first();
+
+        $payPass = $userinfo['payPass'];
+
+
+
+         if(!Hash::check($password,$payPass)){
+            return back()->with('errors','支付密码错误');
+        }
+
+        $rrid = $request->input('rid');
+
+        
 
         $sole= Release::where('rid',$rrid)->first();
 
@@ -388,28 +470,17 @@ class GoodsController extends Controller
         $order->save();
 
 
+        return view('home.success');
+
+
+
+
+
 
         
     }
 
 
-    //获取所有的留言及评论
-    public function getCateTree( $cates=[], $pid=0 )
-        {
-            if( empty($cates) ){
-                $cates = $this->cates -> select();
-            }
-            
-            $sub = [];
-            foreach( $cates as $k=>$v ){
-                if( $v->pid == $pid ){
-                    $v->sub = $this -> getCateTree( $cates, $v->cid );
-                    $sub[] = $v;
-                }
-            }
-            
-            return $sub;
-    }
 
 }
 

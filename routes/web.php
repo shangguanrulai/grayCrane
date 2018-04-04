@@ -46,6 +46,7 @@ Route::post('/home/ajax/userinfo','home\AjaxController@userinfo');
 *ajax结束
  */
 
+// 前台中间件控制器
 Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']],function(){
 // 前台消息
     Route::get('msg','MsgController@index');
@@ -79,17 +80,18 @@ Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']]
     Route::get('release/update_release', 'ReleaseController@update_release');
     Route::get('release/destroy_release/{rid}/', 'ReleaseController@destroy_release');
     Route::resource('release', 'ReleaseController');
+
+//商品收藏
+    Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
+
+
 });
 
-
-
-
-
-Route::group([],function(){
 
 Route::get('/login', function () {
-    return view('template.logins.login');
+	return view('template.logins.login');
 });
+
 
 //生成验证码路由
 Route::get('/login/code','Template\LoginController@code');
@@ -183,37 +185,31 @@ Route::get('template/user_home','template\User_homeController@user_home');
 
 
 //商品分类
-Route::get('/home/goods/index','home\GoodsController@index');
-Route::get('/home/goods/ajax','home\GoodsController@ajax');
+    Route::get('/home/goods/index','home\GoodsController@index');
+    Route::get('/home/goods/ajax','home\GoodsController@ajax');
+//商品筛选
+    Route::get('/home/goods/choose','home\GoodsController@choose');
+
 
 
 //商品详情
-Route::get('/home/goods/details','home\GoodsController@details');
-//商品收藏
-Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
+    Route::get('/home/goods/details','home\GoodsController@details');
+
+// 回复留言
+    Route::get('/home/goods/ccccc','home\GoodsController@ajaxsss');
+//删除留言
+    Route::get('/home/goods/ddddd','home\GoodsController@ajaxssss');
+//订单提交ajax
+    Route::get('/home/goods/eeeee','home\GoodsController@ajaxsssss');
 
 //留言
-Route::get('/home/goods/bbbbb','home\GoodsController@ajaxss');
-// 回复留言
-Route::get('/home/goods/ccccc','home\GoodsController@ajaxsss');
-//删除留言
-Route::get('/home/goods/ddddd','home\GoodsController@ajaxssss');
-//订单提交ajax
-Route::get('/home/goods/eeeee','home\GoodsController@ajaxsssss');
+    Route::get('/home/goods/bbbbb','home\GoodsController@ajaxss');
 
 //购买商品
-Route::get('/home/goods/buy/{rid}','home\GoodsController@buy');
+    Route::get('/home/goods/buy/{rid}','home\GoodsController@buy');
+
 //付款
-Route::get('/home/goods/pay','home\GoodsController@pay');
+    Route::get('/home/goods/pay','home\GoodsController@pay');
 //购买成功
-Route::get('/home/goods/success','home\GoodsController@success');
-
-
-
-
-
-
-
-
-
+    Route::get('/home/goods/success','home\GoodsController@success');
 
