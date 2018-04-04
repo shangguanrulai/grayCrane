@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\template;
 
 use App\MOdel\Cate;
+use App\Model\release;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -146,10 +147,15 @@ class CateController extends Controller
      */
     public function destroy($id)
     {
-        $res = Cate::where('pid',$id)->first();
-        if($res){
-            return back()->with('msg','存在子分类,不能删除!!');
+        $res = Cate::where('pid',$id)->get();
+        $goods = release::where('cid',$id)->get();
+
+        if($res->count()!=0){
+            return back()->with('msg','该类别含子分类,不能删除!!');
+        }else if($goods->count()!=0) {
+            return back()->with('msg', '该类别含商品,不能删除!!');
         }else{
+
             $red =Cate::destroy($id);
             if($red){
                 return back()->with('msg','删除成功');
@@ -166,11 +172,20 @@ class CateController extends Controller
 
 
         foreach($cids as $k => $v){
-            $res = Cate::where('pid',$v)->first();
+            $res = Cate::where('pid',$v)->get();
+            $goods = release::where('cid',$v)->get();
 
-            if(!empty($res)){
+            if($res->count()!=0){
                 $arr = [
-                    'msg'=>'选中类别不为空,无法删除'
+                    'a'=>0,
+                    'msg'=>'选中类别含子分类,无法删除'
+
+                ];
+                return $arr;
+            }else if($goods->count()!=0){
+                $arr = [
+                    'a'=>0,
+                    'msg'=>'选中类别含商品,无法删除'
 
                 ];
                 return $arr;
@@ -178,7 +193,6 @@ class CateController extends Controller
 
         }
 
-        if(empty($res)){
             $red =Cate::destroy($cids);
             if($red) {
                 $arr = [
@@ -191,5 +205,5 @@ class CateController extends Controller
             }
             return $arr;
         }
-    }
+
 }
