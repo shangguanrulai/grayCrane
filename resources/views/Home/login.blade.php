@@ -89,12 +89,12 @@
         </div>
         <input type="submit" class="login-sunmit" value="立即登录" id="toLogin">
         <div class="noID">还没有账号？<a href="{{url('/home/register')}}">立即注册</a></div>
-        <div class="other-login">
+        <!-- <div class="other-login">
             <span>其他登录方式：</span>
             <a href="https://my.fengniao.com/loginThirdParty.php?id=1&url=http://2.fengniao.com/user/buy?click_source=topbar" class="weibo">微博</a>
             <a href="https://my.fengniao.com/loginThirdParty.php?id=2&url=http://2.fengniao.com/user/buy?click_source=topbar" class="weixin">微信</a>
             <a href="https://my.fengniao.com/loginThirdParty.php?id=3&url=http://2.fengniao.com/user/buy?click_source=topbar" class="qq">QQ</a>
-        </div>
+        </div> -->
         <!--content-->
     </div>
 

@@ -34,7 +34,7 @@
                                     <thead>
                                     <tr>
                                         <th>买家</th>
-                                        <th>商品名称</th>
+                                        <!-- <th>商品名称</th> -->
                                         <th>留言内容</th>
                                         <!-- <th>创建时间</th>
                                         <th>商品图片</th> -->
@@ -46,7 +46,7 @@
                                     @foreach($details as $k => $v)
                                         <tr class="gradeX">
                                             <td>{{$v->nickname}}</td>
-                                            <td>{{$v->gname}}</td>
+                                            <!-- <td>{{$v->gname}}</td> -->
 
                                             <td>{{ $v->umessage }}</td>
                                             <td> <a href="{{url('goods/delete/'.$v->wid)}}"><button  class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 删除</button></a></td>
