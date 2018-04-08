@@ -41,14 +41,16 @@ layui.use('carousel', function(){
 
     <!-- pic-wrapper -->
     <div class="wrapper pic-wrapper">
-        <div class="time-axis-bar clearfix">
+        <!-- <div class="time-axis-bar clearfix">
             <a href="http://2.fengniao.com/recycle" target="_blank" class="axis-title"><img src="Picture/811c85a24dce709e9e2074f1141e7623.jpg" alt=""></a>
             <a href="http://2.fengniao.com/jd/84" target="_blank" class="axis-main">
                 <img class="timer-line-b" src="Picture/7bb0e1c8e86dc3f5439bc251c20a3bff.gif" alt="">
                 <img class="timer-line-s" style="display: none;" src="" alt="">
             </a>
+        </div> -->
+        <div>
+            <img src="Images/hengfu.png" alt="">
         </div>
-
 
     </div>
     <!-- //pic-wrapper -->

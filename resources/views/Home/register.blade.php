@@ -77,12 +77,12 @@
            <img src="{{ url('home/yanzhengma') }}" onclick="this.src='{{ url('home/yanzhengma') }}?'+Math.random()" alt="" style="width:150px;height:42px;float:right">
 
         </div>
-                <p>
+                <!-- <p>
                     <font>&nbsp;</font>
                     <input type="checkbox" id="agree" value="1"  checked/>
                     <s>我已阅读并同意</s>
                     《灰鹤用户注册协议》
-                </p>
+                </p> -->
                 <p>
                     <font>&nbsp;</font>
                     <input type="submit" value="立即注册" class="submit1" id="toRegister"/>
