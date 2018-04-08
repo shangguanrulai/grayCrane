@@ -20,7 +20,7 @@
 <script src="/Scripts/jquery.bxslider.min.js" charset="UTF-8"></script>
 <script src="/Scripts/jquery.tinyscrollbar.2.4.2.min.js" charset="UTF-8"></script>
 <script src="/Scripts/im.js" charset="UTF-8"></script>
-<script src="/Scripts/globalceiling.js" charset="UTF-8"></script>
+<!-- <script src="/Scripts/globalceiling.js" charset="UTF-8"></script> -->
 <script src="/Scripts/md5.js" charset="UTF-8"></script>
 <!-- <script src="/Scripts/common.js" charset="UTF-8"></script> -->
 <script src="/Scripts/global.js" charset="UTF-8"></script>
@@ -61,13 +61,14 @@
     });
 </script>
 <br />
-        <div class="wrapper clearfix">
-            <div class="logo">
-    <a title="蜂鸟网--二手交易" href="/?click_source=logo"><img src="/Picture/logov2.png" alt="蜂鸟网--二手交易"></a>
-</div>
+        
+<div class="wrapper clearfix">
+       <img class="fn-shop-logo-b" src="/uploads/uploads/DLVp7SLZcODFHm0xGoFiLWXUKd798RQdqohvEYEl.jpeg" style="width: 200px;">
+        
+    </div>
             
 
-        </div>
+       
     
     <div class="wrapper-box">
             <ul class="order-steps clearfix">
@@ -146,7 +147,7 @@
                             <div class="parameter-content">
                                 <div class="order-detail">
                                     <!-- <div class="contact-bar clearfix">
-                                        <span class="seller-tag">卖家：蜂鸟鉴定</span><span data-title="98新 富士 X-E2s #1047" data-url="/secforum/3264483.html" class="contact-tag sendPrivateLetterBtn" userId='10337863' >与TA联系</span>
+                                        <span class="seller-tag">卖家：灰鹤鉴定</span><span data-title="98新 富士 X-E2s #1047" data-url="/secforum/3264483.html" class="contact-tag sendPrivateLetterBtn" userId='10337863' >与TA联系</span>
                                     </div> -->
                                     <div class="order-header clearfix">
                                         <span class="cell-1">商品信息</span>
@@ -159,7 +160,7 @@
                                                     <span class="goods-avator"><img src="/uploads/{{ $goods['gpic'] }}" alt=""></span>
                                                     <div class="goods-title-box">
                                                         <a href="JavaScript:;" target="_blank" class="goods-title">
-															 {{ $goods['gname'] }}																																																<img src="/Picture/cg-4kljds_-izehzaaai0bdorqgaafcoqp-qxuaaajo174.jpg" >
+															 {{ $goods['gname'] }}																																																
 																																	<!-- <img src="/Picture/cg-40ljfvraiozgiaaah1ddf758aadppqdgfwyaaaft874.jpg" >
                                                                                                                                     <img src="/Picture/f2201797f20c5a6f2a54944affff765b.jpg" > -->
 																																													</a>
@@ -167,12 +168,12 @@
                                                     </div>
                                                     <div class="goods-price-box">
                                                                                                                     
-                                                            <span class="price promotion-price">&yen;{{ $goods['newprice'] }}</span>
+                                                            <span class="price promotion-price">&yen;{{ $goods['nowprice'] }}</span>
                                                                                                             </div>
                                                     <div class="goods-counter-box">
                                                         X 1
                                                     </div>
-                                                    <div class="goods-total-box">&yen;{{ $goods['newprice'] }}</div>
+                                                    <div class="goods-total-box">&yen;{{ $goods['nowprice'] }}</div>
                                                 </li>
                                                                                                                         </ul>
                                     <div class="sellout-layerbox" style="display:none;">
@@ -182,7 +183,7 @@
                                 </div>
                                 <div class="total-price">
                                     <span>已优惠：<strong id='privilege' price='0'>&yen;0.00</strong></span>
-                                    <span>应付总计：<strong id='totalprice' totalprice='2599.00'>&yen;{{ $goods['newprice'] }}</strong></span>
+                                    <span>应付总计：<strong id='totalprice' totalprice='2599.00'>&yen;{{ $goods['nowprice'] }}</strong></span>
                                 </div>
                             </div>
                         </li>
@@ -191,14 +192,14 @@
 
                     	<div class="address-summary">
                     		<div class="address-inner">
-	                    		<span class="price"><span class="goods-count">1件商品</span>实付总计：<strong id='realityprice'>&yen;{{ $goods['newprice'] }}</strong></span>
+	                    		<span class="price" style='padding:30px;'>1件商品 实付总计：<strong id='realityprice'>&yen;{{ $goods['nowprice'] }}</strong></span>
 	                    		
                     		</div> 
                             <form action="/home/goods/pay" method='get'>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                 <input type="hidden" name='rid' value = "{{ $goods['rid'] }}" >
                                 <input type="hidden" name='buyid' value = "{{ $users['uid'] }}" >
-                                <input type="hidden" name='price' value = "{{ $goods['newprice'] }}" >
+                                <input type="hidden" name='price' value = "{{ $goods['nowprice'] }}" >
                     		<input id='ordersubmit' type="submit" class="submit-button" value="提交订单">
                             
                     	</div>
@@ -321,7 +322,7 @@
                     <img src="/Picture/guarantee-icon4.png" alt="">
                     <strong>纠纷维权</strong>
                     <ul class="guarantee-links">
-                        <li><span class="link">蜂鸟客服介入</span></li>
+                        <li><span class="link">灰鹤客服介入</span></li>
                         <li><span class="link">质量纠纷仲裁</span></li>
                     </ul>
                 </li>
@@ -363,17 +364,17 @@
             <li class="foot-classification-item">
                 <strong>特色服务</strong>
                 <ul class="links">
-                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=386">蜂鸟鉴定</a></li>
-                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=319">蜂鸟回收</a></li>
-                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=336">蜂鸟拍卖</a></li>
+                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=386">灰鹤鉴定</a></li>
+                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=319">灰鹤回收</a></li>
+                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=336">灰鹤拍卖</a></li>
                     <li><a rel="nofollow" target="_blank" href="/help/detail?id=387">卖家帮助</a></li>
                 </ul>
             </li>
         </ul>
         <div class="foot-QR-code">
             <span class="pic"><img src="/Picture/wechat.jpg" alt="" width="80" height="80"></span>
-            <strong>蜂鸟二手官方微信</strong>
-            <p>扫描二维码<br />即刻与蜂鸟二手亲密互动</p>
+            <strong>灰鹤二手官方微信</strong>
+            <p>扫描二维码<br />即刻与灰鹤二手亲密互动</p>
         </div>
     </div>
     
@@ -381,7 +382,7 @@
 <div class="footer-copyright">
     <div class="wrapper">
         <div class="site-map">
-            <a rel="nofollow" href="http://www.fengniao.com/about.html" target="_blank">蜂鸟简介</a>
+            <a rel="nofollow" href="http://www.fengniao.com/about.html" target="_blank">灰鹤简介</a>
             <a rel="nofollow" href="http://www.fengniao.com/contact.html" target="_blank">联系我们</a>
             <a rel="nofollow" href="http://www.fengniao.com/sitelinks.php" target="_blank">友情链接</a>
             <a rel="nofollow" href="http://www.fengniao.com/zhaopin.html" target="_blank">招聘信息</a>
@@ -391,7 +392,7 @@
         </div>
 
         <div class="copyright">&copy;
-            <script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script>fengniao.com. All rights reserved . 北京蜂鸟映像电子商务有限公司（蜂鸟网）<br />版权所有 京ICP证150110号
+            <script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script>greycrane.com. All rights reserved . 北京灰鹤映像电子商务有限公司（灰鹤网）<br />版权所有 京ICP证150110号
         </div>
     </div>
 </div>
@@ -469,7 +470,7 @@
                     <button type="button" class="disabled getCodeBtn" time="0" >获取动态密码</button>
                     <input id="commonLoginCode" class="code-input" type="text">
                     <br class="clear">
-                    <span class="commonLogin-tip high-tip">注意：如果您已注册过蜂鸟账号，请确认该手机号和账号是否做了绑定，否则系统将自动创建新账号。</span>
+                    <span class="commonLogin-tip high-tip">注意：如果您已注册过灰鹤账号，请确认该手机号和账号是否做了绑定，否则系统将自动创建新账号。</span>
                 </li>
                 <li class="form-item clearfix">
                     <input class="commonLogin-button" type="button" value="立即登录">

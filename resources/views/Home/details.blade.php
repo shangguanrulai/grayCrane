@@ -6,13 +6,9 @@
 
 <!-- //header -->
     
-<div class="wrapper clearfix">
-    <div class="recommend-pic">
-        <div><img src="/Picture/top-safetyguide.png"/></div>
-    </div>
-</div><!-- detail-box -->
-<div class="wrapper detail-box">
-    <div class="detail-price clearfix">
+
+<div class="wrapper detail-box" >
+    <div class="detail-price clearfix" style="padding:0px 100px">
         <div class="product-summary">
             <div id="productGallery" class="connected-carousels product-gallery">
     <span id="productGalleryBack" class="goback">&lt; 返回</span>
@@ -38,7 +34,7 @@
         <div class="carousel carousel-navigation">
             <ul>
                             <li>
-                    <img src="/uploads/{{ $goods->gpic }}">
+                    <img src="/uploads/{{ $goods['gpic'] }}">
                     <span class="mask"></span>
                 </li>
                         </ul>
@@ -109,7 +105,7 @@
                 window._bd_share_config={
                     "common":{
                         "bdSnsKey":{},
-                        "bdText":"我在@蜂鸟二手交易平台 发现了一个非常不错的商品： （闲置商品测试 中一光学Mitakon 35mm F0.95 Mark II）　蜂鸟价：94545.00 感觉特别好，分享一下~",
+                        "bdText":"我在@灰鹤二手交易平台 发现了一个非常不错的商品： （闲置商品测试 中一光学Mitakon 35mm F0.95 Mark II）　灰鹤价：94545.00 感觉特别好，分享一下~",
                         "bdMini":"1",
                         "bdMiniList":false,
                         "bdPic":"http://2.qn.img-space.com/g2/M00/06/56/Cg-4kllB_RiIFb_lAAwUeFikDwkAAJ1OQKROqoADBSQ119.jpg?imageView2/2/w/300/h/300/q/90/ignore-error/1/",
@@ -162,7 +158,7 @@
     </div>
     <div class="post-button">
         <span name="pinglun" class="comment-button">评论</span>
-        <span id="showWechatLayer" class="wechat-tip">关注小蜂，微信管理</span>
+        <span id="showWechatLayer" class="wechat-tip">关注小鹤，微信管理</span>
     </div>
 
 <!-- 提交留言 -->
@@ -194,13 +190,13 @@
 @foreach($liu as $k=>$v)
 <ul class="comment-list">
     <li class='comment-item clearfix' id='qa_14311'>
-        <a href="/10820479/credit.html" class='avator'>
-            @if(empty($v['portrait']))
-             <img src="/Picture/default.png" width="60" height="60" alt="">
-            @else
-            <img src="/uploads/{{ $v['portrait'] }}" width='60' height='40' alt="">
-            @endif
-        </a>
+    <a href="/10820479/credit.html" class='avator'>
+        @if(empty($v['portrait']))
+         <img src="/Picture/default.png" width="60" height="60" alt="">
+        @else
+        <img src="/uploads/{{ $v['portrait'] }}" width='60' height='40' alt="">
+        @endif
+    </a>
         <div class='item-content'> 
             <div class='comment-text clearfix'>
                 @if(empty($v['nickname']))
@@ -209,19 +205,19 @@
                 <a href="/10820479/credit.html" class='name'>{{ $v['nickname'] }}: </a><span class='text'> {{ $v['umessage'] }}</span>
                 @endif
             </div>
-            <div class='comment-toolbar clearfix'>
-                <span id='huifu' class='reply-link' num="{{ $k }}">回复</span>
-                
-                <span id='shanchu' wid="{{ $v['wid'] }}" class='delete-link'>删除</span>
-                
-                <span class='date'>{{ $v['created_at'] }}</span>
-                <div style='display:none' class="reply-box ccc{{ $k }}" id='reply_14674' >
-                    <i class='arrow-icon'></i>
-                    <textarea name='neirong' id="reply_content_14674" placeholder='请填写您的回复内容'></textarea>
-                    <span class='comment-button' wid="{{ $v['wid'] }}" >评论</span>
+                <div class='comment-toolbar clearfix'>
+                    <span id='huifu' class='reply-link' num="{{ $k }}">回复</span>
+                    
+                    <span id='shanchu' wid="{{ $v['wid'] }}" class='delete-link'>删除</span>
+                    
+                    <span class='date'>{{ $v['created_at'] }}</span>
+                    <div style='display:none' class="reply-box ccc{{ $k }}" id='reply_14674' >
+                        <i class='arrow-icon'></i>
+                        <textarea name='neirong' id="reply_content_14674" placeholder='请填写您的回复内容'></textarea>
+                        <span class='comment-button' wid="{{ $v['wid'] }}" >评论</span>
+                    </div>
+                    
                 </div>
-                
-            </div>
         </div>
 
     </li>
@@ -453,7 +449,7 @@
             <li class="clearfix">
                 {{ $users['nickname'] }}<img src="/Picture/redheart.png" alt="卖家信用" title="卖家信用">            </li>
             <li>
-                已加入蜂鸟 <em>{{ $f }}</em> 天，卖出商品 <em>0 </em> 件
+                已加入灰鹤 <em>{{ $f }}</em> 天，卖出商品 <em>0 </em> 件
             </li>
         </ul>
         
@@ -509,7 +505,7 @@
 <div class="top-parameter-item top-parameter-activity">
             <div class="parameter-item clearfix">
         <span class="parameter-title">商品价</span>
-        <span class="parameter-price">&yen; <strong>{{ $goods['newprice'] }}.00</strong></span>                    <span  id="bidPriceButton" class="bid-button">出价试试</span>                <div class="view-num">已被浏览 <br><strong>{{ $goods['PV'] }}</strong> 次</div>
+        <span class="parameter-price">&yen; <strong>{{ $goods['nowprice'] }}.00</strong></span>                    <span  id="bidPriceButton" class="bid-button">出价试试</span>                <div class="view-num">已被浏览 <br><strong>{{ $goods['PV'] }}</strong> 次</div>
         <div class="comment-num">累计留言 <br> <strong>{{ $count }}</strong> 条</div>
     </div>
             </div>                        <div id='dvs' class="parameter-item  quality-parameter-item   clearfix">
@@ -560,7 +556,7 @@
     <strong>对不起，此商品已下架。</strong>
     <p>下架存在以下的可能：<br>1.商品已售出  2.商品被卖家下架  3.商品审核中</p>
 </div>
-                    <div class="warning-tip"><i class="warning-icon">警告</i>蜂鸟提示您：请不要接收可疑文件或点击不明链接，交易中推荐使用蜂鸟私信。若产生投诉举报，您提交的聊天记录将成为有力证据。</div>
+                    <div class="warning-tip"><i class="warning-icon">警告</i>灰鹤提示您：请不要接收可疑文件或点击不明链接，交易中推荐使用灰鹤私信。若产生投诉举报，您提交的聊天记录将成为有力证据。</div>
                                     </div>
             </div>
         <!-- //follow-box -->
@@ -579,7 +575,7 @@
 </div>
 <div class="ad-stores clearfix">
     <span class="tag">推广</span>
-    <a target="_blank" href="https://mall.jd.com/index-640658.html">蜂鸟租赁-低价、便捷、高效</a>
+    <a target="_blank" href="https://mall.jd.com/index-640658.html">灰鹤租赁-低价、便捷、高效</a>
     <a target="_blank" href="http://2.fengniao.com/recycle">高价回收-旧器材快速变现</a>
 </div>        <!-- //product-disucuss -->
        </div>
@@ -609,7 +605,7 @@
             <span class="pic"><img id="qrcode" src="" alt=""></span>
             <ul class="text-list">
                 <li>1、扫描二维码</li>
-                <li>2、关注“蜂鸟二手”公众号</li>
+                <li>2、关注“灰鹤二手”公众号</li>
                 <li>3、快速拨打联系人电话</li>
             </ul>
         </div>
@@ -778,7 +774,7 @@
                     <img src="/Picture/guarantee-icon4.png" alt="">
                     <strong>纠纷维权</strong>
                     <ul class="guarantee-links">
-                        <li><span class="link">蜂鸟客服介入</span></li>
+                        <li><span class="link">灰鹤客服介入</span></li>
                         <li><span class="link">质量纠纷仲裁</span></li>
                     </ul>
                 </li>
@@ -820,17 +816,17 @@
             <li class="foot-classification-item">
                 <strong>特色服务</strong>
                 <ul class="links">
-                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=386">蜂鸟鉴定</a></li>
-                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=319">蜂鸟回收</a></li>
-                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=336">蜂鸟拍卖</a></li>
+                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=386">灰鹤鉴定</a></li>
+                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=319">灰鹤回收</a></li>
+                    <li><a rel="nofollow" target="_blank" href="/help/detail?id=336">灰鹤拍卖</a></li>
                     <li><a rel="nofollow" target="_blank" href="/help/detail?id=387">卖家帮助</a></li>
                 </ul>
             </li>
         </ul>
         <div class="foot-QR-code">
             <span class="pic"><img src="/Picture/wechat.jpg" alt="" width="80" height="80"></span>
-            <strong>蜂鸟二手官方微信</strong>
-            <p>扫描二维码<br />即刻与蜂鸟二手亲密互动</p>
+            <strong>灰鹤二手官方微信</strong>
+            <p>扫描二维码<br />即刻与灰鹤二手亲密互动</p>
         </div>
     </div>
     
@@ -838,7 +834,7 @@
 <div class="footer-copyright">
     <div class="wrapper">
         <div class="site-map">
-            <a rel="nofollow" href="http://www.fengniao.com/about.html" target="_blank">蜂鸟简介</a>
+            <a rel="nofollow" href="http://www.fengniao.com/about.html" target="_blank">灰鹤简介</a>
             <a rel="nofollow" href="http://www.fengniao.com/contact.html" target="_blank">联系我们</a>
             <a rel="nofollow" href="http://www.fengniao.com/sitelinks.php" target="_blank">友情链接</a>
             <a rel="nofollow" href="http://www.fengniao.com/zhaopin.html" target="_blank">招聘信息</a>
@@ -848,7 +844,7 @@
         </div>
 
         <div class="copyright">&copy;
-            <script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script>fengniao.com. All rights reserved . 北京蜂鸟映像电子商务有限公司（蜂鸟网）<br />版权所有 京ICP证150110号
+            <script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script>greycrane.com. All rights reserved . 北京灰鹤映像电子商务有限公司（灰鹤网）<br />版权所有 京ICP证150110号
         </div>
     </div>
 </div>
@@ -926,7 +922,7 @@
                     <button type="button" class="disabled getCodeBtn" time="0" >获取动态密码</button>
                     <input id="commonLoginCode" class="code-input" type="text">
                     <br class="clear">
-                    <span class="commonLogin-tip high-tip">注意：如果您已注册过蜂鸟账号，请确认该手机号和账号是否做了绑定，否则系统将自动创建新账号。</span>
+                    <span class="commonLogin-tip high-tip">注意：如果您已注册过灰鹤账号，请确认该手机号和账号是否做了绑定，否则系统将自动创建新账号。</span>
                 </li>
                 <li class="form-item clearfix">
                     <input class="commonLogin-button" type="button" value="立即登录">

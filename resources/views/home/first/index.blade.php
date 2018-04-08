@@ -97,9 +97,9 @@ layui.use('carousel', function(){
                                         @foreach($hot as $k=>$v)
                                             @if($k<=4)
                                             <li class="goods-item">
-                                                <a href="" class="goods-title">{{$v->gname}}</a>
+                                                <a href="/home/goods/details?rid={{ $v->rid }}" class="goods-title">{{$v->gname}}</a>
                                                 <div class="price-bar"><span class="price"> 二手价<em>&yen;{{$v->nowprice}}</em></span></div>
-                                                <a href="" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt=""></a>
+                                                <a href="/home/goods/details?rid={{ $v->rid }}" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt=""></a>
                                             </li>
                                             @else
                                                 @break
@@ -110,9 +110,9 @@ layui.use('carousel', function(){
                                         @foreach($hot as $k=>$v)
                                             @if($k>=5 && $k<=7)
                                                 <li class="goods-item">
-                                                    <a href="" class="goods-title">{{$v->gname}}</a>
+                                                    <a href="/home/goods/details?rid={{ $v->rid }}" class="goods-title">{{$v->gname}}</a>
                                                     <div class="price-bar"><span class="price"> 二手价<em>&yen;{{$v->nowprice}}</em></span></div>
-                                                    <a href="" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt=""></a>
+                                                    <a href="/home/goods/details?rid={{ $v->rid }}" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt=""></a>
                                                 </li>
                                             @endif
                                         @endforeach
@@ -143,9 +143,9 @@ layui.use('carousel', function(){
                                         @foreach($goods as $k=>$v)
                                             @if($k<=11)
                                             <li class="goods-item ">
-                                                    <a href="" class="goods-title">{{$v->gname}}</a>
+                                                    <a href="/home/goods/details?rid={{ $v->rid }}" class="goods-title">{{$v->gname}}</a>
                                                     <div class="price-bar"><span class="price"> 灰鹤价<em>&yen;{{$v->nowprice}}</em></span></div>
-                                                    <a href="" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt="">
+                                                    <a href="/home/goods/details?rid={{ $v->rid }}" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt="">
                                                         <span class="sold-out"></span>
                                                     </a>
                                             </li>
@@ -170,7 +170,7 @@ layui.use('carousel', function(){
                             @foreach($goods as $k=>$v)
                                 @if($k<=3 && $v['recommend']==1)
                                 <li>
-                                    <a target="_blank" href="" class="pic">
+                                    <a target="_blank" href="/home/goods/details?rid={{ $v->rid }}" class="pic">
                                         <div width="243" height="89">
                                         <img src="/uploads/{{$v->gpic}}">
                                         </div>

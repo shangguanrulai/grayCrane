@@ -11,14 +11,13 @@
     <meta name="description" content="灰鹤二手交易">
     <link id="narrowScreen" rel="stylesheet">
     <link href="http://m.2.fengniao.com" rel="alternate" media="only screen and (max-width: 640px)">
-    <link href="/Content/globalceiling.css" rel="stylesheet">
     <link href="/Content/jquery-ui.1.11.4.min.css" rel="stylesheet">
     <link href="/Content/jquery.bxslider.css" rel="stylesheet">
     <link href="/Content/header.css" rel="stylesheet">
     <link href="/Content/secondarytradingpublic.css" rel="stylesheet">
-    <link href="/Content/homepage.css" rel="stylesheet">
+   <link href="/Content/homePage.css" rel="stylesheet">
+    <link href="/Content/page.css" rel="stylesheet">
     <script src="/Scripts/jquery.min.js" charset="UTF-8"></script>
-    <script src="/Scripts/jquery-3.2.1.min.js" charset="UTF-8"></script>
     <script src="/Scripts/jqueryui.1.11.4.js" charset="UTF-8"></script>
     <script src="/Scripts/jquery.tinyscrollbar.2.4.2.min.js" charset="UTF-8"></script>
     <script src="/Scripts/im.js" charset="UTF-8"></script>
@@ -187,11 +186,13 @@
 <!-- //homePage-nav-box -->
 
 
+<!-- //homePage-nav-box -->
 
 
 
 
     <link href="/Content/list-v2.css" rel="stylesheet" 0="frontend\assets\BaseAsset">
+
 
 
 <!-- //homePage-nav-box -->
@@ -206,13 +207,7 @@
 <div class="wrapper-box">
     <!-- 手工推广位置 -->
     
-<div class="wrapper recommend-ad-section">
-            <a href="http://2.fengniao.com/quality" target="_blank"><img src="/Picture/7a3aad13bcc98716c94adfdc6c98b316.jpg" alt=""></a>
-            <a href="http://www.fengniao.com/topic/5348902.html" target="_blank"><img src="/Picture/b06da064c58ce0638dc1c7f1c7bac916.jpg" alt=""></a>
-            <a href="http://2.fengniao.com/recycle" target="_blank"><img src="/Picture/58c551b73a325a46bd6fef9976ef4de1.jpg" alt=""></a>
-            <a href="http://2.fengniao.com/service" target="_blank"><img src="/Picture/c13482ee21fbd83aec000984e35a05d9.jpg" alt=""></a>
-            <a href="http://2.fengniao.com/auction" target="_blank"><img src="/Picture/7289c548662dbf135be3405711c77d7b.jpg" alt=""></a>
-    </div>
+
     
     <!-- 面包屑 -->
     
@@ -317,7 +312,7 @@
     </ul>
           @endforeach
 
-          {{ $goods->links() }}
+          <center>{{ $goods->links() }}</center>
 
           <script>
               $('a[name=choosegoods]').each(function(){
@@ -337,7 +332,7 @@
 
         <div class="aside">
                                                             <a href="http://2.fengniao.com/auction" target="_blank" class="aside-ad-div"><img src="/Picture/cg-77vjc5y6ieaxdaac0rrlwzjwaadfcwnshjsaalre928.jpg" alt=""></a>
-                                    <a href="http://2.fengniao.com/quality" target="_blank" class="aside-ad-div"><img src="/Picture/cg-4k1jc5xmigz_4aacbvujv1w8aaiy0qapsriaajtt304.jpg" alt=""></a>
+                                   
                             
             <div class="hot-auction-section">
                 <div class="section-header clearfix">
@@ -350,7 +345,7 @@
                     </div>
     </div>
     <div class="wrapper wechat-code">
-        没找到合适的器材？关注 <i>小蜂</i> ，订阅您想要的器材，有合适的器材随时推送给您，省时、省心、更省力哦。
+        没找到合适的器材？关注 <i>小鹤</i> ，订阅您想要的器材，有合适的器材随时推送给您，省时、省心、更省力哦。
         <div id="wechatLayerBox" class="wechat-layer-box">
             <span class="trigger">点我扫一扫订阅</span>
             <div class="wechat-layer">
@@ -362,7 +357,7 @@
         <div class="section-header clearfix">
             <a href="/quality" target="_blank" class="more-link">更多好货</a>
             <h3 class="section-title">大家都在看 </h3>
-            <span class="slogan">蜂鸟鉴定好器材<a href="/quality" target="_blank"> (什么是蜂鸟鉴定？去了解)</a></span>
+            <span class="slogan">灰鹤鉴定好器材<a href="/quality" target="_blank"> (什么是灰鹤鉴定？去了解)</a></span>
         </div>
         <ul class="appraisal-list clearfix" >
         @foreach($recommend as $v)

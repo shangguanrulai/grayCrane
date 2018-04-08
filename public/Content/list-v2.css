@@ -392,7 +392,8 @@ a:hover{color: #ff511b; text-decoration: none;}
 .goods-list .goods-item .cell-5{position: relative; float: left; width: 135px; height: 135px; text-align: center;}
 .goods-list .goods-pic{float: left; width: 130px; height: 130px; overflow: hidden; margin: 5px 0 0; background: #f9f9f9; text-align: center; line-height: 126px;}
 .goods-list .goods-pic img{max-width: 130px; max-height: 130px;}
-.goods-list .goods-title{display: block; height: 52px; font-size: 16px; line-height: 26px; word-wrap: break-word; word-break: break-all;}
+.goods-list .goods-title{color:black;display: block; height: 52px; font-size: 16px; line-height: 26px; word-wrap: break-word; word-break: break-all;}
+.goods-list .goods-title:hover{cursor:default;}
 .goods-list .goods-title em{color: #ff3300;}
 .goods-list .goods-title img{display: inline-block; margin: -4px 10px 0 0;}
 .goods-list .tags{max-height: 48px; overflow: hidden; margin: 8px 0 0;}
