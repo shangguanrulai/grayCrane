@@ -18,11 +18,11 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $orders = DB::table('orders')
-            ->join('user_home', 'soleid', '=', 'user_home.uid')
+            ->join('user_home as tnp', 'soleid', '=', 'tnp.uid')
             ->join('user_home as tmp','buyid', '=','tmp.uid')
             ->join('address', 'tid', '=', 'address.aid')
             ->join('release','rrid','=','release.rid')
-            ->select('orders.*', 'user_home.uname as solename','tmp.uname as buyname','address.addr','release.gname')
+            ->select('orders.*', 'tnp.uname as solename','tmp.uname as buyname','address.addr','release.gname')
             ->where(function($query) use($request){
 //                检测关键字
                 $gjz = $request -> input('keywords1');

@@ -49,6 +49,12 @@
                                 </tr>
                                 <tr style="height:20px"></tr>
                                 <tr>
+                                    <th width="120"><i class="require-red">*</i>  角色等级：</th>
+                                    <td>
+                                        <input class="common-text required" id="title" name="role_as" size="50" value="" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th></th>
                                     <td>
                                         <button class="btn btn-primary btn6 mr10" >提交</button>

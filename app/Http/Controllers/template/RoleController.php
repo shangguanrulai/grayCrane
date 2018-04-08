@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Model\perm_cate;
 use App\Model\Perm;
 use Illuminate\Support\Facades\DB;
+use App\Model\Admin_User;
 
 class RoleController extends Controller
 {
@@ -18,7 +19,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::get();
+        $role_as = Admin_User::find(session('user_admin')->id)->role()->orderBy('role_as','asc')->first()['role_as'];
+        $roles = Role::where('role_as','>',$role_as)->get();
         return view('template.role.list',compact('roles'));
     }
 

@@ -85,21 +85,7 @@
                                     </div>
                                 </div>
 
-                                <div class="am-form-group">
-                                    <label for="user-phone" class="am-u-sm-3 am-form-label">权限: <span class="tpl-form-line-small-title">auth</span></label>
-                                    <div class="am-u-sm-9">
-                                        <select data-am-selected="" style="display: none;"name="auth">
-                                            @if($user->auth==1)
-                                                <option value="1" selected>超级管理员</option>
-                                                <option value="2">普通管理员</option>
-                                            @else
-                                                <option value="1" >超级管理员</option>
-                                                <option value="2" selected>普通管理员</option>
-                                            @endif
-                                        </select>
 
-                                    </div>
-                                </div>
                                 <div class="am-form-group">
                                     <label for="user-weibo" class="am-u-sm-3 am-form-label">头像: <span class="tpl-form-line-small-title">Images</span></label>
                                     <div class="am-u-sm-9" style="position: relative;">

@@ -28,23 +28,44 @@ class UserController extends Controller
 
         $users = Admin_User::where('username','like','%'.$gjz.'%')->where('auth',$qx)->paginate(5);
         return view('template.user.list',['users'=>$users,'gjz'=>$gjz,'qx'=>$qx]);*/
-
-        $users = Admin_User::orderBy('id','asc')
-            ->where(function($query) use($request){
+        $username=Admin_User::find(session('user_admin')->id)['username'];
+        if($username=='zhazhahui'){
+            $users = Admin_User::orderBy('id','asc')
+                ->where(function($query) use($request){
 //                检测关键字
-                $gjz = $request -> input('keywords1');
-                $qx = $request -> input('keywords2');
+                    $gjz = $request -> input('keywords1');
+                    $qx = $request -> input('keywords2');
 //                关键字不为空
-                if(!empty($gjz)){
-                    $query -> where('username','like','%'.$gjz.'%');
+                    if(!empty($gjz)){
+                        $query -> where('username','like','%'.$gjz.'%');
 
 
-                }
-                if(!empty($qx)){
-                    $query -> where('auth',$qx);
-                }
-            })
-            ->paginate(10);
+                    }
+                    if(!empty($qx)){
+                        $query -> where('auth',$qx);
+                    }
+                })
+                ->paginate(10);
+        }else{
+            $users = Admin_User::orderBy('id','asc')
+                ->where('username','!=','zhazhahui')
+                ->where(function($query) use($request){
+//                检测关键字
+                    $gjz = $request -> input('keywords1');
+                    $qx = $request -> input('keywords2');
+//                关键字不为空
+                    if(!empty($gjz)){
+                        $query -> where('username','like','%'.$gjz.'%');
+
+
+                    }
+                    if(!empty($qx)){
+                        $query -> where('auth',$qx);
+                    }
+                })
+                ->paginate(10);
+        }
+
         return view('template.user.list',['users'=>$users,'request'=>$request]);
 
 
@@ -195,6 +216,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = Admin_User::find($id);
+
         $res = $user -> delete();
         if($res){
             return back()->with('msg','删除成功');
@@ -256,8 +278,11 @@ class UserController extends Controller
     {
         //获取当前角色
         $user = Admin_User::find($id);
+        $role_as = Admin_User::find(session('user_admin')->id)->role()->orderBy('role_as','asc')->first()['role_as'];
+//        dd($role_as);
         //获取所有权限
-        $roles = Role::get();
+        $roles = Role::where('role_as','>',$role_as)->get();
+//        dd($roles);
 
         $own_role = $user->role;
         $own_roleid = [];
@@ -276,7 +301,10 @@ class UserController extends Controller
         DB::beginTransaction();
         try{
             //先删除当前角色所有被授予的角色
-            DB::table('user_role')->where('uid',$input['uid'])->delete();
+
+            $role_id = Admin_User::find(session('user_admin')->id)->role()->orderBy('role_as','asc')->first()['id'];
+//            dd($role_id);
+            DB::table('user_role')->where('role_id','<>',$role_id)->where('uid',$input['uid'])->delete();
             if(!empty($input['checkbox'])){
                 foreach($input['checkbox'] as $v) {
                     DB::table('user_role')->insert([
