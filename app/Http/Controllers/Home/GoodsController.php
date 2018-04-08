@@ -47,16 +47,16 @@ class GoodsController extends Controller
     //检测关键字
     $gname = $request->input('gname');
     //检测价格区间
-    $tp = $request->input('tp');
+   /* $tp = $request->input('tp');
     $bp = $request->input('bp');
-
+*/
    
 
-    if(!empty($gname) || !empty($tp) || !empty($bp)){
+   /* if(!empty($gname) || !empty($tp) || !empty($bp)){*/
 
         
     //多条件并分页
-        $goods = Release::orderBy('rid','asc')
+       /* $goods = Release::orderBy('rid','asc')
             ->where(function($query) use($request){
                 
                 //如果用户名不为空
@@ -72,20 +72,24 @@ class GoodsController extends Controller
                 }
             })
             ->paginate($request->input('num', 5));
-    }
-    /*if(!empty($gname)){
+    }*/
+   if(!empty($gname)){
      $goods = Release::where('gname','like','%'.$gname.'%')->paginate(3);
 
            
-        }*/
+        }
+
+
 
         $uid = Session('user')['uid'];
         $user = user_home::where('uid',$uid)->first();
         $userinfo = userinfo_home::where('uid',$uid)->first();
+    //获取推荐商品
+    $recommend = Release::where('recommend','1')->get();
 
 
 
-        return view('home.fenlei',['goods'=>$goods,'cates'=>$cates,'user'=>$user,'userinfo'=>$userinfo]);
+        return view('home.fenlei',['goods'=>$goods,'recommend'=>$recommend,'cates'=>$cates,'user'=>$user,'userinfo'=>$userinfo]);
     }
     // ajax
     public function ajax(Request $request)
@@ -379,7 +383,8 @@ class GoodsController extends Controller
        //买家信息
        $users = userinfo_home::where('uid',$useruid)->first();
        //卖家收货信息
-       $address = address::where('uid',$useruid)->first();
+       $address = address::where('uid',$useruid)->get();
+
 
 
 
@@ -389,6 +394,43 @@ class GoodsController extends Controller
 
 
        return view('home.buy',['goods'=>$goods,'users'=>$users,'address'=>$address]);
+    }
+//添加收货地址
+    Public function address(Request $request){
+        //前台用户id
+         $uid = Session('user')['uid'];
+
+         $rec =$request->input('rec');
+
+         $addr =$request->input('addr');
+
+
+         $phone =$request->input('phone');
+
+         $code =$request->input('code');
+
+         $address = new address;
+
+        $address->uid = $uid;
+
+        $address->rec = $rec;
+
+        $address->addr = $addr;
+
+        $address->phone = $phone;
+
+        $address->code = $code;
+
+
+
+        $address->save();
+
+        return back();
+
+         
+
+
+
     }
 //提交表单到数据库ajax
     public function ajaxsssss(Request $request){
@@ -448,6 +490,7 @@ class GoodsController extends Controller
 
         $soleid = $sole-> uid;
 
+        //通过uid查询收货地址
         $t = address::where('uid',$buyid)->first();
 
 
