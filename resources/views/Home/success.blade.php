@@ -27,12 +27,12 @@
 <body>
 <div class="top-bar"><span class="text">灰鹤购为您提供全程的专业技术支持及安全保障!</span></div>
 <!-- header -->
-<div class="header">
+<div class="header"><br />
     <div class="wrapper clearfix">
-        <a href="http://2.fengniao.com" class="logo">蜂鸟网-二手交易</a>
+       <img class="fn-shop-logo-b" src="/uploads/uploads/DLVp7SLZcODFHm0xGoFiLWXUKd798RQdqohvEYEl.jpeg" style="width: 200px;">
         
     </div>
-</div>
+</div><br />
 <div class="pay-box clearfix">
     <div class="wrapper">
         <div class="order-status pay-status">
@@ -96,7 +96,7 @@
 <div class="foot">
     <div class="wrapper">
         <p class="link">
-            <a href="http://www.fengniao.com/about.html">蜂鸟简介</a>|
+            <a href="http://www.fengniao.com/about.html">灰鹤简介</a>|
             <a href="http://www.fengniao.com/contact.html">联系我们</a>|
             <a href="http://www.fengniao.com/sitelinks.php">友情链接</a>|
             <a href="http://www.fengniao.com/zhaopin.html">招聘信息</a>|
@@ -107,7 +107,7 @@
         <p class="copyright">
             <script type="text/javascript">var myDate = new Date();
                 document.write(myDate.getFullYear());</script>
-            fengniao.com. All rights reserved . 北京蜂鸟映像电子商务有限公司（蜂鸟网）
+            greycrane.com. All rights reserved . 北京灰鹤映像电子商务有限公司（灰鹤网）
         </p>
         <p>版权所有 京ICP证150110号</p>
     </div>

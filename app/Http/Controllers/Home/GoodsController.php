@@ -33,7 +33,7 @@ class GoodsController extends Controller
 
     //获取分类下的所有商品
 
-        $cates = $this->getCateTree();
+    $cates = $this->getCateTree();
 
     $goods = release::where('cid',$cid)->paginate(3);
 
@@ -122,6 +122,7 @@ class GoodsController extends Controller
         $goods = Release::find($rid);
         //获取发布人信息
         $a = $goods['uid'];
+
         //发布人详情
         $users = userinfo_home::where('uid',$a)->first();
         
@@ -442,6 +443,11 @@ class GoodsController extends Controller
     Public function pay(Request $request){
 
         $rid = $request->input('rid');
+
+        $aid = $request->input('aid');
+
+
+
 
         $buyid = $request->input('buyid');
 

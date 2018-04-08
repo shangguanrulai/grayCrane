@@ -105,7 +105,7 @@
             </div>
 
             <div class="copyright">&copy;
-                <script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script>fengniao.com. All rights reserved . 北京灰鹤映像电子商务有限公司（灰鹤网）<br />版权所有 京ICP证150110号
+                <script type="text/javascript">var myDate = new Date();document.write(myDate.getFullYear());</script>greycrane.com. All rights reserved . 北京灰鹤映像电子商务有限公司（灰鹤网）<br />版权所有 京ICP证150110号
             </div>
         </div>
     </div>

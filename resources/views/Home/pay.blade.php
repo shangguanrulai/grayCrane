@@ -139,7 +139,7 @@
         <p class="copyright">
             <script type="text/javascript">var myDate = new Date();
                 document.write(myDate.getFullYear());</script>
-            fengniao.com. All rights reserved . 北京蜂鸟映像电子商务有限公司（蜂鸟网）
+            greycrane.com. All rights reserved . 北京蜂鸟映像电子商务有限公司（蜂鸟网）
         </p>
         <p>版权所有 京ICP证150110号</p>
     </div>
