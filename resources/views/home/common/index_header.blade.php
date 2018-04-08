@@ -25,10 +25,11 @@
     <script src="/Scripts/md5.js" charset="UTF-8"></script>
     <script src="/Scripts/global.js" charset="UTF-8"></script>
     <script src="/Scripts/swfobject.js" charset="UTF-8"></script>
+    <script src="/layui/layui.js" charset="UTF-8"></script>
     <link rel="stylesheet" id="WideGoodsSheet" rel="stylesheet">
     <link rel="stylesheet" href="/layui/css/layui.css">
     <link href="/Content/globalceiling.css" rel="stylesheet">
-    
+
     <script>
         if (!$.support.leadingWhitespace || /msie 9/.test(navigator.userAgent.toLowerCase())) {
             document.documentElement.className += ' lowIE';
@@ -117,12 +118,14 @@
     <div class="search-box" id="searchContainer">
         <ul class="search-tab clearfix">
         </ul>
-        <div class="search-bar">
-            <input type="hidden" id="type" name="type" value="0">        <input class="search-button" id="searchBtn" type="button" value="搜&nbsp;索"/>
-            <span class="search-txt">
-            <input id="searchKwd" type="text" autocomplete="off" placeholder="请输入关键字"/>
-            </span>
-        </div>
+        <form action="/home/goods/index" method="get">
+            <div class="search-bar">
+                <input type="hidden" id="type" name="type" value="0">        <input class="search-button" id="searchBtn" type="submit" value="搜&nbsp;索"/>
+                <span class="search-txt">
+                <input id="searchKwd" type="text" autocomplete="off" name="gname" placeholder="请输入关键字"/>
+                </span>
+            </div>
+        </form>
         <div class="search-focus-layerbox clearfix" style="display: none;"></div>
         <div class="search-click-layerbox" style="display: none;"></div>
     </div>

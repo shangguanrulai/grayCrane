@@ -1614,6 +1614,7 @@ a[href="javascript:;"] {
   margin: 10px 20px 0;
   font-size: 14px;
   line-height: 18px;
+  color:black;
 }
 .recycle-box .goods-top-list .price-bar {
   zoom: 1;
@@ -1712,6 +1713,7 @@ a[href="javascript:;"] {
   margin: 10px 20px 0;
   font-size: 14px;
   line-height: 18px;
+  color: black;
 }
 .recycle-box .goods-bottom-list .price-bar {
   zoom: 1;
@@ -2824,6 +2826,7 @@ a[href="javascript:;"] {
   margin: 15px 20px 0;
   font-size: 14px;
   line-height: 18px;
+  color:black;
 }
 .appraisal-box .goods-top-list .price-bar {
   zoom: 1;
