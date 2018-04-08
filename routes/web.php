@@ -115,6 +115,8 @@ Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']]
     Route::get('/home/goods/pay','home\GoodsController@pay');
 //购买成功
     Route::get('/home/goods/success','home\GoodsController@success');
+//添加收货地址
+    Route::get('/home/goods/address','home\GoodsController@address');
 
 });
 

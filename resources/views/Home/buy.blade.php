@@ -103,17 +103,16 @@
                     <ul class="order-parameter">
                         <li class="parameter-item">
                             <div class="parameter-header">
-                <!--                 <span id="addAddressButton" class="add-address">新增收货地址</span> -->
+                                 <span id="addAddressButton" class="add-address">新增收货地址</span>
                                 <h3 class="parameter-title">核对收货人信息</h3>
                             </div>
                             <div class="parameter-content">
                             @if(!empty($address))
                                 <div id="addressBox" class="address-box">
                                 <ul id="addressList" class="address-list">
-                                	                                	                                		<li addressId='13802' class="address-item clearfix ">
+                                	         @foreach($address as $v)                       	                                		<li addressId='13802' class="address-item clearfix ">
 	                                        <div class="address-tag" style='width:50px'>
 		                                        <span class="name-tag">{{ $users['nickname'] }}</span>
-		  
 		                                        <i class="icon"></i>
 	                                        </div>
 	                                        <div class="address-summary">
@@ -122,12 +121,14 @@
 			                                    	<span addressId='13802' class="edit-link">编辑</span>
 			                                    	<span addressId='13802' class="set-default">设为默认</span>
 		                                    	</div>   
-		                                        <span class="name-tag" >{{ $address['rec'] }}</span>  
-		                                        <span class="province-tag">{{ $address['addr'] }}</span> 
+		                                        <span class="name-tag" >{{ $v->rec }}</span>  
+		                                        <span class="province-tag">{{ $v->addr }}</span> 
 		                            
-		                                        <span class="mobile-tag">{{ $address['phone'] }}</span>  
-		                                        <span class="email-tag"></span>
+		                                        <span class="mobile-tag">{{ $v->phone }}</span>  
+		                                        <span class="email-tag"></span>&nbsp;
+                                                <input type="radio" name='radio'>
 	                                        </div>
+                                            @endforeach
 	                                    </li>
                                 	                                </ul>
                             </div>
@@ -187,13 +188,11 @@
                         </li>
                     </ul>
                     <div class="extra-box clearfix">
+
                     	<div class="address-summary">
                     		<div class="address-inner">
 	                    		<span class="price"><span class="goods-count">1件商品</span>实付总计：<strong id='realityprice'>&yen;{{ $goods['newprice'] }}</strong></span>
-	                    		<ul class="address">
-	                    			<li class="address-item">寄送至:{{ $address['addr'] }}</li>
-	                    			<li class="address-item"><span>手机号:{{ $address['phone'] }}</span><span>收货人:{{ $address['rec'] }}</span></li>
-	                    		</ul>
+	                    		
                     		</div> 
                             <form action="/home/goods/pay" method='get'>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
@@ -226,89 +225,38 @@
 				<!-- //order-confirm-box -->
 
 				<!-- addressAddDialog -->
+                <form action="/home/goods/address" method='get'>
 				<div id="addressAddDialog" class="address-layerbox" style="display: none;">
 					<ul class="address-items">
 						<li class="address-item clearfix">
 							<span class="item-title"><i class='star'>*</i>收货人</span>
-							<input id='consignee' type="text" class="receiver-text">
+							<input id='consignee' type="text" name='rec' class="receiver-text">
 							<span class="tip" style='display: none;' >请您填写收货人的姓名 2-25个字</span>
 						</li>
 						<li class="address-item clearfix">
-							<span class="item-title"><i class='star'>*</i>所在地区</span>
-							<select name="" id="province">
-								<option value="0">省/直辖市</option>
-							</select> 
-							<select name="" id="city">
-								<option value="0">市/县/区</option>
-							</select>
-							<span class="tip" style='display: none;' >请您填写完整的地区信息</span>
-						</li>
-						<li class="address-item clearfix">
-							<span class="item-title"><i class='star'>*</i>详细地区</span>
-							<input id='address' type="text" class="street-text">
+							<span class="item-title"><i class='star'>*</i>收货地区</span>
+							<input id='address' type="text" name="addr" class="street-text">
 							<span class="tip" style='display: none;' >请您填写收货人的地址 5-120个字</span>
 						</li>
 						<li class="address-item clearfix">
 							<span class="item-title"><i class='star'>*</i>手机号码</span>
-							<input id='phone_mob'  type="text" class="mobile-text">
+							<input id='phone_mob'  name="phone" type="text" class="mobile-text">
 							<span class="tip" style='display: none;' >请您填写收货人手机号码  11个数字</span>
 						</li>
-						<li class="address-item clearfix">
-							<span class="item-title">固定电话</span>
-							<input id='phone_tel' type="text" class="email-text">
-							<span class="tip" style='display: none;' >固定电话 6-20个数字和-</span> 
-						</li>
+						
 						<li class="address-item clearfix">
 							<span class="item-title">邮编</span>
-							<input id='zipcode' type="text" class="email-text">
+							<input id='zipcode' type="text" name="code" class="email-text">
 							<span class="tip" style='display: none;' >邮编 1-10个数字</span> 
 						</li>
+                        <li class="address-item clearfix">
+                            <input type="submit" value='添加'>
+                        </li>
 						 
 					</ul>
 				</div>
+                </form>
 		    	<!-- //addressAddDialog -->
-
-		    	<!-- addressModifyDialog -->
-				<div id="addressModifyDialog" class="address-layerbox" style="display: none;">
-					<ul class="address-items">
-						<li class="address-item clearfix">
-							<span class="item-title"><i class='star'>*</i>收货人</span>
-							<input id='mconsignee' type="text" class="receiver-text" value="闪电侠123">
-							<span class="tip" style='display: none;' >请您填写收货人的姓名 2-25个字</span>
-						</li>
-						<li class="address-item clearfix">
-							<span class="item-title"><i class='star'>*</i>所在地区</span>
-							<select name="" id="mprovince">
-								<option value="0">省/直辖市</option>
-							</select> 
-							<select name="" id="mcity">
-								<option value="0">市/县/区</option>
-							</select>
-							<span class="tip" style='display: none;' >请您填写完整的地区信息</span>
-						</li>
-						<li class="address-item clearfix">
-							<span class="item-title"><i class='star'>*</i>详细地区</span>
-							<input id='maddress' type="text" class="street-text" value="安定门街道交道口北头条88号乙">
-							<span class="tip" style='display: none;' >请您填写收货人的地址 5-120个字</span>
-						</li>
-						<li class="address-item clearfix">
-							<span class="item-title"><i class='star'>*</i>手机号码</span>
-							<input id='mphone_mob' type="text" class="mobile-text" value="010-68368431">
-							<span class="tip" style='display: none;' >请您填写收货人手机号码  11个数字</span>
-						</li>
-						<li class="address-item clearfix">
-							<span class="item-title">固定电话</span>
-							<input id='mphone_tel' type="text" class="email-text" value="010-68368431">
-							<span class="tip" style='display: none;' >固定电话 6-20个数字和-</span>
-						</li>
-						<li class="address-item clearfix">
-							<span class="item-title">邮编</span>
-							<input id='mzipcode' type="text" class="email-text" value="100089"> 
-							<span class="tip" style='display: none;' >邮编 1-10个数字</span>
-						</li> 
-					</ul>
-				</div>
-				<!-- //addressModifyDialog -->
 				
 				<!-- deleteAddressDialog -->
 				<div id="deleteAddressDialog" class="delete-layerbox" style="display: none;">
@@ -549,4 +497,9 @@
 <!-- <script src="/Scripts/order.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script> -->
 <!-- <script src="/Scripts/add.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script> -->
 <!-- <script src="/Scripts/coupon.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script></body> -->
+<script>
+    $('.add-address').click(function(){
+        $('.address-layerbox').css('display','block');
+    })
+</script>
 </html>
