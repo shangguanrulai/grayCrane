@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\home;
 
 use App\Model\release;
+use App\Model\Goods;
 use App\Model\user_home;
 use App\Model\userinfo_home;
 use App\Model\cate;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Session;
 
 class ReleaseController extends Controller
 {
@@ -89,6 +91,19 @@ class ReleaseController extends Controller
 
         // 在数据库存储数据
         $res = release::create($input);
+
+        $goods=Goods::get();
+        $count = 0;
+
+        foreach($goods as $k=>$v){
+            if ($v->status==0) {
+                $count++;
+            }
+        }
+
+        Session::put('count',$count);
+
+
         if ($res){
             return back()->withErrors('发布成功');
         } else {

@@ -183,7 +183,7 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
 
 
     //后台网站配置控制器
-    Route::get(' ','template\ConfigController@putFile');
+    Route::get('template/config/putFile','template\ConfigController@putFile');
     Route::get('template/config/delall','template\ConfigController@delall');
     Route::post('template/config/change','template\ConfigController@change');
 

@@ -30,11 +30,13 @@
                         <li class="am-dropdown" data-am-dropdown>
                             <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
                                 <i class="am-icon-bell"></i>
-                                <span class="am-badge am-badge-warning am-round item-feed-badge">
+                                
                                     @if(Session('count')!=0)
-                                        1
+                                    <span class="am-badge am-badge-warning am-round item-feed-badge">
+                                        {{Session('count')}}
+                                    </span>
                                     @endif
-                                </span>
+                                
                             </a>
 
                             <!-- 弹出列表 -->

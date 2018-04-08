@@ -56,6 +56,12 @@ class GoodsController extends Controller
             $status=1;
         }
 
+       
+
+        
+
+       $res = Goods::where('rid',$rid)->update(['status'=>$status]);
+
         $goods=Goods::get();
         $count = 0;
 
@@ -66,10 +72,6 @@ class GoodsController extends Controller
         }
 
         Session::put('count',$count);
-
-       $res = Goods::where('rid',$rid)->update(['status'=>$status]);
-
-
 
 
         if($res){
