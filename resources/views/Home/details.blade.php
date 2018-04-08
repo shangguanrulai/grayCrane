@@ -38,7 +38,7 @@
         <div class="carousel carousel-navigation">
             <ul>
                             <li>
-                    <img src="/uploads/{{ $goods->gpic }}">
+                    <img src="/uploads/{{ $goods['gpic'] }}">
                     <span class="mask"></span>
                 </li>
                         </ul>

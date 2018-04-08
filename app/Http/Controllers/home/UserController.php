@@ -131,6 +131,13 @@ class UserController extends Controller
             'portrait.required' => '请选择个人头像'
         ]);
 
+        $code = $request->input('code');
+        $session_code = Session('code_phone');
+
+        if($code != $session_code){
+            return back()->withErrors('验证码错误，请重新获取');
+        }
+
 
         $user_input = $request->only(['phone','email']);
         $userinfo_input = $request->only(['nickname','portrait']);

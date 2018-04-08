@@ -23,6 +23,7 @@
         }
         .layui-nav{top:-20px;}
         .fn-sec-header{top:-20px;}
+        .s1:hover{cursor:pointer;}
     </style>
 
 
@@ -60,6 +61,11 @@
                 <li class="form-group clearfix">
                     <label for="passwd1" class="control-label">手机号：</label>
                     <input id="passwd1" type="text" class="form-control" value="{{$user->phone}}" name="phone" lay-verify="phone">
+                    <span class="block-tip error-tip s1">获取手机验证码</span>
+                </li>
+                <li class="form-group clearfix l1">
+                    <label for="passwd1" class="control-label">手机验证码：</label>
+                    <input id="passwd1" type="text" class="form-control" name="code" lay-verify="required">
                     <span class="block-tip error-tip"></span>
                 </li>
                 <li class="form-group clearfix">
@@ -111,7 +117,7 @@
                             alert("请选择图片文件");
                             return;
                         }
-                        // var formData = new FormData($('#art_form')[0]);
+
                         var formData = new FormData();
                         formData.append('fileupload',$('#file_upload')[0].files[0]);
 
@@ -141,15 +147,8 @@
                     }
                 </script>
 
-                {{--<li class="form-group clearfix">
-                    <label for="passWord4" class="control-label">短信验证码：</label>
-                    <input id="verify_code" type="text" class="form-control">
-                    <button class="send-button"> 获取短信验证码</button>
-                    <span class="block-tip error-tip"></span>
-                </li>--}}
-
                 <li class="form-group button-group clearfix">
-                    <input id="submit" type="submit" class="layui-btn layui-btn-danger layui-btn-lg" lay-submit value="提交">
+                    <input id="submit" type="submit" class="layui-btn layui-btn-danger layui-btn-lg" lay-submit lay-filter="*" value="提交">
                 </li>
             </ul>
         </div>
@@ -165,6 +164,32 @@
         layui.use(['layer', 'form'], function(){
             var layer = layui.layer
                 ,form = layui.form;
+
+            var i = 60;
+            var flag = 1;
+            var time = '';
+            $('.s1').click(function(){
+                if(flag == 1){
+                    time = setInterval(function(){
+                        var str = '重新获取('+i--+')';
+                        $('.s1').attr('style','color:gray');
+                        $('.s1').html(str);
+                        flag = 0;
+                        if(i <= 0){
+                            clearInterval(time);
+                            flag = 1;
+                            i = 60;
+                            $('.s1').attr('style','color:red');
+                            $('.s1').html('获取手机验证码');
+                        }
+                    },1000);
+
+                    var uphone = $('input[name=phone]').val();
+
+                    $.get('/home/ajax/phone',{phone:uphone},function(data){
+                    },'json')
+                }
+            });
         });
     </script>
     

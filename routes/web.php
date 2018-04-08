@@ -40,6 +40,8 @@ Route::post('home/doregister','home\RegisterController@doregister');
 Route::get('/home/ajax/user/{phone}','home\AjaxController@user');
 // 分类
 Route::get('/home/ajax/cate','home\AjaxController@cate');
+// 手机验证
+Route::get('/home/ajax/phone','home\AjaxController@code_phone');
 // 商品发布上传图
 Route::post('/home/ajax/release','home\AjaxController@release');
 // 用户头像上传图
