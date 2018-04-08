@@ -77,7 +77,7 @@
                                 <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " >
                                     <thead>
                                     <tr>
-                                        <td>删除</td>
+                                        <th>删除</th>
                                         <th>订单号</th>
                                         <th>商品名</th>
                                         <th>卖家名称</th>
