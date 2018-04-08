@@ -28,7 +28,8 @@ class GoodsController extends Controller
                     $query -> where('status',$qx);
                 }
             })
-            ->paginate(10);;
+            ->orderBy('created_at','desc')
+            ->paginate(10);
         // Goods::where('rid',$id)->update(['status'=>$status]);
         return view('template.goods.index',compact('goods','request'));
 

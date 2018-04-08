@@ -19,7 +19,7 @@
                         <div class="layui-timeline-content layui-text">
                             @foreach($v as $kk=>$vv)
                                 @if($kk == 0)
-                                    <h3 class="layui-timeline-title"><a href="">{{$vv['gname']}}</a></h3>
+                                    <h3 class="layui-timeline-title"><a href="/home/goods/details?rid={{$vv['rid']}}">{{$vv['gname']}}</a></h3>
                                 @endif
                                 <p>
                                     @if($vv['nickname'])
@@ -41,7 +41,7 @@
                         <li class="layui-timeline-item">
                             <i class="layui-icon layui-timeline-axis"></i>
                             <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title"><a href="">{{$v['gname']}}</a></h3>
+                                <h3 class="layui-timeline-title"><a href="/home/goods/details?rid={{$v['rid']}}">{{$v['gname']}}</a></h3>
                                 <p><font color="red">我</font>&nbsp;在&nbsp;{{$v['created_at']}}&nbsp;留言:&nbsp;&nbsp;<font color="#ff7733">{{$v['umessage']}}</font></p>
                             </div>
                         </li>

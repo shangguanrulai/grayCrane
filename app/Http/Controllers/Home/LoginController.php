@@ -105,6 +105,7 @@ class LoginController extends Controller
     public function loginout(Request $request)
     {
        $res = $request->session()->forget('user');
+       $request->session()->forget('url');
 
        if(!$res){
            return redirect('home/login');
