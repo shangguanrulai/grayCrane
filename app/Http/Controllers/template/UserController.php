@@ -219,43 +219,61 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = Admin_User::find($id);
-
-        $res = $user -> delete();
-        if($res){
-            return back()->with('msg','删除成功');
+        $role_as = Admin_User::find(session('user_admin')->id)->role()->orderBy('role_as','asc')->first()['role_as'];
+        $role_as1=Admin_User::find($id)->role()->orderBy('role_as','asc')->first()['role_as'];
+        if($role_as<$role_as1){
+            $res = $user -> delete();
+            if($res){
+                return back()->with('msg','删除成功');
+            }else{
+                return back()->with('msg','删除失败');
+            }
         }else{
-            return back()->with('msg','删除失败');
+            return back()->with('msg','职位不足,继续努力');
         }
+
     }
 
     public function change(Request $request)
     {
+        $role_as = Admin_User::find(session('user_admin')->id)->role()->orderBy('role_as','asc')->first()['role_as'];
 
         $uid = $request -> input('id');
+        $role_as1=Admin_User::find($uid)->role()->orderBy('role_as','asc')->first()['role_as'];
 //        $status = ($request -> input('status')==1)?0:1;
-        if($request -> input('status')==1){
-            $status=0;
+        if($role_as<$role_as1){
+            if($request -> input('status')==1){
+                $status=0;
+            }else{
+                $status=1;
+            }
+            $user = Admin_User::find($uid);
+
+            $res = $user -> update(['status' => $status]);
+
+            if($res){
+                $arr=[
+                    'status'=>$status,
+                    'msg'=>'修改成功'
+
+                ];
+            }else{
+                $arr=[
+                    'status'=>$status,
+                    'msg'=>'修改失败'
+
+                ];
+            }
+            return $arr;
         }else{
-            $status=1;
-        }
-        $user = Admin_User::find($uid);
-
-       $res = $user -> update(['status' => $status]);
-
-        if($res){
             $arr=[
-                'status'=>$status,
-                'msg'=>'修改成功'
+
+                'msg'=>'职位不足,继续努力'
 
             ];
-        }else{
-            $arr=[
-                'status'=>$status,
-                'msg'=>'修改失败'
-
-            ];
+            return $arr;
         }
-        return $arr;
+
 
    }
 

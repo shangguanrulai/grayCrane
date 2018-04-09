@@ -50,14 +50,14 @@
                                         <td>{{$cate->cname}}</td>
 
                                 </tr>
-                                <tr></tr>
+                                <tr style="height:30px"></tr>
                                 <tr>
-                                    <th><i class="require-red">*</i>类别名称：</th>
+                                    <th><i class="require-red">*</i> 类别名称：</th>
                                     <td>
                                         <input class="common-text required" id="title" name="cname" size="50" value="" type="text">
                                     </td>
                                 </tr>
-
+                                <tr style="height:30px"></tr>
                                 <tr>
                                     <th></th>
                                     <td>

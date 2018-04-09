@@ -37,7 +37,7 @@
                                         <div class="am-btn-group am-btn-group-xs">
                                             <a href="{{ url('cate/create') }}"><button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button></a>
 
-                                            <a href="javascript:;"><button onclick="delall()"  class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 删除</button></a>
+                                            <a href="javascript:;"><button onclick="delall()"  class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 删除</button></a
 
                                         </div>
                                     </div>
@@ -156,30 +156,30 @@
                 $('tr').each(function(){
                     if($(this).attr('pid')==cid){
                         $(this).attr('hidden','hidden');
-                        $(obj).attr('hidden','hidden');
+                        $
+                        (obj).attr('hidden','hidden');
                         $(obj).prev().attr('hidden',false);
-
                     }
                 })
             }
 
             //批量删除
-            function delall() {
-                var ids = [];
-                $(':checkbox').each(function () {
-                    if (this.checked == true) {
-                        ids.push($(this).attr('del-id'));
-                    }
-                })
+                        function delall() {
+                        var ids = [];
+                        $(':checkbox').each(function () {
+                            if (this.checked == true) {
+                                ids.push($(this).attr('del-id'));
+                            }
+                        })
 
-                if (confirm('确定删除' + ids + '吗')) {
-                    $.ajax({
-                        type: "GET",
-                        url: "/template/cate/delall",
-                        data: {'ids': ids},
-                        dataType: "json",
-                        anyac: false,
-                        success: function (data) {
+                        if (confirm('确定删除' + ids + '吗')) {
+                            $.ajax({
+                                type: "GET",
+                            url: "/template/cate/delall",
+                            data: {'ids': ids},
+                            dataType: "json",
+                                anyac: false,
+                                success: function (data) {
                             var arr = data;
                             if(arr['a']==0){
                                 alert(arr['msg']);

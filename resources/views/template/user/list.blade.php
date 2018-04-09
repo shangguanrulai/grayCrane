@@ -167,6 +167,8 @@
                             $(obj).html('已禁用');
                             $(obj).attr('status',arr['status']);
                             $(obj).attr('class','btn-danger');
+                        }else{
+                            alert(arr.msg);
                         }
                     },
                     error: function (data){
