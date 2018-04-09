@@ -51,7 +51,7 @@ Route::post('/home/ajax/userinfo','Home\AjaxController@userinfo');
  */
 
 // 前台中间件控制器
-Route::group(['prefix'=>'Home','namespace'=>'Home','middleware'=>['Home_login']],function(){
+Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']],function(){
 // 前台消息
     Route::get('msg','MsgController@index');
 
