@@ -143,7 +143,7 @@ layui.use('carousel', function(){
                                 <div id="appraisalSwitch-1" class="J_tabPanel" style="display: block">
                                     <ul class="goods-top-list">
                                         @foreach($goods as $k=>$v)
-                                            @if($k<=11)
+                                            @if($k<=9)
                                             <li class="goods-item ">
                                                     <a href="/home/goods/details?rid={{$v['rid']}}" class="goods-title">{{$v->gname}}</a>
                                                     <div class="price-bar"><span class="price"> 灰鹤价<em>&yen;{{$v->nowprice}}</em></span></div>
@@ -194,7 +194,6 @@ layui.use('carousel', function(){
                                 </li>
                                 @endif
                             @endforeach
-
                         </ul>
                     </div>
                 </div>
