@@ -21,6 +21,8 @@ class LoginController extends Controller
     //
     public function login()
     {
+        
+
     	return view('home.login');
     }
 
@@ -90,16 +92,8 @@ class LoginController extends Controller
 
         // 将用户的登录状态保存到session
         Session::put('user',$user);
-
-
-        // 跳转到登陆之前的页面
-        if (Session::has('url')) {
-            $redirect_url = Session::get('url');
-            Session::forget('url');
-            return redirect($redirect_url);
-        }
+   
         return redirect('/');
-
     }
 
     public function loginout(Request $request)

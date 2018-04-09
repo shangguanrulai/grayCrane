@@ -135,7 +135,7 @@ class GoodsController extends Controller
         $f = ceil($e/86400);
 
         //浏览量
-        Release::where('rid','11')->increment('PV');
+        Release::where('rid','$rid')->increment('PV');
 
 
        
@@ -145,7 +145,7 @@ class GoodsController extends Controller
 
 
     //获取收藏情况
-    $collect = Collect::where('rid','33')->get();
+    $collect = Collect::where('uid',$a)->get();
 
         
        
@@ -232,6 +232,8 @@ class GoodsController extends Controller
 
         //获取商品id
         $rid =  $request->input('rid');
+
+        
         //获取用户id
         $uid = Session('user')['uid'];
 

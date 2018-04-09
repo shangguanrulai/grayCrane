@@ -62,7 +62,7 @@
                                 <input type="hidden" name='omsg' value = "{{ $omsg }}" >
                                 <input type="hidden" name='onumber' value = "{{ $onumber }}" >
 
-                                <label for="exampleInputPassword1" style='margin:0px 25px;'>支付密码</label>
+                                <label for="exampleInputPassword1" style='margin:0px 25px;'>支付密码</label>(<a href="/home/user">如果没有支付密码,请前去添加</a>)
                                 <input style='margin:25px;width:500px;' type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入交易密码" name='password'> 
                                 <em class='em'></em> 
                                 @if (count($errors) > 0)

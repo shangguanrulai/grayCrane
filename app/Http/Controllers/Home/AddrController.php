@@ -7,6 +7,7 @@ use App\Model\user_home;
 use App\Model\userinfo_home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class AddrController extends Controller
 {
@@ -49,6 +50,12 @@ class AddrController extends Controller
         $input['uid'] = Session('user')['uid'];
 
         $res = address::create($input);
+
+        if (Session::has('lujing')) {
+            
+            Session::forget('lujing');
+            return back();
+        }
 
         if ($res) {
             return redirect('/home/user/addr');
