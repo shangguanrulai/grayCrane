@@ -135,6 +135,7 @@
 							$(obj).attr('status',arr['status']);
 							$(obj).attr('class','btn-down');
 						}
+						location.reload(true);
 					},
 					error: function (data){
 						alert('连接失败');
