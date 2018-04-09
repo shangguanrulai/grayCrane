@@ -168,27 +168,14 @@ layui.use('carousel', function(){
                         <h3 class="merchants-title">大家都在看</h3>
                     </div>
                     <div class="merchants-content clearfix" style="margin-bottom:50px;">
-                        <ul class="merchants-promotions">
-                            @foreach($goods as $k=>$v)
-                                @if($k<=3 && $v['recommend']==1)
-                                <li>
+                        <ul class="merchants-promotions" style="width: 100%;">
+                            @foreach($goods as $v)
+                                @if($i<=11 && $v['recommend']==1)
+                                <div style="display: none;">{{ $i++ }}</div>
+                                <li style="width: 199px;">
                                     <a target="_blank" href="/home/goods/details?rid={{$v['rid']}}" class="pic">
-                                        <div width="243" height="89">
+                                        <div width="199" height="89">
                                         <img src="/uploads/{{$v->gpic}}">
-                                        </div>
-                                    </a>
-                                </li>
-                                @endif
-                            @endforeach
-                        </ul>
-
-                        <ul class="merchants-list">
-                            @foreach($goods as $k=>$v)
-                                @if($k>=4 && $k<=11 && $v['recommend']==1)
-                                <li>
-                                    <a target="_blank" href="/home/goods/details?rid={{$v['rid']}}" class="pic">
-                                        <div width="177" height="88">
-                                            <img src="/uploads/{{$v->gpic}}" style="height: 88px;margin: auto;">
                                         </div>
                                     </a>
                                 </li>
@@ -197,7 +184,6 @@ layui.use('carousel', function(){
                         </ul>
                     </div>
                 </div>
-
 </div>
 
 @include('home.common.index_footer');

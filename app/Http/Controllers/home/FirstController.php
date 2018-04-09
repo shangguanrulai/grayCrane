@@ -27,8 +27,10 @@ class FirstController extends Controller
         $hot = release::where('status',1)->orderby('PV','desc')->get();
         $goods = release::where('status',1)->get();
         $Carousel = Carousel::where('pstatus',1)->get();
+        $i = 0;
+        $j = 0;
 
-        return view('home/first/index',compact('cates','hot','goods','Carousel','user','userinfo'));
+        return view('home/first/index',compact('cates','hot','goods','Carousel','user','userinfo','i','j'));
     }
 
 
