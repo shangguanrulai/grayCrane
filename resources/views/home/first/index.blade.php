@@ -49,7 +49,7 @@ layui.use('carousel', function(){
             </a>
         </div> -->
         <div>
-            <img src="Images/hengfu.png" alt="">
+            <img src="Images/061201.jpg" style="width: 1200px;">
         </div>
 
     </div>

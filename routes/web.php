@@ -20,38 +20,38 @@ Route::group(['middleware' => ['Gray']],function(){
 
 
 // 前台首页
-Route::get('/', 'home\FirstController@index');
+Route::get('/', 'Home\FirstController@index');
 
 //前台登录
-Route::get('home/login','home\LoginController@login');
-Route::get('home/yzm','home\LoginController@yzm');
-Route::post('home/dologin','home\loginController@dologin');
-Route::get('home/loginout','home\loginController@loginout');
+Route::get('Home/login','Home\LoginController@login');
+Route::get('Home/yzm','Home\LoginController@yzm');
+Route::post('Home/dologin','Home\loginController@dologin');
+Route::get('Home/loginout','Home\loginController@loginout');
 
 //前台注册
-Route::get('home/register','home\RegisterController@register');
-Route::get('home/yanzhengma','home\RegisterController@yanzhengma');
-Route::post('home/doregister','home\RegisterController@doregister');
+Route::get('Home/register','Home\RegisterController@register');
+Route::get('Home/yanzhengma','Home\RegisterController@yanzhengma');
+Route::post('Home/doregister','Home\RegisterController@doregister');
 
 /**
  *前台ajax
  */
 // 默认手机号
-Route::get('/home/ajax/user/{phone}','home\AjaxController@user');
+Route::get('/Home/ajax/user/{phone}','Home\AjaxController@user');
 // 分类
-Route::get('/home/ajax/cate','home\AjaxController@cate');
+Route::get('/Home/ajax/cate','Home\AjaxController@cate');
 // 手机验证
-Route::get('/home/ajax/phone','home\AjaxController@code_phone');
+Route::get('/Home/ajax/phone','Home\AjaxController@code_phone');
 // 商品发布上传图
-Route::post('/home/ajax/release','home\AjaxController@release');
+Route::post('/Home/ajax/release','Home\AjaxController@release');
 // 用户头像上传图
-Route::post('/home/ajax/userinfo','home\AjaxController@userinfo');
+Route::post('/Home/ajax/userinfo','Home\AjaxController@userinfo');
 /**
 *ajax结束
  */
 
 // 前台中间件控制器
-Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']],function(){
+Route::group(['prefix'=>'Home','namespace'=>'Home','middleware'=>['Home_login']],function(){
 // 前台消息
     Route::get('msg','MsgController@index');
 
@@ -87,38 +87,38 @@ Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']]
 
 
 //商品收藏
-    Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
+    Route::get('/Home/goods/aaaaa','Home\GoodsController@ajaxs');
 });
 
 
 //商品分类
-    Route::get('/home/goods/index','home\GoodsController@index');
-    Route::get('/home/goods/ajax','home\GoodsController@ajax');
+    Route::get('/Home/goods/index','Home\GoodsController@index');
+    Route::get('/Home/goods/ajax','Home\GoodsController@ajax');
 //商品筛选
-    Route::get('/home/goods/choose','home\GoodsController@choose');
+    Route::get('/Home/goods/choose','Home\GoodsController@choose');
 
 //商品详情
-    Route::get('/home/goods/details','home\GoodsController@details');
+    Route::get('/Home/goods/details','Home\GoodsController@details');
 
 // 回复留言
-    Route::get('/home/goods/ccccc','home\GoodsController@ajaxsss');
+    Route::get('/Home/goods/ccccc','Home\GoodsController@ajaxsss');
 //删除留言
-    Route::get('/home/goods/ddddd','home\GoodsController@ajaxssss');
+    Route::get('/Home/goods/ddddd','Home\GoodsController@ajaxssss');
 //订单提交ajax
-    Route::get('/home/goods/eeeee','home\GoodsController@ajaxsssss');
+    Route::get('/Home/goods/eeeee','Home\GoodsController@ajaxsssss');
 
 //留言
-    Route::get('/home/goods/bbbbb','home\GoodsController@ajaxss');
+    Route::get('/Home/goods/bbbbb','Home\GoodsController@ajaxss');
 
 //购买商品
-    Route::get('/home/goods/buy/{rid}','home\GoodsController@buy');
+    Route::get('/Home/goods/buy/{rid}','Home\GoodsController@buy');
 
 //付款
-    Route::get('/home/goods/pay','home\GoodsController@pay');
+    Route::get('/Home/goods/pay','Home\GoodsController@pay');
 //购买成功
-    Route::get('/home/goods/success','home\GoodsController@success');
+    Route::get('/Home/goods/success','Home\GoodsController@success');
 //添加收货地址
-    Route::get('/home/goods/address','home\GoodsController@address');
+    Route::get('/Home/goods/address','Home\GoodsController@address');
 
 });
 
@@ -170,8 +170,8 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
     Route::resource('user','template\UserController');
 
     //前台用户控制器
-    Route::get('template/userhome/change','template\UserHomeController@change');
-    Route::resource('userhome','template\UserHomeController');
+    Route::get('template/userHome/change','template\UserHomeController@change');
+    Route::resource('userHome','template\UserHomeController');
 
     //后台分类控制器
     Route::get('template/cate/delall','template\CateController@delall');
