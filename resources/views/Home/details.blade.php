@@ -328,7 +328,7 @@
 <div class="message-post clearfix">
     <div class="clearfix">
         <a href="javascript:;" class="avtor">
-            @if($musers['portrait'] == 0)  
+            @if(empty($musers['portrait']))  
             <img src="/Picture/head80.png" width="60" height="60" alt="">
             @else
             <img src="/uploads/{{ $musers['portrait'] }}" width="60" height="60" alt="">

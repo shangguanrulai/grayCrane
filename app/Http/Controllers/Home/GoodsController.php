@@ -145,7 +145,7 @@ class GoodsController extends Controller
 
 
     //获取收藏情况
-    $collect = Collect::where('uid',$a)->get();
+    $collect = Collect::where('uid',$a)->where('rid',$rid)->get();
 
         
        
