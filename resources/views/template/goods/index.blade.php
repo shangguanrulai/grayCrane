@@ -39,6 +39,7 @@
 										<th>创建时间</th>
 										<th>商品图片</th>
 										<th>状态</th>
+										<th>推荐商品</th>
 										<th>操作</th>
 									</tr>
 									</thead>
@@ -55,6 +56,13 @@
 													<button class="btn-danger" onclick="star(this,{{$v->rid}})" status="{{$v->status}}">已上架</button>
 												@elseif($v->status ==2)
 													<button class="btn-down" onclick="star(this,{{$v->rid}})" status="{{$v->status}}">已下架</button>
+												@endif
+											</td>
+											<td>
+												@if( $v->recommend ==0)
+													<button class="btn-down" onclick="star1(this,{{$v->rid}})" recommend="{{$v->recommend}}">不推荐</button>
+												@elseif($v->recommend ==1)
+													<button class="btn-success" onclick="star1(this,{{$v->rid}})" recommend="{{$v->recommend}}">已推荐</button>
 												@endif
 											</td>
 											<td>
@@ -144,60 +152,48 @@
 
 		}
 
-		//全选
-		function checkall(){
-			// console.log($(':checkbox'));
-			$(':checkbox').each(function(){
-			   this.checked = true;
-			})
-		}
 
-		//反选
-		function removeall(){
-			$(':checkbox').each(function(){
+		//推荐商品
+		function star1(obj,id){
+			if($(obj).attr('recommend')==0){
+				var str = '你确定推荐该商品吗';
+			}else{
+				var str = '你确定不推荐该商品吗?';
 
-				if(this.checked == true){
-					this.checked = false;
-				}else{
-					this.checked = true;
-				}
-			})
-		}
+			}
+			if(confirm(str)){
+				var recommend = $(obj).attr('recommend');
+				$.ajax({
+					type: "GET",
+					url: "/goods/edit",
+					data: {'rid':id,'recommend':recommend},
+					dataType: "json",
+					anyac:true,
+					success: function (data)
+					{
 
-		//批量删除
-		function delall() {
-			var ids = [];
-			$(':checkbox').each(function () {
-				if (this.checked == true) {
-					ids.push($(this).attr('del-id'));
-				}
-			})
-
-
-				if (confirm('确定删除' + ids + '吗')) {
-					$.ajax({
-						type: "GET",
-						url: "/template/user/delall",
-						data: {'ids': ids},
-						dataType: "json",
-						anyac: false,
-						success: function (data) {
-							var arr = data;
-							alert(arr['msg']);
-							$(':checkbox').each(function () {
-								if (this.checked == true) {
-									$(this).parents('tr').remove();
-								}
-							})
-
-						},
-						error: function (data) {
-							var arr = data;
-							alert(arr['msg']);
+						console.log(data);
+						var arr = data;
+						if(arr['status']==0){
+							$(obj).html('不推荐');
+							$(obj).attr('recommend',arr['recommend']);
+							$(obj).attr('class','btn-down');
+							window.location.reload();
+						}else{
+							$(obj).html('已推荐');
+							$(obj).attr('recommend',arr['recommend']);
+							$(obj).attr('class','btn-success');
+							window.location.reload();
 						}
-					});
-				}
+					},
+					error: function (data){
+						alert('连接失败');
+					},
+				});
+
+			}
 
 		}
+
 	</script>
 @endsection

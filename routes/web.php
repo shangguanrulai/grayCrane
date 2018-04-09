@@ -180,6 +180,7 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
 	//后台商品
     Route::get('goods/index','template\GoodsController@index');
     Route::get('goods/change','template\GoodsController@change');
+    Route::get('goods/edit','template\GoodsController@edit');
     Route::get('goods/del/{rid}','template\GoodsController@del');
     //留言管理
     Route::get('goods/details/{rid}','template\GoodsController@details');

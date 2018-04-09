@@ -56,9 +56,9 @@ class GoodsController extends Controller
             $status=1;
         }
 
-       
 
-        
+
+
 
        $res = Goods::where('rid',$rid)->update(['status'=>$status]);
 
@@ -91,6 +91,41 @@ class GoodsController extends Controller
 
    }
 
+   //推荐商品修改
+   public function edit(Request $request)
+    {
+
+
+        $rid = $request -> input('rid');
+
+
+//        $status = ($request -> input('status')==1)?0:1;
+        if($request -> input('recommend')==1){
+            $recommend=0;
+        }else{
+            $recommend=1;
+        }
+
+
+
+       $res = Goods::where('rid',$rid)->update(['recommend'=>$recommend]);
+
+        if($res){
+            $arr=[
+                'recommend'=>$recommend,
+                'msg'=>'修改成功'
+
+            ];
+        }else{
+            $arr=[
+                'recommend'=>$recommend,
+                'msg'=>'修改失败'
+
+            ];
+        }
+        return $arr;
+
+   }
    public function details($rid)
    {
         $details= Words::where('rid',$rid)->get();
