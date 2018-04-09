@@ -500,7 +500,7 @@
 <!-- <script src="/Scripts/coupon.js" 0="frontend\assets\BaseAsset" language="javascript" charset="UTF-8"></script></body> -->
 <script>
     $('.add-address').click(function(){
-        $('.address-layerbox').css('display','block');
+       window.location.href='/home/user/addr_create';
     })
 </script>
 </html>

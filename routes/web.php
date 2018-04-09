@@ -86,8 +86,7 @@ Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']]
     Route::resource('release', 'ReleaseController');
 
 
-//商品收藏
-    Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
+
 });
 
 
@@ -99,6 +98,8 @@ Route::group(['prefix'=>'home','namespace'=>'Home','middleware'=>['Home_login']]
 
 //商品详情
     Route::get('/home/goods/details','home\GoodsController@details');
+//商品收藏
+    Route::get('/home/goods/aaaaa','home\GoodsController@ajaxs');
 
 // 回复留言
     Route::get('/home/goods/ccccc','home\GoodsController@ajaxsss');

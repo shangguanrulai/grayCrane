@@ -134,9 +134,9 @@
         <div class="hc_lnav jslist" style="float: left;">
             <div class="allbtn">
                 <h2>
-                    <a href="#"><b>商品分类</b></a>
+                    <a href="#" style="position:absolute;z-index:2;"><b>商品分类</b></a>
                 </h2>
-                <ul style="width:190px" class="jspop box">
+                <ul style="width:190px" class="jspop box" >
                     @foreach($cates as $v)
                         <li class='a1'>
                             <div class='tx' name="{{$v->cid}}">
@@ -250,7 +250,7 @@
 
     <div class="wrapper clearfix">
 
-        <div class="main">
+        <div class="main" style="position:absolute;z-index:1;" >
                         
             <!-- 列表 -->
 @foreach($goods as $v)
@@ -353,19 +353,21 @@
             </div>
         </div>
     </div>
-    <div class="wrapper appraisal-section">
+    <div class="wrapper appraisal-section" style="position:relative;margin-top:370px;">
         <div class="section-header clearfix">
             <a href="/quality" target="_blank" class="more-link">更多好货</a>
             <h3 class="section-title">大家都在看 </h3>
             <span class="slogan">灰鹤鉴定好器材<a href="/quality" target="_blank"> (什么是灰鹤鉴定？去了解)</a></span>
         </div>
         <ul class="appraisal-list clearfix" >
-        @foreach($recommend as $v)
+        @foreach($recommend as $k=>$v)
+        @if($k<=3)
         <li class="goods-item" style='float:left;margin:1px;'>
                                                 <a href="" class="goods-title">{{$v->gname}}</a>
                                                 <div class="price-bar"><span class="price"> 二手价<em>&yen;{{$v->nowprice}}</em></span></div>
                                                 <a href="/home/goods/details?rid={{ $v->rid }}" class="goods-pic"><img class="lazy" src="/uploads/{{$v->gpic}}" alt="" width='300' height="300"></a>
-                                            </li>
+                                           </li>
+        @endif 
         @endforeach
         </ul>
     </div>
@@ -379,4 +381,4 @@
 
 <!-- footer-box -->
 
- @include ('home.common.index_footer');
+ @include ('home.common.index_footer')
