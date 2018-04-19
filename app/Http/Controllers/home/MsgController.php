@@ -16,28 +16,35 @@ class MsgController extends Controller
         $user = user_home::find($uid);
         $userinfo = $user->userinfo_home;
 
-        // 获取用户发布的商品信息
-        $release = $user->release;
-        $rid = [];
-        $gname = [];
-        foreach($release as $v){
-           $rid[] = $v['rid'];
-           $gname[] = $v['gname'];
+
+        // 获取发布表中用户收到的留言
+        $arr = Words::where('uid',$uid)->get();
+        $msg = [];
+        foreach ($arr as $v) {
+           $res = Words::where('pid',$v['wid'])->get();
+           if($res->count() != 0){
+            $msg[] = $res;
+           }
         }
 
-        // 获取商品中有留言的
-        $msg = [];
+
+        $rid = [];
+        foreach ($msg as $k=>$v) {
+            $rid[] = $v[0]['rid'];
+
+        }
+    
+        
         foreach($rid as $k=>$v){
-            $data = Words::where('rid',$v)->where('pid',0)->get();
+            $data = release::where('rid',$v)->get();
+            // dd($data);
             // 将商品名存入留言信息中
             foreach($data as $kk=>$vv){
-                $data[$kk]['gname'] = $gname[$k];
+                $msg[$k][$kk]['gname'] = $data[0]['gname'];
             }
-            // 将有留言的商品整合进数组中
-            if($data->count() != ''){
-                $msg[$k] = $data;
-            }
+   
         }
+    
 
         // 获取用户发布的留言
         $user_msg = Words::where('uid',$uid)->get();

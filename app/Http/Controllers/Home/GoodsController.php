@@ -35,46 +35,25 @@ class GoodsController extends Controller
 
     $cates = $this->getCateTree();
 
-    $goods = release::where('cid',$cid)->paginate(3);
+    $goods = release::where('cid',$cid)->where('status','1')->paginate(3);
+
+
+    
 
     //如果分类下没有商品 ,则显示所有商品
     if($goods->count() == 0){
 
             $release = new Release;
-            $goods = $release->paginate(3);
+            $goods = $release->where('status','1')->paginate(3);
         }
+
+
 
     //检测关键字
     $gname = $request->input('gname');
-    //检测价格区间
-   /* $tp = $request->input('tp');
-    $bp = $request->input('bp');
-*/
-   
 
-   /* if(!empty($gname) || !empty($tp) || !empty($bp)){*/
-
-        
-    //多条件并分页
-       /* $goods = Release::orderBy('rid','asc')
-            ->where(function($query) use($request){
-                
-                //如果用户名不为空
-                if(!empty($gname)) {
-                    $query->where('gname','like','%'.$gname.'%');
-                }
-                //如果价格不为空
-                if(!empty($tp)){
-                    $query->where('newprice','<=',$tp);
-                }
-                if(!empty($bp)){
-                     $query->where('newprice','<=',$tp);
-                }
-            })
-            ->paginate($request->input('num', 5));
-    }*/
    if(!empty($gname)){
-     $goods = Release::where('gname','like','%'.$gname.'%')->paginate(3);
+     $goods = Release::where('gname','like','%'.$gname.'%')->where('status','1')->paginate(3);
 
            
         }
@@ -119,7 +98,14 @@ class GoodsController extends Controller
 
 
         //选择的商品
-        $goods = Release::find($rid);
+        $goods = Release::where('status','1')->find($rid);
+        
+
+        if(empty($goods)){
+            return redirect('/');
+        }
+
+
         //获取发布人信息
         $a = $goods['uid'];
 
@@ -135,7 +121,7 @@ class GoodsController extends Controller
         $f = ceil($e/86400);
 
         //浏览量
-        Release::where('rid','$rid')->increment('PV');
+        Release::where('rid',$rid)->increment('PV');
 
 
        
@@ -166,10 +152,16 @@ class GoodsController extends Controller
 
         //获取所有留言及回复
         /*$liu = Words::get();*/
-        $liu=array();
-        $liu=$this->getCommlist();//获取评论列表
+        $rrr=array();
+        $rrr=$this->getCommlist();//获取评论列表
 
-        /*dd($liu);*/
+        $liu = [];
+        foreach ($rrr as $k => $v) {
+            if ($v['rid'] == $rid) {
+                $liu[] = $v;
+            }
+        }
+    
 
         /*return $liu;*/
         
@@ -533,6 +525,13 @@ class GoodsController extends Controller
         $order->save();
 
     }
+
+    $release = Release::where('rid',$rrid)->first();
+
+    $release->status = 2;
+
+    $release->save();
+
 
 
         return view('home.success');

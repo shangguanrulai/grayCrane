@@ -253,7 +253,7 @@
            if(!{{  $flag }}){
                
             
-                window.location.href ='/home/login';
+                window.open('/home/login');
                
             } else {
                 $(this).html('已收藏宝贝');
@@ -351,14 +351,14 @@
 
            if(!{{  $flag }}){
             
-                window.location.href ='/home/login';
+                window.open('/home/login');
                
             } 
     })
     $('span[name=pinglun]').click(function(){
         var umessage = $('textarea').val();
         $.get('/home/goods/bbbbb',{umessage:umessage,rid:{{ $goods['rid'] }}},function(d){
-               console.log(d);
+               
             })
 
         setTimeout(location.reload(),1000);
@@ -389,9 +389,9 @@
             </div>
                 <div class='comment-toolbar clearfix'>
                     <span id='huifu' class='reply-link' num="{{ $k }}">回复</span>
-                    
+                    @if($musers['uid'] == $v['uid'])
                     <span id='shanchu' wid="{{ $v['wid'] }}" class='delete-link'>删除</span>
-                    
+                    @endif
                     <span class='date'>{{ $v['created_at'] }}</span>
                     <div style='display:none' class="reply-box ccc{{ $k }}" id='reply_14674' >
                         <i class='arrow-icon'></i>
@@ -412,15 +412,15 @@
             @if(empty($v2['portrait']))
              <img src="/Picture/default.png" width="60" height="60" alt="">
             @else
-            <img src="/uploads/{{ $v['portrait'] }}" width='60' height='40' alt="">
+            <img src="/uploads/{{ $v2['portrait'] }}" width='60' height='40' alt="">
             @endif
         </a>
         <div class='item-content'> 
             <div class='comment-text clearfix'>
                 @if(empty($v2['nickname']))
-                <a href="/10820479/credit.html" class='name'>暂无昵称</a><span class='text'> {{ $v['umessage'] }}</span>
+                <a href="javascript:;" class='name'>暂无昵称</a><span class='text'> {{ $v['umessage'] }}</span>
                 @else
-                <a href="/10820479/credit.html" class='name'>回复:{{ $v2['nickname'] }}: </a><span class='text'> {{ $v2['umessage'] }}</span>
+                <a href="javascript:;" class='name'>{{ $v2['nickname'] }} 回复 {{ $v['nickname'] }}: </a><span class='text'> {{ $v2['umessage'] }}</span>
                 @endif
             </div>
             <div class='comment-toolbar clearfix'>
@@ -445,6 +445,9 @@
 
 
     <script>
+         $.ajaxSetup({ 
+                async:false 
+            });
         // 回复留言
         var k = 0;
         $('.reply-link').each(function(){
@@ -687,8 +690,7 @@
             <div class="parameter-item clearfix">
         <span class="parameter-title">商品价</span>
         <span class="parameter-price">&yen; <strong>{{ $goods['nowprice'] }}.00</strong></span>                                    <div class="view-num">已被浏览 <br><strong>{{ $goods['PV'] }}</strong> 次</div>
-        <div class="comment-num">累计留言 <br> <strong>{{ $count }}</strong> 条</div>
-    </div>
+            </div>
             </div>                        <div id='dvs' class="parameter-item  quality-parameter-item   clearfix">
     <span class="parameter-title">成色</span>
     <div class="parameter-text  parameter-quality quality-tag">
@@ -725,7 +727,7 @@
                                                         if(!{{  $flag }}){
                                                         
             
-                                                                window.location.href ='/home/login';
+                                                               window.open('/home/login');
                
                                                             }else{
                                                                 $(this).attr('href','/home/goods/buy/{{ $goods['rid'] }}');
@@ -1141,7 +1143,7 @@
     $('i[name=name]').mouseout(function(){
         $('#dvs').attr('class','parameter-item  quality-parameter-item   clearfix');
     });
-</script> -->
+</script>
 
 </body>
 

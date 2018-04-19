@@ -37,7 +37,7 @@ class UserController extends Controller
             $safeScore += 2.5;
         }
 
-        return view('Home.user.user',['user'=>$user,'userinfo'=>$userinfo,'safeScore'=>$safeScore]);
+        return view('home.user.user',['user'=>$user,'userinfo'=>$userinfo,'safeScore'=>$safeScore]);
     }
 
     /**

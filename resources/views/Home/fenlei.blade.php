@@ -11,23 +11,26 @@
     <meta name="description" content="灰鹤二手交易">
     <link id="narrowScreen" rel="stylesheet">
     <link href="http://m.2.fengniao.com" rel="alternate" media="only screen and (max-width: 640px)">
+    {{--<link href="/Content/globalceiling.css" rel="stylesheet">--}}
     <link href="/Content/jquery-ui.1.11.4.min.css" rel="stylesheet">
     <link href="/Content/jquery.bxslider.css" rel="stylesheet">
     <link href="/Content/header.css" rel="stylesheet">
     <link href="/Content/secondarytradingpublic.css" rel="stylesheet">
-   <link href="/Content/homePage.css" rel="stylesheet">
-    <link href="/Content/page.css" rel="stylesheet">
+    <link href="/Content/homepage.css" rel="stylesheet">
     <script src="/Scripts/jquery.min.js" charset="UTF-8"></script>
+    {{--<script src="/Scripts/jquery-3.2.1.min.js" charset="UTF-8"></script>--}}
     <script src="/Scripts/jqueryui.1.11.4.js" charset="UTF-8"></script>
     <script src="/Scripts/jquery.tinyscrollbar.2.4.2.min.js" charset="UTF-8"></script>
     <script src="/Scripts/im.js" charset="UTF-8"></script>
     <script src="/Scripts/md5.js" charset="UTF-8"></script>
     <script src="/Scripts/global.js" charset="UTF-8"></script>
     <script src="/Scripts/swfobject.js" charset="UTF-8"></script>
+    <script src="/layui/layui.js" charset="UTF-8"></script>
     <link rel="stylesheet" id="WideGoodsSheet" rel="stylesheet">
     <link rel="stylesheet" href="/layui/css/layui.css">
     <link href="/Content/globalceiling.css" rel="stylesheet">
-    
+    <link href="/Content/page.css" rel="stylesheet">
+
     <script>
         if (!$.support.leadingWhitespace || /msie 9/.test(navigator.userAgent.toLowerCase())) {
             document.documentElement.className += ' lowIE';
@@ -116,12 +119,14 @@
     <div class="search-box" id="searchContainer">
         <ul class="search-tab clearfix">
         </ul>
-        <div class="search-bar">
-            <input type="hidden" id="type" name="type" value="0">        <input class="search-button" id="searchBtn" type="button" value="搜&nbsp;索"/>
-            <span class="search-txt">
-            <input id="searchKwd" type="text" autocomplete="off" placeholder="请输入关键字"/>
-            </span>
-        </div>
+        <form action="/home/goods/index" method="get">
+            <div class="search-bar">
+                <input type="hidden" id="type" name="type" value="0">        <input class="search-button" id="searchBtn" type="submit" value="搜&nbsp;索"/>
+                <span class="search-txt">
+                <input id="searchKwd" type="text" autocomplete="off" name="gname" placeholder="请输入关键字"/>
+                </span>
+            </div>
+        </form>
         <div class="search-focus-layerbox clearfix" style="display: none;"></div>
         <div class="search-click-layerbox" style="display: none;"></div>
     </div>
@@ -134,9 +139,9 @@
         <div class="hc_lnav jslist" style="float: left;">
             <div class="allbtn">
                 <h2>
-                    <a href="#" style="position:absolute;z-index:2;"><b>商品分类</b></a>
+                    <a href="#"><b>商品分类</b></a>
                 </h2>
-                <ul style="width:190px" class="jspop box" >
+                <ul style="width:190px" class="jspop box">
                     @foreach($cates as $v)
                         <li class='a1'>
                             <div class='tx' name="{{$v->cid}}">
@@ -178,7 +183,7 @@
         <div class="nav-link">
             <i class="bottom-line"></i>
             <a href="/" class="current-link">首页</a>
-            <a href="/" class="current-link">灰鹤二手</a>
+            <a href="/home/goods/index" class="current-link">灰鹤二手</a>
         </div>
     </div>
 </div>
@@ -188,12 +193,7 @@
 
 <!-- //homePage-nav-box -->
 
-
-
-
     <link href="/Content/list-v2.css" rel="stylesheet" 0="frontend\assets\BaseAsset">
-
-
 
 <!-- //homePage-nav-box -->
 
@@ -207,16 +207,7 @@
 <div class="wrapper-box">
     <!-- 手工推广位置 -->
     
-
-    
     <!-- 面包屑 -->
-    
-<div class="wrapper location" id="listCrumbs">
-    
-    
-                        
-                    
-    </div>
 
     <!-- 筛选 -->
     

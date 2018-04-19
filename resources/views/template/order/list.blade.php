@@ -82,7 +82,6 @@
                                         <th>商品名</th>
                                         <th>卖家名称</th>
                                         <th>买家名称</th>
-                                        <th>下单时间</th>
                                         <th>成交价格</th>
                                         <th>备注信息</th>
                                         <th>收货地址</th>
@@ -98,7 +97,6 @@
                                             <td>{{$v->gname}}</td>
                                             <td>{{ $v->solename }}</td>
                                             <td>{{ $v->buyname }}</td>
-                                            <td>{{$v->otime}}</td>
                                             <td>{{$v->price}}</td>
                                             <td>{{$v->omsg}}</td>
                                             <td>{{$v->addr}}</td>

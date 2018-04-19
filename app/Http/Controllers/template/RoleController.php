@@ -5,7 +5,7 @@ namespace App\Http\Controllers\template;
 use App\Model\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\perm_cate;
+use App\Model\Perm_cate;
 use App\Model\Perm;
 use Illuminate\Support\Facades\DB;
 use App\Model\Admin_User;

@@ -58,7 +58,7 @@
                                 <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " >
                                     <thead>
                                     <tr>
-                                        <th>删除</th>
+                                       
                                         <th>用户名</th>
                                         <th>昵称</th>
                                         <th>手机号</th>
@@ -75,12 +75,12 @@
                                     <tbody>
                                     @foreach($users as $k => $v)
                                         <tr class="gradeX">
-                                            <td><input type="checkbox" del-id="{{ $v->uid }}"/></td>
+                                            
                                             <td>{{ $v->uname }}</td>
                                             <td>{{ $v->userinfo_home['nickname']}}</td>
                                             <td>{{ $v->phone }}</td>
                                             <td>{{ $v->email }}</td>
-                                            <td><img src="/uploads/{{ $v->userinfo_home['portrait'] }}" alt=""></td>
+                                            <td><img src="/uploads/{{ $v->userinfo_home['portrait'] }}" style="width:50px;height: 50px;" alt=""></td>
                                             <td>{{$v->userinfo_home['score']}}</td>
                                             <td>{{$v->userinfo_home['trueNamee']}}</td>
                                             <td>{{$v->userinfo_home['prcid']}}</td>

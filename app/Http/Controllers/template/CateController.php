@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\template;
 
-use App\MOdel\Cate;
+use App\Model\cate;
 use App\Model\release;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

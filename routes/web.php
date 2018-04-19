@@ -25,8 +25,8 @@ Route::get('/', 'Home\FirstController@index');
 //前台登录
 Route::get('home/login','Home\LoginController@login');
 Route::get('home/yzm','Home\LoginController@yzm');
-Route::post('home/dologin','Home\loginController@dologin');
-Route::get('home/loginout','Home\loginController@loginout');
+Route::post('home/dologin','Home\LoginController@dologin');
+Route::get('home/loginout','Home\LoginController@loginout');
 
 //前台注册
 Route::get('home/register','Home\RegisterController@register');
@@ -173,8 +173,8 @@ Route::group(['middleware'=>['admin_login','hasrole']],function(){
     Route::resource('user','template\UserController');
 
     //前台用户控制器
-    Route::get('template/userHome/change','template\UserHomeController@change');
-    Route::resource('userHome','template\UserHomeController');
+    Route::get('template/userhome/change','template\UserHomeController@change');
+    Route::resource('userhome','template\UserHomeController');
 
     //后台分类控制器
     Route::get('template/cate/delall','template\CateController@delall');

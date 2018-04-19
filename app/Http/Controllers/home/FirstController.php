@@ -25,7 +25,7 @@ class FirstController extends Controller
 
         $cates = $this->getCateTree();
         $hot = release::where('status',1)->orderby('PV','desc')->get();
-        $goods = release::where('status',1)->get();
+        $goods = release::where('status',1)->orderby('created_at','desc')->get();
         $Carousel = Carousel::where('pstatus',1)->get();
         $i = 0;
         $j = 0;

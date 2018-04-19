@@ -27,7 +27,7 @@
                                     @else
                                         <font color="red">暂无昵称</font>
                                     @endif
-                                    在&nbsp;{{$vv['created_at']}}&nbsp;留言:&nbsp;&nbsp;<font color="#ff7733">{{$vv['umessage']}}</font></p>
+                                    在&nbsp;{{$vv['created_at']}}&nbsp;对我说:&nbsp;&nbsp;<font color="#ff7733">{{$vv['umessage']}}</font></p>
 
                             @endforeach
                         </div>

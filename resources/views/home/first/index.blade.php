@@ -1,4 +1,4 @@
-@include('Home.common.index_header');
+@include('home.common.index_header');
 
 <script src="/layui/layui.js"></script>
 <div class="wrapper-box">

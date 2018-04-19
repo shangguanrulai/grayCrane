@@ -26,7 +26,7 @@
                     </div>
                     <div class="row2  ">
                         <div class="goods-name">
-                            <a status="{{$v['status']}}" class="gname" target="_blank" href="">{{$v['gname']}}</a>
+                            <a status="{{$v['status']}}" class="gname" target="_blank" href="/home/goods/details?rid={{$v['rid']}}">{{$v['gname']}}</a>
                         </div>
                         <div class="goods-list-wrap clearfix">
                             <div class="y-center-goods-list">

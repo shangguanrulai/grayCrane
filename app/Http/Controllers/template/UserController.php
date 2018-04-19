@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\template;
 
 use App\Model\Admin_User;
-use App\Model\user_home;
+
 use App\Model\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Hash;
-use Illuminate\Support\Facades\Crypt;
+
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -186,10 +186,12 @@ class UserController extends Controller
         ]);
         $input = $request->except('_token','_method','reuserpass','fileupload');
         $arr = Admin_User::find($id);
-        $pass = Crypt::decrypt($arr['userpass']);
-        if($input['qrpass']==$pass){
+
+        if (Hash::check($input['qrpass'],$arr->userpass)) {
+
             unset($input['qrpass']);
-            $input['userpass'] = Crypt::encrypt($input['userpass']);
+            $input['userpass'] =Hash::make($input['userpass']);
+
             $user = Admin_User::find($id);
 
             foreach($input as $k => $v){

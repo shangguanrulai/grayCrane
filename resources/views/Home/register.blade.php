@@ -126,7 +126,7 @@
     var RPV = true;
     $(function(){
         $("#username").focus(function(){
-            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('4个字符以上，支持数字、字母、特殊字符');
+            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('5个字符以上，支持数字、字母');
         }).blur(function(){
             $("#username").parent().parent().removeClass('warning active');
             checkUsername();

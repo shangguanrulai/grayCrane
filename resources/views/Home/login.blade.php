@@ -153,7 +153,7 @@
 
     $(function(){
         $("#username").focus(function(){
-            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('5个字符以上，支持中文、英文、数字').css('color','#888888');
+            $("#username").parent().parent().removeClass('warning').addClass('active').children("em").text('5-18字符，支持英文、数字').css('color','#888888');
         }).blur(function(){
             $("#username").parent().parent().removeClass('warning active');
             checkUsername();
